@@ -17,12 +17,6 @@
                 <div class="mt-4 px-4">
                     <div class="mb-4">
                         <h5 class="font-medium text-gray-700">
-                            @lang('crud.users.inputs.uid')
-                        </h5>
-                        <span>{{ $user->uid ?? '-' }}</span>
-                    </div>
-                    <div class="mb-4">
-                        <h5 class="font-medium text-gray-700">
                             @lang('crud.users.inputs.name')
                         </h5>
                         <span>{{ $user->name ?? '-' }}</span>

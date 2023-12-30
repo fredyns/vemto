@@ -3,17 +3,6 @@
 <div class="flex flex-wrap">
     <x-inputs.group class="w-full">
         <x-inputs.text
-            name="uid"
-            label="Uid"
-            :value="old('uid', ($editing ? $user->uid : ''))"
-            maxlength="255"
-            placeholder="Uid"
-            required
-        ></x-inputs.text>
-    </x-inputs.group>
-
-    <x-inputs.group class="w-full">
-        <x-inputs.text
             name="name"
             label="Name"
             :value="old('name', ($editing ? $user->name : ''))"

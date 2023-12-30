@@ -30,7 +30,6 @@ return [
         'edit_title' => 'Edit User',
         'show_title' => 'Show User',
         'inputs' => [
-            'uid' => 'Uid',
             'name' => 'Name',
             'email' => 'Email',
             'password' => 'Password',

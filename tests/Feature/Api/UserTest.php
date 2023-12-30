@@ -55,6 +55,7 @@ class UserTest extends TestCase
         unset($data['two_factor_confirmed_at']);
         unset($data['current_team_id']);
         unset($data['profile_photo_path']);
+        unset($data['uid']);
 
         $this->assertDatabaseHas('users', $data);
 
@@ -83,6 +84,7 @@ class UserTest extends TestCase
         unset($data['two_factor_confirmed_at']);
         unset($data['current_team_id']);
         unset($data['profile_photo_path']);
+        unset($data['uid']);
 
         $data['id'] = $user->id;
 
