@@ -1,0 +1,21 @@
+general:
+  delete removed: yes
+  force: yes
+
+project base:
+  migration: all
+  model: yes
+  factory: yes
+  seeder: yes
+  policies: yes
+  routes: yes
+  api routes : yes
+  api auth - sanctum: yes
+
+modules:
+  permission: no
+  permission - api endpoints: no
+  auth jetstream: yes
+
+applications:
+  users: all
