@@ -1,7 +1,9 @@
 <?php
 
 return [
-    'super_admins' => ['admin@admin.com'],
+    'super_admins' => (env('APP_ENV') == 'production') ?
+        ['fredy.ns@gmail.com'] :
+        ['fredy.ns@gmail.com', 'admin@admin.com'],
 
     /*
     |--------------------------------------------------------------------------
