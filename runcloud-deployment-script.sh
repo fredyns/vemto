@@ -15,4 +15,4 @@ php artisan livewire:publish --assets
 php artisan queue:restart
 
 # reset DB
-php artisan migrate:fresh --seed # --force
+php artisan migrate
