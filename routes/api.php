@@ -30,7 +30,16 @@ Route::middleware('auth:sanctum')
 Route::name('api.')
     ->middleware('auth:sanctum')
     ->group(function () {
-        Route::get('user',  fn (Request $request) => $request->user());
+        // get current user
+        Route::get('user', fn(Request $request) => $request->user());
+
+        // mobile logout API
+        Route::post('logout', function (Request $request) {
+            $bearerToken = $request->bearerToken();
+            $segments = explode('|', $bearerToken);
+            return $request->user()->tokens()->where('id', $segments[0] ?? 0)->delete();
+        });
+
         Route::apiResource('users', UserController::class);
     });
 
@@ -46,7 +55,7 @@ Route::post('/api/login', function (Request $request) {
 
     $user = User::where('email', $request->email)->first();
 
-    if (! $user || ! Hash::check($request->password, $user->password)) {
+    if (!$user || !Hash::check($request->password, $user->password)) {
         throw ValidationException::withMessages([
             'email' => ['The provided credentials are incorrect.'],
         ]);
