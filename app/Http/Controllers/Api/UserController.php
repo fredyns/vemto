@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Resources\UserCollection;
 use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdateRequest;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -33,6 +34,7 @@ class UserController extends Controller
 
         $validated = $request->validated();
 
+        $validated['uid'] = Str::orderedUuid();
         $validated['password'] = Hash::make($validated['password']);
 
         $user = User::create($validated);
