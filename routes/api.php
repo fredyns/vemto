@@ -1,11 +1,12 @@
 <?php
 
 use App\Models\User;
+use App\Actions\Fortify\CreateNewUser;
+use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\UserController;
-use App\Http\Controllers\Api\AuthController;
 use Illuminate\Validation\ValidationException;
 
 /*
@@ -19,6 +20,12 @@ use Illuminate\Validation\ValidationException;
 |
 */
 
+// mobile registration
+Route::post('/registration', function (Request $request) {
+    return (new CreateNewUser())->create($request->all());
+});
+
+// login
 Route::post('/login', [AuthController::class, 'login'])->name('api.login');
 
 Route::middleware('auth:sanctum')
@@ -30,36 +37,16 @@ Route::middleware('auth:sanctum')
 Route::name('api.')
     ->middleware('auth:sanctum')
     ->group(function () {
-        // get current user
-        Route::get('user', fn(Request $request) => $request->user());
-
         // mobile logout API
         Route::post('logout', function (Request $request) {
             $bearerToken = $request->bearerToken();
             $segments = explode('|', $bearerToken);
-            return $request->user()->tokens()->where('id', $segments[0] ?? 0)->delete();
+            if ($request->user()->tokens()->where('id', $segments[0] ?? 0)->delete()) {
+                return ['message' => "Logout success"];
+            } else {
+                return ['message' => "Logout failed"];
+            }
         });
 
         Route::apiResource('users', UserController::class);
     });
-
-/**
- * mobile login API
- */
-Route::post('/api/login', function (Request $request) {
-    $request->validate([
-        'email' => ['required', 'email'],
-        'password' => ['required'],
-        'device_name' => 'required',
-    ]);
-
-    $user = User::where('email', $request->email)->first();
-
-    if (!$user || !Hash::check($request->password, $user->password)) {
-        throw ValidationException::withMessages([
-            'email' => ['The provided credentials are incorrect.'],
-        ]);
-    }
-
-    return $user->createToken($request->device_name)->plainTextToken;
-});
