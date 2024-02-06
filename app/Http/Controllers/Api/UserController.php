@@ -19,7 +19,7 @@ class UserController extends Controller
     {
         $this->authorize('view-any', User::class);
 
-        $search = $request->get('search', '');
+        $search = (string)$request->get('search', '');
 
         $users = User::search($search)
             ->latest()
