@@ -15,7 +15,7 @@ return new class extends Migration
     {
         DB::table('users')->insert([
             [
-                'uid' => 'f12ed100-5a1e-35f7-ba2e-253ae79d696b',
+                'id' => 'f12ed100-5a1e-35f7-ba2e-253ae79d696b',
                 'name' => 'Fredy',
                 'email' => 'fredy.ns@gmail.com',
                 'password' => '$2y$10$MzUsuh0fQuLw2TRgdaeFhug2jsT9egIMg8ze3lUKjy/8E1N5POx..',
