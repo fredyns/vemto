@@ -8,11 +8,13 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
+    use HasUuids;
     use Notifiable;
     use HasFactory;
     use Searchable;
@@ -20,7 +22,7 @@ class User extends Authenticatable implements MustVerifyEmail
     use HasProfilePhoto;
     use TwoFactorAuthenticatable;
 
-    protected $fillable = ['uid', 'name', 'email', 'password'];
+    protected $fillable = ['name', 'email', 'password'];
 
     protected $searchableFields = ['*'];
 
@@ -35,6 +37,26 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
         'two_factor_confirmed_at' => 'datetime',
     ];
+
+    public function userActivityLogs()
+    {
+        return $this->hasMany(UserActivityLog::class);
+    }
+
+    public function userUploads()
+    {
+        return $this->hasMany(UserUpload::class);
+    }
+
+    public function userGalleries()
+    {
+        return $this->hasMany(UserGallery::class);
+    }
+
+    public function records()
+    {
+        return $this->hasMany(Record::class);
+    }
 
     public function isSuperAdmin(): bool
     {
