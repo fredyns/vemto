@@ -20,5 +20,11 @@ class DatabaseSeeder extends Seeder
             ]);
 
         $this->call(UserSeeder::class);
+        $this->call(UserActivityLogSeeder::class);
+        $this->call(UserGallerySeeder::class);
+        $this->call(UserUploadSeeder::class);
+
+        $this->call(RecordSeeder::class);
+        $this->call(SubrecordSeeder::class);
     }
 }

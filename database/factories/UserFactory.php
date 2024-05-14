@@ -23,7 +23,6 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'uid' => $this->faker->unique->uuid(),
             'name' => $this->faker->name(),
             'email' => $this->faker->unique->email(),
             'email_verified_at' => now(),

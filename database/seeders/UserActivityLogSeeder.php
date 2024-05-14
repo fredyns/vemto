@@ -2,17 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 use Illuminate\Database\Seeder;
+use App\Models\UserActivityLog;
 
-class UserSeeder extends Seeder
+class UserActivityLogSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        User::factory()
+        UserActivityLog::factory()
             ->count(5)
             ->create();
     }
