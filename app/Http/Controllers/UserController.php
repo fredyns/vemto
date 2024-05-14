@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -49,7 +48,6 @@ class UserController extends Controller
 
         $validated = $request->validated();
 
-        $validated['uid'] = Str::orderedUuid();
         $validated['password'] = Hash::make($validated['password']);
 
         $user = User::create($validated);

@@ -4,6 +4,16 @@ use App\Models\User;
 use App\Actions\Fortify\CreateNewUser;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\RecordController;
+use App\Http\Controllers\Api\SubrecordController;
+use App\Http\Controllers\Api\UserUploadController;
+use App\Http\Controllers\Api\UserRecordsController;
+use App\Http\Controllers\Api\UserGalleryController;
+use App\Http\Controllers\Api\UserUserUploadsController;
+use App\Http\Controllers\Api\UserActivityLogController;
+use App\Http\Controllers\Api\RecordSubrecordsController;
+use App\Http\Controllers\Api\UserUserGalleriesController;
+use App\Http\Controllers\Api\UserUserActivityLogsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
@@ -37,6 +47,29 @@ Route::middleware('auth:sanctum')
 Route::name('api.')
     ->middleware('auth:sanctum')
     ->group(function () {
+        Route::apiResource('users', UserController::class);
+
+        Route::apiResource(
+            'user-activity-logs',
+            UserActivityLogController::class
+        );
+
+        Route::apiResource('records', RecordController::class);
+
+        // Record Subrecords
+        Route::get('/records/{record}/subrecords', [
+            RecordSubrecordsController::class,
+            'index',
+        ])->name('records.subrecords.index');
+        Route::post('/records/{record}/subrecords', [
+            RecordSubrecordsController::class,
+            'store',
+        ])->name('records.subrecords.store');
+
+        Route::apiResource('user-uploads', UserUploadController::class);
+
+        Route::apiResource('user-galleries', UserGalleryController::class);
+
         // mobile logout API
         Route::post('logout', function (Request $request) {
             $bearerToken = $request->bearerToken();
@@ -48,5 +81,4 @@ Route::name('api.')
             }
         });
 
-        Route::apiResource('users', UserController::class);
     });

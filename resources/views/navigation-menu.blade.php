@@ -23,6 +23,26 @@
                         Users
                         </x-dropdown-link>
                         @endcan
+                        @can('view-any', App\Models\UserActivityLog::class)
+                        <x-dropdown-link href="{{ route('user-activity-logs.index') }}">
+                        User Activity Logs
+                        </x-dropdown-link>
+                        @endcan
+                        @can('view-any', App\Models\Record::class)
+                        <x-dropdown-link href="{{ route('records.index') }}">
+                        Records
+                        </x-dropdown-link>
+                        @endcan
+                        @can('view-any', App\Models\UserUpload::class)
+                        <x-dropdown-link href="{{ route('user-uploads.index') }}">
+                        User Uploads
+                        </x-dropdown-link>
+                        @endcan
+                        @can('view-any', App\Models\UserGallery::class)
+                        <x-dropdown-link href="{{ route('user-galleries.index') }}">
+                        User Galleries
+                        </x-dropdown-link>
+                        @endcan
                 </x-nav-dropdown>
 
             </div>
@@ -154,6 +174,26 @@
                 @can('view-any', App\Models\User::class)
                 <x-responsive-nav-link href="{{ route('users.index') }}">
                 Users
+                </x-responsive-nav-link>
+                @endcan
+                @can('view-any', App\Models\UserActivityLog::class)
+                <x-responsive-nav-link href="{{ route('user-activity-logs.index') }}">
+                User Activity Logs
+                </x-responsive-nav-link>
+                @endcan
+                @can('view-any', App\Models\Record::class)
+                <x-responsive-nav-link href="{{ route('records.index') }}">
+                Records
+                </x-responsive-nav-link>
+                @endcan
+                @can('view-any', App\Models\UserUpload::class)
+                <x-responsive-nav-link href="{{ route('user-uploads.index') }}">
+                User Uploads
+                </x-responsive-nav-link>
+                @endcan
+                @can('view-any', App\Models\UserGallery::class)
+                <x-responsive-nav-link href="{{ route('user-galleries.index') }}">
+                User Galleries
                 </x-responsive-nav-link>
                 @endcan
 

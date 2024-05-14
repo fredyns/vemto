@@ -3,6 +3,10 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RecordController;
+use App\Http\Controllers\UserUploadController;
+use App\Http\Controllers\UserGalleryController;
+use App\Http\Controllers\UserActivityLogController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
@@ -53,4 +57,8 @@ Route::prefix('/')
     ->middleware(['auth:sanctum', 'verified'])
     ->group(function () {
         Route::resource('users', UserController::class);
+        Route::resource('user-activity-logs', UserActivityLogController::class);
+        Route::resource('records', RecordController::class);
+        Route::resource('user-uploads', UserUploadController::class);
+        Route::resource('user-galleries', UserGalleryController::class);
     });
