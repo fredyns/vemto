@@ -1,10 +1,12 @@
 {
-    "name": "laravel/laravel",
+    "name": "fredyns/vemto",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
+    "description": "Laravel application sample (Web & API) built with Vemto.",
     "keywords": [
         "laravel",
-        "framework"
+        "vemto",
+        "REST",
+        "API"
     ],
     "license": "MIT",
     "require": {
