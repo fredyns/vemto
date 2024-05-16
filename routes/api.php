@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\User;
 use App\Actions\Fortify\CreateNewUser;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\AuthController;
@@ -15,9 +14,7 @@ use App\Http\Controllers\Api\RecordSubrecordsController;
 use App\Http\Controllers\Api\UserUserGalleriesController;
 use App\Http\Controllers\Api\UserUserActivityLogsController;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Validation\ValidationException;
 
 /*
 |--------------------------------------------------------------------------
@@ -90,3 +87,8 @@ Route::name('api.')
         });
 
     });
+
+//// tes
+//Route::get('tes', function (Request $request) {
+//    return $request->user('sanctum');
+//});
