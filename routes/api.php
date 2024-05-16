@@ -30,19 +30,11 @@ use Illuminate\Validation\ValidationException;
 |
 */
 
-// mobile registration
-Route::post('/registration', function (Request $request) {
-    return (new CreateNewUser())->create($request->all());
-});
+// default
+Route::redirect('/', '/api/user');
 
 // login
 Route::post('/login', [AuthController::class, 'login'])->name('api.login');
-
-Route::middleware('auth:sanctum')
-    ->get('/user', function (Request $request) {
-        return $request->user();
-    })
-    ->name('api.user');
 
 Route::name('api.')
     ->middleware('auth:sanctum')
@@ -69,6 +61,18 @@ Route::name('api.')
         Route::apiResource('user-uploads', UserUploadController::class);
 
         Route::apiResource('user-galleries', UserGalleryController::class);
+
+        // mobile registration
+        Route::post('/registration', function (Request $request) {
+            if ($request->user()) return ['message' => "Registration only allowed for guest."];
+
+            return (new CreateNewUser())->create($request->all());
+        });
+
+        // current user
+        Route::get('user', function (Request $request) {
+            return $request->user();
+        })->name('user');
 
         // mobile logout API
         Route::post('logout', function (Request $request) {
