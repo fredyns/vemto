@@ -34,7 +34,11 @@ use Illuminate\Validation\ValidationException;
 Route::redirect('/', '/api/user');
 
 // login
-Route::post('/login', [AuthController::class, 'login'])->name('api.login');
+Route::post('login', function (Request $request) {
+    if ($request->user('sanctum')) return ['message' => "Already logged in."];
+
+    return (new AuthController())->login($request);
+});
 
 Route::name('api.')
     ->middleware('auth:sanctum')
