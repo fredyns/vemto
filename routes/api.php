@@ -1,6 +1,7 @@
 <?php
 
 use App\Actions\Fortify\CreateNewUser;
+use App\Http\Controllers\Api\ApiController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\RecordController;
@@ -27,15 +28,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// default
-Route::redirect('/', '/api/user');
+// status
+Route::any('/', [ApiController::class, 'status'])->name('api.status');
 
 // login
 Route::post('login', function (Request $request) {
     if ($request->user('sanctum')) return ['message' => "Already logged in."];
 
     return (new AuthController())->login($request);
-});
+})->name('api.login');
 
 Route::name('api.')
     ->middleware('auth:sanctum')
@@ -68,7 +69,7 @@ Route::name('api.')
             if ($request->user()) return ['message' => "Registration only allowed for guest."];
 
             return (new CreateNewUser())->create($request->all());
-        });
+        })->name('registration');
 
         // current user
         Route::get('user', function (Request $request) {
@@ -84,7 +85,7 @@ Route::name('api.')
             } else {
                 return ['message' => "Logout failed"];
             }
-        });
+        })->name('logout');
 
     });
 
