@@ -72,9 +72,7 @@ Route::name('api.')
         })->name('registration');
 
         // current user
-        Route::get('user', function (Request $request) {
-            return $request->user();
-        })->name('user');
+        Route::get('user', fn (Request $request) => $request->user())->name('user');
 
         // mobile logout API
         Route::post('logout', function (Request $request) {
