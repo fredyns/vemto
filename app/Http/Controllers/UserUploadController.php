@@ -59,7 +59,7 @@ class UserUploadController extends Controller
         $userUpload = UserUpload::create($validated);
 
         return redirect()
-            ->route('user-uploads.edit', $userUpload)
+            ->route('user-uploads.show', $userUpload)
             ->withSuccess(__('crud.common.created'));
     }
 
@@ -108,7 +108,7 @@ class UserUploadController extends Controller
         $userUpload->update($validated);
 
         return redirect()
-            ->route('user-uploads.edit', $userUpload)
+            ->route('user-uploads.show', $userUpload)
             ->withSuccess(__('crud.common.saved'));
     }
 

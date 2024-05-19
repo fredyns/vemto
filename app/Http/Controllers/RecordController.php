@@ -58,25 +58,10 @@ class RecordController extends Controller
             $validated['image'] = $request->file('image')->store('public');
         }
 
-        $validated['j_s_o_n_list'] = json_decode(
-            $validated['j_s_o_n_list'],
-            true
-        );
-
-        $validated['j_s_o_n_list'] = json_decode(
-            $validated['j_s_o_n_list'],
-            true
-        );
-
-        $validated['j_s_o_n_list'] = json_decode(
-            $validated['j_s_o_n_list'],
-            true
-        );
-
         $record = Record::create($validated);
 
         return redirect()
-            ->route('records.edit', $record)
+            ->route('records.show', $record)
             ->withSuccess(__('crud.common.created'));
     }
 
@@ -128,25 +113,10 @@ class RecordController extends Controller
             $validated['image'] = $request->file('image')->store('public');
         }
 
-        $validated['j_s_o_n_list'] = json_decode(
-            $validated['j_s_o_n_list'],
-            true
-        );
-
-        $validated['j_s_o_n_list'] = json_decode(
-            $validated['j_s_o_n_list'],
-            true
-        );
-
-        $validated['j_s_o_n_list'] = json_decode(
-            $validated['j_s_o_n_list'],
-            true
-        );
-
         $record->update($validated);
 
         return redirect()
-            ->route('records.edit', $record)
+            ->route('records.show', $record)
             ->withSuccess(__('crud.common.saved'));
     }
 

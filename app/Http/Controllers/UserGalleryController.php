@@ -62,7 +62,7 @@ class UserGalleryController extends Controller
         $userGallery = UserGallery::create($validated);
 
         return redirect()
-            ->route('user-galleries.edit', $userGallery)
+            ->route('user-galleries.show', $userGallery)
             ->withSuccess(__('crud.common.created'));
     }
 
@@ -111,7 +111,7 @@ class UserGalleryController extends Controller
         $userGallery->update($validated);
 
         return redirect()
-            ->route('user-galleries.edit', $userGallery)
+            ->route('user-galleries.show', $userGallery)
             ->withSuccess(__('crud.common.saved'));
     }
 

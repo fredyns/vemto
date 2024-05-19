@@ -57,7 +57,7 @@ class UserActivityLogController extends Controller
         $userActivityLog = UserActivityLog::create($validated);
 
         return redirect()
-            ->route('user-activity-logs.edit', $userActivityLog)
+            ->route('user-activity-logs.show', $userActivityLog)
             ->withSuccess(__('crud.common.created'));
     }
 
@@ -104,7 +104,7 @@ class UserActivityLogController extends Controller
         $userActivityLog->update($validated);
 
         return redirect()
-            ->route('user-activity-logs.edit', $userActivityLog)
+            ->route('user-activity-logs.show', $userActivityLog)
             ->withSuccess(__('crud.common.saved'));
     }
 
