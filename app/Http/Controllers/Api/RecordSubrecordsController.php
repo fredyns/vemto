@@ -20,7 +20,7 @@ class RecordSubrecordsController extends Controller
             ->subrecords()
             ->search($search)
             ->latest()
-            ->paginate();
+            ->paginate(10);
 
         return new SubrecordCollection($subrecords);
     }

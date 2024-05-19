@@ -23,7 +23,7 @@ class UserController extends Controller
 
         $users = User::search($search)
             ->latest()
-            ->paginate();
+            ->paginate(10);
 
         return new UserCollection($users);
     }
