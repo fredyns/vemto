@@ -17,7 +17,7 @@ class UserActivityLogController extends Controller
     {
         $this->authorize('view-any', UserActivityLog::class);
 
-        $search = $request->get('search', '');
+        $search = (string)$request->get('search', '');
 
         $userActivityLogs = UserActivityLog::search($search)
             ->latest('id')

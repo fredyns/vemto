@@ -18,7 +18,7 @@ class UserUploadController extends Controller
     {
         $this->authorize('view-any', UserUpload::class);
 
-        $search = $request->get('search', '');
+        $search = (string)$request->get('search', '');
 
         $userUploads = UserUpload::search($search)
             ->latest('id')

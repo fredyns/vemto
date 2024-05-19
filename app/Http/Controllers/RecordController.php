@@ -20,7 +20,7 @@ class RecordController extends Controller
     {
         $this->authorize('view-any', Record::class);
 
-        $search = $request->get('search', '');
+        $search = (string)$request->get('search', '');
 
         $records = Record::search($search)
             ->latest()

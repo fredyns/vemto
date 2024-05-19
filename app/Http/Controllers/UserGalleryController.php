@@ -20,7 +20,7 @@ class UserGalleryController extends Controller
     {
         $this->authorize('view-any', UserGallery::class);
 
-        $search = $request->get('search', '');
+        $search = (string)$request->get('search', '');
 
         $userGalleries = UserGallery::search($search)
             ->latest('id')

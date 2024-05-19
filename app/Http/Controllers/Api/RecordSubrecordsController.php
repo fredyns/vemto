@@ -14,7 +14,7 @@ class RecordSubrecordsController extends Controller
     {
         $this->authorize('view', $record);
 
-        $search = $request->get('search', '');
+        $search = (string)$request->get('search', '');
 
         $subrecords = $record
             ->subrecords()
