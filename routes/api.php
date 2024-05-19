@@ -1,7 +1,6 @@
 <?php
 
 use App\Actions\Fortify\CreateNewUser;
-use App\Http\Controllers\Api\ApiController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\RecordController;
@@ -29,7 +28,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // status
-Route::any('/', [ApiController::class, 'status'])->name('api.status');
+Route::any('/', [AuthController::class, 'status'])->name('api.status');
 
 // login
 Route::post('login', function (Request $request) {
