@@ -32,7 +32,9 @@ Route::any('/', [AuthController::class, 'status'])->name('api.status');
 
 // login
 Route::post('login', function (Request $request) {
-    if ($request->user('sanctum')) return ['message' => "Already logged in."];
+    if ($request->user('sanctum')) {
+        return ['message' => "Already logged in."];
+    }
 
     return (new AuthController())->login($request);
 })->name('api.login');
@@ -40,6 +42,37 @@ Route::post('login', function (Request $request) {
 Route::name('api.')
     ->middleware('auth:sanctum')
     ->group(function () {
+        // mobile registration
+        Route::post('/registration', function (Request $request) {
+            if ($request->user()) {
+                return ['message' => "Registration only allowed for guest."];
+            }
+
+            return (new CreateNewUser())->create($request->all());
+        })->name('registration');
+
+        // current user
+        Route::get('user', fn(Request $request) => $request->user())->name(
+            'user'
+        );
+
+        // mobile logout API
+        Route::post('logout', function (Request $request) {
+            $bearerToken = $request->bearerToken();
+            $segments = explode('|', $bearerToken);
+            if (
+                $request
+                    ->user()
+                    ->tokens()
+                    ->where('id', $segments[0] ?? 0)
+                    ->delete()
+            ) {
+                return ['message' => "Logout success"];
+            } else {
+                return ['message' => "Logout failed"];
+            }
+        })->name('logout');
+
         Route::apiResource('users', UserController::class);
 
         Route::apiResource(
@@ -63,30 +96,5 @@ Route::name('api.')
 
         Route::apiResource('user-galleries', UserGalleryController::class);
 
-        // mobile registration
-        Route::post('/registration', function (Request $request) {
-            if ($request->user()) return ['message' => "Registration only allowed for guest."];
-
-            return (new CreateNewUser())->create($request->all());
-        })->name('registration');
-
-        // current user
-        Route::get('user', fn (Request $request) => $request->user())->name('user');
-
-        // mobile logout API
-        Route::post('logout', function (Request $request) {
-            $bearerToken = $request->bearerToken();
-            $segments = explode('|', $bearerToken);
-            if ($request->user()->tokens()->where('id', $segments[0] ?? 0)->delete()) {
-                return ['message' => "Logout success"];
-            } else {
-                return ['message' => "Logout failed"];
-            }
-        })->name('logout');
-
+        Route::apiResource('subrecords', SubrecordController::class);
     });
-
-//// tes
-//Route::get('tes', function (Request $request) {
-//    return $request->user('sanctum');
-//});
