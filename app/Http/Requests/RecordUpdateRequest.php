@@ -20,7 +20,7 @@ class RecordUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'user_id' => ['nullable', 'exists:users,id'],
+            'user_id' => ['nullable', 'uuid', 'exists:users,id'],
             'string' => ['required', 'max:255', 'string'],
             'email' => ['nullable', 'email'],
             'integer' => ['nullable', 'numeric'],

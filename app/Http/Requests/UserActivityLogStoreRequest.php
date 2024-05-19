@@ -21,7 +21,7 @@ class UserActivityLogStoreRequest extends FormRequest
     {
         return [
             'at' => ['required', 'date'],
-            'user_id' => ['required', 'exists:users,id'],
+            'user_id' => ['required', 'uuid', 'exists:users,id'],
             'title' => ['required', 'max:255', 'string'],
             'link' => ['nullable', 'string', 'url'],
             'message' => ['nullable', 'string'],

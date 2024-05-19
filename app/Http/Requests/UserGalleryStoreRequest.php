@@ -20,7 +20,7 @@ class UserGalleryStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'user_id' => ['required', 'exists:users,id'],
+            'user_id' => ['required', 'uuid', 'exists:users,id'],
             'at' => ['required', 'date'],
             'file' => ['image', 'max:1024', 'required'],
             'name' => ['nullable', 'max:255', 'string'],
