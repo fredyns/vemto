@@ -2,7 +2,7 @@
     "tables": {
         "basicrelationships": {
             "basicrelationships": {
-                "count": 220,
+                "count": 218,
                 "lastPrimaryKey": 376,
                 "index": {
                     "1": {
@@ -2364,7 +2364,9 @@
                             "basicrelationships.inverseId": [
                                 367
                             ],
-                            "inputs.relationshipId": []
+                            "inputs.relationshipId": [
+                                1399
+                            ]
                         },
                         "hasOne": {},
                         "belongsTo": {},
@@ -2433,32 +2435,6 @@
                             ],
                             "inputs.relationshipId": [
                                 1379
-                            ]
-                        },
-                        "hasOne": {},
-                        "belongsTo": {},
-                        "belongsToMany": {}
-                    },
-                    "375": {
-                        "hasMany": {
-                            "basicrelationships.inverseId": [
-                                376
-                            ],
-                            "hasmanydetails.relationshipId": [
-                                130
-                            ]
-                        },
-                        "hasOne": {},
-                        "belongsTo": {},
-                        "belongsToMany": {}
-                    },
-                    "376": {
-                        "hasMany": {
-                            "basicrelationships.inverseId": [
-                                375
-                            ],
-                            "inputs.relationshipId": [
-                                1392
                             ]
                         },
                         "hasOne": {},
@@ -2706,8 +2682,8 @@
         },
         "cruds": {
             "cruds": {
-                "count": 100,
-                "lastPrimaryKey": 194,
+                "count": 99,
+                "lastPrimaryKey": 196,
                 "index": {
                     "1": {
                         "hasMany": {
@@ -4271,12 +4247,12 @@
                                 1333,
                                 1369,
                                 1340,
-                                1361,
-                                1360,
-                                1359,
                                 1337,
                                 1363,
-                                1325
+                                1325,
+                                1360,
+                                1359,
+                                1361
                             ],
                             "hasmanydetails.crudId": [
                                 129
@@ -4342,36 +4318,35 @@
                         "belongsTo": {},
                         "belongsToMany": {}
                     },
-                    "192": {
+                    "195": {
                         "hasMany": {
                             "inputs.crudId": [
-                                1389,
-                                1390,
-                                1391
-                            ],
-                            "hasmanydetails.crudId": [
-                                130
+                                1396,
+                                1397,
+                                1398
                             ]
                         },
                         "hasOne": {},
                         "belongsTo": {},
                         "belongsToMany": {}
                     },
-                    "193": {
+                    "196": {
                         "hasMany": {
                             "inputs.crudId": [
-                                1392,
-                                1393
-                            ]
-                        },
-                        "hasOne": {},
-                        "belongsTo": {},
-                        "belongsToMany": {}
-                    },
-                    "194": {
-                        "hasMany": {
-                            "inputs.crudId": [
-                                1395
+                                1399,
+                                1400,
+                                1401,
+                                1402,
+                                1403,
+                                1404,
+                                1405,
+                                1412,
+                                1413,
+                                1410,
+                                1411,
+                                1408,
+                                1414,
+                                1415
                             ]
                         },
                         "hasOne": {},
@@ -4484,13 +4459,13 @@
                     "show": "Show Subrecord",
                     "new": "New Subrecord"
                 },
-                "hasApi": true,
+                "hasApi": false,
                 "isHasManyDetail": true,
                 "isManyToManyDetail": false,
                 "isForLivewire": true,
                 "id": 189,
                 "createdAt": "2024-05-01 23:15:31",
-                "updatedAt": "2024-05-19 15:13:53"
+                "updatedAt": "2024-05-20 21:31:45"
             },
             "item_190": {
                 "__returnRelationsAutomatically": true,
@@ -4545,12 +4520,39 @@
                 "id": 191,
                 "createdAt": "2024-05-02 22:32:17",
                 "updatedAt": "2024-05-02 22:36:30"
+            },
+            "item_196": {
+                "__returnRelationsAutomatically": true,
+                "__saveDataToStorage": true,
+                "__onUpdateListener": null,
+                "__customEventsEnabled": false,
+                "name": "Subrecords",
+                "url": "subrecords",
+                "modelId": 204,
+                "projectId": 12,
+                "hasManyDetailId": null,
+                "manyToManyDetailId": null,
+                "titles": {
+                    "index": "Subrecords List",
+                    "create": "Create Subrecord",
+                    "edit": "Edit Subrecord",
+                    "update": "Update Subrecord",
+                    "show": "Show Subrecord",
+                    "new": "New Subrecord"
+                },
+                "hasApi": true,
+                "isHasManyDetail": false,
+                "isManyToManyDetail": false,
+                "isForLivewire": false,
+                "id": 196,
+                "createdAt": "2024-05-20 20:53:59",
+                "updatedAt": "2024-05-20 20:53:59"
             }
         },
         "entities": {
             "entities": {
-                "count": 128,
-                "lastPrimaryKey": 209,
+                "count": 127,
+                "lastPrimaryKey": 210,
                 "index": {
                     "1": {
                         "hasMany": {
@@ -8114,6 +8116,7 @@
                                 368
                             ],
                             "cruds.modelId": [
+                                196,
                                 189
                             ]
                         },
@@ -8199,57 +8202,26 @@
                         "belongsTo": {},
                         "belongsToMany": {}
                     },
-                    "208": {
+                    "210": {
                         "hasMany": {
                             "fields.entityId": [
-                                2047,
-                                2048,
-                                2049,
-                                2050,
-                                2051,
-                                2052,
-                                2053,
-                                2054,
-                                2055,
-                                2056,
-                                2046
+                                2061,
+                                2062,
+                                2063,
+                                2064,
+                                2065,
+                                2066,
+                                2067,
+                                2068,
+                                2069,
+                                2070,
+                                2060
                             ],
                             "projects.authModelId": [
-                                16
+                                17
                             ],
                             "cruds.modelId": [
-                                192
-                            ],
-                            "foreigns.relatedEntityId": [
-                                188
-                            ],
-                            "basicrelationships.localModelId": [
-                                375
-                            ],
-                            "basicrelationships.modelId": [
-                                376
-                            ]
-                        },
-                        "hasOne": {},
-                        "belongsTo": {},
-                        "belongsToMany": {}
-                    },
-                    "209": {
-                        "hasMany": {
-                            "fields.entityId": [
-                                2059,
-                                2058,
-                                2057
-                            ],
-                            "basicrelationships.modelId": [
-                                375
-                            ],
-                            "basicrelationships.localModelId": [
-                                376
-                            ],
-                            "cruds.modelId": [
-                                193,
-                                194
+                                195
                             ]
                         },
                         "hasOne": {},
@@ -8421,8 +8393,8 @@
         },
         "fields": {
             "fields": {
-                "count": 1397,
-                "lastPrimaryKey": 2059,
+                "count": 1394,
+                "lastPrimaryKey": 2070,
                 "index": {
                     "1": {
                         "hasMany": {},
@@ -20214,7 +20186,8 @@
                     "2003": {
                         "hasMany": {
                             "inputs.fieldId": [
-                                1351
+                                1351,
+                                1403
                             ]
                         },
                         "hasOne": {},
@@ -20224,7 +20197,8 @@
                     "2004": {
                         "hasMany": {
                             "inputs.fieldId": [
-                                1348
+                                1348,
+                                1400
                             ]
                         },
                         "hasOne": {},
@@ -20234,7 +20208,8 @@
                     "2005": {
                         "hasMany": {
                             "inputs.fieldId": [
-                                1349
+                                1349,
+                                1401
                             ]
                         },
                         "hasOne": {},
@@ -20244,7 +20219,8 @@
                     "2006": {
                         "hasMany": {
                             "inputs.fieldId": [
-                                1350
+                                1350,
+                                1402
                             ]
                         },
                         "hasOne": {},
@@ -20254,7 +20230,8 @@
                     "2007": {
                         "hasMany": {
                             "inputs.fieldId": [
-                                1355
+                                1355,
+                                1408
                             ]
                         },
                         "hasOne": {},
@@ -20264,7 +20241,8 @@
                     "2008": {
                         "hasMany": {
                             "inputs.fieldId": [
-                                1352
+                                1352,
+                                1405
                             ]
                         },
                         "hasOne": {},
@@ -20274,7 +20252,8 @@
                     "2009": {
                         "hasMany": {
                             "inputs.fieldId": [
-                                1356
+                                1356,
+                                1412
                             ]
                         },
                         "hasOne": {},
@@ -20284,7 +20263,8 @@
                     "2010": {
                         "hasMany": {
                             "inputs.fieldId": [
-                                1357
+                                1357,
+                                1413
                             ]
                         },
                         "hasOne": {},
@@ -20300,7 +20280,9 @@
                                 368,
                                 367
                             ],
-                            "inputs.fieldId": []
+                            "inputs.fieldId": [
+                                1399
+                            ]
                         },
                         "hasOne": {},
                         "belongsTo": {},
@@ -20578,9 +20560,9 @@
                     "2040": {
                         "hasMany": {
                             "inputs.fieldId": [
-                                1361,
                                 1360,
-                                1359
+                                1359,
+                                1361
                             ]
                         },
                         "hasOne": {},
@@ -20590,7 +20572,8 @@
                     "2041": {
                         "hasMany": {
                             "inputs.fieldId": [
-                                1367
+                                1367,
+                                1410
                             ]
                         },
                         "hasOne": {},
@@ -20600,7 +20583,8 @@
                     "2042": {
                         "hasMany": {
                             "inputs.fieldId": [
-                                1368
+                                1368,
+                                1411
                             ]
                         },
                         "hasOne": {},
@@ -20612,7 +20596,9 @@
                             "inputs.fieldId": [
                                 1364,
                                 1365,
-                                1366
+                                1366,
+                                1414,
+                                1415
                             ]
                         },
                         "hasOne": {},
@@ -20632,129 +20618,88 @@
                     "2045": {
                         "hasMany": {
                             "inputs.fieldId": [
-                                1370
+                                1370,
+                                1404
                             ]
                         },
                         "hasOne": {},
                         "belongsTo": {},
                         "belongsToMany": {}
                     },
-                    "2046": {
-                        "hasMany": {
-                            "foreigns.relatedFieldId": [
-                                188
-                            ],
-                            "basicrelationships.parentKeyId": [
-                                376,
-                                375
-                            ]
-                        },
+                    "2060": {
+                        "hasMany": {},
                         "hasOne": {},
                         "belongsTo": {},
                         "belongsToMany": {}
                     },
-                    "2047": {
+                    "2061": {
                         "hasMany": {
                             "inputs.fieldId": [
-                                1389
+                                1396
                             ]
                         },
                         "hasOne": {},
                         "belongsTo": {},
                         "belongsToMany": {}
                     },
-                    "2048": {
+                    "2062": {
                         "hasMany": {
                             "inputs.fieldId": [
-                                1390
+                                1397
                             ]
                         },
                         "hasOne": {},
                         "belongsTo": {},
                         "belongsToMany": {}
                     },
-                    "2049": {
+                    "2063": {
                         "hasMany": {},
                         "hasOne": {},
                         "belongsTo": {},
                         "belongsToMany": {}
                     },
-                    "2050": {
+                    "2064": {
                         "hasMany": {
                             "inputs.fieldId": [
-                                1391
+                                1398
                             ]
                         },
                         "hasOne": {},
                         "belongsTo": {},
                         "belongsToMany": {}
                     },
-                    "2051": {
+                    "2065": {
                         "hasMany": {},
                         "hasOne": {},
                         "belongsTo": {},
                         "belongsToMany": {}
                     },
-                    "2052": {
+                    "2066": {
                         "hasMany": {},
                         "hasOne": {},
                         "belongsTo": {},
                         "belongsToMany": {}
                     },
-                    "2053": {
+                    "2067": {
                         "hasMany": {},
                         "hasOne": {},
                         "belongsTo": {},
                         "belongsToMany": {}
                     },
-                    "2054": {
+                    "2068": {
                         "hasMany": {},
                         "hasOne": {},
                         "belongsTo": {},
                         "belongsToMany": {}
                     },
-                    "2055": {
+                    "2069": {
                         "hasMany": {},
                         "hasOne": {},
                         "belongsTo": {},
                         "belongsToMany": {}
                     },
-                    "2056": {
+                    "2070": {
                         "hasMany": {},
-                        "hasOne": {},
-                        "belongsTo": {},
-                        "belongsToMany": {}
-                    },
-                    "2057": {
-                        "hasMany": {},
-                        "hasOne": {},
-                        "belongsTo": {},
-                        "belongsToMany": {}
-                    },
-                    "2058": {
-                        "hasMany": {
-                            "inputs.fieldId": [
-                                1393,
-                                1395
-                            ]
-                        },
-                        "hasOne": {},
-                        "belongsTo": {},
-                        "belongsToMany": {}
-                    },
-                    "2059": {
-                        "hasMany": {
-                            "foreigns.fieldId": [
-                                188
-                            ],
-                            "basicrelationships.foreignKeyId": [
-                                376,
-                                375
-                            ],
-                            "inputs.fieldId": [
-                                1392
-                            ]
-                        },
                         "hasOne": {},
                         "belongsTo": {},
                         "belongsToMany": {}
@@ -22517,7 +22462,7 @@
         },
         "foreigns": {
             "foreigns": {
-                "count": 110,
+                "count": 109,
                 "lastPrimaryKey": 188,
                 "index": {
                     "1": {
@@ -23173,12 +23118,6 @@
                         "hasOne": {},
                         "belongsTo": {},
                         "belongsToMany": {}
-                    },
-                    "188": {
-                        "hasMany": {},
-                        "hasOne": {},
-                        "belongsTo": {},
-                        "belongsToMany": {}
                     }
                 },
                 "additionalIndexes": {},
@@ -23284,7 +23223,7 @@
         },
         "hasmanydetails": {
             "hasmanydetails": {
-                "count": 57,
+                "count": 56,
                 "lastPrimaryKey": 130,
                 "index": {
                     "1": {
@@ -23846,16 +23785,6 @@
                         "hasOne": {},
                         "belongsTo": {},
                         "belongsToMany": {}
-                    },
-                    "130": {
-                        "hasMany": {
-                            "cruds.hasManyDetailId": [
-                                194
-                            ]
-                        },
-                        "hasOne": {},
-                        "belongsTo": {},
-                        "belongsToMany": {}
                     }
                 },
                 "additionalIndexes": {},
@@ -23885,8 +23814,8 @@
         },
         "inputs": {
             "inputs": {
-                "count": 727,
-                "lastPrimaryKey": 1395,
+                "count": 738,
+                "lastPrimaryKey": 1415,
                 "index": {
                     "1": {
                         "hasMany": {},
@@ -28214,37 +28143,103 @@
                         "belongsTo": {},
                         "belongsToMany": {}
                     },
-                    "1389": {
+                    "1396": {
                         "hasMany": {},
                         "hasOne": {},
                         "belongsTo": {},
                         "belongsToMany": {}
                     },
-                    "1390": {
+                    "1397": {
                         "hasMany": {},
                         "hasOne": {},
                         "belongsTo": {},
                         "belongsToMany": {}
                     },
-                    "1391": {
+                    "1398": {
                         "hasMany": {},
                         "hasOne": {},
                         "belongsTo": {},
                         "belongsToMany": {}
                     },
-                    "1392": {
+                    "1399": {
                         "hasMany": {},
                         "hasOne": {},
                         "belongsTo": {},
                         "belongsToMany": {}
                     },
-                    "1393": {
+                    "1400": {
                         "hasMany": {},
                         "hasOne": {},
                         "belongsTo": {},
                         "belongsToMany": {}
                     },
-                    "1395": {
+                    "1401": {
+                        "hasMany": {},
+                        "hasOne": {},
+                        "belongsTo": {},
+                        "belongsToMany": {}
+                    },
+                    "1402": {
+                        "hasMany": {},
+                        "hasOne": {},
+                        "belongsTo": {},
+                        "belongsToMany": {}
+                    },
+                    "1403": {
+                        "hasMany": {},
+                        "hasOne": {},
+                        "belongsTo": {},
+                        "belongsToMany": {}
+                    },
+                    "1404": {
+                        "hasMany": {},
+                        "hasOne": {},
+                        "belongsTo": {},
+                        "belongsToMany": {}
+                    },
+                    "1405": {
+                        "hasMany": {},
+                        "hasOne": {},
+                        "belongsTo": {},
+                        "belongsToMany": {}
+                    },
+                    "1408": {
+                        "hasMany": {},
+                        "hasOne": {},
+                        "belongsTo": {},
+                        "belongsToMany": {}
+                    },
+                    "1410": {
+                        "hasMany": {},
+                        "hasOne": {},
+                        "belongsTo": {},
+                        "belongsToMany": {}
+                    },
+                    "1411": {
+                        "hasMany": {},
+                        "hasOne": {},
+                        "belongsTo": {},
+                        "belongsToMany": {}
+                    },
+                    "1412": {
+                        "hasMany": {},
+                        "hasOne": {},
+                        "belongsTo": {},
+                        "belongsToMany": {}
+                    },
+                    "1413": {
+                        "hasMany": {},
+                        "hasOne": {},
+                        "belongsTo": {},
+                        "belongsToMany": {}
+                    },
+                    "1414": {
+                        "hasMany": {},
+                        "hasOne": {},
+                        "belongsTo": {},
+                        "belongsToMany": {}
+                    },
+                    "1415": {
                         "hasMany": {},
                         "hasOne": {},
                         "belongsTo": {},
@@ -29666,12 +29661,8 @@
                 "step": null,
                 "items": [],
                 "dependentSelectItems": {},
-                "validation": [
-                    "nullable"
-                ],
-                "updateValidation": [
-                    "nullable"
-                ],
+                "validation": [],
+                "updateValidation": [],
                 "onCreate": true,
                 "onUpdate": true,
                 "onShow": true,
@@ -29680,7 +29671,7 @@
                 "dependentSelectId": null,
                 "id": 1359,
                 "createdAt": "2024-05-02 06:54:44",
-                "updatedAt": "2024-05-02 22:28:46"
+                "updatedAt": "2024-05-20 21:25:52"
             },
             "item_1360": {
                 "__returnRelationsAutomatically": true,
@@ -29716,12 +29707,8 @@
                 "step": null,
                 "items": [],
                 "dependentSelectItems": {},
-                "validation": [
-                    "nullable"
-                ],
-                "updateValidation": [
-                    "nullable"
-                ],
+                "validation": [],
+                "updateValidation": [],
                 "onCreate": true,
                 "onUpdate": true,
                 "onShow": true,
@@ -29730,7 +29717,7 @@
                 "dependentSelectId": null,
                 "id": 1360,
                 "createdAt": "2024-05-02 06:54:59",
-                "updatedAt": "2024-05-02 22:28:44"
+                "updatedAt": "2024-05-20 21:25:51"
             },
             "item_1361": {
                 "__returnRelationsAutomatically": true,
@@ -29767,10 +29754,12 @@
                 "items": [],
                 "dependentSelectItems": {},
                 "validation": [
-                    "nullable"
+                    "nullable",
+                    "string"
                 ],
                 "updateValidation": [
-                    "nullable"
+                    "nullable",
+                    "string"
                 ],
                 "onCreate": true,
                 "onUpdate": true,
@@ -29780,7 +29769,7 @@
                 "dependentSelectId": null,
                 "id": 1361,
                 "createdAt": "2024-05-02 06:55:02",
-                "updatedAt": "2024-05-02 22:28:42"
+                "updatedAt": "2024-05-20 21:25:55"
             },
             "item_1362": {
                 "__returnRelationsAutomatically": true,
@@ -31405,12 +31394,736 @@
                 "id": 1385,
                 "createdAt": "2024-05-02 22:32:17",
                 "updatedAt": "2024-05-02 22:35:58"
+            },
+            "item_1399": {
+                "__returnRelationsAutomatically": true,
+                "__saveDataToStorage": true,
+                "__onUpdateListener": null,
+                "__customEventsEnabled": false,
+                "crudId": 196,
+                "fieldId": 2011,
+                "relationshipId": 368,
+                "relationshipCollectionName": "records",
+                "foreignId": null,
+                "foreignCollectionName": null,
+                "livewireSelectVariableName": "recordsForSelect",
+                "name": "record_id",
+                "label": "Record",
+                "placeholder": "Record",
+                "order": 0,
+                "cols": 12,
+                "colsMedium": 12,
+                "colsLarge": 12,
+                "readOnly": false,
+                "required": true,
+                "defaultValue": null,
+                "starterOptionText": "Please select the Record",
+                "isComputed": false,
+                "computedFormula": null,
+                "showComputedOnLivewireForm": false,
+                "livewireInputReference": null,
+                "type": "select",
+                "checked": false,
+                "max": null,
+                "min": null,
+                "step": null,
+                "items": [],
+                "dependentSelectItems": {},
+                "validation": [
+                    "required",
+                    "uuid",
+                    "exists:records,id"
+                ],
+                "updateValidation": [
+                    "required",
+                    "uuid",
+                    "exists:records,id"
+                ],
+                "onCreate": true,
+                "onUpdate": true,
+                "onShow": true,
+                "onIndex": true,
+                "onForms": true,
+                "dependentSelectId": null,
+                "id": 1399,
+                "createdAt": "2024-05-20 20:53:59",
+                "updatedAt": "2024-05-20 20:57:39"
+            },
+            "item_1400": {
+                "__returnRelationsAutomatically": true,
+                "__saveDataToStorage": true,
+                "__onUpdateListener": null,
+                "__customEventsEnabled": false,
+                "crudId": 196,
+                "fieldId": 2004,
+                "relationshipId": null,
+                "relationshipCollectionName": null,
+                "foreignId": null,
+                "foreignCollectionName": null,
+                "livewireSelectVariableName": null,
+                "name": "datetime",
+                "label": "Datetime",
+                "placeholder": "Datetime",
+                "order": 1,
+                "cols": 12,
+                "colsMedium": 12,
+                "colsLarge": 12,
+                "readOnly": false,
+                "required": true,
+                "defaultValue": null,
+                "starterOptionText": "",
+                "isComputed": false,
+                "computedFormula": null,
+                "showComputedOnLivewireForm": false,
+                "livewireInputReference": null,
+                "type": "datetime",
+                "checked": false,
+                "max": null,
+                "min": null,
+                "step": null,
+                "items": [],
+                "dependentSelectItems": {},
+                "validation": [
+                    "nullable",
+                    "date"
+                ],
+                "updateValidation": [
+                    "nullable",
+                    "date"
+                ],
+                "onCreate": true,
+                "onUpdate": true,
+                "onShow": true,
+                "onIndex": true,
+                "onForms": true,
+                "dependentSelectId": null,
+                "id": 1400,
+                "createdAt": "2024-05-20 20:53:59",
+                "updatedAt": "2024-05-20 20:57:39"
+            },
+            "item_1401": {
+                "__returnRelationsAutomatically": true,
+                "__saveDataToStorage": true,
+                "__onUpdateListener": null,
+                "__customEventsEnabled": false,
+                "crudId": 196,
+                "fieldId": 2005,
+                "relationshipId": null,
+                "relationshipCollectionName": null,
+                "foreignId": null,
+                "foreignCollectionName": null,
+                "livewireSelectVariableName": null,
+                "name": "date",
+                "label": "Date",
+                "placeholder": "Date",
+                "order": 2,
+                "cols": 12,
+                "colsMedium": 12,
+                "colsLarge": 12,
+                "readOnly": false,
+                "required": true,
+                "defaultValue": null,
+                "starterOptionText": "",
+                "isComputed": false,
+                "computedFormula": null,
+                "showComputedOnLivewireForm": false,
+                "livewireInputReference": null,
+                "type": "date",
+                "checked": false,
+                "max": null,
+                "min": null,
+                "step": null,
+                "items": [],
+                "dependentSelectItems": {},
+                "validation": [
+                    "nullable",
+                    "date"
+                ],
+                "updateValidation": [
+                    "nullable",
+                    "date"
+                ],
+                "onCreate": true,
+                "onUpdate": true,
+                "onShow": true,
+                "onIndex": true,
+                "onForms": true,
+                "dependentSelectId": null,
+                "id": 1401,
+                "createdAt": "2024-05-20 20:53:59",
+                "updatedAt": "2024-05-20 20:57:39"
+            },
+            "item_1402": {
+                "__returnRelationsAutomatically": true,
+                "__saveDataToStorage": true,
+                "__onUpdateListener": null,
+                "__customEventsEnabled": false,
+                "crudId": 196,
+                "fieldId": 2006,
+                "relationshipId": null,
+                "relationshipCollectionName": null,
+                "foreignId": null,
+                "foreignCollectionName": null,
+                "livewireSelectVariableName": null,
+                "name": "time",
+                "label": "Time",
+                "placeholder": "Time",
+                "order": 3,
+                "cols": 12,
+                "colsMedium": 12,
+                "colsLarge": 12,
+                "readOnly": false,
+                "required": true,
+                "defaultValue": null,
+                "starterOptionText": "",
+                "isComputed": false,
+                "computedFormula": null,
+                "showComputedOnLivewireForm": false,
+                "livewireInputReference": null,
+                "type": "time",
+                "checked": false,
+                "max": 255,
+                "min": null,
+                "step": null,
+                "items": [],
+                "dependentSelectItems": {},
+                "validation": [
+                    "nullable",
+                    "date_format:H:i:s"
+                ],
+                "updateValidation": [
+                    "nullable",
+                    "date_format:H:i:s"
+                ],
+                "onCreate": true,
+                "onUpdate": true,
+                "onShow": true,
+                "onIndex": true,
+                "onForms": true,
+                "dependentSelectId": null,
+                "id": 1402,
+                "createdAt": "2024-05-20 20:53:59",
+                "updatedAt": "2024-05-20 20:57:39"
+            },
+            "item_1403": {
+                "__returnRelationsAutomatically": true,
+                "__saveDataToStorage": true,
+                "__onUpdateListener": null,
+                "__customEventsEnabled": false,
+                "crudId": 196,
+                "fieldId": 2003,
+                "relationshipId": null,
+                "relationshipCollectionName": null,
+                "foreignId": null,
+                "foreignCollectionName": null,
+                "livewireSelectVariableName": null,
+                "name": "n_p_w_p",
+                "label": "N P W P",
+                "placeholder": "N P W P",
+                "order": 4,
+                "cols": 12,
+                "colsMedium": 12,
+                "colsLarge": 12,
+                "readOnly": false,
+                "required": true,
+                "defaultValue": null,
+                "starterOptionText": "",
+                "isComputed": false,
+                "computedFormula": null,
+                "showComputedOnLivewireForm": false,
+                "livewireInputReference": null,
+                "type": "text",
+                "checked": false,
+                "max": null,
+                "min": null,
+                "step": null,
+                "items": [],
+                "dependentSelectItems": {},
+                "validation": [
+                    "nullable"
+                ],
+                "updateValidation": [
+                    "nullable"
+                ],
+                "onCreate": true,
+                "onUpdate": true,
+                "onShow": true,
+                "onIndex": true,
+                "onForms": true,
+                "dependentSelectId": null,
+                "id": 1403,
+                "createdAt": "2024-05-20 20:53:59",
+                "updatedAt": "2024-05-20 20:57:39"
+            },
+            "item_1404": {
+                "__returnRelationsAutomatically": true,
+                "__saveDataToStorage": true,
+                "__onUpdateListener": null,
+                "__customEventsEnabled": false,
+                "crudId": 196,
+                "fieldId": 2045,
+                "relationshipId": null,
+                "relationshipCollectionName": null,
+                "foreignId": null,
+                "foreignCollectionName": null,
+                "livewireSelectVariableName": null,
+                "name": "markdown_text",
+                "label": "Markdown Text",
+                "placeholder": "Markdown Text",
+                "order": 5,
+                "cols": 12,
+                "colsMedium": 12,
+                "colsLarge": 12,
+                "readOnly": false,
+                "required": true,
+                "defaultValue": null,
+                "starterOptionText": "",
+                "isComputed": false,
+                "computedFormula": null,
+                "showComputedOnLivewireForm": false,
+                "livewireInputReference": null,
+                "type": "textarea",
+                "checked": false,
+                "max": null,
+                "min": null,
+                "step": null,
+                "items": [],
+                "dependentSelectItems": {},
+                "validation": [
+                    "nullable",
+                    "string"
+                ],
+                "updateValidation": [
+                    "nullable",
+                    "string"
+                ],
+                "onCreate": true,
+                "onUpdate": true,
+                "onShow": true,
+                "onIndex": true,
+                "onForms": true,
+                "dependentSelectId": null,
+                "id": 1404,
+                "createdAt": "2024-05-20 20:53:59",
+                "updatedAt": "2024-05-20 20:57:39"
+            },
+            "item_1405": {
+                "__returnRelationsAutomatically": true,
+                "__saveDataToStorage": true,
+                "__onUpdateListener": null,
+                "__customEventsEnabled": false,
+                "crudId": 196,
+                "fieldId": 2008,
+                "relationshipId": null,
+                "relationshipCollectionName": null,
+                "foreignId": null,
+                "foreignCollectionName": null,
+                "livewireSelectVariableName": null,
+                "name": "w_y_s_i_w_y_g",
+                "label": "W Y S I W Y G",
+                "placeholder": "W Y S I W Y G",
+                "order": 6,
+                "cols": 12,
+                "colsMedium": 12,
+                "colsLarge": 12,
+                "readOnly": false,
+                "required": true,
+                "defaultValue": null,
+                "starterOptionText": "",
+                "isComputed": false,
+                "computedFormula": null,
+                "showComputedOnLivewireForm": false,
+                "livewireInputReference": null,
+                "type": "textarea",
+                "checked": false,
+                "max": null,
+                "min": null,
+                "step": null,
+                "items": [],
+                "dependentSelectItems": {},
+                "validation": [
+                    "nullable",
+                    "string"
+                ],
+                "updateValidation": [
+                    "nullable",
+                    "string"
+                ],
+                "onCreate": true,
+                "onUpdate": true,
+                "onShow": true,
+                "onIndex": true,
+                "onForms": true,
+                "dependentSelectId": null,
+                "id": 1405,
+                "createdAt": "2024-05-20 20:53:59",
+                "updatedAt": "2024-05-20 20:57:39"
+            },
+            "item_1412": {
+                "__returnRelationsAutomatically": true,
+                "__saveDataToStorage": true,
+                "__onUpdateListener": null,
+                "__customEventsEnabled": false,
+                "crudId": 196,
+                "fieldId": 2009,
+                "relationshipId": null,
+                "relationshipCollectionName": null,
+                "foreignId": null,
+                "foreignCollectionName": null,
+                "livewireSelectVariableName": null,
+                "name": "file",
+                "label": "File",
+                "placeholder": "File",
+                "order": 7,
+                "cols": 12,
+                "colsMedium": 12,
+                "colsLarge": 12,
+                "readOnly": false,
+                "required": true,
+                "defaultValue": null,
+                "starterOptionText": "",
+                "isComputed": false,
+                "computedFormula": null,
+                "showComputedOnLivewireForm": false,
+                "livewireInputReference": null,
+                "type": "file",
+                "checked": false,
+                "max": 255,
+                "min": null,
+                "step": null,
+                "items": [],
+                "dependentSelectItems": {},
+                "validation": [
+                    "file",
+                    "max:1024",
+                    "nullable"
+                ],
+                "updateValidation": [
+                    "file",
+                    "max:1024",
+                    "nullable"
+                ],
+                "onCreate": true,
+                "onUpdate": true,
+                "onShow": true,
+                "onIndex": true,
+                "onForms": true,
+                "dependentSelectId": null,
+                "id": 1412,
+                "createdAt": "2024-05-20 20:55:53",
+                "updatedAt": "2024-05-20 20:57:39"
+            },
+            "item_1413": {
+                "__returnRelationsAutomatically": true,
+                "__saveDataToStorage": true,
+                "__onUpdateListener": null,
+                "__customEventsEnabled": false,
+                "crudId": 196,
+                "fieldId": 2010,
+                "relationshipId": null,
+                "relationshipCollectionName": null,
+                "foreignId": null,
+                "foreignCollectionName": null,
+                "livewireSelectVariableName": null,
+                "name": "image",
+                "label": "Image",
+                "placeholder": "Image",
+                "order": 8,
+                "cols": 12,
+                "colsMedium": 12,
+                "colsLarge": 12,
+                "readOnly": false,
+                "required": true,
+                "defaultValue": null,
+                "starterOptionText": "",
+                "isComputed": false,
+                "computedFormula": null,
+                "showComputedOnLivewireForm": false,
+                "livewireInputReference": null,
+                "type": "image",
+                "checked": false,
+                "max": 255,
+                "min": null,
+                "step": null,
+                "items": [],
+                "dependentSelectItems": {},
+                "validation": [
+                    "image",
+                    "max:1024",
+                    "nullable"
+                ],
+                "updateValidation": [
+                    "image",
+                    "max:1024",
+                    "nullable"
+                ],
+                "onCreate": true,
+                "onUpdate": true,
+                "onShow": true,
+                "onIndex": true,
+                "onForms": true,
+                "dependentSelectId": null,
+                "id": 1413,
+                "createdAt": "2024-05-20 20:56:00",
+                "updatedAt": "2024-05-20 20:57:39"
+            },
+            "item_1408": {
+                "__returnRelationsAutomatically": true,
+                "__saveDataToStorage": true,
+                "__onUpdateListener": null,
+                "__customEventsEnabled": false,
+                "crudId": 196,
+                "fieldId": 2007,
+                "relationshipId": null,
+                "relationshipCollectionName": null,
+                "foreignId": null,
+                "foreignCollectionName": null,
+                "livewireSelectVariableName": null,
+                "name": "i_p_address",
+                "label": "I P Address",
+                "placeholder": "I P Address",
+                "order": 9,
+                "cols": 12,
+                "colsMedium": 12,
+                "colsLarge": 12,
+                "readOnly": false,
+                "required": true,
+                "defaultValue": null,
+                "starterOptionText": "",
+                "isComputed": false,
+                "computedFormula": null,
+                "showComputedOnLivewireForm": false,
+                "livewireInputReference": null,
+                "type": "text",
+                "checked": false,
+                "max": null,
+                "min": null,
+                "step": null,
+                "items": [],
+                "dependentSelectItems": {},
+                "validation": [
+                    "nullable"
+                ],
+                "updateValidation": [
+                    "nullable"
+                ],
+                "onCreate": true,
+                "onUpdate": true,
+                "onShow": true,
+                "onIndex": true,
+                "onForms": true,
+                "dependentSelectId": null,
+                "id": 1408,
+                "createdAt": "2024-05-20 20:53:59",
+                "updatedAt": "2024-05-20 20:58:10"
+            },
+            "item_1414": {
+                "__returnRelationsAutomatically": true,
+                "__saveDataToStorage": true,
+                "__onUpdateListener": null,
+                "__customEventsEnabled": false,
+                "crudId": 196,
+                "fieldId": 2043,
+                "relationshipId": null,
+                "relationshipCollectionName": null,
+                "foreignId": null,
+                "foreignCollectionName": null,
+                "livewireSelectVariableName": null,
+                "name": "j_s_o_n_list",
+                "label": "J S O N List",
+                "placeholder": "J S O N List",
+                "order": 10,
+                "cols": 12,
+                "colsMedium": 12,
+                "colsLarge": 12,
+                "readOnly": false,
+                "required": true,
+                "defaultValue": null,
+                "starterOptionText": "",
+                "isComputed": false,
+                "computedFormula": null,
+                "showComputedOnLivewireForm": false,
+                "livewireInputReference": null,
+                "type": "checkbox",
+                "checked": false,
+                "max": null,
+                "min": null,
+                "step": null,
+                "items": [],
+                "dependentSelectItems": {},
+                "validation": [],
+                "updateValidation": [],
+                "onCreate": true,
+                "onUpdate": true,
+                "onShow": true,
+                "onIndex": true,
+                "onForms": true,
+                "dependentSelectId": null,
+                "id": 1414,
+                "createdAt": "2024-05-20 20:57:22",
+                "updatedAt": "2024-05-20 20:58:40"
+            },
+            "item_1415": {
+                "__returnRelationsAutomatically": true,
+                "__saveDataToStorage": true,
+                "__onUpdateListener": null,
+                "__customEventsEnabled": false,
+                "crudId": 196,
+                "fieldId": 2043,
+                "relationshipId": null,
+                "relationshipCollectionName": null,
+                "foreignId": null,
+                "foreignCollectionName": null,
+                "livewireSelectVariableName": null,
+                "name": "j_s_o_n_list",
+                "label": "J S O N List",
+                "placeholder": "J S O N List",
+                "order": 11,
+                "cols": 12,
+                "colsMedium": 12,
+                "colsLarge": 12,
+                "readOnly": false,
+                "required": true,
+                "defaultValue": null,
+                "starterOptionText": "",
+                "isComputed": false,
+                "computedFormula": null,
+                "showComputedOnLivewireForm": false,
+                "livewireInputReference": null,
+                "type": "checkbox",
+                "checked": true,
+                "max": null,
+                "min": null,
+                "step": null,
+                "items": [],
+                "dependentSelectItems": {},
+                "validation": [
+                    "nullable",
+                    "string"
+                ],
+                "updateValidation": [
+                    "nullable",
+                    "string"
+                ],
+                "onCreate": true,
+                "onUpdate": true,
+                "onShow": true,
+                "onIndex": true,
+                "onForms": true,
+                "dependentSelectId": null,
+                "id": 1415,
+                "createdAt": "2024-05-20 20:57:28",
+                "updatedAt": "2024-05-20 20:58:55"
+            },
+            "item_1410": {
+                "__returnRelationsAutomatically": true,
+                "__saveDataToStorage": true,
+                "__onUpdateListener": null,
+                "__customEventsEnabled": false,
+                "crudId": 196,
+                "fieldId": 2041,
+                "relationshipId": null,
+                "relationshipCollectionName": null,
+                "foreignId": null,
+                "foreignCollectionName": null,
+                "livewireSelectVariableName": null,
+                "name": "latitude",
+                "label": "Latitude",
+                "placeholder": "Latitude",
+                "order": 12,
+                "cols": 12,
+                "colsMedium": 12,
+                "colsLarge": 12,
+                "readOnly": false,
+                "required": true,
+                "defaultValue": null,
+                "starterOptionText": "",
+                "isComputed": false,
+                "computedFormula": null,
+                "showComputedOnLivewireForm": false,
+                "livewireInputReference": null,
+                "type": "number",
+                "checked": false,
+                "max": 255,
+                "min": null,
+                "step": "0.01",
+                "items": [],
+                "dependentSelectItems": {},
+                "validation": [
+                    "nullable",
+                    "numeric"
+                ],
+                "updateValidation": [
+                    "nullable",
+                    "numeric"
+                ],
+                "onCreate": true,
+                "onUpdate": true,
+                "onShow": true,
+                "onIndex": true,
+                "onForms": true,
+                "dependentSelectId": null,
+                "id": 1410,
+                "createdAt": "2024-05-20 20:53:59",
+                "updatedAt": "2024-05-20 20:57:39"
+            },
+            "item_1411": {
+                "__returnRelationsAutomatically": true,
+                "__saveDataToStorage": true,
+                "__onUpdateListener": null,
+                "__customEventsEnabled": false,
+                "crudId": 196,
+                "fieldId": 2042,
+                "relationshipId": null,
+                "relationshipCollectionName": null,
+                "foreignId": null,
+                "foreignCollectionName": null,
+                "livewireSelectVariableName": null,
+                "name": "longitude",
+                "label": "Longitude",
+                "placeholder": "Longitude",
+                "order": 13,
+                "cols": 12,
+                "colsMedium": 12,
+                "colsLarge": 12,
+                "readOnly": false,
+                "required": true,
+                "defaultValue": null,
+                "starterOptionText": "",
+                "isComputed": false,
+                "computedFormula": null,
+                "showComputedOnLivewireForm": false,
+                "livewireInputReference": null,
+                "type": "number",
+                "checked": false,
+                "max": 255,
+                "min": null,
+                "step": "0.01",
+                "items": [],
+                "dependentSelectItems": {},
+                "validation": [
+                    "nullable",
+                    "numeric"
+                ],
+                "updateValidation": [
+                    "nullable",
+                    "numeric"
+                ],
+                "onCreate": true,
+                "onUpdate": true,
+                "onShow": true,
+                "onIndex": true,
+                "onForms": true,
+                "dependentSelectId": null,
+                "id": 1411,
+                "createdAt": "2024-05-20 20:53:59",
+                "updatedAt": "2024-05-20 20:57:39"
             }
         },
         "projects": {
             "projects": {
                 "count": 12,
-                "lastPrimaryKey": 16,
+                "lastPrimaryKey": 17,
                 "index": {
                     "1": {
                         "hasMany": {
@@ -31707,6 +32420,7 @@
                                 188,
                                 190,
                                 191,
+                                196,
                                 189
                             ],
                             "comments.projectId": [
@@ -31745,16 +32459,13 @@
                         "belongsTo": {},
                         "belongsToMany": {}
                     },
-                    "16": {
+                    "17": {
                         "hasMany": {
                             "entities.projectId": [
-                                208,
-                                209
+                                210
                             ],
                             "cruds.projectId": [
-                                192,
-                                193,
-                                194
+                                195
                             ]
                         },
                         "hasOne": {},
@@ -31797,8 +32508,8 @@
                     "viewsFolder": "/resources/views/app",
                     "controllerNameMode": "singular",
                     "schemaZoom": 1,
-                    "schemaScrollTop": 4653.60009765625,
-                    "schemaScrollLeft": 4685.60009765625,
+                    "schemaScrollTop": 4653,
+                    "schemaScrollLeft": 4685,
                     "turbolinks": false,
                     "modules": []
                 },
@@ -31821,55 +32532,64 @@
                         "158": {
                             "crudId": 158,
                             "name": "Users",
-                            "requests": true,
-                            "controller": true,
-                            "views": true,
-                            "tests": true,
-                            "api": true
+                            "requests": false,
+                            "controller": false,
+                            "views": false,
+                            "tests": false,
+                            "api": false
                         },
                         "187": {
                             "crudId": 187,
                             "name": "User Activity Logs",
-                            "requests": true,
-                            "controller": true,
-                            "views": true,
-                            "tests": true,
-                            "api": true
+                            "requests": false,
+                            "controller": false,
+                            "views": false,
+                            "tests": false,
+                            "api": false
                         },
                         "188": {
                             "crudId": 188,
                             "name": "Records",
-                            "requests": true,
-                            "controller": true,
-                            "views": true,
-                            "tests": true,
-                            "api": true
+                            "requests": false,
+                            "controller": false,
+                            "views": false,
+                            "tests": false,
+                            "api": false
                         },
                         "189": {
                             "crudId": 189,
                             "name": "Record Subrecords",
-                            "requests": true,
-                            "controller": true,
-                            "views": true,
-                            "tests": true,
-                            "api": true
+                            "requests": false,
+                            "controller": false,
+                            "views": false,
+                            "tests": false,
+                            "api": false
                         },
                         "190": {
                             "crudId": 190,
                             "name": "User Uploads",
-                            "requests": true,
-                            "controller": true,
-                            "views": true,
-                            "tests": true,
-                            "api": true
+                            "requests": false,
+                            "controller": false,
+                            "views": false,
+                            "tests": false,
+                            "api": false
                         },
                         "191": {
                             "crudId": 191,
                             "name": "User Galleries",
+                            "requests": false,
+                            "controller": false,
+                            "views": false,
+                            "tests": false,
+                            "api": false
+                        },
+                        "196": {
+                            "crudId": 196,
+                            "name": "Subrecords",
                             "requests": true,
-                            "controller": true,
-                            "views": true,
-                            "tests": true,
+                            "controller": false,
+                            "views": false,
+                            "tests": false,
                             "api": true
                         }
                     },
@@ -32333,7 +33053,7 @@
                     },
                     "\\lang\\en\\crud.php": {
                         "deleteOnGeneration": true,
-                        "content": "<?php\n\nreturn [\n    'common' => [\n        'actions' => 'Actions',\n        'create' => 'Create',\n        'edit' => 'Edit',\n        'update' => 'Update',\n        'new' => 'New',\n        'cancel' => 'Cancel',\n        'attach' => 'Attach',\n        'detach' => 'Detach',\n        'save' => 'Save',\n        'delete' => 'Delete',\n        'delete_selected' => 'Delete selected',\n        'search' => 'Search...',\n        'back' => 'Back to Index',\n        'are_you_sure' => 'Are you sure?',\n        'no_items_found' => 'No items found',\n        'created' => 'Successfully created',\n        'saved' => 'Saved successfully',\n        'removed' => 'Successfully removed',\n    ],\n\n    'users' => [\n        'name' => 'Users',\n        'index_title' => 'Users List',\n        'new_title' => 'New User',\n        'create_title' => 'Create User',\n        'edit_title' => 'Edit User',\n        'show_title' => 'Show User',\n        'inputs' => [\n            'name' => 'Name',\n            'email' => 'Email',\n            'password' => 'Password',\n        ],\n    ],\n\n    'user_activity_logs' => [\n        'name' => 'User Activity Logs',\n        'index_title' => 'User Activity Logs List',\n        'new_title' => 'New User Activity Log',\n        'create_title' => 'Create User Activity Log',\n        'edit_title' => 'Edit User Activity Log',\n        'show_title' => 'Show User Activity Log',\n        'inputs' => [\n            'at' => 'At',\n            'user_id' => 'User',\n            'title' => 'Title',\n            'link' => 'Link',\n            'message' => 'Message',\n            'i_p_address' => 'I P Address',\n        ],\n    ],\n\n    'records' => [\n        'name' => 'Records',\n        'index_title' => 'Records List',\n        'new_title' => 'New Record',\n        'create_title' => 'Create Record',\n        'edit_title' => 'Edit Record',\n        'show_title' => 'Show Record',\n        'inputs' => [\n            'user_id' => 'User',\n            'string' => 'String',\n            'email' => 'Email',\n            'integer' => 'Integer',\n            'decimal' => 'Decimal',\n            'n_p_w_p' => 'N P W P',\n            'datetime' => 'Datetime',\n            'date' => 'Date',\n            'time' => 'Time',\n            'i_p_address' => 'I P Address',\n            'bool' => 'Bool',\n            'enum' => 'Enum',\n            'text' => 'Text',\n            'file' => 'File',\n            'image' => 'Image',\n            'markdown_text' => 'Markdown Text',\n            'w_y_s_i_w_y_g' => 'W Y S I W Y G',\n            'j_s_o_n_list' => 'J S O N List',\n            'j_s_o_n_list' => 'J S O N List',\n            'j_s_o_n_list' => 'J S O N List',\n            'latitude' => 'Latitude',\n            'longitude' => 'Longitude',\n        ],\n    ],\n\n    'user_uploads' => [\n        'name' => 'User Uploads',\n        'index_title' => 'UserUploads List',\n        'new_title' => 'New User Upload',\n        'create_title' => 'Create User Upload',\n        'edit_title' => 'Edit User Upload',\n        'show_title' => 'Show User Upload',\n        'inputs' => [\n            'user_id' => 'User',\n            'at' => 'At',\n            'file' => 'File',\n            'name' => 'Name',\n            'description' => 'Description',\n            'type' => 'Type',\n            'metadata' => 'Metadata',\n        ],\n    ],\n\n    'user_galleries' => [\n        'name' => 'User Galleries',\n        'index_title' => 'User Galleries List',\n        'new_title' => 'New User Gallery',\n        'create_title' => 'Create User Gallery',\n        'edit_title' => 'Edit User Gallery',\n        'show_title' => 'Show User Gallery',\n        'inputs' => [\n            'user_id' => 'User',\n            'at' => 'At',\n            'file' => 'File',\n            'name' => 'Name',\n            'description' => 'Description',\n            'type' => 'Type',\n            'metadata' => 'Metadata',\n            'thumbnail' => 'Thumbnail',\n        ],\n    ],\n\n    'record_subrecords' => [\n        'name' => 'Record Subrecords',\n        'index_title' => 'Subrecords List',\n        'new_title' => 'New Subrecord',\n        'create_title' => 'Create Subrecord',\n        'edit_title' => 'Edit Subrecord',\n        'show_title' => 'Show Subrecord',\n        'inputs' => [\n            'datetime' => 'Datetime',\n            'date' => 'Date',\n            'time' => 'Time',\n            'n_p_w_p' => 'N P W P',\n            'markdown_text' => 'Markdown Text',\n            'w_y_s_i_w_y_g' => 'W Y S I W Y G',\n            'file' => 'File',\n            'image' => 'Image',\n            'i_p_address' => 'I P Address',\n            'j_s_o_n_list' => 'J S O N List',\n            'j_s_o_n_list' => 'J S O N List',\n            'j_s_o_n_list' => 'J S O N List',\n            'latitude' => 'Latitude',\n            'longitude' => 'Longitude',\n        ],\n    ],\n];\n",
+                        "content": "<?php\n\nreturn [\n    'common' => [\n        'actions' => 'Actions',\n        'create' => 'Create',\n        'edit' => 'Edit',\n        'update' => 'Update',\n        'new' => 'New',\n        'cancel' => 'Cancel',\n        'attach' => 'Attach',\n        'detach' => 'Detach',\n        'save' => 'Save',\n        'delete' => 'Delete',\n        'delete_selected' => 'Delete selected',\n        'search' => 'Search...',\n        'back' => 'Back to Index',\n        'are_you_sure' => 'Are you sure?',\n        'no_items_found' => 'No items found',\n        'created' => 'Successfully created',\n        'saved' => 'Saved successfully',\n        'removed' => 'Successfully removed',\n    ],\n\n    'users' => [\n        'name' => 'Users',\n        'index_title' => 'Users List',\n        'new_title' => 'New User',\n        'create_title' => 'Create User',\n        'edit_title' => 'Edit User',\n        'show_title' => 'Show User',\n        'inputs' => [\n            'name' => 'Name',\n            'email' => 'Email',\n            'password' => 'Password',\n        ],\n    ],\n\n    'user_activity_logs' => [\n        'name' => 'User Activity Logs',\n        'index_title' => 'User Activity Logs List',\n        'new_title' => 'New User Activity Log',\n        'create_title' => 'Create User Activity Log',\n        'edit_title' => 'Edit User Activity Log',\n        'show_title' => 'Show User Activity Log',\n        'inputs' => [\n            'at' => 'At',\n            'user_id' => 'User',\n            'title' => 'Title',\n            'link' => 'Link',\n            'message' => 'Message',\n            'i_p_address' => 'I P Address',\n        ],\n    ],\n\n    'records' => [\n        'name' => 'Records',\n        'index_title' => 'Records List',\n        'new_title' => 'New Record',\n        'create_title' => 'Create Record',\n        'edit_title' => 'Edit Record',\n        'show_title' => 'Show Record',\n        'inputs' => [\n            'user_id' => 'User',\n            'string' => 'String',\n            'email' => 'Email',\n            'integer' => 'Integer',\n            'decimal' => 'Decimal',\n            'n_p_w_p' => 'N P W P',\n            'datetime' => 'Datetime',\n            'date' => 'Date',\n            'time' => 'Time',\n            'i_p_address' => 'I P Address',\n            'bool' => 'Bool',\n            'enum' => 'Enum',\n            'text' => 'Text',\n            'file' => 'File',\n            'image' => 'Image',\n            'markdown_text' => 'Markdown Text',\n            'w_y_s_i_w_y_g' => 'W Y S I W Y G',\n            'j_s_o_n_list' => 'J S O N List',\n            'j_s_o_n_list' => 'J S O N List',\n            'j_s_o_n_list' => 'J S O N List',\n            'latitude' => 'Latitude',\n            'longitude' => 'Longitude',\n        ],\n    ],\n\n    'user_uploads' => [\n        'name' => 'User Uploads',\n        'index_title' => 'UserUploads List',\n        'new_title' => 'New User Upload',\n        'create_title' => 'Create User Upload',\n        'edit_title' => 'Edit User Upload',\n        'show_title' => 'Show User Upload',\n        'inputs' => [\n            'user_id' => 'User',\n            'at' => 'At',\n            'file' => 'File',\n            'name' => 'Name',\n            'description' => 'Description',\n            'type' => 'Type',\n            'metadata' => 'Metadata',\n        ],\n    ],\n\n    'user_galleries' => [\n        'name' => 'User Galleries',\n        'index_title' => 'User Galleries List',\n        'new_title' => 'New User Gallery',\n        'create_title' => 'Create User Gallery',\n        'edit_title' => 'Edit User Gallery',\n        'show_title' => 'Show User Gallery',\n        'inputs' => [\n            'user_id' => 'User',\n            'at' => 'At',\n            'file' => 'File',\n            'name' => 'Name',\n            'description' => 'Description',\n            'type' => 'Type',\n            'metadata' => 'Metadata',\n            'thumbnail' => 'Thumbnail',\n        ],\n    ],\n\n    'record_subrecords' => [\n        'name' => 'Record Subrecords',\n        'index_title' => 'Subrecords List',\n        'new_title' => 'New Subrecord',\n        'create_title' => 'Create Subrecord',\n        'edit_title' => 'Edit Subrecord',\n        'show_title' => 'Show Subrecord',\n        'inputs' => [\n            'datetime' => 'Datetime',\n            'date' => 'Date',\n            'time' => 'Time',\n            'n_p_w_p' => 'N P W P',\n            'markdown_text' => 'Markdown Text',\n            'w_y_s_i_w_y_g' => 'W Y S I W Y G',\n            'file' => 'File',\n            'image' => 'Image',\n            'i_p_address' => 'I P Address',\n            'j_s_o_n_list' => 'J S O N List',\n            'j_s_o_n_list' => 'J S O N List',\n            'j_s_o_n_list' => 'J S O N List',\n            'latitude' => 'Latitude',\n            'longitude' => 'Longitude',\n        ],\n    ],\n\n    'subrecords' => [\n        'name' => 'Subrecords',\n        'index_title' => 'Subrecords List',\n        'new_title' => 'New Subrecord',\n        'create_title' => 'Create Subrecord',\n        'edit_title' => 'Edit Subrecord',\n        'show_title' => 'Show Subrecord',\n        'inputs' => [\n            'record_id' => 'Record',\n            'datetime' => 'Datetime',\n            'date' => 'Date',\n            'time' => 'Time',\n            'n_p_w_p' => 'N P W P',\n            'markdown_text' => 'Markdown Text',\n            'w_y_s_i_w_y_g' => 'W Y S I W Y G',\n            'file' => 'File',\n            'image' => 'Image',\n            'i_p_address' => 'I P Address',\n            'j_s_o_n_list' => 'J S O N List',\n            'j_s_o_n_list' => 'J S O N List',\n            'latitude' => 'Latitude',\n            'longitude' => 'Longitude',\n        ],\n    ],\n];\n",
                         "module": "base",
                         "path": "\\lang\\en\\crud.php"
                     },
@@ -32351,13 +33071,13 @@
                     },
                     "\\routes\\api.php": {
                         "deleteOnGeneration": true,
-                        "content": "<?php\n\nuse Illuminate\\Http\\Request;\nuse Illuminate\\Support\\Facades\\Route;\nuse App\\Actions\\Fortify\\CreateNewUser;\nuse App\\Http\\Controllers\\Api\\UserController;\nuse App\\Http\\Controllers\\Api\\AuthController;\nuse App\\Http\\Controllers\\Api\\RecordController;\nuse App\\Http\\Controllers\\Api\\SubrecordController;\nuse App\\Http\\Controllers\\Api\\UserUploadController;\nuse App\\Http\\Controllers\\Api\\UserRecordsController;\nuse App\\Http\\Controllers\\Api\\UserGalleryController;\nuse App\\Http\\Controllers\\Api\\UserUserUploadsController;\nuse App\\Http\\Controllers\\Api\\UserActivityLogController;\nuse App\\Http\\Controllers\\Api\\RecordSubrecordsController;\nuse App\\Http\\Controllers\\Api\\UserUserGalleriesController;\nuse App\\Http\\Controllers\\Api\\UserUserActivityLogsController;\n\n/*\n|--------------------------------------------------------------------------\n| API Routes\n|--------------------------------------------------------------------------\n|\n| Here is where you can register API routes for your application. These\n| routes are loaded by the RouteServiceProvider within a group which\n| is assigned the \"api\" middleware group. Enjoy building your API!\n|\n*/\n\n// status\nRoute::any('/', [AuthController::class, 'status'])->name('api.status');\n\n// login\nRoute::post('login', function (Request $request) {\n    if ($request->user('sanctum')) {\n        return ['message' => \"Already logged in.\"];\n    }\n\n    return (new AuthController())->login($request);\n})->name('api.login');\n\nRoute::name('api.')\n    ->middleware('auth:sanctum')\n    ->group(function () {\n        // mobile registration\n        Route::post('/registration', function (Request $request) {\n            if ($request->user()) {\n                return ['message' => \"Registration only allowed for guest.\"];\n            }\n\n            return (new CreateNewUser())->create($request->all());\n        })->name('registration');\n\n        // current user\n        Route::get('user', fn(Request $request) => $request->user())->name(\n            'user'\n        );\n\n        // mobile logout API\n        Route::post('logout', function (Request $request) {\n            $bearerToken = $request->bearerToken();\n            $segments = explode('|', $bearerToken);\n            if (\n                $request\n                    ->user()\n                    ->tokens()\n                    ->where('id', $segments[0] ?? 0)\n                    ->delete()\n            ) {\n                return ['message' => \"Logout success\"];\n            } else {\n                return ['message' => \"Logout failed\"];\n            }\n        })->name('logout');\n\n        Route::apiResource(\n            'user-activity-logs',\n            UserActivityLogController::class\n        );\n\n        Route::apiResource('records', RecordController::class);\n\n        // Record Subrecords\n        Route::get('/records/{record}/subrecords', [\n            RecordSubrecordsController::class,\n            'index',\n        ])->name('records.subrecords.index');\n        Route::post('/records/{record}/subrecords', [\n            RecordSubrecordsController::class,\n            'store',\n        ])->name('records.subrecords.store');\n\n        Route::apiResource('user-uploads', UserUploadController::class);\n\n        Route::apiResource('user-galleries', UserGalleryController::class);\n\n        Route::apiResource('subrecords', SubrecordController::class);\n    });\n",
+                        "content": "<?php\n\nuse Illuminate\\Http\\Request;\nuse Illuminate\\Support\\Facades\\Route;\nuse App\\Actions\\Fortify\\CreateNewUser;\nuse App\\Http\\Controllers\\Api\\UserController;\nuse App\\Http\\Controllers\\Api\\AuthController;\nuse App\\Http\\Controllers\\Api\\RecordController;\nuse App\\Http\\Controllers\\Api\\SubrecordController;\nuse App\\Http\\Controllers\\Api\\UserUploadController;\nuse App\\Http\\Controllers\\Api\\UserRecordsController;\nuse App\\Http\\Controllers\\Api\\UserGalleryController;\nuse App\\Http\\Controllers\\Api\\UserUserUploadsController;\nuse App\\Http\\Controllers\\Api\\UserActivityLogController;\nuse App\\Http\\Controllers\\Api\\RecordSubrecordsController;\nuse App\\Http\\Controllers\\Api\\UserUserGalleriesController;\nuse App\\Http\\Controllers\\Api\\UserUserActivityLogsController;\n\n/*\n|--------------------------------------------------------------------------\n| API Routes\n|--------------------------------------------------------------------------\n|\n| Here is where you can register API routes for your application. These\n| routes are loaded by the RouteServiceProvider within a group which\n| is assigned the \"api\" middleware group. Enjoy building your API!\n|\n*/\n\n// status\nRoute::any('/', [AuthController::class, 'status'])->name('api.status');\n\n// login\nRoute::post('login', function (Request $request) {\n    if ($request->user('sanctum')) {\n        return ['message' => \"Already logged in.\"];\n    }\n\n    return (new AuthController())->login($request);\n})->name('api.login');\n\nRoute::name('api.')\n    ->middleware('auth:sanctum')\n    ->group(function () {\n        // mobile registration\n        Route::post('/registration', function (Request $request) {\n            if ($request->user()) {\n                return ['message' => \"Registration only allowed for guest.\"];\n            }\n\n            return (new CreateNewUser())->create($request->all());\n        })->name('registration');\n\n        // current user\n        Route::get('user', fn(Request $request) => $request->user())->name(\n            'user'\n        );\n\n        // mobile logout API\n        Route::post('logout', function (Request $request) {\n            $bearerToken = $request->bearerToken();\n            $segments = explode('|', $bearerToken);\n            if (\n                $request\n                    ->user()\n                    ->tokens()\n                    ->where('id', $segments[0] ?? 0)\n                    ->delete()\n            ) {\n                return ['message' => \"Logout success\"];\n            } else {\n                return ['message' => \"Logout failed\"];\n            }\n        })->name('logout');\n\n        Route::apiResource('users', UserController::class);\n\n        Route::apiResource(\n            'user-activity-logs',\n            UserActivityLogController::class\n        );\n\n        Route::apiResource('records', RecordController::class);\n\n        // Record Subrecords\n        Route::get('/records/{record}/subrecords', [\n            RecordSubrecordsController::class,\n            'index',\n        ])->name('records.subrecords.index');\n        Route::post('/records/{record}/subrecords', [\n            RecordSubrecordsController::class,\n            'store',\n        ])->name('records.subrecords.store');\n\n        Route::apiResource('user-uploads', UserUploadController::class);\n\n        Route::apiResource('user-galleries', UserGalleryController::class);\n\n        Route::apiResource('subrecords', SubrecordController::class);\n\n        Route::apiResource('subrecords', SubrecordController::class);\n    });\n",
                         "module": "base",
                         "path": "\\routes\\api.php"
                     },
                     "\\routes\\web.php": {
                         "deleteOnGeneration": true,
-                        "content": "<?php\n\nuse Illuminate\\Http\\Request;\nuse Illuminate\\Support\\Facades\\Route;\nuse App\\Http\\Controllers\\UserController;\nuse App\\Http\\Controllers\\RecordController;\nuse App\\Http\\Controllers\\UserUploadController;\nuse App\\Http\\Controllers\\UserGalleryController;\nuse App\\Http\\Controllers\\UserActivityLogController;\nuse Illuminate\\Foundation\\Auth\\EmailVerificationRequest;\n\n/*\n|--------------------------------------------------------------------------\n| Web Routes\n|--------------------------------------------------------------------------\n|\n| Here is where you can register web routes for your application. These\n| routes are loaded by the RouteServiceProvider within a group which\n| contains the \"web\" middleware group. Now create something great!\n|\n*/\n\nRoute::get('/', function () {\n    return view('welcome');\n});\n\nRoute::get('/email/verify', function () {\n    return view('auth.verify-email');\n})\n    ->middleware('auth')\n    ->name('verification.notice');\n\nRoute::get('/email/verify/{id}/{hash}', function (\n    EmailVerificationRequest $request\n) {\n    $request->fulfill();\n    return redirect('/dashboard');\n})\n    ->middleware(['auth', 'signed'])\n    ->name('verification.verify');\n\nRoute::post('/email/verification-notification', function (Request $request) {\n    $request->user()->sendEmailVerificationNotification();\n\n    return back()->with('message', 'Verification link sent!');\n})\n    ->middleware(['auth', 'throttle:6,1'])\n    ->name('verification.send');\n\nRoute::middleware(['auth:sanctum', 'verified'])\n    ->get('/dashboard', function () {\n        return view('dashboard');\n    })\n    ->name('dashboard');\n\nRoute::prefix('/')\n    ->middleware(['auth:sanctum', 'verified'])\n    ->group(function () {\n        Route::resource('users', UserController::class);\n        Route::resource('user-activity-logs', UserActivityLogController::class);\n        Route::resource('records', RecordController::class);\n        Route::resource('user-uploads', UserUploadController::class);\n        Route::resource('user-galleries', UserGalleryController::class);\n    });\n",
+                        "content": "<?php\n\nuse Illuminate\\Http\\Request;\nuse Illuminate\\Support\\Facades\\Route;\nuse App\\Http\\Controllers\\UserController;\nuse App\\Http\\Controllers\\RecordController;\nuse App\\Http\\Controllers\\SubrecordController;\nuse App\\Http\\Controllers\\UserUploadController;\nuse App\\Http\\Controllers\\UserGalleryController;\nuse App\\Http\\Controllers\\UserActivityLogController;\nuse Illuminate\\Foundation\\Auth\\EmailVerificationRequest;\n\n/*\n|--------------------------------------------------------------------------\n| Web Routes\n|--------------------------------------------------------------------------\n|\n| Here is where you can register web routes for your application. These\n| routes are loaded by the RouteServiceProvider within a group which\n| contains the \"web\" middleware group. Now create something great!\n|\n*/\n\nRoute::get('/', function () {\n    return view('welcome');\n});\n\nRoute::get('/email/verify', function () {\n    return view('auth.verify-email');\n})\n    ->middleware('auth')\n    ->name('verification.notice');\n\nRoute::get('/email/verify/{id}/{hash}', function (\n    EmailVerificationRequest $request\n) {\n    $request->fulfill();\n    return redirect('/dashboard');\n})\n    ->middleware(['auth', 'signed'])\n    ->name('verification.verify');\n\nRoute::post('/email/verification-notification', function (Request $request) {\n    $request->user()->sendEmailVerificationNotification();\n\n    return back()->with('message', 'Verification link sent!');\n})\n    ->middleware(['auth', 'throttle:6,1'])\n    ->name('verification.send');\n\nRoute::middleware(['auth:sanctum', 'verified'])\n    ->get('/dashboard', function () {\n        return view('dashboard');\n    })\n    ->name('dashboard');\n\nRoute::prefix('/')\n    ->middleware(['auth:sanctum', 'verified'])\n    ->group(function () {\n        Route::resource('users', UserController::class);\n        Route::resource('user-activity-logs', UserActivityLogController::class);\n        Route::resource('records', RecordController::class);\n        Route::resource('user-uploads', UserUploadController::class);\n        Route::resource('user-galleries', UserGalleryController::class);\n        Route::resource('subrecords', SubrecordController::class);\n    });\n",
                         "module": "base",
                         "path": "\\routes\\web.php"
                     },
@@ -32525,7 +33245,7 @@
                     },
                     "\\resources\\views\\navigation-menu.blade.php": {
                         "deleteOnGeneration": true,
-                        "content": "<nav x-data=\"{ open: false }\" class=\"bg-white border-b border-gray-100\">\r\n    <!-- Primary Navigation Menu -->\r\n    <div class=\"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8\">\r\n        <div class=\"flex justify-between h-16\">\r\n            <div class=\"flex\">\r\n                <!-- Logo -->\r\n                <div class=\"shrink-0 flex items-center\">\r\n                    <a href=\"{{ route('dashboard') }}\">\r\n                        <x-application-mark class=\"block h-9 w-auto\" />\r\n                    </a>\r\n                </div>\r\n\r\n                <!-- Navigation Links -->\r\n                <div class=\"hidden space-x-8 sm:-my-px sm:ml-10 sm:flex\">\r\n                    <x-nav-link href=\"{{ route('dashboard') }}\" :active=\"request()->routeIs('dashboard')\">\r\n                        {{ __('Dashboard') }}\r\n                    </x-nav-link>\r\n                </div>\r\n\r\n                <x-nav-dropdown title=\"Apps\" align=\"right\" width=\"48\">\r\n                        @can('view-any', App\\Models\\User::class)\r\n                        <x-dropdown-link href=\"{{ route('users.index') }}\">\r\n                        Users\r\n                        </x-dropdown-link>\r\n                        @endcan\r\n                        @can('view-any', App\\Models\\UserActivityLog::class)\r\n                        <x-dropdown-link href=\"{{ route('user-activity-logs.index') }}\">\r\n                        User Activity Logs\r\n                        </x-dropdown-link>\r\n                        @endcan\r\n                        @can('view-any', App\\Models\\Record::class)\r\n                        <x-dropdown-link href=\"{{ route('records.index') }}\">\r\n                        Records\r\n                        </x-dropdown-link>\r\n                        @endcan\r\n                        @can('view-any', App\\Models\\UserUpload::class)\r\n                        <x-dropdown-link href=\"{{ route('user-uploads.index') }}\">\r\n                        User Uploads\r\n                        </x-dropdown-link>\r\n                        @endcan\r\n                        @can('view-any', App\\Models\\UserGallery::class)\r\n                        <x-dropdown-link href=\"{{ route('user-galleries.index') }}\">\r\n                        User Galleries\r\n                        </x-dropdown-link>\r\n                        @endcan\r\n                </x-nav-dropdown>\r\n\r\n            </div>\r\n\r\n            <div class=\"hidden sm:flex sm:items-center sm:ml-6\">\r\n                <!-- Teams Dropdown -->\r\n                @if (Laravel\\Jetstream\\Jetstream::hasTeamFeatures())\r\n                    <div class=\"ml-3 relative\">\r\n                        <x-dropdown align=\"right\" width=\"60\">\r\n                            <x-slot name=\"trigger\">\r\n                                <span class=\"inline-flex rounded-md\">\r\n                                    <button type=\"button\" class=\"inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:bg-gray-50 hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150\">\r\n                                        {{ Auth::user()->currentTeam->name }}\r\n\r\n                                        <svg class=\"ml-2 -mr-0.5 h-4 w-4\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\">\r\n                                            <path fill-rule=\"evenodd\" d=\"M10 3a1 1 0 01.707.293l3 3a1 1 0 01-1.414 1.414L10 5.414 7.707 7.707a1 1 0 01-1.414-1.414l3-3A1 1 0 0110 3zm-3.707 9.293a1 1 0 011.414 0L10 14.586l2.293-2.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z\" clip-rule=\"evenodd\" />\r\n                                        </svg>\r\n                                    </button>\r\n                                </span>\r\n                            </x-slot>\r\n\r\n                            <x-slot name=\"content\">\r\n                                <div class=\"w-60\">\r\n                                    <!-- Team Management -->\r\n                                    <div class=\"block px-4 py-2 text-xs text-gray-400\">\r\n                                        {{ __('Manage Team') }}\r\n                                    </div>\r\n\r\n                                    <!-- Team Settings -->\r\n                                    <x-dropdown-link href=\"{{ route('teams.show', Auth::user()->currentTeam->id) }}\">\r\n                                        {{ __('Team Settings') }}\r\n                                    </x-dropdown-link>\r\n\r\n                                    @can('create', Laravel\\Jetstream\\Jetstream::newTeamModel())\r\n                                        <x-dropdown-link href=\"{{ route('teams.create') }}\">\r\n                                            {{ __('Create New Team') }}\r\n                                        </x-dropdown-link>\r\n                                    @endcan\r\n\r\n                                    <div class=\"border-t border-gray-100\"></div>\r\n\r\n                                    <!-- Team Switcher -->\r\n                                    <div class=\"block px-4 py-2 text-xs text-gray-400\">\r\n                                        {{ __('Switch Teams') }}\r\n                                    </div>\r\n\r\n                                    @foreach (Auth::user()->allTeams() as $team)\r\n                                        <x-switchable-team :team=\"$team\" />\r\n                                    @endforeach\r\n                                </div>\r\n                            </x-slot>\r\n                        </x-dropdown>\r\n                    </div>\r\n                @endif\r\n\r\n                <!-- Settings Dropdown -->\r\n                <div class=\"ml-3 relative\">\r\n                    <x-dropdown align=\"right\" width=\"48\">\r\n                        <x-slot name=\"trigger\">\r\n                            @if (Laravel\\Jetstream\\Jetstream::managesProfilePhotos())\r\n                                <button class=\"flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out\">\r\n                                    <img class=\"h-8 w-8 rounded-full object-cover\" src=\"{{ Auth::user()->profile_photo_url }}\" alt=\"{{ Auth::user()->name }}\" />\r\n                                </button>\r\n                            @else\r\n                                <span class=\"inline-flex rounded-md\">\r\n                                    <button type=\"button\" class=\"inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150\">\r\n                                        {{ Auth::user()->name }}\r\n\r\n                                        <svg class=\"ml-2 -mr-0.5 h-4 w-4\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\">\r\n                                            <path fill-rule=\"evenodd\" d=\"M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z\" clip-rule=\"evenodd\" />\r\n                                        </svg>\r\n                                    </button>\r\n                                </span>\r\n                            @endif\r\n                        </x-slot>\r\n\r\n                        <x-slot name=\"content\">\r\n                            <!-- Account Management -->\r\n                            <div class=\"block px-4 py-2 text-xs text-gray-400\">\r\n                                {{ __('Manage Account') }}\r\n                            </div>\r\n\r\n                            <x-dropdown-link href=\"{{ route('profile.show') }}\">\r\n                                {{ __('Profile') }}\r\n                            </x-dropdown-link>\r\n\r\n                            @if (Laravel\\Jetstream\\Jetstream::hasApiFeatures())\r\n                                <x-dropdown-link href=\"{{ route('api-tokens.index') }}\">\r\n                                    {{ __('API Tokens') }}\r\n                                </x-dropdown-link>\r\n                            @endif\r\n\r\n                            <div class=\"border-t border-gray-100\"></div>\r\n\r\n                            <!-- Authentication -->\r\n                            <form method=\"POST\" action=\"{{ route('logout') }}\">\r\n                                @csrf\r\n\r\n                                <x-dropdown-link href=\"{{ route('logout') }}\"\r\n                                         onclick=\"event.preventDefault();\r\n                                                this.closest('form').submit();\">\r\n                                    {{ __('Log Out') }}\r\n                                </x-dropdown-link>\r\n                            </form>\r\n                        </x-slot>\r\n                    </x-dropdown>\r\n                </div>\r\n            </div>\r\n\r\n            <!-- Hamburger -->\r\n            <div class=\"-mr-2 flex items-center sm:hidden\">\r\n                <button @click=\"open = ! open\" class=\"inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out\">\r\n                    <svg class=\"h-6 w-6\" stroke=\"currentColor\" fill=\"none\" viewBox=\"0 0 24 24\">\r\n                        <path :class=\"{'hidden': open, 'inline-flex': ! open }\" class=\"inline-flex\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M4 6h16M4 12h16M4 18h16\" />\r\n                        <path :class=\"{'hidden': ! open, 'inline-flex': open }\" class=\"hidden\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M6 18L18 6M6 6l12 12\" />\r\n                    </svg>\r\n                </button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n\r\n    <!-- Responsive Navigation Menu -->\r\n    <div :class=\"{'block': open, 'hidden': ! open}\" class=\"hidden sm:hidden\">\r\n        <div class=\"pt-2 pb-3 space-y-1\">\r\n            <x-responsive-nav-link href=\"{{ route('dashboard') }}\" :active=\"request()->routeIs('dashboard')\">\r\n                {{ __('Dashboard') }}\r\n            </x-responsive-nav-link>\r\n            \r\n                @can('view-any', App\\Models\\User::class)\r\n                <x-responsive-nav-link href=\"{{ route('users.index') }}\">\r\n                Users\r\n                </x-responsive-nav-link>\r\n                @endcan\r\n                @can('view-any', App\\Models\\UserActivityLog::class)\r\n                <x-responsive-nav-link href=\"{{ route('user-activity-logs.index') }}\">\r\n                User Activity Logs\r\n                </x-responsive-nav-link>\r\n                @endcan\r\n                @can('view-any', App\\Models\\Record::class)\r\n                <x-responsive-nav-link href=\"{{ route('records.index') }}\">\r\n                Records\r\n                </x-responsive-nav-link>\r\n                @endcan\r\n                @can('view-any', App\\Models\\UserUpload::class)\r\n                <x-responsive-nav-link href=\"{{ route('user-uploads.index') }}\">\r\n                User Uploads\r\n                </x-responsive-nav-link>\r\n                @endcan\r\n                @can('view-any', App\\Models\\UserGallery::class)\r\n                <x-responsive-nav-link href=\"{{ route('user-galleries.index') }}\">\r\n                User Galleries\r\n                </x-responsive-nav-link>\r\n                @endcan\r\n\r\n        </div>\r\n\r\n        <!-- Responsive Settings Options -->\r\n        <div class=\"pt-4 pb-1 border-t border-gray-200\">\r\n            <div class=\"flex items-center px-4\">\r\n                @if (Laravel\\Jetstream\\Jetstream::managesProfilePhotos())\r\n                    <div class=\"shrink-0 mr-3\">\r\n                        <img class=\"h-10 w-10 rounded-full object-cover\" src=\"{{ Auth::user()->profile_photo_url }}\" alt=\"{{ Auth::user()->name }}\" />\r\n                    </div>\r\n                @endif\r\n\r\n                <div>\r\n                    <div class=\"font-medium text-base text-gray-800\">{{ Auth::user()->name }}</div>\r\n                    <div class=\"font-medium text-sm text-gray-500\">{{ Auth::user()->email }}</div>\r\n                </div>\r\n            </div>\r\n\r\n            <div class=\"mt-3 space-y-1\">\r\n                <!-- Account Management -->\r\n                <x-responsive-nav-link href=\"{{ route('profile.show') }}\" :active=\"request()->routeIs('profile.show')\">\r\n                    {{ __('Profile') }}\r\n                </x-responsive-nav-link>\r\n\r\n                @if (Laravel\\Jetstream\\Jetstream::hasApiFeatures())\r\n                    <x-responsive-nav-link href=\"{{ route('api-tokens.index') }}\" :active=\"request()->routeIs('api-tokens.index')\">\r\n                        {{ __('API Tokens') }}\r\n                    </x-responsive-nav-link>\r\n                @endif\r\n\r\n                <!-- Authentication -->\r\n                <form method=\"POST\" action=\"{{ route('logout') }}\">\r\n                    @csrf\r\n\r\n                    <x-responsive-nav-link href=\"{{ route('logout') }}\"\r\n                                   onclick=\"event.preventDefault();\r\n                                    this.closest('form').submit();\">\r\n                        {{ __('Log Out') }}\r\n                    </x-responsive-nav-link>\r\n                </form>\r\n\r\n                <!-- Team Management -->\r\n                @if (Laravel\\Jetstream\\Jetstream::hasTeamFeatures())\r\n                    <div class=\"border-t border-gray-200\"></div>\r\n\r\n                    <div class=\"block px-4 py-2 text-xs text-gray-400\">\r\n                        {{ __('Manage Team') }}\r\n                    </div>\r\n\r\n                    <!-- Team Settings -->\r\n                    <x-responsive-nav-link href=\"{{ route('teams.show', Auth::user()->currentTeam->id) }}\" :active=\"request()->routeIs('teams.show')\">\r\n                        {{ __('Team Settings') }}\r\n                    </x-responsive-nav-link>\r\n\r\n                    @can('create', Laravel\\Jetstream\\Jetstream::newTeamModel())\r\n                        <x-responsive-nav-link href=\"{{ route('teams.create') }}\" :active=\"request()->routeIs('teams.create')\">\r\n                            {{ __('Create New Team') }}\r\n                        </x-responsive-nav-link>\r\n                    @endcan\r\n\r\n                    <div class=\"border-t border-gray-200\"></div>\r\n\r\n                    <!-- Team Switcher -->\r\n                    <div class=\"block px-4 py-2 text-xs text-gray-400\">\r\n                        {{ __('Switch Teams') }}\r\n                    </div>\r\n\r\n                    @foreach (Auth::user()->allTeams() as $team)\r\n                        <x-switchable-team :team=\"$team\" component=\"responsive-nav-link\" />\r\n                    @endforeach\r\n                @endif\r\n            </div>\r\n        </div>\r\n    </div>\r\n</nav>",
+                        "content": "<nav x-data=\"{ open: false }\" class=\"bg-white border-b border-gray-100\">\r\n    <!-- Primary Navigation Menu -->\r\n    <div class=\"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8\">\r\n        <div class=\"flex justify-between h-16\">\r\n            <div class=\"flex\">\r\n                <!-- Logo -->\r\n                <div class=\"shrink-0 flex items-center\">\r\n                    <a href=\"{{ route('dashboard') }}\">\r\n                        <x-application-mark class=\"block h-9 w-auto\" />\r\n                    </a>\r\n                </div>\r\n\r\n                <!-- Navigation Links -->\r\n                <div class=\"hidden space-x-8 sm:-my-px sm:ml-10 sm:flex\">\r\n                    <x-nav-link href=\"{{ route('dashboard') }}\" :active=\"request()->routeIs('dashboard')\">\r\n                        {{ __('Dashboard') }}\r\n                    </x-nav-link>\r\n                </div>\r\n\r\n                <x-nav-dropdown title=\"Apps\" align=\"right\" width=\"48\">\r\n                        @can('view-any', App\\Models\\User::class)\r\n                        <x-dropdown-link href=\"{{ route('users.index') }}\">\r\n                        Users\r\n                        </x-dropdown-link>\r\n                        @endcan\r\n                        @can('view-any', App\\Models\\UserActivityLog::class)\r\n                        <x-dropdown-link href=\"{{ route('user-activity-logs.index') }}\">\r\n                        User Activity Logs\r\n                        </x-dropdown-link>\r\n                        @endcan\r\n                        @can('view-any', App\\Models\\Record::class)\r\n                        <x-dropdown-link href=\"{{ route('records.index') }}\">\r\n                        Records\r\n                        </x-dropdown-link>\r\n                        @endcan\r\n                        @can('view-any', App\\Models\\UserUpload::class)\r\n                        <x-dropdown-link href=\"{{ route('user-uploads.index') }}\">\r\n                        User Uploads\r\n                        </x-dropdown-link>\r\n                        @endcan\r\n                        @can('view-any', App\\Models\\UserGallery::class)\r\n                        <x-dropdown-link href=\"{{ route('user-galleries.index') }}\">\r\n                        User Galleries\r\n                        </x-dropdown-link>\r\n                        @endcan\r\n                        @can('view-any', App\\Models\\Subrecord::class)\r\n                        <x-dropdown-link href=\"{{ route('subrecords.index') }}\">\r\n                        Subrecords\r\n                        </x-dropdown-link>\r\n                        @endcan\r\n                </x-nav-dropdown>\r\n\r\n            </div>\r\n\r\n            <div class=\"hidden sm:flex sm:items-center sm:ml-6\">\r\n                <!-- Teams Dropdown -->\r\n                @if (Laravel\\Jetstream\\Jetstream::hasTeamFeatures())\r\n                    <div class=\"ml-3 relative\">\r\n                        <x-dropdown align=\"right\" width=\"60\">\r\n                            <x-slot name=\"trigger\">\r\n                                <span class=\"inline-flex rounded-md\">\r\n                                    <button type=\"button\" class=\"inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:bg-gray-50 hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150\">\r\n                                        {{ Auth::user()->currentTeam->name }}\r\n\r\n                                        <svg class=\"ml-2 -mr-0.5 h-4 w-4\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\">\r\n                                            <path fill-rule=\"evenodd\" d=\"M10 3a1 1 0 01.707.293l3 3a1 1 0 01-1.414 1.414L10 5.414 7.707 7.707a1 1 0 01-1.414-1.414l3-3A1 1 0 0110 3zm-3.707 9.293a1 1 0 011.414 0L10 14.586l2.293-2.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z\" clip-rule=\"evenodd\" />\r\n                                        </svg>\r\n                                    </button>\r\n                                </span>\r\n                            </x-slot>\r\n\r\n                            <x-slot name=\"content\">\r\n                                <div class=\"w-60\">\r\n                                    <!-- Team Management -->\r\n                                    <div class=\"block px-4 py-2 text-xs text-gray-400\">\r\n                                        {{ __('Manage Team') }}\r\n                                    </div>\r\n\r\n                                    <!-- Team Settings -->\r\n                                    <x-dropdown-link href=\"{{ route('teams.show', Auth::user()->currentTeam->id) }}\">\r\n                                        {{ __('Team Settings') }}\r\n                                    </x-dropdown-link>\r\n\r\n                                    @can('create', Laravel\\Jetstream\\Jetstream::newTeamModel())\r\n                                        <x-dropdown-link href=\"{{ route('teams.create') }}\">\r\n                                            {{ __('Create New Team') }}\r\n                                        </x-dropdown-link>\r\n                                    @endcan\r\n\r\n                                    <div class=\"border-t border-gray-100\"></div>\r\n\r\n                                    <!-- Team Switcher -->\r\n                                    <div class=\"block px-4 py-2 text-xs text-gray-400\">\r\n                                        {{ __('Switch Teams') }}\r\n                                    </div>\r\n\r\n                                    @foreach (Auth::user()->allTeams() as $team)\r\n                                        <x-switchable-team :team=\"$team\" />\r\n                                    @endforeach\r\n                                </div>\r\n                            </x-slot>\r\n                        </x-dropdown>\r\n                    </div>\r\n                @endif\r\n\r\n                <!-- Settings Dropdown -->\r\n                <div class=\"ml-3 relative\">\r\n                    <x-dropdown align=\"right\" width=\"48\">\r\n                        <x-slot name=\"trigger\">\r\n                            @if (Laravel\\Jetstream\\Jetstream::managesProfilePhotos())\r\n                                <button class=\"flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out\">\r\n                                    <img class=\"h-8 w-8 rounded-full object-cover\" src=\"{{ Auth::user()->profile_photo_url }}\" alt=\"{{ Auth::user()->name }}\" />\r\n                                </button>\r\n                            @else\r\n                                <span class=\"inline-flex rounded-md\">\r\n                                    <button type=\"button\" class=\"inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150\">\r\n                                        {{ Auth::user()->name }}\r\n\r\n                                        <svg class=\"ml-2 -mr-0.5 h-4 w-4\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\">\r\n                                            <path fill-rule=\"evenodd\" d=\"M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z\" clip-rule=\"evenodd\" />\r\n                                        </svg>\r\n                                    </button>\r\n                                </span>\r\n                            @endif\r\n                        </x-slot>\r\n\r\n                        <x-slot name=\"content\">\r\n                            <!-- Account Management -->\r\n                            <div class=\"block px-4 py-2 text-xs text-gray-400\">\r\n                                {{ __('Manage Account') }}\r\n                            </div>\r\n\r\n                            <x-dropdown-link href=\"{{ route('profile.show') }}\">\r\n                                {{ __('Profile') }}\r\n                            </x-dropdown-link>\r\n\r\n                            @if (Laravel\\Jetstream\\Jetstream::hasApiFeatures())\r\n                                <x-dropdown-link href=\"{{ route('api-tokens.index') }}\">\r\n                                    {{ __('API Tokens') }}\r\n                                </x-dropdown-link>\r\n                            @endif\r\n\r\n                            <div class=\"border-t border-gray-100\"></div>\r\n\r\n                            <!-- Authentication -->\r\n                            <form method=\"POST\" action=\"{{ route('logout') }}\">\r\n                                @csrf\r\n\r\n                                <x-dropdown-link href=\"{{ route('logout') }}\"\r\n                                         onclick=\"event.preventDefault();\r\n                                                this.closest('form').submit();\">\r\n                                    {{ __('Log Out') }}\r\n                                </x-dropdown-link>\r\n                            </form>\r\n                        </x-slot>\r\n                    </x-dropdown>\r\n                </div>\r\n            </div>\r\n\r\n            <!-- Hamburger -->\r\n            <div class=\"-mr-2 flex items-center sm:hidden\">\r\n                <button @click=\"open = ! open\" class=\"inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out\">\r\n                    <svg class=\"h-6 w-6\" stroke=\"currentColor\" fill=\"none\" viewBox=\"0 0 24 24\">\r\n                        <path :class=\"{'hidden': open, 'inline-flex': ! open }\" class=\"inline-flex\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M4 6h16M4 12h16M4 18h16\" />\r\n                        <path :class=\"{'hidden': ! open, 'inline-flex': open }\" class=\"hidden\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M6 18L18 6M6 6l12 12\" />\r\n                    </svg>\r\n                </button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n\r\n    <!-- Responsive Navigation Menu -->\r\n    <div :class=\"{'block': open, 'hidden': ! open}\" class=\"hidden sm:hidden\">\r\n        <div class=\"pt-2 pb-3 space-y-1\">\r\n            <x-responsive-nav-link href=\"{{ route('dashboard') }}\" :active=\"request()->routeIs('dashboard')\">\r\n                {{ __('Dashboard') }}\r\n            </x-responsive-nav-link>\r\n            \r\n                @can('view-any', App\\Models\\User::class)\r\n                <x-responsive-nav-link href=\"{{ route('users.index') }}\">\r\n                Users\r\n                </x-responsive-nav-link>\r\n                @endcan\r\n                @can('view-any', App\\Models\\UserActivityLog::class)\r\n                <x-responsive-nav-link href=\"{{ route('user-activity-logs.index') }}\">\r\n                User Activity Logs\r\n                </x-responsive-nav-link>\r\n                @endcan\r\n                @can('view-any', App\\Models\\Record::class)\r\n                <x-responsive-nav-link href=\"{{ route('records.index') }}\">\r\n                Records\r\n                </x-responsive-nav-link>\r\n                @endcan\r\n                @can('view-any', App\\Models\\UserUpload::class)\r\n                <x-responsive-nav-link href=\"{{ route('user-uploads.index') }}\">\r\n                User Uploads\r\n                </x-responsive-nav-link>\r\n                @endcan\r\n                @can('view-any', App\\Models\\UserGallery::class)\r\n                <x-responsive-nav-link href=\"{{ route('user-galleries.index') }}\">\r\n                User Galleries\r\n                </x-responsive-nav-link>\r\n                @endcan\r\n                @can('view-any', App\\Models\\Subrecord::class)\r\n                <x-responsive-nav-link href=\"{{ route('subrecords.index') }}\">\r\n                Subrecords\r\n                </x-responsive-nav-link>\r\n                @endcan\r\n\r\n        </div>\r\n\r\n        <!-- Responsive Settings Options -->\r\n        <div class=\"pt-4 pb-1 border-t border-gray-200\">\r\n            <div class=\"flex items-center px-4\">\r\n                @if (Laravel\\Jetstream\\Jetstream::managesProfilePhotos())\r\n                    <div class=\"shrink-0 mr-3\">\r\n                        <img class=\"h-10 w-10 rounded-full object-cover\" src=\"{{ Auth::user()->profile_photo_url }}\" alt=\"{{ Auth::user()->name }}\" />\r\n                    </div>\r\n                @endif\r\n\r\n                <div>\r\n                    <div class=\"font-medium text-base text-gray-800\">{{ Auth::user()->name }}</div>\r\n                    <div class=\"font-medium text-sm text-gray-500\">{{ Auth::user()->email }}</div>\r\n                </div>\r\n            </div>\r\n\r\n            <div class=\"mt-3 space-y-1\">\r\n                <!-- Account Management -->\r\n                <x-responsive-nav-link href=\"{{ route('profile.show') }}\" :active=\"request()->routeIs('profile.show')\">\r\n                    {{ __('Profile') }}\r\n                </x-responsive-nav-link>\r\n\r\n                @if (Laravel\\Jetstream\\Jetstream::hasApiFeatures())\r\n                    <x-responsive-nav-link href=\"{{ route('api-tokens.index') }}\" :active=\"request()->routeIs('api-tokens.index')\">\r\n                        {{ __('API Tokens') }}\r\n                    </x-responsive-nav-link>\r\n                @endif\r\n\r\n                <!-- Authentication -->\r\n                <form method=\"POST\" action=\"{{ route('logout') }}\">\r\n                    @csrf\r\n\r\n                    <x-responsive-nav-link href=\"{{ route('logout') }}\"\r\n                                   onclick=\"event.preventDefault();\r\n                                    this.closest('form').submit();\">\r\n                        {{ __('Log Out') }}\r\n                    </x-responsive-nav-link>\r\n                </form>\r\n\r\n                <!-- Team Management -->\r\n                @if (Laravel\\Jetstream\\Jetstream::hasTeamFeatures())\r\n                    <div class=\"border-t border-gray-200\"></div>\r\n\r\n                    <div class=\"block px-4 py-2 text-xs text-gray-400\">\r\n                        {{ __('Manage Team') }}\r\n                    </div>\r\n\r\n                    <!-- Team Settings -->\r\n                    <x-responsive-nav-link href=\"{{ route('teams.show', Auth::user()->currentTeam->id) }}\" :active=\"request()->routeIs('teams.show')\">\r\n                        {{ __('Team Settings') }}\r\n                    </x-responsive-nav-link>\r\n\r\n                    @can('create', Laravel\\Jetstream\\Jetstream::newTeamModel())\r\n                        <x-responsive-nav-link href=\"{{ route('teams.create') }}\" :active=\"request()->routeIs('teams.create')\">\r\n                            {{ __('Create New Team') }}\r\n                        </x-responsive-nav-link>\r\n                    @endcan\r\n\r\n                    <div class=\"border-t border-gray-200\"></div>\r\n\r\n                    <!-- Team Switcher -->\r\n                    <div class=\"block px-4 py-2 text-xs text-gray-400\">\r\n                        {{ __('Switch Teams') }}\r\n                    </div>\r\n\r\n                    @foreach (Auth::user()->allTeams() as $team)\r\n                        <x-switchable-team :team=\"$team\" component=\"responsive-nav-link\" />\r\n                    @endforeach\r\n                @endif\r\n            </div>\r\n        </div>\r\n    </div>\r\n</nav>",
                         "module": "base",
                         "path": "\\resources\\views\\navigation-menu.blade.php"
                     },
@@ -32777,8 +33497,8 @@
                     },
                     "\\app\\Http\\Controllers\\Api\\SubrecordController.php": {
                         "deleteOnGeneration": true,
-                        "content": "<?php\n\nnamespace App\\Http\\Controllers\\Api;\n\nuse App\\Models\\Subrecord;\nuse Illuminate\\Http\\Request;\nuse Illuminate\\Http\\Response;\nuse App\\Http\\Controllers\\Controller;\nuse Illuminate\\Support\\Facades\\Storage;\nuse App\\Http\\Resources\\SubrecordResource;\nuse App\\Http\\Resources\\SubrecordCollection;\nuse App\\Http\\Requests\\SubrecordStoreRequest;\nuse App\\Http\\Requests\\SubrecordUpdateRequest;\n\nclass SubrecordController extends Controller\n{\n    public function index(Request $request): SubrecordCollection\n    {\n        $this->authorize('view-any', Subrecord::class);\n\n        $search = (string) $request->get('search', '');\n\n        $subrecords = Subrecord::search($search)\n            ->latest()\n            ->paginate();\n\n        return new SubrecordCollection($subrecords);\n    }\n\n    public function store(SubrecordStoreRequest $request): SubrecordResource\n    {\n        $this->authorize('create', Subrecord::class);\n\n        $validated = $request->validated();\n        if ($request->hasFile('file')) {\n            $validated['file'] = $request->file('file')->store('public');\n        }\n\n        if ($request->hasFile('image')) {\n            $validated['image'] = $request->file('image')->store('public');\n        }\n\n        $validated['j_s_o_n_list'] = json_decode(\n            $validated['j_s_o_n_list'],\n            true\n        );\n\n        $validated['j_s_o_n_list'] = json_decode(\n            $validated['j_s_o_n_list'],\n            true\n        );\n\n        $validated['j_s_o_n_list'] = json_decode(\n            $validated['j_s_o_n_list'],\n            true\n        );\n\n        $subrecord = Subrecord::create($validated);\n\n        return new SubrecordResource($subrecord);\n    }\n\n    public function show(\n        Request $request,\n        Subrecord $subrecord\n    ): SubrecordResource {\n        $this->authorize('view', $subrecord);\n\n        return new SubrecordResource($subrecord);\n    }\n\n    public function update(\n        SubrecordUpdateRequest $request,\n        Subrecord $subrecord\n    ): SubrecordResource {\n        $this->authorize('update', $subrecord);\n\n        $validated = $request->validated();\n\n        if ($request->hasFile('file')) {\n            if ($subrecord->file) {\n                Storage::delete($subrecord->file);\n            }\n\n            $validated['file'] = $request->file('file')->store('public');\n        }\n\n        if ($request->hasFile('image')) {\n            if ($subrecord->image) {\n                Storage::delete($subrecord->image);\n            }\n\n            $validated['image'] = $request->file('image')->store('public');\n        }\n\n        $validated['j_s_o_n_list'] = json_decode(\n            $validated['j_s_o_n_list'],\n            true\n        );\n\n        $validated['j_s_o_n_list'] = json_decode(\n            $validated['j_s_o_n_list'],\n            true\n        );\n\n        $validated['j_s_o_n_list'] = json_decode(\n            $validated['j_s_o_n_list'],\n            true\n        );\n\n        $subrecord->update($validated);\n\n        return new SubrecordResource($subrecord);\n    }\n\n    public function destroy(Request $request, Subrecord $subrecord): Response\n    {\n        $this->authorize('delete', $subrecord);\n\n        if ($subrecord->file) {\n            Storage::delete($subrecord->file);\n        }\n\n        if ($subrecord->image) {\n            Storage::delete($subrecord->image);\n        }\n\n        $subrecord->delete();\n\n        return response()->noContent();\n    }\n}\n",
-                        "module": "crud:189",
+                        "content": "<?php\n\nnamespace App\\Http\\Controllers\\Api;\n\nuse App\\Models\\Subrecord;\nuse Illuminate\\Http\\Request;\nuse Illuminate\\Http\\Response;\nuse App\\Http\\Controllers\\Controller;\nuse Illuminate\\Support\\Facades\\Storage;\nuse App\\Http\\Resources\\SubrecordResource;\nuse App\\Http\\Resources\\SubrecordCollection;\nuse App\\Http\\Requests\\SubrecordStoreRequest;\nuse App\\Http\\Requests\\SubrecordUpdateRequest;\n\nclass SubrecordController extends Controller\n{\n    public function index(Request $request): SubrecordCollection\n    {\n        $this->authorize('view-any', Subrecord::class);\n\n        $search = (string) $request->get('search', '');\n\n        $subrecords = Subrecord::search($search)\n            ->latest()\n            ->paginate();\n\n        return new SubrecordCollection($subrecords);\n    }\n\n    public function store(SubrecordStoreRequest $request): SubrecordResource\n    {\n        $this->authorize('create', Subrecord::class);\n\n        $validated = $request->validated();\n        if ($request->hasFile('file')) {\n            $validated['file'] = $request->file('file')->store('public');\n        }\n\n        if ($request->hasFile('image')) {\n            $validated['image'] = $request->file('image')->store('public');\n        }\n\n        $validated['j_s_o_n_list'] = json_decode(\n            $validated['j_s_o_n_list'],\n            true\n        );\n\n        $validated['j_s_o_n_list'] = json_decode(\n            $validated['j_s_o_n_list'],\n            true\n        );\n\n        $subrecord = Subrecord::create($validated);\n\n        return new SubrecordResource($subrecord);\n    }\n\n    public function show(\n        Request $request,\n        Subrecord $subrecord\n    ): SubrecordResource {\n        $this->authorize('view', $subrecord);\n\n        return new SubrecordResource($subrecord);\n    }\n\n    public function update(\n        SubrecordUpdateRequest $request,\n        Subrecord $subrecord\n    ): SubrecordResource {\n        $this->authorize('update', $subrecord);\n\n        $validated = $request->validated();\n\n        if ($request->hasFile('file')) {\n            if ($subrecord->file) {\n                Storage::delete($subrecord->file);\n            }\n\n            $validated['file'] = $request->file('file')->store('public');\n        }\n\n        if ($request->hasFile('image')) {\n            if ($subrecord->image) {\n                Storage::delete($subrecord->image);\n            }\n\n            $validated['image'] = $request->file('image')->store('public');\n        }\n\n        $validated['j_s_o_n_list'] = json_decode(\n            $validated['j_s_o_n_list'],\n            true\n        );\n\n        $validated['j_s_o_n_list'] = json_decode(\n            $validated['j_s_o_n_list'],\n            true\n        );\n\n        $subrecord->update($validated);\n\n        return new SubrecordResource($subrecord);\n    }\n\n    public function destroy(Request $request, Subrecord $subrecord): Response\n    {\n        $this->authorize('delete', $subrecord);\n\n        if ($subrecord->file) {\n            Storage::delete($subrecord->file);\n        }\n\n        if ($subrecord->image) {\n            Storage::delete($subrecord->image);\n        }\n\n        $subrecord->delete();\n\n        return response()->noContent();\n    }\n}\n",
+                        "module": "crud:196",
                         "path": "\\app\\Http\\Controllers\\Api\\SubrecordController.php"
                     },
                     "\\tests\\Feature\\Api\\SubrecordTest.php": {
@@ -32786,6 +33506,18 @@
                         "content": "<?php\n\nnamespace Tests\\Feature\\Api;\n\nuse App\\Models\\User;\nuse App\\Models\\Subrecord;\n\nuse App\\Models\\Record;\n\nuse Tests\\TestCase;\nuse Laravel\\Sanctum\\Sanctum;\nuse Illuminate\\Foundation\\Testing\\WithFaker;\nuse Illuminate\\Foundation\\Testing\\RefreshDatabase;\n\nclass SubrecordTest extends TestCase\n{\n    use RefreshDatabase, WithFaker;\n\n    protected function setUp(): void\n    {\n        parent::setUp();\n\n        $user = User::factory()->create(['email' => 'admin@admin.com']);\n\n        Sanctum::actingAs($user, [], 'web');\n\n        $this->withoutExceptionHandling();\n    }\n\n    /**\n     * @test\n     */\n    public function it_gets_subrecords_list(): void\n    {\n        $subrecords = Subrecord::factory()\n            ->count(5)\n            ->create();\n\n        $response = $this->getJson(route('api.subrecords.index'));\n\n        $response->assertOk()->assertSee($subrecords[0]->date);\n    }\n\n    /**\n     * @test\n     */\n    public function it_stores_the_subrecord(): void\n    {\n        $data = Subrecord::factory()\n            ->make()\n            ->toArray();\n\n        $response = $this->postJson(route('api.subrecords.store'), $data);\n\n        unset($data['record_id']);\n\n        $this->assertDatabaseHas('subrecords', $data);\n\n        $response->assertStatus(201)->assertJsonFragment($data);\n    }\n\n    /**\n     * @test\n     */\n    public function it_updates_the_subrecord(): void\n    {\n        $subrecord = Subrecord::factory()->create();\n\n        $record = Record::factory()->create();\n\n        $data = [\n            'datetime' => $this->faker->dateTime(),\n            'date' => $this->faker->date(),\n            'time' => $this->faker->time(),\n            'n_p_w_p' => $this->faker->randomNumber(),\n            'markdown_text' => $this->faker->text(),\n            'w_y_s_i_w_y_g' => $this->faker->text(),\n            'file' => $this->faker->text(),\n            'image' => $this->faker->text(),\n            'i_p_address' => $this->faker->ipv4(),\n            'j_s_o_n_list' => [],\n            'latitude' => $this->faker->latitude(),\n            'longitude' => $this->faker->longitude(),\n            'record_id' => $record->id,\n        ];\n\n        $response = $this->putJson(\n            route('api.subrecords.update', $subrecord),\n            $data\n        );\n\n        unset($data['record_id']);\n\n        $data['id'] = $subrecord->id;\n\n        $this->assertDatabaseHas('subrecords', $data);\n\n        $response->assertOk()->assertJsonFragment($data);\n    }\n\n    /**\n     * @test\n     */\n    public function it_deletes_the_subrecord(): void\n    {\n        $subrecord = Subrecord::factory()->create();\n\n        $response = $this->deleteJson(\n            route('api.subrecords.destroy', $subrecord)\n        );\n\n        $this->assertModelMissing($subrecord);\n\n        $response->assertNoContent();\n    }\n}\n",
                         "module": "crud:189",
                         "path": "\\tests\\Feature\\Api\\SubrecordTest.php"
+                    },
+                    "\\app\\Http\\Requests\\SubrecordStoreRequest.php": {
+                        "deleteOnGeneration": true,
+                        "content": "<?php\n\nnamespace App\\Http\\Requests;\n\nuse Illuminate\\Foundation\\Http\\FormRequest;\n\nclass SubrecordStoreRequest extends FormRequest\n{\n    /**\n     * Determine if the user is authorized to make this request.\n     */\n    public function authorize(): bool\n    {\n        return true;\n    }\n\n    /**\n     * Get the validation rules that apply to the request.\n     */\n    public function rules(): array\n    {\n        return [\n            'record_id' => ['required', 'uuid', 'exists:records,id'],\n            'datetime' => ['nullable', 'date'],\n            'date' => ['nullable', 'date'],\n            'time' => ['nullable', 'date_format:H:i:s'],\n            'n_p_w_p' => ['nullable'],\n            'markdown_text' => ['nullable', 'string'],\n            'w_y_s_i_w_y_g' => ['nullable', 'string'],\n            'file' => ['file', 'max:1024', 'nullable'],\n            'image' => ['image', 'max:1024', 'nullable'],\n            'i_p_address' => ['nullable'],\n            'j_s_o_n_list' => ['nullable', 'string'],\n            'latitude' => ['nullable', 'numeric'],\n            'longitude' => ['nullable', 'numeric'],\n        ];\n    }\n}\n",
+                        "module": "crud:196",
+                        "path": "\\app\\Http\\Requests\\SubrecordStoreRequest.php"
+                    },
+                    "\\app\\Http\\Requests\\SubrecordUpdateRequest.php": {
+                        "deleteOnGeneration": true,
+                        "content": "<?php\n\nnamespace App\\Http\\Requests;\n\nuse Illuminate\\Foundation\\Http\\FormRequest;\n\nclass SubrecordUpdateRequest extends FormRequest\n{\n    /**\n     * Determine if the user is authorized to make this request.\n     */\n    public function authorize(): bool\n    {\n        return true;\n    }\n\n    /**\n     * Get the validation rules that apply to the request.\n     */\n    public function rules(): array\n    {\n        return [\n            'record_id' => ['required', 'uuid', 'exists:records,id'],\n            'datetime' => ['nullable', 'date'],\n            'date' => ['nullable', 'date'],\n            'time' => ['nullable', 'date_format:H:i:s'],\n            'n_p_w_p' => ['nullable'],\n            'markdown_text' => ['nullable', 'string'],\n            'w_y_s_i_w_y_g' => ['nullable', 'string'],\n            'file' => ['file', 'max:1024', 'nullable'],\n            'image' => ['image', 'max:1024', 'nullable'],\n            'i_p_address' => ['nullable'],\n            'j_s_o_n_list' => ['nullable', 'string'],\n            'latitude' => ['nullable', 'numeric'],\n            'longitude' => ['nullable', 'numeric'],\n        ];\n    }\n}\n",
+                        "module": "crud:196",
+                        "path": "\\app\\Http\\Requests\\SubrecordUpdateRequest.php"
                     }
                 },
                 "skippedFiles": {},
@@ -32840,7 +33572,7 @@
                 "usesVite": true,
                 "id": 12,
                 "createdAt": "2023-05-11 05:39:57",
-                "updatedAt": "2024-05-19 21:45:48"
+                "updatedAt": "2024-05-20 21:03:21"
             }
         },
         "manytomanycomponents": {},
@@ -32886,6 +33618,11 @@
         "Crud:191:hasManyDetails",
         "Crud:191:manyToManyDetails",
         "Crud:191:dependentSelects",
+        "Crud:196:inputs",
+        "Crud:196:manyToManyComponents",
+        "Crud:196:hasManyDetails",
+        "Crud:196:manyToManyDetails",
+        "Crud:196:dependentSelects",
         "Project:12:entities",
         "Entity:185:authProject",
         "Entity:185:cruds",
