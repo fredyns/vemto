@@ -40,21 +40,6 @@ class SubrecordController extends Controller
             $validated['image'] = $request->file('image')->store('public');
         }
 
-        $validated['j_s_o_n_list'] = json_decode(
-            $validated['j_s_o_n_list'],
-            true
-        );
-
-        $validated['j_s_o_n_list'] = json_decode(
-            $validated['j_s_o_n_list'],
-            true
-        );
-
-        $validated['j_s_o_n_list'] = json_decode(
-            $validated['j_s_o_n_list'],
-            true
-        );
-
         $subrecord = Subrecord::create($validated);
 
         return new SubrecordResource($subrecord);
@@ -94,21 +79,6 @@ class SubrecordController extends Controller
 
             $validated['image'] = $request->file('image')->store('public');
         }
-
-        $validated['j_s_o_n_list'] = json_decode(
-            $validated['j_s_o_n_list'],
-            true
-        );
-
-        $validated['j_s_o_n_list'] = json_decode(
-            $validated['j_s_o_n_list'],
-            true
-        );
-
-        $validated['j_s_o_n_list'] = json_decode(
-            $validated['j_s_o_n_list'],
-            true
-        );
 
         $subrecord->update($validated);
 
