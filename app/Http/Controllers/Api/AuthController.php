@@ -17,7 +17,7 @@ class AuthController extends Controller
     {
         $bearerToken = $request->bearerToken();
         $token = PersonalAccessToken::findToken($bearerToken);
-        if ($token) {
+        if ($token && !static::isTokenExpired($token->expires_at)) {
             return response()->json([
                 'token' => $bearerToken,
                 'message' => "Already logged in.",
@@ -42,6 +42,14 @@ class AuthController extends Controller
         return response()->json([
             'token' => $token->plainTextToken,
         ]);
+    }
+
+    private static function isTokenExpired($expiresAt)
+    {
+        if (empty($expiresAt)) return false;
+
+        $now = new \DateTime();
+        return ($expiresAt <= $now);
     }
 
     public function status(Request $request)
@@ -86,7 +94,7 @@ class AuthController extends Controller
     {
         $bearerToken = $request->bearerToken();
         $token = PersonalAccessToken::findToken($bearerToken);
-        if ($token) {
+        if ($token && !static::isTokenExpired($token->expires_at)) {
             return response()->json([
                 'token' => $bearerToken,
                 'message' => "Registration only allowed for guest.",
