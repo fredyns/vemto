@@ -74,6 +74,7 @@ class AuthController extends Controller
         }
 
         return [
+            'token' => $request->bearerToken(),
             'message' => $user ? "Authenticated." : "Unauthenticated.",
             'user' => $user,
             'menus' => $menus,
