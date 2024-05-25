@@ -108,15 +108,10 @@ class AuthController extends Controller
     {
         $bearerToken = $request->bearerToken();
         $segments = explode('|', $bearerToken);
-
-        if ($request->user()->tokens()->where('id', $segments[0] ?? 0)->delete()) {
-            $message = "Logout success";
-        } else {
-            $message = "Logout failed";
-        }
+        $success = $request->user()->tokens()->where('id', $segments[0] ?? 0)->delete();
 
         return response()->json([
-            'message' => $message,
+            'message' => $success ? "Logout success" : "Logout failed",
         ]);
     }
 }
