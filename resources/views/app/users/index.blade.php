@@ -106,26 +106,6 @@
                                                 <i class="icon ion-md-eye"></i>
                                             </button>
                                         </a>
-                                        @endcan @can('delete', $user)
-                                        <form
-                                            action="{{ route('users.destroy', $user) }}"
-                                            method="POST"
-                                            onsubmit="return confirm('{{ __('crud.common.are_you_sure') }}')"
-                                        >
-                                            @csrf @method('DELETE')
-                                            <button
-                                                type="submit"
-                                                class="button"
-                                            >
-                                                <i
-                                                    class="
-                                                        icon
-                                                        ion-md-trash
-                                                        text-red-600
-                                                    "
-                                                ></i>
-                                            </button>
-                                        </form>
                                         @endcan
                                     </div>
                                 </td>

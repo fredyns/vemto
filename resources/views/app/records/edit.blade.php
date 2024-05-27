@@ -6,23 +6,17 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <x-partials.card>
-                <x-slot name="title">
-                    <a href="{{ route('records.index') }}" class="mr-4"
-                        ><i class="mr-1 icon ion-md-arrow-back"></i
-                    ></a>
-                </x-slot>
+        <x-form
+            method="PUT"
+            action="{{ route('records.update', $record) }}"
+            has-files
+            class="mt-4"
+        >
+            @include('app.records.form-inputs')
 
-                <x-form
-                    method="PUT"
-                    action="{{ route('records.update', $record) }}"
-                    has-files
-                    class="mt-4"
-                >
-                    @include('app.records.form-inputs')
-
-                    <div class="mt-10">
+            <div class="max-w-7xl mx-auto py-3 sm:px-6 lg:px-8">
+                <x-partials.card>
+                    <div class="my-3">
                         <a href="{{ route('records.index') }}" class="button">
                             <i
                                 class="
@@ -35,9 +29,12 @@
                             @lang('crud.common.back')
                         </a>
 
-                        <a href="{{ route('records.create') }}" class="button">
-                            <i class="mr-1 icon ion-md-add text-primary"></i>
-                            @lang('crud.common.create')
+                        <a
+                            href="{{ route('records.show', $record) }}"
+                            class="button"
+                        >
+                            <i class="mr-1 icon ion-md-backspace text-primary"></i>
+                            @lang('crud.common.cancel')
                         </a>
 
                         <button
@@ -48,9 +45,12 @@
                             @lang('crud.common.update')
                         </button>
                     </div>
-                </x-form>
-            </x-partials.card>
+                </x-partials.card>
+            </div>
+        </x-form>
 
+        <div class="max-w-7xl mx-auto py-3 sm:px-6 lg:px-8">
+            <div class="display: none;"></div>
             @can('view-any', App\Models\Subrecord::class)
             <x-partials.card class="mt-5">
                 <x-slot name="title"> Subrecords </x-slot>

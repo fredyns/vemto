@@ -5,32 +5,37 @@
         </h2>
     </x-slot>
 
+    <style>
+        .trix-button--icon-link, .trix-button--icon-quote, .trix-button--icon-code, .trix-button--icon-attach {
+            display: none;
+        }
+    </style>
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <x-partials.card>
                 <x-slot name="title">
-                    <a href="{{ route('user-galleries.index') }}" class="mr-4"
-                        ><i class="mr-1 icon ion-md-arrow-back"></i
-                    ></a>
+                    <a href="{{ route('user-galleries.index') }}" class="mr-4">
+                        <i class="mr-1 icon ion-md-arrow-back"></i>
+                    </a>
                 </x-slot>
 
-                <div class="mt-4 px-4">
-                    <div class="mb-4">
+                <div class="flex flex-wrap mt-4 px-4">
+                    <div class="mb-4 w-full">
                         <h5 class="font-medium text-gray-700">
                             @lang('crud.user_galleries.inputs.user_id')
                         </h5>
-                        <span
-                            >{{ optional($userGallery->user)->name ?? '-'
-                            }}</span
-                        >
+                        <span>
+                            {{ optional($userGallery->user)->name ?? '-' }}
+                        </span>
                     </div>
-                    <div class="mb-4">
+                    <div class="mb-4 w-full">
                         <h5 class="font-medium text-gray-700">
                             @lang('crud.user_galleries.inputs.at')
                         </h5>
-                        <span>{{ $userGallery->at ?? '-' }}</span>
+                        <span> {{ $userGallery->at ?? '-' }} </span>
                     </div>
-                    <div class="mb-4">
+                    <div class="mb-4 w-full">
                         <h5 class="font-medium text-gray-700">
                             @lang('crud.user_galleries.inputs.file')
                         </h5>
@@ -39,25 +44,25 @@
                             size="150"
                         />
                     </div>
-                    <div class="mb-4">
+                    <div class="mb-4 w-full">
                         <h5 class="font-medium text-gray-700">
                             @lang('crud.user_galleries.inputs.name')
                         </h5>
-                        <span>{{ $userGallery->name ?? '-' }}</span>
+                        <span> {{ $userGallery->name ?? '-' }} </span>
                     </div>
-                    <div class="mb-4">
+                    <div class="mb-4 w-full">
                         <h5 class="font-medium text-gray-700">
                             @lang('crud.user_galleries.inputs.description')
                         </h5>
-                        <span>{{ $userGallery->description ?? '-' }}</span>
+                        <span> {{ $userGallery->description ?? '-' }} </span>
                     </div>
-                    <div class="mb-4">
+                    <div class="mb-4 w-full">
                         <h5 class="font-medium text-gray-700">
                             @lang('crud.user_galleries.inputs.type')
                         </h5>
-                        <span>{{ $userGallery->type ?? '-' }}</span>
+                        <span> {{ $userGallery->type ?? '-' }} </span>
                     </div>
-                    <div class="mb-4">
+                    <div class="mb-4 w-full">
                         <h5 class="font-medium text-gray-700">
                             @lang('crud.user_galleries.inputs.metadata')
                         </h5>
@@ -65,11 +70,11 @@
 {{ json_encode($userGallery->metadata) ?? '-' }}</pre
                         >
                     </div>
-                    <div class="mb-4">
+                    <div class="mb-4 w-full">
                         <h5 class="font-medium text-gray-700">
                             @lang('crud.user_galleries.inputs.thumbnail')
                         </h5>
-                        <span>{{ $userGallery->thumbnail ?? '-' }}</span>
+                        <span> {{ $userGallery->thumbnail ?? '-' }} </span>
                     </div>
                 </div>
 
@@ -82,14 +87,32 @@
                         @lang('crud.common.back')
                     </a>
 
-                    @can('create', App\Models\UserGallery::class)
+                    @can('update', $userGallery)
                     <a
-                        href="{{ route('user-galleries.create') }}"
+                        href="{{ route('user-galleries.edit', $userGallery) }}"
                         class="button"
                     >
-                        <i class="mr-1 icon ion-md-add"></i>
-                        @lang('crud.common.create')
+                        <i class="mr-1 icon ion-md-create"></i>
+                        @lang('crud.common.edit')
                     </a>
+                    @endcan @can('delete', $userGallery)
+                    <div class="float-right">
+                        <form
+                            action="{{ route('user-galleries.destroy', $userGallery) }}"
+                            method="POST"
+                            onsubmit="return confirm('{{ __('crud.common.are_you_sure') }}')"
+                        >
+                            @csrf @method('DELETE')
+                            <button type="submit" class="button">
+                                <i
+                                    class="mr-1 icon ion-md-trash text-red-600"
+                                ></i>
+                                <span class="text-red-600"
+                                    >@lang('crud.common.delete')</span
+                                >
+                            </button>
+                        </form>
+                    </div>
                     @endcan
                 </div>
             </x-partials.card>

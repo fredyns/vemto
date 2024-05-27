@@ -6,23 +6,17 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <x-partials.card>
-                <x-slot name="title">
-                    <a href="{{ route('user-galleries.index') }}" class="mr-4"
-                        ><i class="mr-1 icon ion-md-arrow-back"></i
-                    ></a>
-                </x-slot>
+        <x-form
+            method="PUT"
+            action="{{ route('user-galleries.update', $userGallery) }}"
+            has-files
+            class="mt-4"
+        >
+            @include('app.user_galleries.form-inputs')
 
-                <x-form
-                    method="PUT"
-                    action="{{ route('user-galleries.update', $userGallery) }}"
-                    has-files
-                    class="mt-4"
-                >
-                    @include('app.user_galleries.form-inputs')
-
-                    <div class="mt-10">
+            <div class="max-w-7xl mx-auto py-3 sm:px-6 lg:px-8">
+                <x-partials.card>
+                    <div class="my-3">
                         <a
                             href="{{ route('user-galleries.index') }}"
                             class="button"
@@ -39,11 +33,13 @@
                         </a>
 
                         <a
-                            href="{{ route('user-galleries.create') }}"
+                            href="{{ route('user-galleries.show', $userGallery) }}"
                             class="button"
                         >
-                            <i class="mr-1 icon ion-md-add text-primary"></i>
-                            @lang('crud.common.create')
+                            <i
+                                class="mr-1 icon ion-md-backspace text-primary"
+                            ></i>
+                            @lang('crud.common.cancel')
                         </a>
 
                         <button
@@ -54,8 +50,8 @@
                             @lang('crud.common.update')
                         </button>
                     </div>
-                </x-form>
-            </x-partials.card>
-        </div>
+                </x-partials.card>
+            </div>
+        </x-form>
     </div>
 </x-app-layout>
