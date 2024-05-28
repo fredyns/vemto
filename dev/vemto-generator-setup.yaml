@@ -20,7 +20,8 @@ modules:
 applications:
   users: all
   users activity logs: all
-  user uploads: all
-  user galleries: all
   records: all
   record sub records: all
+  user uploads: all
+  user galleries: all
+  sub records: requests,test,api

@@ -90,8 +90,9 @@ class UserUploadController extends Controller
      */
     public function update(
         UserUploadUpdateRequest $request,
-        UserUpload $userUpload
-    ): RedirectResponse {
+        UserUpload              $userUpload
+    ): RedirectResponse
+    {
         $this->authorize('update', $userUpload);
 
         $validated = $request->validated();
@@ -116,9 +117,10 @@ class UserUploadController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(
-        Request $request,
+        Request    $request,
         UserUpload $userUpload
-    ): RedirectResponse {
+    ): RedirectResponse
+    {
         $this->authorize('delete', $userUpload);
 
         if ($userUpload->file) {

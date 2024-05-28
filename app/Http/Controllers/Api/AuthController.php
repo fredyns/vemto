@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Actions\Fortify\CreateNewUser;
 use App\Models\User;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Validation\ValidationException;
+use App\Actions\Fortify\CreateNewUser;
 use Laravel\Sanctum\PersonalAccessToken;
+use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
@@ -46,10 +47,12 @@ class AuthController extends Controller
 
     private static function isTokenExpired($expiresAt)
     {
-        if (empty($expiresAt)) return false;
+        if (empty($expiresAt)) {
+            return false;
+        }
 
-        $now = new \DateTime();
-        return ($expiresAt <= $now);
+        $now = new DateTime();
+        return $expiresAt <= $now;
     }
 
     public function status(Request $request)
@@ -108,7 +111,11 @@ class AuthController extends Controller
     {
         $bearerToken = $request->bearerToken();
         $segments = explode('|', $bearerToken);
-        $success = $request->user()->tokens()->where('id', $segments[0] ?? 0)->delete();
+        $success = $request
+            ->user()
+            ->tokens()
+            ->where('id', $segments[0] ?? 0)
+            ->delete();
 
         return response()->json([
             'message' => $success ? "Logout success" : "Logout failed",

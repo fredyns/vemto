@@ -44,9 +44,10 @@ class UserUploadController extends Controller
     }
 
     public function show(
-        Request $request,
+        Request    $request,
         UserUpload $userUpload
-    ): UserUploadResource {
+    ): UserUploadResource
+    {
         $this->authorize('view', $userUpload);
 
         return new UserUploadResource($userUpload);
@@ -54,8 +55,9 @@ class UserUploadController extends Controller
 
     public function update(
         UserUploadUpdateRequest $request,
-        UserUpload $userUpload
-    ): UserUploadResource {
+        UserUpload              $userUpload
+    ): UserUploadResource
+    {
         $this->authorize('update', $userUpload);
 
         $validated = $request->validated();

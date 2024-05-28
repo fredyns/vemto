@@ -54,8 +54,9 @@ class RecordController extends Controller
 
     public function update(
         RecordUpdateRequest $request,
-        Record $record
-    ): RecordResource {
+        Record              $record
+    ): RecordResource
+    {
         $this->authorize('update', $record);
 
         $validated = $request->validated();

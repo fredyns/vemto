@@ -40,7 +40,7 @@
                             @lang('crud.user_galleries.inputs.file')
                         </h5>
                         <x-partials.thumbnail
-                            src="{{ $userGallery->file ? \Storage::url($userGallery->file) : '' }}"
+                            src="{{ $userGallery->file ? Storage::url($userGallery->file) : '' }}"
                             size="150"
                         />
                     </div>
@@ -67,8 +67,8 @@
                             @lang('crud.user_galleries.inputs.metadata')
                         </h5>
                         <pre>
-{{ json_encode($userGallery->metadata) ?? '-' }}</pre
-                        >
+                            {{ json_encode($userGallery->metadata) ?? '-' }}
+                        </pre>
                     </div>
                     <div class="mb-4 w-full">
                         <h5 class="font-medium text-gray-700">
@@ -88,31 +88,30 @@
                     </a>
 
                     @can('update', $userGallery)
-                    <a
-                        href="{{ route('user-galleries.edit', $userGallery) }}"
-                        class="button"
-                    >
-                        <i class="mr-1 icon ion-md-create"></i>
-                        @lang('crud.common.edit')
-                    </a>
-                    @endcan @can('delete', $userGallery)
-                    <div class="float-right">
-                        <form
-                            action="{{ route('user-galleries.destroy', $userGallery) }}"
-                            method="POST"
-                            onsubmit="return confirm('{{ __('crud.common.are_you_sure') }}')"
+                        <a
+                            href="{{ route('user-galleries.edit', $userGallery) }}"
+                            class="button"
                         >
-                            @csrf @method('DELETE')
-                            <button type="submit" class="button">
-                                <i
-                                    class="mr-1 icon ion-md-trash text-red-600"
-                                ></i>
-                                <span class="text-red-600"
-                                    >@lang('crud.common.delete')</span
-                                >
-                            </button>
-                        </form>
-                    </div>
+                            <i class="mr-1 icon ion-md-create"></i>
+                            @lang('crud.common.edit')
+                        </a>
+                    @endcan @can('delete', $userGallery)
+                        <div class="float-right">
+                            <form
+                                action="{{ route('user-galleries.destroy', $userGallery) }}"
+                                method="POST"
+                                onsubmit="return confirm('{{ __('crud.common.are_you_sure') }}')"
+                            >
+                                @csrf @method('DELETE')
+                                <button type="submit" class="button">
+                                    <i class="mr-1 icon ion-md-trash text-red-600">
+                                    </i>
+                                    <span class="text-red-600">
+                                    @lang('crud.common.delete')
+                                </span>
+                                </button>
+                            </form>
+                        </div>
                     @endcan
                 </div>
             </x-partials.card>

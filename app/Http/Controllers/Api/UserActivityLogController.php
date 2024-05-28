@@ -28,7 +28,8 @@ class UserActivityLogController extends Controller
 
     public function store(
         UserActivityLogStoreRequest $request
-    ): UserActivityLogResource {
+    ): UserActivityLogResource
+    {
         $this->authorize('create', UserActivityLog::class);
 
         $validated = $request->validated();
@@ -39,9 +40,10 @@ class UserActivityLogController extends Controller
     }
 
     public function show(
-        Request $request,
+        Request         $request,
         UserActivityLog $userActivityLog
-    ): UserActivityLogResource {
+    ): UserActivityLogResource
+    {
         $this->authorize('view', $userActivityLog);
 
         return new UserActivityLogResource($userActivityLog);
@@ -49,8 +51,9 @@ class UserActivityLogController extends Controller
 
     public function update(
         UserActivityLogUpdateRequest $request,
-        UserActivityLog $userActivityLog
-    ): UserActivityLogResource {
+        UserActivityLog              $userActivityLog
+    ): UserActivityLogResource
+    {
         $this->authorize('update', $userActivityLog);
 
         $validated = $request->validated();
@@ -61,9 +64,10 @@ class UserActivityLogController extends Controller
     }
 
     public function destroy(
-        Request $request,
+        Request         $request,
         UserActivityLog $userActivityLog
-    ): Response {
+    ): Response
+    {
         $this->authorize('delete', $userActivityLog);
 
         $userActivityLog->delete();

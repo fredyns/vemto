@@ -28,7 +28,7 @@
                     @php $selected = old('user_id', ($editing ? $userActivityLog->user_id : '')) @endphp
                     <option disabled {{ empty($selected) ? 'selected' : '' }}>Please select the User</option>
                     @foreach($users as $value => $label)
-                    <option value="{{ $value }}" {{ $selected == $value ? 'selected' : '' }} >{{ $label }}</option>
+                        <option value="{{ $value }}" {{ $selected == $value ? 'selected' : '' }} >{{ $label }}</option>
                     @endforeach
                 </x-inputs.select>
             </x-inputs.group>
@@ -48,18 +48,18 @@
                 <x-inputs.textarea
                     name="link"
                     label="{{ __('crud.user_activity_logs.inputs.link') }}"
-                    >{{ old('link', ($editing ? $userActivityLog->link : ''))
-                    }}</x-inputs.textarea
                 >
+                    {{ old('link', ($editing ? $userActivityLog->link : '')) }}
+                </x-inputs.textarea>
             </x-inputs.group>
 
             <x-inputs.group class="w-full">
                 <x-inputs.textarea
                     name="message"
                     label="{{ __('crud.user_activity_logs.inputs.message') }}"
-                    >{{ old('message', ($editing ? $userActivityLog->message :
-                    '')) }}</x-inputs.textarea
                 >
+                    {{ old('message', ($editing ? $userActivityLog->message : '')) }}
+                </x-inputs.textarea>
             </x-inputs.group>
 
             <x-inputs.group class="w-full">

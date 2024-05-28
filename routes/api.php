@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\RecordController;
@@ -12,8 +14,6 @@ use App\Http\Controllers\Api\UserActivityLogController;
 use App\Http\Controllers\Api\RecordSubrecordsController;
 use App\Http\Controllers\Api\UserUserGalleriesController;
 use App\Http\Controllers\Api\UserUserActivityLogsController;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +33,9 @@ Route::any('/', [AuthController::class, 'status'])->name('api.status');
 Route::post('login', [AuthController::class, 'login'])->name('api.login');
 
 // registration
-Route::post('registration', [AuthController::class, 'registration'])->name('api.registration');
+Route::post('registration', [AuthController::class, 'registration'])->name(
+    'api.registration'
+);
 
 Route::name('api.')
     ->middleware('auth:sanctum')
@@ -42,7 +44,9 @@ Route::name('api.')
         Route::get('user', fn(Request $req) => $req->user())->name('user');
 
         // logout
-        Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+        Route::post('logout', [AuthController::class, 'logout'])->name(
+            'logout'
+        );
 
         Route::apiResource('users', UserController::class);
 

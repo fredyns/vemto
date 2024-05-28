@@ -33,13 +33,13 @@
                         </div>
                         <div class="md:w-1/2 text-right">
                             @can('create', App\Models\UserGallery::class)
-                            <a
-                                href="{{ route('user-galleries.create') }}"
-                                class="button button-primary"
-                            >
-                                <i class="mr-1 icon ion-md-add"></i>
-                                @lang('crud.common.create')
-                            </a>
+                                <a
+                                    href="{{ route('user-galleries.create') }}"
+                                    class="button button-primary"
+                                >
+                                    <i class="mr-1 icon ion-md-add"></i>
+                                    @lang('crud.common.create')
+                                </a>
                             @endcan
                         </div>
                     </div>
@@ -48,36 +48,36 @@
                 <div class="block w-full overflow-auto scrolling-touch">
                     <table class="w-full max-w-full mb-4 bg-transparent">
                         <thead class="text-gray-700">
-                            <tr>
-                                <th class="px-4 py-3 text-left">
-                                    @lang('crud.user_galleries.inputs.user_id')
-                                </th>
-                                <th class="px-4 py-3 text-left">
-                                    @lang('crud.user_galleries.inputs.at')
-                                </th>
-                                <th class="px-4 py-3 text-left">
-                                    @lang('crud.user_galleries.inputs.file')
-                                </th>
-                                <th class="px-4 py-3 text-left">
-                                    @lang('crud.user_galleries.inputs.name')
-                                </th>
-                                <th class="px-4 py-3 text-left">
-                                    @lang('crud.user_galleries.inputs.description')
-                                </th>
-                                <th class="px-4 py-3 text-left">
-                                    @lang('crud.user_galleries.inputs.type')
-                                </th>
-                                <th class="px-4 py-3 text-left">
-                                    @lang('crud.user_galleries.inputs.metadata')
-                                </th>
-                                <th class="px-4 py-3 text-left">
-                                    @lang('crud.user_galleries.inputs.thumbnail')
-                                </th>
-                                <th></th>
-                            </tr>
+                        <tr>
+                            <th class="px-4 py-3 text-left">
+                                @lang('crud.user_galleries.inputs.user_id')
+                            </th>
+                            <th class="px-4 py-3 text-left">
+                                @lang('crud.user_galleries.inputs.at')
+                            </th>
+                            <th class="px-4 py-3 text-left">
+                                @lang('crud.user_galleries.inputs.file')
+                            </th>
+                            <th class="px-4 py-3 text-left">
+                                @lang('crud.user_galleries.inputs.name')
+                            </th>
+                            <th class="px-4 py-3 text-left">
+                                @lang('crud.user_galleries.inputs.description')
+                            </th>
+                            <th class="px-4 py-3 text-left">
+                                @lang('crud.user_galleries.inputs.type')
+                            </th>
+                            <th class="px-4 py-3 text-left">
+                                @lang('crud.user_galleries.inputs.metadata')
+                            </th>
+                            <th class="px-4 py-3 text-left">
+                                @lang('crud.user_galleries.inputs.thumbnail')
+                            </th>
+                            <th></th>
+                        </tr>
                         </thead>
                         <tbody class="text-gray-600">
-                            @forelse($userGalleries as $userGallery)
+                        @forelse($userGalleries as $userGallery)
                             <tr class="hover:bg-gray-50">
                                 <td class="px-4 py-3 text-left">
                                     {{ optional($userGallery->user)->name ?? '-'
@@ -88,7 +88,7 @@
                                 </td>
                                 <td class="px-4 py-3 text-left">
                                     <x-partials.thumbnail
-                                        src="{{ $userGallery->file ? \Storage::url($userGallery->file) : '' }}"
+                                        src="{{ $userGallery->file ? Storage::url($userGallery->file) : '' }}"
                                     />
                                 </td>
                                 <td class="px-4 py-3 text-left">
@@ -122,51 +122,51 @@
                                         "
                                     >
                                         @can('update', $userGallery)
-                                        <a
-                                            href="{{ route('user-galleries.edit', $userGallery) }}"
-                                            class="mr-1"
-                                        >
-                                            <button
-                                                type="button"
-                                                class="button"
+                                            <a
+                                                href="{{ route('user-galleries.edit', $userGallery) }}"
+                                                class="mr-1"
                                             >
-                                                <i
-                                                    class="icon ion-md-create"
-                                                ></i>
-                                            </button>
-                                        </a>
+                                                <button
+                                                    type="button"
+                                                    class="button"
+                                                >
+                                                    <i
+                                                        class="icon ion-md-create"
+                                                    ></i>
+                                                </button>
+                                            </a>
                                         @endcan @can('view', $userGallery)
-                                        <a
-                                            href="{{ route('user-galleries.show', $userGallery) }}"
-                                            class="mr-1"
-                                        >
-                                            <button
-                                                type="button"
-                                                class="button"
+                                            <a
+                                                href="{{ route('user-galleries.show', $userGallery) }}"
+                                                class="mr-1"
                                             >
-                                                <i class="icon ion-md-eye"></i>
-                                            </button>
-                                        </a>
+                                                <button
+                                                    type="button"
+                                                    class="button"
+                                                >
+                                                    <i class="icon ion-md-eye"></i>
+                                                </button>
+                                            </a>
                                         @endcan
                                     </div>
                                 </td>
                             </tr>
-                            @empty
+                        @empty
                             <tr>
                                 <td colspan="9">
                                     @lang('crud.common.no_items_found')
                                 </td>
                             </tr>
-                            @endforelse
+                        @endforelse
                         </tbody>
                         <tfoot>
-                            <tr>
-                                <td colspan="9">
-                                    <div class="mt-10 px-4">
-                                        {!! $userGalleries->render() !!}
-                                    </div>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td colspan="9">
+                                <div class="mt-10 px-4">
+                                    {!! $userGalleries->render() !!}
+                                </div>
+                            </td>
+                        </tr>
                         </tfoot>
                     </table>
                 </div>

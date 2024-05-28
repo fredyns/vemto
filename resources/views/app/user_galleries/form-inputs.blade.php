@@ -19,7 +19,7 @@
                     @php $selected = old('user_id', ($editing ? $userGallery->user_id : '')) @endphp
                     <option disabled {{ empty($selected) ? 'selected' : '' }}>Please select the User</option>
                     @foreach($users as $value => $label)
-                    <option value="{{ $value }}" {{ $selected == $value ? 'selected' : '' }} >{{ $label }}</option>
+                        <option value="{{ $value }}" {{ $selected == $value ? 'selected' : '' }} >{{ $label }}</option>
                     @endforeach
                 </x-inputs.select>
             </x-inputs.group>
@@ -36,13 +36,13 @@
 
             <x-inputs.group class="w-full">
                 <div
-                    x-data="imageViewer('{{ $editing && $userGallery->file ? \Storage::url($userGallery->file) : '' }}')"
+                    x-data="imageViewer('{{ $editing && $userGallery->file ? Storage::url($userGallery->file) : '' }}')"
                 >
                     <x-inputs.partials.label
                         name="file"
                         label="{{ __('crud.user_galleries.inputs.file') }}"
                     ></x-inputs.partials.label>
-                    <br />
+                    <br/>
 
                     <!-- Show the image -->
                     <template x-if="imageUrl">
@@ -90,9 +90,9 @@
                     name="description"
                     label="{{ __('crud.user_galleries.inputs.description') }}"
                     maxlength="255"
-                    >{{ old('description', ($editing ? $userGallery->description
-                    : '')) }}</x-inputs.textarea
                 >
+                    {{ old('description', ($editing ? $userGallery->description : '')) }}
+                </x-inputs.textarea>
             </x-inputs.group>
 
             <x-inputs.group class="w-full">
@@ -110,10 +110,9 @@
                     name="metadata"
                     label="{{ __('crud.user_galleries.inputs.metadata') }}"
                     maxlength="255"
-                    >{{ old('metadata', ($editing ?
-                    json_encode($userGallery->metadata) : ''))
-                    }}</x-inputs.textarea
                 >
+                    {{ old('metadata', ($editing ? json_encode($userGallery->metadata) : '')) }}
+                </x-inputs.textarea>
             </x-inputs.group>
 
             <x-inputs.group class="w-full">
@@ -121,9 +120,9 @@
                     name="thumbnail"
                     label="{{ __('crud.user_galleries.inputs.thumbnail') }}"
                     maxlength="255"
-                    >{{ old('thumbnail', ($editing ? $userGallery->thumbnail :
-                    '')) }}</x-inputs.textarea
                 >
+                    {{ old('thumbnail', ($editing ? $userGallery->thumbnail : '')) }}
+                </x-inputs.textarea>
             </x-inputs.group>
         </div>
     </x-partials.card>

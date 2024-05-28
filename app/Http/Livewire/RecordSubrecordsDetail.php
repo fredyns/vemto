@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Record;
+use Carbon\Carbon;
 use Livewire\Component;
 use Illuminate\View\View;
 use App\Models\Subrecord;
@@ -42,9 +43,7 @@ class RecordSubrecordsDetail extends Component
         'subrecordFile' => ['file', 'max:1024', 'nullable'],
         'subrecordImage' => ['image', 'max:1024', 'nullable'],
         'subrecord.i_p_address' => ['nullable', 'max:255'],
-        'subrecord.j_s_o_n_list' => ['nullable'],
-        'subrecord.j_s_o_n_list' => ['nullable'],
-        'subrecord.j_s_o_n_list' => ['nullable'],
+        'subrecord.j_s_o_n_list.*' => ['nullable', 'string'],
         'subrecord.latitude' => ['nullable', 'numeric'],
         'subrecord.longitude' => ['nullable', 'numeric'],
     ];
@@ -140,10 +139,10 @@ class RecordSubrecordsDetail extends Component
             true
         );
 
-        $this->subrecord->datetime = \Carbon\Carbon::make(
+        $this->subrecord->datetime = Carbon::make(
             $this->subrecordDatetime
         );
-        $this->subrecord->date = \Carbon\Carbon::make($this->subrecordDate);
+        $this->subrecord->date = Carbon::make($this->subrecordDate);
 
         $this->subrecord->save();
 
@@ -191,7 +190,7 @@ class RecordSubrecordsDetail extends Component
     public function render(): View
     {
         return view('livewire.record-subrecords-detail', [
-            'subrecords' => $this->record->subrecords()->paginate(20),
+            'subrecords' => $this->record->subrecords()->paginate(100),
         ]);
     }
 }

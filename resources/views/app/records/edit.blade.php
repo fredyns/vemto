@@ -33,7 +33,8 @@
                             href="{{ route('records.show', $record) }}"
                             class="button"
                         >
-                            <i class="mr-1 icon ion-md-backspace text-primary"></i>
+                            <i class="mr-1 icon ion-md-backspace text-primary">
+                            </i>
                             @lang('crud.common.cancel')
                         </a>
 
@@ -52,11 +53,11 @@
         <div class="max-w-7xl mx-auto py-3 sm:px-6 lg:px-8">
             <div class="display: none;"></div>
             @can('view-any', App\Models\Subrecord::class)
-            <x-partials.card class="mt-5">
-                <x-slot name="title"> Subrecords </x-slot>
+                <x-partials.card class="mt-5">
+                    <x-slot name="title"> Subrecords</x-slot>
 
-                <livewire:record-subrecords-detail :record="$record" />
-            </x-partials.card>
+                    <livewire:record-subrecords-detail :record="$record"/>
+                </x-partials.card>
             @endcan
         </div>
     </div>

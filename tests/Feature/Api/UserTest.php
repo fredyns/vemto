@@ -4,6 +4,7 @@ namespace Tests\Feature\Api;
 
 use App\Models\User;
 
+use Str;
 use Tests\TestCase;
 use Laravel\Sanctum\Sanctum;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -46,7 +47,7 @@ class UserTest extends TestCase
         $data = User::factory()
             ->make()
             ->toArray();
-        $data['password'] = \Str::random('8');
+        $data['password'] = Str::random('8');
 
         $response = $this->postJson(route('api.users.store'), $data);
 
@@ -75,7 +76,7 @@ class UserTest extends TestCase
             'email' => $this->faker->unique->email(),
         ];
 
-        $data['password'] = \Str::random('8');
+        $data['password'] = Str::random('8');
 
         $response = $this->putJson(route('api.users.update', $user), $data);
 

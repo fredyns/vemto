@@ -52,8 +52,6 @@ class SubrecordTest extends TestCase
 
         $response = $this->postJson(route('api.subrecords.store'), $data);
 
-        unset($data['record_id']);
-
         $this->assertDatabaseHas('subrecords', $data);
 
         $response->assertStatus(201)->assertJsonFragment($data);
@@ -88,8 +86,6 @@ class SubrecordTest extends TestCase
             route('api.subrecords.update', $subrecord),
             $data
         );
-
-        unset($data['record_id']);
 
         $data['id'] = $subrecord->id;
 

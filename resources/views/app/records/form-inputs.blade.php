@@ -18,7 +18,7 @@
                     @php $selected = old('user_id', ($editing ? $record->user_id : '')) @endphp
                     <option disabled {{ empty($selected) ? 'selected' : '' }}>Please select the User</option>
                     @foreach($users as $value => $label)
-                    <option value="{{ $value }}" {{ $selected == $value ? 'selected' : '' }} >{{ $label }}</option>
+                        <option value="{{ $value }}" {{ $selected == $value ? 'selected' : '' }} >{{ $label }}</option>
                     @endforeach
                 </x-inputs.select>
             </x-inputs.group>
@@ -137,9 +137,9 @@
                     name="text"
                     label="{{ __('crud.records.inputs.text') }}"
                     maxlength="255"
-                    >{{ old('text', ($editing ? $record->text : ''))
-                    }}</x-inputs.textarea
                 >
+                    {{ old('text', ($editing ? $record->text : '')) }}
+                </x-inputs.textarea>
             </x-inputs.group>
 
             <x-inputs.group class="w-full">
@@ -147,7 +147,7 @@
                     name="file"
                     label="{{ __('crud.records.inputs.file') }}"
                 ></x-inputs.partials.label>
-                <br />
+                <br/>
 
                 <input
                     type="file"
@@ -157,24 +157,28 @@
                 />
 
                 @if($editing && $record->file)
-                <div class="mt-2">
-                    <a href="{{ \Storage::url($record->file) }}" target="_blank">
-                        <i class="icon ion-md-download"></i>&nbsp;Download
-                    </a>
-                </div>
+                    <div class="mt-2">
+                        <a
+                            href="{{ Storage::url($record->file) }}"
+                            target="_blank"
+                        >
+                            <i class="icon ion-md-download"></i>
+                            Download
+                        </a>
+                    </div>
                 @endif @error('file')
                 @include('components.inputs.partials.error') @enderror
             </x-inputs.group>
 
             <x-inputs.group class="w-full">
                 <div
-                    x-data="imageViewer('{{ $editing && $record->image ? \Storage::url($record->image) : '' }}')"
+                    x-data="imageViewer('{{ $editing && $record->image ? Storage::url($record->image) : '' }}')"
                 >
                     <x-inputs.partials.label
                         name="image"
                         label="{{ __('crud.records.inputs.image') }}"
                     ></x-inputs.partials.label>
-                    <br />
+                    <br/>
 
                     <!-- Show the image -->
                     <template x-if="imageUrl">

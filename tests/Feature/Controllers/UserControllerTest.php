@@ -4,6 +4,7 @@ namespace Tests\Feature\Controllers;
 
 use App\Models\User;
 
+use Str;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -58,7 +59,7 @@ class UserControllerTest extends TestCase
         $data = User::factory()
             ->make()
             ->toArray();
-        $data['password'] = \Str::random('8');
+        $data['password'] = Str::random('8');
 
         $response = $this->post(route('users.store'), $data);
 
@@ -117,7 +118,7 @@ class UserControllerTest extends TestCase
             'email' => $this->faker->unique->email(),
         ];
 
-        $data['password'] = \Str::random('8');
+        $data['password'] = Str::random('8');
 
         $response = $this->put(route('users.update', $user), $data);
 

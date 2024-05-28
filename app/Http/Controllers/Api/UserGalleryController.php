@@ -44,9 +44,10 @@ class UserGalleryController extends Controller
     }
 
     public function show(
-        Request $request,
+        Request     $request,
         UserGallery $userGallery
-    ): UserGalleryResource {
+    ): UserGalleryResource
+    {
         $this->authorize('view', $userGallery);
 
         return new UserGalleryResource($userGallery);
@@ -54,8 +55,9 @@ class UserGalleryController extends Controller
 
     public function update(
         UserGalleryUpdateRequest $request,
-        UserGallery $userGallery
-    ): UserGalleryResource {
+        UserGallery              $userGallery
+    ): UserGalleryResource
+    {
         $this->authorize('update', $userGallery);
 
         $validated = $request->validated();
@@ -76,9 +78,10 @@ class UserGalleryController extends Controller
     }
 
     public function destroy(
-        Request $request,
+        Request     $request,
         UserGallery $userGallery
-    ): Response {
+    ): Response
+    {
         $this->authorize('delete', $userGallery);
 
         if ($userGallery->file) {

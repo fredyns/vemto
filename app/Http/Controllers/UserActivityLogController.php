@@ -49,7 +49,8 @@ class UserActivityLogController extends Controller
      */
     public function store(
         UserActivityLogStoreRequest $request
-    ): RedirectResponse {
+    ): RedirectResponse
+    {
         $this->authorize('create', UserActivityLog::class);
 
         $validated = $request->validated();
@@ -65,9 +66,10 @@ class UserActivityLogController extends Controller
      * Display the specified resource.
      */
     public function show(
-        Request $request,
+        Request         $request,
         UserActivityLog $userActivityLog
-    ): View {
+    ): View
+    {
         $this->authorize('view', $userActivityLog);
 
         return view('app.user_activity_logs.show', compact('userActivityLog'));
@@ -77,9 +79,10 @@ class UserActivityLogController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(
-        Request $request,
+        Request         $request,
         UserActivityLog $userActivityLog
-    ): View {
+    ): View
+    {
         $this->authorize('update', $userActivityLog);
 
         $users = User::pluck('name', 'id');
@@ -95,8 +98,9 @@ class UserActivityLogController extends Controller
      */
     public function update(
         UserActivityLogUpdateRequest $request,
-        UserActivityLog $userActivityLog
-    ): RedirectResponse {
+        UserActivityLog              $userActivityLog
+    ): RedirectResponse
+    {
         $this->authorize('update', $userActivityLog);
 
         $validated = $request->validated();
@@ -112,9 +116,10 @@ class UserActivityLogController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(
-        Request $request,
+        Request         $request,
         UserActivityLog $userActivityLog
-    ): RedirectResponse {
+    ): RedirectResponse
+    {
         $this->authorize('delete', $userActivityLog);
 
         $userActivityLog->delete();

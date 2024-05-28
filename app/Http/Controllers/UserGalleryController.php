@@ -93,8 +93,9 @@ class UserGalleryController extends Controller
      */
     public function update(
         UserGalleryUpdateRequest $request,
-        UserGallery $userGallery
-    ): RedirectResponse {
+        UserGallery              $userGallery
+    ): RedirectResponse
+    {
         $this->authorize('update', $userGallery);
 
         $validated = $request->validated();
@@ -119,9 +120,10 @@ class UserGalleryController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(
-        Request $request,
+        Request     $request,
         UserGallery $userGallery
-    ): RedirectResponse {
+    ): RedirectResponse
+    {
         $this->authorize('delete', $userGallery);
 
         if ($userGallery->file) {

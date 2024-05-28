@@ -62,8 +62,6 @@ class RecordSubrecordsTest extends TestCase
             $data
         );
 
-        unset($data['record_id']);
-
         $this->assertDatabaseHas('subrecords', $data);
 
         $response->assertStatus(201)->assertJsonFragment($data);

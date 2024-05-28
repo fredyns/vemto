@@ -92,8 +92,9 @@ class RecordController extends Controller
      */
     public function update(
         RecordUpdateRequest $request,
-        Record $record
-    ): RedirectResponse {
+        Record              $record
+    ): RedirectResponse
+    {
         $this->authorize('update', $record);
 
         $validated = $request->validated();

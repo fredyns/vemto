@@ -106,21 +106,23 @@
                             @lang('crud.records.inputs.file')
                         </h5>
                         @if($record->file)
-                        <a
-                            href="{{ \Storage::url($record->file) }}"
-                            target="blank"
-                        >
-                            <i class="mr-1 icon ion-md-download"></i>
-                            Download
-                        </a>
-                        @else - @endif
+                            <a
+                                href="{{ Storage::url($record->file) }}"
+                                target="blank"
+                            >
+                                <i class="mr-1 icon ion-md-download"></i>
+                                Download
+                            </a>
+                        @else
+                            -
+                        @endif
                     </div>
                     <div class="mb-4 w-full">
                         <h5 class="font-medium text-gray-700">
                             @lang('crud.records.inputs.image')
                         </h5>
                         <x-partials.thumbnail
-                            src="{{ $record->image ? \Storage::url($record->image) : '' }}"
+                            src="{{ $record->image ? Storage::url($record->image) : '' }}"
                             size="150"
                         />
                     </div>
@@ -141,8 +143,8 @@
                             @lang('crud.records.inputs.j_s_o_n_list')
                         </h5>
                         <pre>
-{{ json_encode($record->j_s_o_n_list) ?? '-' }}</pre
-                        >
+                            {{ json_encode($record->j_s_o_n_list) ?? '-' }}
+                        </pre>
                     </div>
                     <div class="mb-4 w-full">
                         <h5 class="font-medium text-gray-700">
@@ -165,44 +167,43 @@
                     </a>
 
                     @can('update', $record)
-                    <a
-                        href="{{ route('records.edit', $record) }}"
-                        class="button"
-                    >
-                        <i class="mr-1 icon ion-md-create"></i>
-                        @lang('crud.common.edit')
-                    </a>
-                    @endcan @can('delete', $record)
-                    <div class="float-right">
-                        <form
-                            action="{{ route('records.destroy', $record) }}"
-                            method="POST"
-                            onsubmit="return confirm('{{ __('crud.common.are_you_sure') }}')"
+                        <a
+                            href="{{ route('records.edit', $record) }}"
+                            class="button"
                         >
-                            @csrf @method('DELETE')
-                            <button type="submit" class="button">
-                                <i
-                                    class="mr-1 icon ion-md-trash text-red-600"
-                                ></i>
-                                <span class="text-red-600"
-                                    >@lang('crud.common.delete')</span
-                                >
-                            </button>
-                        </form>
-                    </div>
+                            <i class="mr-1 icon ion-md-create"></i>
+                            @lang('crud.common.edit')
+                        </a>
+                    @endcan @can('delete', $record)
+                        <div class="float-right">
+                            <form
+                                action="{{ route('records.destroy', $record) }}"
+                                method="POST"
+                                onsubmit="return confirm('{{ __('crud.common.are_you_sure') }}')"
+                            >
+                                @csrf @method('DELETE')
+                                <button type="submit" class="button">
+                                    <i class="mr-1 icon ion-md-trash text-red-600">
+                                    </i>
+                                    <span class="text-red-600">
+                                    @lang('crud.common.delete')
+                                </span>
+                                </button>
+                            </form>
+                        </div>
                     @endcan
                 </div>
             </x-partials.card>
 
             <div class="display: none;"></div>
             @can('view-any', App\Models\Subrecord::class)
-            <x-partials.card class="mt-5">
-                <x-slot name="title">
-                    @lang('crud.record_subrecords.name')
-                </x-slot>
+                <x-partials.card class="mt-5">
+                    <x-slot name="title">
+                        @lang('crud.record_subrecords.name')
+                    </x-slot>
 
-                <livewire:record-subrecords-detail :record="$record" />
-            </x-partials.card>
+                    <livewire:record-subrecords-detail :record="$record"/>
+                </x-partials.card>
             @endcan
         </div>
     </div>

@@ -5,6 +5,8 @@ namespace Tests\Feature\Controllers;
 use App\Models\User;
 use App\Models\UserGallery;
 
+use DB;
+use Exception;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -29,12 +31,12 @@ class UserGalleryControllerTest extends TestCase
         if (is_array($json)) {
             $json = addslashes(json_encode($json));
         } elseif (is_null($json) || is_null(json_decode($json))) {
-            throw new \Exception(
+            throw new Exception(
                 'A valid JSON string was not provided for casting.'
             );
         }
 
-        return \DB::raw("CAST('{$json}' AS JSON)");
+        return DB::raw("CAST('{$json}' AS JSON)");
     }
 
     /**

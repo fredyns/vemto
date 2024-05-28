@@ -35,9 +35,8 @@
                             href="{{ route('user-activity-logs.show', $userActivityLog) }}"
                             class="button"
                         >
-                            <i
-                                class="mr-1 icon ion-md-backspace text-primary"
-                            ></i>
+                            <i class="mr-1 icon ion-md-backspace text-primary">
+                            </i>
                             @lang('crud.common.cancel')
                         </a>
 

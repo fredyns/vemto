@@ -82,8 +82,9 @@ class UserController extends Controller
      */
     public function update(
         UserUpdateRequest $request,
-        User $user
-    ): RedirectResponse {
+        User              $user
+    ): RedirectResponse
+    {
         $this->authorize('update', $user);
 
         $validated = $request->validated();
