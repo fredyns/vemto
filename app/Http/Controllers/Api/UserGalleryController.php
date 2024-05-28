@@ -36,6 +36,12 @@ class UserGalleryController extends Controller
             $validated['file'] = $request->file('file')->store('public');
         }
 
+        if ($request->hasFile('thumbnail')) {
+            $validated['thumbnail'] = $request
+                ->file('thumbnail')
+                ->store('public');
+        }
+
         $validated['metadata'] = json_decode($validated['metadata'], true);
 
         $userGallery = UserGallery::create($validated);
@@ -70,6 +76,16 @@ class UserGalleryController extends Controller
             $validated['file'] = $request->file('file')->store('public');
         }
 
+        if ($request->hasFile('thumbnail')) {
+            if ($userGallery->thumbnail) {
+                Storage::delete($userGallery->thumbnail);
+            }
+
+            $validated['thumbnail'] = $request
+                ->file('thumbnail')
+                ->store('public');
+        }
+
         $validated['metadata'] = json_decode($validated['metadata'], true);
 
         $userGallery->update($validated);
@@ -86,6 +102,10 @@ class UserGalleryController extends Controller
 
         if ($userGallery->file) {
             Storage::delete($userGallery->file);
+        }
+
+        if ($userGallery->thumbnail) {
+            Storage::delete($userGallery->thumbnail);
         }
 
         $userGallery->delete();
