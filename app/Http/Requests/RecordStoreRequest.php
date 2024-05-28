@@ -29,7 +29,7 @@ class RecordStoreRequest extends FormRequest
             'datetime' => ['nullable', 'date'],
             'date' => ['nullable', 'date'],
             'time' => ['nullable', 'date_format:H:i'],
-            'i_p_address' => ['nullable', 'max:255'],
+            'i_p_address' => ['nullable', 'ip'],
             'bool' => ['nullable', 'boolean'],
             'enum' => ['nullable', 'in:enabled,disabled'],
             'text' => ['nullable', 'string'],

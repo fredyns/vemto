@@ -25,7 +25,7 @@ class UserActivityLogStoreRequest extends FormRequest
             'title' => ['required', 'max:255', 'string'],
             'link' => ['nullable', 'string', 'url'],
             'message' => ['nullable', 'string'],
-            'i_p_address' => ['nullable', 'max:255'],
+            'i_p_address' => ['nullable', 'ip'],
         ];
     }
 }
