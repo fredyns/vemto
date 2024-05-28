@@ -27,7 +27,7 @@ class UserGalleryUpdateRequest extends FormRequest
             'description' => ['nullable', 'string'],
             'type' => ['nullable', 'max:255', 'string'],
             'metadata' => ['nullable', 'json'],
-            'thumbnail' => ['nullable', 'string'],
+            'thumbnail' => ['image', 'max:1024', 'nullable'],
         ];
     }
 }
