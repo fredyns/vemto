@@ -59,18 +59,6 @@
                                 @lang('crud.user_galleries.inputs.file')
                             </th>
                             <th class="px-4 py-3 text-left">
-                                @lang('crud.user_galleries.inputs.name')
-                            </th>
-                            <th class="px-4 py-3 text-left">
-                                @lang('crud.user_galleries.inputs.description')
-                            </th>
-                            <th class="px-4 py-3 text-left">
-                                @lang('crud.user_galleries.inputs.type')
-                            </th>
-                            <th class="px-4 py-3 text-left">
-                                @lang('crud.user_galleries.inputs.metadata')
-                            </th>
-                            <th class="px-4 py-3 text-left">
                                 @lang('crud.user_galleries.inputs.thumbnail')
                             </th>
                             <th></th>
@@ -92,21 +80,9 @@
                                     />
                                 </td>
                                 <td class="px-4 py-3 text-left">
-                                    {{ $userGallery->name ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $userGallery->description ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $userGallery->type ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-right">
-                                    <pre>
-{{ json_encode($userGallery->metadata) ?? '-' }}</pre
-                                    >
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $userGallery->thumbnail ?? '-' }}
+                                    <x-partials.thumbnail
+                                        src="{{ $userGallery->thumbnail ? Storage::url($userGallery->thumbnail) : '' }}"
+                                    />
                                 </td>
                                 <td
                                     class="px-4 py-3 text-center"
@@ -153,7 +129,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="9">
+                                <td colspan="5">
                                     @lang('crud.common.no_items_found')
                                 </td>
                             </tr>
@@ -161,7 +137,7 @@
                         </tbody>
                         <tfoot>
                         <tr>
-                            <td colspan="9">
+                            <td colspan="5">
                                 <div class="mt-10 px-4">
                                     {!! $userGalleries->render() !!}
                                 </div>

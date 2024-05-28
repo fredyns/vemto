@@ -58,18 +58,6 @@
                             <th class="px-4 py-3 text-left">
                                 @lang('crud.user_uploads.inputs.file')
                             </th>
-                            <th class="px-4 py-3 text-left">
-                                @lang('crud.user_uploads.inputs.name')
-                            </th>
-                            <th class="px-4 py-3 text-left">
-                                @lang('crud.user_uploads.inputs.description')
-                            </th>
-                            <th class="px-4 py-3 text-left">
-                                @lang('crud.user_uploads.inputs.type')
-                            </th>
-                            <th class="px-4 py-3 text-left">
-                                @lang('crud.user_uploads.inputs.metadata')
-                            </th>
                             <th></th>
                         </tr>
                         </thead>
@@ -96,20 +84,6 @@
                                     @else
                                         -
                                     @endif
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $userUpload->name ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $userUpload->description ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $userUpload->type ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-right">
-                                    <pre>
-{{ json_encode($userUpload->metadata) ?? '-' }}</pre
-                                    >
                                 </td>
                                 <td
                                     class="px-4 py-3 text-center"
@@ -156,7 +130,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="8">
+                                <td colspan="4">
                                     @lang('crud.common.no_items_found')
                                 </td>
                             </tr>
@@ -164,7 +138,7 @@
                         </tbody>
                         <tfoot>
                         <tr>
-                            <td colspan="8">
+                            <td colspan="4">
                                 <div class="mt-10 px-4">
                                     {!! $userUploads->render() !!}
                                 </div>

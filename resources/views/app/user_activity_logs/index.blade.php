@@ -59,12 +59,6 @@
                                 @lang('crud.user_activity_logs.inputs.title')
                             </th>
                             <th class="px-4 py-3 text-left">
-                                @lang('crud.user_activity_logs.inputs.link')
-                            </th>
-                            <th class="px-4 py-3 text-left">
-                                @lang('crud.user_activity_logs.inputs.message')
-                            </th>
-                            <th class="px-4 py-3 text-left">
                                 @lang('crud.user_activity_logs.inputs.i_p_address')
                             </th>
                             <th></th>
@@ -82,12 +76,6 @@
                                 </td>
                                 <td class="px-4 py-3 text-left">
                                     {{ $userActivityLog->title ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $userActivityLog->link ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $userActivityLog->message ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
                                     {{ $userActivityLog->i_p_address ?? '-' }}
@@ -137,7 +125,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="7">
+                                <td colspan="5">
                                     @lang('crud.common.no_items_found')
                                 </td>
                             </tr>
@@ -145,7 +133,7 @@
                         </tbody>
                         <tfoot>
                         <tr>
-                            <td colspan="7">
+                            <td colspan="5">
                                 <div class="mt-10 px-4">
                                     {!! $userActivityLogs->render() !!}
                                 </div>

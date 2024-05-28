@@ -55,65 +55,14 @@
                             <th class="px-4 py-3 text-left">
                                 @lang('crud.records.inputs.string')
                             </th>
-                            <th class="px-4 py-3 text-left">
-                                @lang('crud.records.inputs.email')
-                            </th>
                             <th class="px-4 py-3 text-right">
                                 @lang('crud.records.inputs.integer')
-                            </th>
-                            <th class="px-4 py-3 text-right">
-                                @lang('crud.records.inputs.decimal')
                             </th>
                             <th class="px-4 py-3 text-left">
                                 @lang('crud.records.inputs.n_p_w_p')
                             </th>
                             <th class="px-4 py-3 text-left">
                                 @lang('crud.records.inputs.datetime')
-                            </th>
-                            <th class="px-4 py-3 text-left">
-                                @lang('crud.records.inputs.date')
-                            </th>
-                            <th class="px-4 py-3 text-left">
-                                @lang('crud.records.inputs.time')
-                            </th>
-                            <th class="px-4 py-3 text-left">
-                                @lang('crud.records.inputs.i_p_address')
-                            </th>
-                            <th class="px-4 py-3 text-left">
-                                @lang('crud.records.inputs.bool')
-                            </th>
-                            <th class="px-4 py-3 text-left">
-                                @lang('crud.records.inputs.enum')
-                            </th>
-                            <th class="px-4 py-3 text-left">
-                                @lang('crud.records.inputs.text')
-                            </th>
-                            <th class="px-4 py-3 text-left">
-                                @lang('crud.records.inputs.file')
-                            </th>
-                            <th class="px-4 py-3 text-left">
-                                @lang('crud.records.inputs.image')
-                            </th>
-                            <th class="px-4 py-3 text-left">
-                                @lang('crud.records.inputs.markdown_text')
-                            </th>
-                            <th class="px-4 py-3 text-left">
-                                @lang('crud.records.inputs.w_y_s_i_w_y_g')
-                            </th>
-                            <th class="px-4 py-3 text-left">
-                                @lang('crud.records.inputs.j_s_o_n_list')
-                            </th>
-                            <th class="px-4 py-3 text-left">
-                                @lang('crud.records.inputs.j_s_o_n_list')
-                            </th>
-                            <th class="px-4 py-3 text-left">
-                                @lang('crud.records.inputs.j_s_o_n_list')
-                            </th>
-                            <th class="px-4 py-3 text-left">
-                                @lang('crud.records.inputs.latitude')
-                            </th>
-                            <th class="px-4 py-3 text-left">
-                                @lang('crud.records.inputs.longitude')
                             </th>
                             <th></th>
                         </tr>
@@ -127,84 +76,14 @@
                                 <td class="px-4 py-3 text-left">
                                     {{ $record->string ?? '-' }}
                                 </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $record->email ?? '-' }}
-                                </td>
                                 <td class="px-4 py-3 text-right">
                                     {{ $record->integer ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-right">
-                                    {{ $record->decimal ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
                                     {{ $record->n_p_w_p ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
                                     {{ $record->datetime ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $record->date ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $record->time ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $record->i_p_address ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $record->bool ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $record->enum ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $record->text ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    @if($record->file)
-                                        <a
-                                            href="{{ Storage::url($record->file) }}"
-                                            target="blank"
-                                        ><i
-                                                class="mr-1 icon ion-md-download"
-                                            ></i
-                                            >&nbsp;Download</a
-                                        >
-                                    @else
-                                        -
-                                    @endif
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    <x-partials.thumbnail
-                                        src="{{ $record->image ? Storage::url($record->image) : '' }}"
-                                    />
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $record->markdown_text ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $record->w_y_s_i_w_y_g ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-right">
-                                    <pre>
-{{ json_encode($record->j_s_o_n_list) ?? '-' }}</pre
-                                    >
-                                </td>
-                                <td class="px-4 py-3 text-right">
-                                    <pre>
-{{ json_encode($record->j_s_o_n_list) ?? '-' }}</pre
-                                    >
-                                </td>
-                                <td class="px-4 py-3 text-right">
-                                    <pre>
-{{ json_encode($record->j_s_o_n_list) ?? '-' }}</pre
-                                    >
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $record->latitude ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $record->longitude ?? '-' }}
                                 </td>
                                 <td
                                     class="px-4 py-3 text-center"
@@ -251,7 +130,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="23">
+                                <td colspan="6">
                                     @lang('crud.common.no_items_found')
                                 </td>
                             </tr>
@@ -259,7 +138,7 @@
                         </tbody>
                         <tfoot>
                         <tr>
-                            <td colspan="23">
+                            <td colspan="6">
                                 <div class="mt-10 px-4">
                                     {!! $records->render() !!}
                                 </div>
