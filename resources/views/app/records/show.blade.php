@@ -1,6 +1,9 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <a href="javascript: history.go(-1)" class="mr-4">
+                <i class="mr-1 icon ion-md-arrow-back"></i>
+            </a>
             @lang('crud.records.show_title')
         </h2>
     </x-slot>
@@ -14,11 +17,9 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <x-partials.card>
-                <x-slot name="title">
-                    <a href="{{ route('records.index') }}" class="mr-4">
-                        <i class="mr-1 icon ion-md-arrow-back"></i>
-                    </a>
-                </x-slot>
+                {{-- <x-slot name="title"> --}}
+                {{-- <span>@lang('card.title')</span> --}}
+                {{-- </x-slot> --}}
 
                 <div class="flex flex-wrap mt-4 px-4">
                     <div class="mb-4 w-full">
@@ -159,8 +160,90 @@
                         <span> {{ $record->longitude ?? '-' }} </span>
                     </div>
                 </div>
+            </x-partials.card>
 
-                <div class="mt-10">
+            <div class="display: none;"></div>
+            <x-partials.card class="mt-5">
+                <x-slot name="title">
+                    <span>Field Grid</span>
+                </x-slot>
+
+                <div class="flex flex-wrap mt-4 px-4">
+                    <div class="mb-4 w-full md:w-6/12 lg:w-1/12">
+                        <h5 class="font-medium text-gray-700">
+                            @lang('crud.records.inputs.string')
+                        </h5>
+                        <span> {{ $record->string ?? '-' }} </span>
+                    </div>
+                    <div class="mb-4 w-full md:w-6/12 lg:w-2/12">
+                        <h5 class="font-medium text-gray-700">
+                            @lang('crud.records.inputs.string')
+                        </h5>
+                        <span> {{ $record->string ?? '-' }} </span>
+                    </div>
+                    <div class="mb-4 w-full md:w-4/12 lg:w-3/12">
+                        <h5 class="font-medium text-gray-700">
+                            @lang('crud.records.inputs.string')
+                        </h5>
+                        <span> {{ $record->string ?? '-' }} </span>
+                    </div>
+                    <div class="mb-4 w-full md:w-4/12 lg:w-6/12">
+                        <h5 class="font-medium text-gray-700">
+                            @lang('crud.records.inputs.string')
+                        </h5>
+                        <span> {{ $record->string ?? '-' }} </span>
+                    </div>
+                    <div class="mb-4 w-full md:w-4/12">
+                        <h5 class="font-medium text-gray-700">
+                            @lang('crud.records.inputs.string')
+                        </h5>
+                        <span> {{ $record->string ?? '-' }} </span>
+                    </div>
+                    <div class="mb-4 w-full md:w-3/12 lg:w-4/12">
+                        <h5 class="font-medium text-gray-700">
+                            @lang('crud.records.inputs.string')
+                        </h5>
+                        <span> {{ $record->string ?? '-' }} </span>
+                    </div>
+                    <div class="mb-4 w-full md:w-3/12 lg:w-4/12">
+                        <h5 class="font-medium text-gray-700">
+                            @lang('crud.records.inputs.string')
+                        </h5>
+                        <span> {{ $record->string ?? '-' }} </span>
+                    </div>
+                    <div class="mb-4 w-full md:w-3/12">
+                        <h5 class="font-medium text-gray-700">
+                            @lang('crud.records.inputs.string')
+                        </h5>
+                        <span> {{ $record->string ?? '-' }} </span>
+                    </div>
+                    <div class="mb-4 w-full md:w-3/12">
+                        <h5 class="font-medium text-gray-700">
+                            @lang('crud.records.inputs.string')
+                        </h5>
+                        <span> {{ $record->string ?? '-' }} </span>
+                    </div>
+                    <div class="mb-4 w-full md:w-1/12 lg:w-3/12">
+                        <h5 class="font-medium text-gray-700">
+                            @lang('crud.records.inputs.string')
+                        </h5>
+                        <span> {{ $record->string ?? '-' }} </span>
+                    </div>
+                    <div class="mb-4 w-full md:w-2/12 lg:w-3/12">
+                        <h5 class="font-medium text-gray-700">
+                            @lang('crud.records.inputs.string')
+                        </h5>
+                        <span> {{ $record->string ?? '-' }} </span>
+                    </div>
+                </div>
+            </x-partials.card>
+
+            <div class="display: none;"></div>
+            <x-partials.card class="mt-5">
+                <x-slot name="title">
+                    <span>@lang('text.actions')</span>
+                </x-slot>
+                <div class="mt-4 px-4">
                     <a href="{{ route('records.index') }}" class="button">
                         <i class="mr-1 icon ion-md-return-left"></i>
                         @lang('crud.common.back')
@@ -195,8 +278,8 @@
                 </div>
             </x-partials.card>
 
-            <div class="display: none;"></div>
             @can('view-any', App\Models\Subrecord::class)
+                <div class="display: none;"></div>
                 <x-partials.card class="mt-5">
                     <x-slot name="title">
                         @lang('crud.record_subrecords.name')
