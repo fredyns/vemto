@@ -1,31 +1,32 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <a href="javascript: history.go(-1)" class="mr-4">
+                <i class="mr-1 icon ion-md-arrow-back"></i>
+            </a>
             @lang('crud.records.edit_title')
         </h2>
     </x-slot>
 
     <div class="py-12">
-        <x-form
-            method="PUT"
-            action="{{ route('records.update', $record) }}"
-            has-files
-            class="mt-4"
-        >
-            @include('app.records.form-inputs')
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
-            <div class="max-w-7xl mx-auto py-3 sm:px-6 lg:px-8">
-                <x-partials.card>
-                    <div class="my-3">
+            <x-form
+                method="PUT"
+                action="{{ route('records.update', $record) }}"
+                has-files
+            >
+
+                @include('app.records.form-inputs')
+
+                <div class="display: none;"></div>
+                <x-partials.card class="mt-5">
+                    <x-slot name="title">
+                        <span>@lang('text.actions')</span>
+                    </x-slot>
+                    <div class="mt-4 px-4">
                         <a href="{{ route('records.index') }}" class="button">
-                            <i
-                                class="
-                                    mr-1
-                                    icon
-                                    ion-md-return-left
-                                    text-primary
-                                "
-                            ></i>
+                            <i class="mr-1 icon ion-md-return-left text-primary"></i>
                             @lang('crud.common.back')
                         </a>
 
@@ -47,14 +48,15 @@
                         </button>
                     </div>
                 </x-partials.card>
-            </div>
-        </x-form>
 
-        <div class="max-w-7xl mx-auto py-3 sm:px-6 lg:px-8">
-            <div class="display: none;"></div>
+            </x-form>
+
             @can('view-any', App\Models\Subrecord::class)
+            <div class="display: none;"></div>
                 <x-partials.card class="mt-5">
-                    <x-slot name="title"> Subrecords</x-slot>
+                    <x-slot name="title">
+                        @lang('crud.record_subrecords.name')
+                    </x-slot>
 
                     <livewire:record-subrecords-detail :record="$record"/>
                 </x-partials.card>
