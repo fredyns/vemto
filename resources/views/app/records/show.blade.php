@@ -21,7 +21,7 @@
                 {{-- <span>@lang('card.title')</span> --}}
                 {{-- </x-slot> --}}
 
-                <div class="flex flex-wrap mt-4 px-4">
+                <div class="flex flex-wrap mt-2 px-4">
                     <div class="mb-4 w-full">
                         <h5 class="font-medium text-gray-700">
                             @lang('crud.records.inputs.user_id')
