@@ -10,23 +10,27 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-
             <x-form
                 method="PUT"
                 action="{{ route('records.update', $record) }}"
                 has-files
             >
-
                 @include('app.records.form-inputs')
 
-                <div class="display: none;"></div>
                 <x-partials.card class="mt-5">
                     <x-slot name="title">
                         <span>@lang('text.actions')</span>
                     </x-slot>
                     <div class="mt-4 px-4">
                         <a href="{{ route('records.index') }}" class="button">
-                            <i class="mr-1 icon ion-md-return-left text-primary"></i>
+                            <i
+                                class="
+                                    mr-1
+                                    icon
+                                    ion-md-return-left
+                                    text-primary
+                                "
+                            ></i>
                             @lang('crud.common.back')
                         </a>
 
@@ -48,11 +52,9 @@
                         </button>
                     </div>
                 </x-partials.card>
-
             </x-form>
 
             @can('view-any', App\Models\Subrecord::class)
-            <div class="display: none;"></div>
                 <x-partials.card class="mt-5">
                     <x-slot name="title">
                         @lang('crud.record_subrecords.name')

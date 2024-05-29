@@ -23,7 +23,7 @@
             <div class="text-lg font-bold">{{ $modalTitle }}</div>
 
             <div class="mt-5">
-                <div>
+                <div class="flex flex-wrap">
                     <x-inputs.group class="w-full">
                         <x-inputs.datetime
                             name="subrecord.datetime"
@@ -163,21 +163,21 @@
                             placeholder="{{ __('crud.subrecords.inputs.i_p_address') }}"
                         ></x-inputs.text>
                     </x-inputs.group>
-                    <x-inputs.group class="w-full">
+                    <x-inputs.group class="w-4/12">
                         <x-inputs.checkbox
                             name="subrecord.j_s_o_n_list"
                             label="{{ __('crud.subrecords.inputs.j_s_o_n_list') }}"
                             wire:model="subrecord.j_s_o_n_list"
                         ></x-inputs.checkbox>
                     </x-inputs.group>
-                    <x-inputs.group class="w-full">
+                    <x-inputs.group class="w-full md:w-4/12">
                         <x-inputs.checkbox
                             name="subrecord.j_s_o_n_list"
                             label="{{ __('crud.subrecords.inputs.j_s_o_n_list') }}"
                             wire:model="subrecord.j_s_o_n_list"
                         ></x-inputs.checkbox>
                     </x-inputs.group>
-                    <x-inputs.group class="w-full">
+                    <x-inputs.group class="w-full md:w-4/12">
                         <x-inputs.checkbox
                             name="subrecord.j_s_o_n_list"
                             label="{{ __('crud.subrecords.inputs.j_s_o_n_list') }}"
@@ -200,6 +200,33 @@
                             wire:model="subrecord.longitude"
                             maxlength="255"
                             placeholder="{{ __('crud.subrecords.inputs.longitude') }}"
+                        ></x-inputs.text>
+                    </x-inputs.group>
+                    <x-inputs.group class="w-full md:w-4/12 lg:w-2/12">
+                        <x-inputs.text
+                            name="subrecord.time"
+                            label="{{ __('crud.subrecords.inputs.time') }}"
+                            wire:model="subrecord.time"
+                            maxlength="255"
+                            placeholder="{{ __('crud.subrecords.inputs.time') }}"
+                        ></x-inputs.text>
+                    </x-inputs.group>
+                    <x-inputs.group class="w-full md:w-4/12 lg:w-2/12">
+                        <x-inputs.text
+                            name="subrecord.time"
+                            label="{{ __('crud.subrecords.inputs.time') }}"
+                            wire:model="subrecord.time"
+                            maxlength="255"
+                            placeholder="{{ __('crud.subrecords.inputs.time') }}"
+                        ></x-inputs.text>
+                    </x-inputs.group>
+                    <x-inputs.group class="w-full md:w-4/12 lg:w-2/12">
+                        <x-inputs.text
+                            name="subrecord.time"
+                            label="{{ __('crud.subrecords.inputs.time') }}"
+                            wire:model="subrecord.time"
+                            maxlength="255"
+                            placeholder="{{ __('crud.subrecords.inputs.time') }}"
                         ></x-inputs.text>
                     </x-inputs.group>
                 </div>
@@ -243,37 +270,13 @@
                     @lang('crud.record_subrecords.inputs.datetime')
                 </th>
                 <th class="px-4 py-3 text-left">
-                    @lang('crud.record_subrecords.inputs.date')
-                </th>
-                <th class="px-4 py-3 text-left">
-                    @lang('crud.record_subrecords.inputs.time')
-                </th>
-                <th class="px-4 py-3 text-left">
                     @lang('crud.record_subrecords.inputs.n_p_w_p')
-                </th>
-                <th class="px-4 py-3 text-left">
-                    @lang('crud.record_subrecords.inputs.markdown_text')
-                </th>
-                <th class="px-4 py-3 text-left">
-                    @lang('crud.record_subrecords.inputs.w_y_s_i_w_y_g')
-                </th>
-                <th class="px-4 py-3 text-left">
-                    @lang('crud.record_subrecords.inputs.file')
-                </th>
-                <th class="px-4 py-3 text-left">
-                    @lang('crud.record_subrecords.inputs.image')
                 </th>
                 <th class="px-4 py-3 text-left">
                     @lang('crud.record_subrecords.inputs.i_p_address')
                 </th>
                 <th class="px-4 py-3 text-left">
                     @lang('crud.record_subrecords.inputs.j_s_o_n_list')
-                </th>
-                <th class="px-4 py-3 text-left">
-                    @lang('crud.record_subrecords.inputs.latitude')
-                </th>
-                <th class="px-4 py-3 text-left">
-                    @lang('crud.record_subrecords.inputs.longitude')
                 </th>
                 <th></th>
             </tr>
@@ -292,51 +295,16 @@
                         {{ $subrecord->datetime ?? '-' }}
                     </td>
                     <td class="px-4 py-3 text-left">
-                        {{ $subrecord->date ?? '-' }}
-                    </td>
-                    <td class="px-4 py-3 text-left">
-                        {{ $subrecord->time ?? '-' }}
-                    </td>
-                    <td class="px-4 py-3 text-left">
                         {{ $subrecord->n_p_w_p ?? '-' }}
-                    </td>
-                    <td class="px-4 py-3 text-left">
-                        {{ $subrecord->markdown_text ?? '-' }}
-                    </td>
-                    <td class="px-4 py-3 text-left">
-                        {{ $subrecord->w_y_s_i_w_y_g ?? '-' }}
-                    </td>
-                    <td class="px-4 py-3 text-left">
-                        @if($subrecord->file)
-                            <a
-                                href="{{ Storage::url($subrecord->file) }}"
-                                target="blank"
-                            >
-                                <i class="mr-1 icon ion-md-download"></i>
-                                Download
-                            </a>
-                        @else
-                            -
-                        @endif
-                    </td>
-                    <td class="px-4 py-3 text-left">
-                        <x-partials.thumbnail
-                            src="{{ $subrecord->image ? Storage::url($subrecord->image) : '' }}"
-                        />
                     </td>
                     <td class="px-4 py-3 text-left">
                         {{ $subrecord->i_p_address ?? '-' }}
                     </td>
                     <td class="px-4 py-3 text-right">
                         <pre>
-                            {{ json_encode($subrecord->j_s_o_n_list) ?? '-' }}
-                        </pre>
-                    </td>
-                    <td class="px-4 py-3 text-left">
-                        {{ $subrecord->latitude ?? '-' }}
-                    </td>
-                    <td class="px-4 py-3 text-left">
-                        {{ $subrecord->longitude ?? '-' }}
+                                            {{ json_encode($subrecord->j_s_o_n_list) ?? '-' }}
+                                        </pre
+                                        >
                     </td>
                     <td class="px-4 py-3 text-right" style="width: 134px;">
                         <div
@@ -360,7 +328,7 @@
             </tbody>
             <tfoot>
             <tr>
-                <td colspan="13">
+                <td colspan="5">
                     <div class="mt-10 px-4">
                         {{ $subrecords->render() }}
                     </div>

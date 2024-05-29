@@ -8,18 +8,14 @@
         </h2>
     </x-slot>
 
-    <style>
-        .trix-button--icon-link, .trix-button--icon-quote, .trix-button--icon-code, .trix-button--icon-attach {
-            display: none;
-        }
-    </style>
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <x-partials.card>
-                {{-- <x-slot name="title"> --}}
-                {{-- <span>@lang('card.title')</span> --}}
-                {{-- </x-slot> --}}
+                {{--
+                <x-slot name="title">
+                    <span>@lang('card.title')</span>
+                </x-slot>
+                --}}
 
                 <div class="flex flex-wrap mt-2 px-4">
                     <div class="mb-4 w-full">
@@ -238,7 +234,6 @@
                 </div>
             </x-partials.card>
 
-            <div class="display: none;"></div>
             <x-partials.card class="mt-5">
                 <x-slot name="title">
                     <span>@lang('text.actions')</span>
@@ -279,7 +274,6 @@
             </x-partials.card>
 
             @can('view-any', App\Models\Subrecord::class)
-                <div class="display: none;"></div>
                 <x-partials.card class="mt-5">
                     <x-slot name="title">
                         @lang('crud.record_subrecords.name')

@@ -1,21 +1,23 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <a href="javascript: history.go(-1)" class="mr-4">
+                <i class="mr-1 icon ion-md-arrow-back"></i>
+            </a>
             @lang('crud.users.edit_title')
         </h2>
     </x-slot>
 
     <div class="py-12">
-        <x-form
-            method="PUT"
-            action="{{ route('users.update', $user) }}"
-            class="mt-4"
-        >
-            @include('app.users.form-inputs')
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <x-form method="PUT" action="{{ route('users.update', $user) }}">
+                @include('app.users.form-inputs')
 
-            <div class="max-w-7xl mx-auto py-3 sm:px-6 lg:px-8">
-                <x-partials.card>
-                    <div class="my-3">
+                <x-partials.card class="mt-5">
+                    <x-slot name="title">
+                        <span>@lang('text.actions')</span>
+                    </x-slot>
+                    <div class="mt-4 px-4">
                         <a href="{{ route('users.index') }}" class="button">
                             <i
                                 class="
@@ -46,7 +48,7 @@
                         </button>
                     </div>
                 </x-partials.card>
-            </div>
-        </x-form>
+            </x-form>
+        </div>
     </div>
 </x-app-layout>

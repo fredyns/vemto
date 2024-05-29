@@ -1,11 +1,12 @@
 @php $editing = isset($record) @endphp
-<div class="display: none;"></div>
-<x-partials.card>
-    {{-- <x-slot name="title"> --}}
-    {{-- <span>@lang('card.title')</span> --}}
-    {{-- </x-slot> --}}
 
-    {{--    <div class="flex flex-wrap mt-4 px-4">--}}
+<x-partials.card>
+    {{--
+    <x-slot name="title">
+        <span>@lang('card.title')</span>
+    </x-slot>
+    --}}
+
     <div class="flex flex-wrap">
         <x-inputs.group class="w-full">
             <x-inputs.select
@@ -37,7 +38,7 @@
                 label="{{ __('crud.records.inputs.email') }}"
                 :value="old('email', ($editing ? $record->email : ''))"
                 maxlength="255"
-                placeholder="Email"
+                placeholder="{{ __('crud.records.inputs.email') }}"
             ></x-inputs.email>
         </x-inputs.group>
 
@@ -47,7 +48,7 @@
                 label="{{ __('crud.records.inputs.integer') }}"
                 :value="old('integer', ($editing ? $record->integer : ''))"
                 max="255"
-                placeholder="Integer"
+                placeholder="{{ __('crud.records.inputs.integer') }}"
             ></x-inputs.number>
         </x-inputs.group>
 
@@ -58,7 +59,7 @@
                 :value="old('decimal', ($editing ? $record->decimal : ''))"
                 max="255"
                 step="0.01"
-                placeholder="Decimal"
+                placeholder="{{ __('crud.records.inputs.decimal') }}"
             ></x-inputs.number>
         </x-inputs.group>
 
@@ -67,7 +68,6 @@
                 name="n_p_w_p"
                 label="{{ __('crud.records.inputs.n_p_w_p') }}"
                 :value="old('n_p_w_p', ($editing ? $record->n_p_w_p : ''))"
-                maxlength="255"
                 placeholder="{{ __('crud.records.inputs.n_p_w_p') }}"
             ></x-inputs.text>
         </x-inputs.group>
@@ -77,7 +77,6 @@
                 name="datetime"
                 label="Datetime"
                 value="{{ old('datetime', ($editing ? optional($record->datetime)->format('Y-m-d\TH:i:s') : '')) }}"
-                max="255"
             ></x-inputs.datetime>
         </x-inputs.group>
 
@@ -86,7 +85,6 @@
                 name="date"
                 label="{{ __('crud.records.inputs.date') }}"
                 value="{{ old('date', ($editing ? optional($record->date)->format('Y-m-d') : '')) }}"
-                max="255"
             ></x-inputs.date>
         </x-inputs.group>
 
@@ -95,7 +93,6 @@
                 name="time"
                 label="{{ __('crud.records.inputs.time') }}"
                 :value="old('time', ($editing ? $record->time : ''))"
-                maxlength="255"
                 placeholder="{{ __('crud.records.inputs.time') }}"
             ></x-inputs.text>
         </x-inputs.group>
@@ -105,7 +102,6 @@
                 name="i_p_address"
                 label="{{ __('crud.records.inputs.i_p_address') }}"
                 :value="old('i_p_address', ($editing ? $record->i_p_address : ''))"
-                maxlength="255"
                 placeholder="{{ __('crud.records.inputs.i_p_address') }}"
             ></x-inputs.text>
         </x-inputs.group>
@@ -155,16 +151,13 @@
 
             @if($editing && $record->file)
                 <div class="mt-2">
-                    <a
-                        href="{{ Storage::url($record->file) }}"
-                        target="_blank"
-                    >
+                    <a href="{{ Storage::url($record->file) }}" target="_blank">
                         <i class="icon ion-md-download"></i>
                         Download
                     </a>
                 </div>
-            @endif @error('file')
-            @include('components.inputs.partials.error') @enderror
+            @endif @error('file') @include('components.inputs.partials.error')
+            @enderror
         </x-inputs.group>
 
         <x-inputs.group class="w-full">
@@ -283,109 +276,99 @@
         <x-inputs.group class="w-full md:w-6/12 lg:w-1/12">
             <x-inputs.text
                 name="input1"
-                label="Input ___"
+                label="Input 1"
                 :value="old('string', ($editing ? $record->string : ''))"
-                placeholder="input ___"
+                placeholder="input 1"
             ></x-inputs.text>
         </x-inputs.group>
 
         <x-inputs.group class="w-full md:w-6/12 lg:w-2/12">
             <x-inputs.text
                 name="input"
-                label="Input ___"
+                label="Input 2"
                 :value="old('string', ($editing ? $record->string : ''))"
-                maxlength="255"
-                placeholder="input ___"
+                placeholder="input 2"
             ></x-inputs.text>
         </x-inputs.group>
 
         <x-inputs.group class="w-full md:w-4/12 lg:w-3/12">
             <x-inputs.text
                 name="input"
-                label="Input ___"
+                label="Input 3"
                 :value="old('string', ($editing ? $record->string : ''))"
-                maxlength="255"
-                placeholder="input ___"
+                placeholder="input 3"
             ></x-inputs.text>
         </x-inputs.group>
 
         <x-inputs.group class="w-full md:w-4/12 lg:w-6/12">
             <x-inputs.text
                 name="input"
-                label="Input ___"
+                label="Input 4"
                 :value="old('string', ($editing ? $record->string : ''))"
-                maxlength="255"
-                placeholder="input ___"
+                placeholder="input 4"
             ></x-inputs.text>
         </x-inputs.group>
 
         <x-inputs.group class="w-full md:w-4/12">
             <x-inputs.text
                 name="input"
-                label="Input ___"
+                label="Input 5"
                 :value="old('string', ($editing ? $record->string : ''))"
-                maxlength="255"
-                placeholder="input ___"
+                placeholder="input 5"
             ></x-inputs.text>
         </x-inputs.group>
 
         <x-inputs.group class="w-full md:w-3/12 lg:w-4/12">
             <x-inputs.text
                 name="input"
-                label="Input ___"
+                label="Input 6"
                 :value="old('string', ($editing ? $record->string : ''))"
-                maxlength="255"
-                placeholder="input ___"
+                placeholder="input 6"
             ></x-inputs.text>
         </x-inputs.group>
 
         <x-inputs.group class="w-full md:w-3/12 lg:w-4/12">
             <x-inputs.text
                 name="input"
-                label="Input ___"
+                label="Input 7"
                 :value="old('string', ($editing ? $record->string : ''))"
-                maxlength="255"
-                placeholder="input ___"
+                placeholder="input 7"
             ></x-inputs.text>
         </x-inputs.group>
 
         <x-inputs.group class="w-full md:w-3/12">
             <x-inputs.text
                 name="input"
-                label="Input ___"
+                label="Input 8"
                 :value="old('string', ($editing ? $record->string : ''))"
-                maxlength="255"
-                placeholder="input ___"
+                placeholder="input 8"
             ></x-inputs.text>
         </x-inputs.group>
 
         <x-inputs.group class="w-full md:w-3/12">
             <x-inputs.text
                 name="input"
-                label="Input ___"
+                label="Input 9"
                 :value="old('string', ($editing ? $record->string : ''))"
-                maxlength="255"
-                placeholder="input ___"
+                placeholder="input 9"
             ></x-inputs.text>
         </x-inputs.group>
 
         <x-inputs.group class="w-full md:w-1/12 lg:w-3/12">
             <x-inputs.text
                 name="input"
-                label="Input ___"
+                label="Input 10"
                 :value="old('string', ($editing ? $record->string : ''))"
-                maxlength="255"
-                placeholder="input ___"
+                placeholder="input 10"
             ></x-inputs.text>
         </x-inputs.group>
 
         <x-inputs.group class="w-full md:w-2/12 lg:w-3/12">
             <x-inputs.text
                 name="input"
-                label="Input ___"
+                label="Input 11"
                 :value="old('string', ($editing ? $record->string : ''))"
-                maxlength="255"
-                placeholder="input ___"
+                placeholder="input 11"
             ></x-inputs.text>
         </x-inputs.group>
     </div>

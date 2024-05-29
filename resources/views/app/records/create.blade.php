@@ -8,35 +8,43 @@
         </h2>
     </x-slot>
 
-    <x-form
-        method="POST"
-        action="{{ route('records.store') }}"
-        has-files
-    >
-        <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <x-form
+                method="POST"
+                action="{{ route('records.store') }}"
+                has-files
+            >
                 @include('app.records.form-inputs')
 
-                <div class="display: none;"></div>
                 <x-partials.card class="mt-5">
                     <x-slot name="title">
                         <span>@lang('text.actions')</span>
                     </x-slot>
                     <div class="mt-4 px-4">
                         <a href="{{ route('records.index') }}" class="button">
-                            <i class="mr-1 icon ion-md-return-left text-primary"></i>
+                            <i
+                                class="
+                                    mr-1
+                                    icon
+                                    ion-md-return-left
+                                    text-primary
+                                "
+                            >
+                            </i>
                             @lang('crud.common.back')
                         </a>
 
-                        <button type="submit" class="button button-primary float-right">
+                        <button
+                            type="submit"
+                            class="button button-primary float-right"
+                        >
                             <i class="mr-1 icon ion-md-save"></i>
                             @lang('crud.common.create')
                         </button>
                     </div>
                 </x-partials.card>
-
-            </div>
+            </x-form>
         </div>
-    </x-form>
+    </div>
 </x-app-layout>
