@@ -1,5 +1,22 @@
 @php $editing = isset($userActivityLog) @endphp
 
+<style>
+    .ts-control {
+        border: none;
+        padding: 0;
+    }
+
+    .ts-dropdown,
+    .ts-control,
+    .ts-control input {
+        color: rgb(31 41 55 / var(--tw-text-opacity));
+        font-family: inherit;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+</style>
+
 <x-partials.card>
     {{--
     <x-slot name="title">
@@ -18,7 +35,7 @@
         </x-inputs.group>
 
         <x-inputs.group class="w-full">
-            <x-inputs.select
+            <x-inputs.tomselect
                 name="user_id"
                 label="{{ __('crud.user_activity_logs.inputs.user_id') }}"
                 required
@@ -28,7 +45,7 @@
                 @foreach($users as $value => $label)
                     <option value="{{ $value }}" {{ $selected == $value ? 'selected' : '' }} >{{ $label }}</option>
                 @endforeach
-            </x-inputs.select>
+            </x-inputs.tomselect>
         </x-inputs.group>
 
         <x-inputs.group class="w-full">
