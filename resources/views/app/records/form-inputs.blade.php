@@ -301,7 +301,7 @@
 
         <x-inputs.group class="w-full md:w-6/12 lg:w-2/12">
             <x-inputs.text
-                name="input"
+                name="input2"
                 label="Input 2"
                 :value="old('string', ($editing ? $record->string : ''))"
                 placeholder="input 2"
@@ -310,7 +310,7 @@
 
         <x-inputs.group class="w-full md:w-4/12 lg:w-3/12">
             <x-inputs.text
-                name="input"
+                name="input3"
                 label="Input 3"
                 :value="old('string', ($editing ? $record->string : ''))"
                 placeholder="input 3"
@@ -319,7 +319,7 @@
 
         <x-inputs.group class="w-full md:w-4/12 lg:w-6/12">
             <x-inputs.text
-                name="input"
+                name="input4"
                 label="Input 4"
                 :value="old('string', ($editing ? $record->string : ''))"
                 placeholder="input 4"
@@ -328,7 +328,7 @@
 
         <x-inputs.group class="w-full md:w-4/12">
             <x-inputs.text
-                name="input"
+                name="input5"
                 label="Input 5"
                 :value="old('string', ($editing ? $record->string : ''))"
                 placeholder="input 5"
@@ -337,7 +337,7 @@
 
         <x-inputs.group class="w-full md:w-3/12 lg:w-4/12">
             <x-inputs.text
-                name="input"
+                name="input6"
                 label="Input 6"
                 :value="old('string', ($editing ? $record->string : ''))"
                 placeholder="input 6"
@@ -346,7 +346,7 @@
 
         <x-inputs.group class="w-full md:w-3/12 lg:w-4/12">
             <x-inputs.text
-                name="input"
+                name="input7"
                 label="Input 7"
                 :value="old('string', ($editing ? $record->string : ''))"
                 placeholder="input 7"
@@ -355,7 +355,7 @@
 
         <x-inputs.group class="w-full md:w-3/12">
             <x-inputs.text
-                name="input"
+                name="input8"
                 label="Input 8"
                 :value="old('string', ($editing ? $record->string : ''))"
                 placeholder="input 8"
@@ -364,7 +364,7 @@
 
         <x-inputs.group class="w-full md:w-3/12">
             <x-inputs.text
-                name="input"
+                name="input9"
                 label="Input 9"
                 :value="old('string', ($editing ? $record->string : ''))"
                 placeholder="input 9"
@@ -373,7 +373,7 @@
 
         <x-inputs.group class="w-full md:w-1/12 lg:w-3/12">
             <x-inputs.text
-                name="input"
+                name="input10"
                 label="Input 10"
                 :value="old('string', ($editing ? $record->string : ''))"
                 placeholder="input 10"
