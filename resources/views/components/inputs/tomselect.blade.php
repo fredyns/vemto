@@ -25,10 +25,6 @@
 
 @push('scripts')
     <script>
-        new TomSelect("#{{ $name }}",{
-            persist: false,
-            createOnBlur: true,
-            create: true
-        });
+        new TomSelect("#{{ $name }}",{{ $settings }});
     </script>
 @endpush
