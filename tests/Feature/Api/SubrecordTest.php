@@ -76,7 +76,6 @@ class SubrecordTest extends TestCase
             'file' => $this->faker->text(),
             'image' => $this->faker->text(),
             'i_p_address' => $this->faker->ipv4(),
-            'j_s_o_n_list' => [],
             'latitude' => $this->faker->latitude(),
             'longitude' => $this->faker->longitude(),
             'record_id' => $record->id,

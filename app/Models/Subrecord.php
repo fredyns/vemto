@@ -24,7 +24,6 @@ class Subrecord extends Model
         'file',
         'image',
         'i_p_address',
-        'j_s_o_n_list',
         'latitude',
         'longitude',
     ];
@@ -34,7 +33,6 @@ class Subrecord extends Model
     protected $casts = [
         'datetime' => 'datetime',
         'date' => 'date',
-        'j_s_o_n_list' => 'array',
     ];
 
     public function record()

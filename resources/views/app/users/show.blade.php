@@ -38,7 +38,7 @@
                     <span>@lang('text.actions')</span>
                 </x-slot>
                 <div class="mt-4 px-4">
-                    <a href="{{ route('records.index') }}" class="button">
+                    <a href="{{ route('users.index') }}" class="button">
                         <i class="mr-1 icon ion-md-return-left"></i>
                         @lang('crud.common.back')
                     </a>

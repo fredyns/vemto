@@ -39,7 +39,6 @@ class RecordSubrecordsController extends Controller
             'file' => ['file', 'max:1024', 'nullable'],
             'image' => ['image', 'max:1024', 'nullable'],
             'i_p_address' => ['nullable'],
-            'j_s_o_n_list.*' => ['nullable', 'string'],
             'latitude' => ['nullable', 'numeric'],
             'longitude' => ['nullable', 'numeric'],
         ]);

@@ -5,8 +5,6 @@ namespace Tests\Feature\Controllers;
 use App\Models\User;
 use App\Models\Record;
 
-use DB;
-use Exception;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -24,19 +22,6 @@ class RecordControllerTest extends TestCase
         );
 
         $this->withoutExceptionHandling();
-    }
-
-    protected function castToJson($json)
-    {
-        if (is_array($json)) {
-            $json = addslashes(json_encode($json));
-        } elseif (is_null($json) || is_null(json_decode($json))) {
-            throw new Exception(
-                'A valid JSON string was not provided for casting.'
-            );
-        }
-
-        return DB::raw("CAST('{$json}' AS JSON)");
     }
 
     /**
@@ -75,18 +60,10 @@ class RecordControllerTest extends TestCase
             ->make()
             ->toArray();
 
-        $data['j_s_o_n_list'] = json_encode($data['j_s_o_n_list']);
-        $data['j_s_o_n_list'] = json_encode($data['j_s_o_n_list']);
-        $data['j_s_o_n_list'] = json_encode($data['j_s_o_n_list']);
-
         $response = $this->post(route('records.store'), $data);
 
         unset($data['created_by']);
         unset($data['updated_by']);
-
-        $data['j_s_o_n_list'] = $this->castToJson($data['j_s_o_n_list']);
-        $data['j_s_o_n_list'] = $this->castToJson($data['j_s_o_n_list']);
-        $data['j_s_o_n_list'] = $this->castToJson($data['j_s_o_n_list']);
 
         $this->assertDatabaseHas('records', $data);
 
@@ -154,15 +131,10 @@ class RecordControllerTest extends TestCase
             'image' => $this->faker->text(),
             'markdown_text' => $this->faker->text(),
             'w_y_s_i_w_y_g' => $this->faker->text(),
-            'j_s_o_n_list' => [],
             'latitude' => $this->faker->latitude(),
             'longitude' => $this->faker->longitude(),
             'user_id' => $user->id,
         ];
-
-        $data['j_s_o_n_list'] = json_encode($data['j_s_o_n_list']);
-        $data['j_s_o_n_list'] = json_encode($data['j_s_o_n_list']);
-        $data['j_s_o_n_list'] = json_encode($data['j_s_o_n_list']);
 
         $response = $this->put(route('records.update', $record), $data);
 
@@ -170,10 +142,6 @@ class RecordControllerTest extends TestCase
         unset($data['updated_by']);
 
         $data['id'] = $record->id;
-
-        $data['j_s_o_n_list'] = $this->castToJson($data['j_s_o_n_list']);
-        $data['j_s_o_n_list'] = $this->castToJson($data['j_s_o_n_list']);
-        $data['j_s_o_n_list'] = $this->castToJson($data['j_s_o_n_list']);
 
         $this->assertDatabaseHas('records', $data);
 

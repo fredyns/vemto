@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Record;
 use App\Models\Subrecord;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -30,10 +31,9 @@ class SubrecordFactory extends Factory
             'markdown_text' => $this->faker->text(),
             'w_y_s_i_w_y_g' => $this->faker->text(),
             'i_p_address' => $this->faker->ipv4(),
-            'j_s_o_n_list' => [],
             'latitude' => $this->faker->latitude(),
             'longitude' => $this->faker->longitude(),
-            'record_id' => \App\Models\Record::factory(),
+            'record_id' => Record::factory(),
         ];
     }
 }

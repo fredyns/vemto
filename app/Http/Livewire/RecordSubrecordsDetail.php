@@ -43,7 +43,6 @@ class RecordSubrecordsDetail extends Component
         'subrecordFile' => ['file', 'max:1024', 'nullable'],
         'subrecordImage' => ['image', 'max:1024', 'nullable'],
         'subrecord.i_p_address' => ['nullable', 'max:255'],
-        'subrecord.j_s_o_n_list.*' => ['nullable', 'string'],
         'subrecord.latitude' => ['nullable', 'numeric'],
         'subrecord.longitude' => ['nullable', 'numeric'],
     ];
@@ -123,21 +122,6 @@ class RecordSubrecordsDetail extends Component
         if ($this->subrecordImage) {
             $this->subrecord->image = $this->subrecordImage->store('public');
         }
-
-        $this->subrecord->j_s_o_n_list = json_decode(
-            $this->subrecord->j_s_o_n_list,
-            true
-        );
-
-        $this->subrecord->j_s_o_n_list = json_decode(
-            $this->subrecord->j_s_o_n_list,
-            true
-        );
-
-        $this->subrecord->j_s_o_n_list = json_decode(
-            $this->subrecord->j_s_o_n_list,
-            true
-        );
 
         $this->subrecord->datetime = Carbon::make(
             $this->subrecordDatetime

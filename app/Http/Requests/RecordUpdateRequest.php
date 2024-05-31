@@ -37,7 +37,6 @@ class RecordUpdateRequest extends FormRequest
             'image' => ['image', 'max:1024', 'nullable'],
             'markdown_text' => ['nullable', 'string'],
             'w_y_s_i_w_y_g' => ['nullable', 'string'],
-            'j_s_o_n_list.*' => ['nullable', 'string'],
             'latitude' => ['nullable', 'numeric'],
             'longitude' => ['nullable', 'numeric'],
         ];

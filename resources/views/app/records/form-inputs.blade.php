@@ -14,7 +14,6 @@
         font-size: 1rem;
         line-height: 1.5;
     }
-
 </style>
 
 <x-partials.card>
@@ -64,7 +63,6 @@
                 name="integer"
                 label="{{ __('crud.records.inputs.integer') }}"
                 :value="old('integer', ($editing ? $record->integer : ''))"
-                max="255"
                 placeholder="{{ __('crud.records.inputs.integer') }}"
             ></x-inputs.number>
         </x-inputs.group>
@@ -146,7 +144,6 @@
             <x-inputs.textarea
                 name="text"
                 label="{{ __('crud.records.inputs.text') }}"
-                maxlength="255"
             >
                 {{ old('text', ($editing ? $record->text : '')) }}
             </x-inputs.textarea>
@@ -235,30 +232,6 @@
             >
                 {{ old('w_y_s_i_w_y_g', ($editing ? $record->w_y_s_i_w_y_g : '')) }}
             </x-inputs.textarea>
-        </x-inputs.group>
-
-        <x-inputs.group class="w-full">
-            <x-inputs.checkbox
-                name="j_s_o_n_list"
-                label="{{ __('crud.records.inputs.j_s_o_n_list') }}"
-                :checked="old('j_s_o_n_list', ($editing ? $record->j_s_o_n_list : 0))"
-            ></x-inputs.checkbox>
-        </x-inputs.group>
-
-        <x-inputs.group class="w-full">
-            <x-inputs.checkbox
-                name="j_s_o_n_list"
-                label="{{ __('crud.records.inputs.j_s_o_n_list') }}"
-                :checked="old('j_s_o_n_list', ($editing ? $record->j_s_o_n_list : 0))"
-            ></x-inputs.checkbox>
-        </x-inputs.group>
-
-        <x-inputs.group class="w-full">
-            <x-inputs.checkbox
-                name="j_s_o_n_list"
-                label="{{ __('crud.records.inputs.j_s_o_n_list') }}"
-                :checked="old('j_s_o_n_list', ($editing ? $record->j_s_o_n_list : 0))"
-            ></x-inputs.checkbox>
         </x-inputs.group>
 
         <x-inputs.group class="w-full">

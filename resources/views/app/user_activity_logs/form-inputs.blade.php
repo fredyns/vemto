@@ -14,7 +14,6 @@
         font-size: 1rem;
         line-height: 1.5;
     }
-
 </style>
 
 <x-partials.card>
@@ -73,8 +72,7 @@
                 name="message"
                 label="{{ __('crud.user_activity_logs.inputs.message') }}"
             >
-                {{ old('message', ($editing ? $userActivityLog->message : ''))
-                }}
+                {{ old('message', ($editing ? $userActivityLog->message : '')) }}
             </x-inputs.textarea>
         </x-inputs.group>
 

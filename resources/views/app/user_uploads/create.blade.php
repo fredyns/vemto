@@ -17,7 +17,6 @@
             >
                 @include('app.user_uploads.form-inputs')
 
-                <div class="display: none;"></div>
                 <x-partials.card class="mt-5">
                     <x-slot name="title">
                         <span>@lang('text.actions')</span>

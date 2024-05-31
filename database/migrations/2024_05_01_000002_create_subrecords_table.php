@@ -22,7 +22,6 @@ return new class extends Migration {
             $table->text('file')->nullable();
             $table->text('image')->nullable();
             $table->ipAddress('i_p_address')->nullable();
-            $table->json('j_s_o_n_list')->nullable();
             $table->float('latitude')->nullable();
             $table->float('longitude')->nullable();
 

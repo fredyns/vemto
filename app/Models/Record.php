@@ -33,7 +33,6 @@ class Record extends Model
         'image',
         'markdown_text',
         'w_y_s_i_w_y_g',
-        'j_s_o_n_list',
         'latitude',
         'longitude',
     ];
@@ -44,7 +43,6 @@ class Record extends Model
         'datetime' => 'datetime',
         'date' => 'date',
         'bool' => 'boolean',
-        'j_s_o_n_list' => 'array',
     ];
 
     public function subrecords()

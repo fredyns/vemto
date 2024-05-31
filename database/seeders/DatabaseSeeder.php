@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
+use Hash;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,11 +14,11 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // Adding an admin user
-        $user = \App\Models\User::factory()
+        $user = User::factory()
             ->count(1)
             ->create([
                 'email' => 'admin@admin.com',
-                'password' => \Hash::make('admin'),
+                'password' => Hash::make('admin'),
             ]);
 
         $this->call(UserSeeder::class);

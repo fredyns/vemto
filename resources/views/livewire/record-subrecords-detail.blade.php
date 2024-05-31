@@ -163,27 +163,6 @@
                             placeholder="{{ __('crud.subrecords.inputs.i_p_address') }}"
                         ></x-inputs.text>
                     </x-inputs.group>
-                    <x-inputs.group class="w-4/12">
-                        <x-inputs.checkbox
-                            name="subrecord.j_s_o_n_list"
-                            label="{{ __('crud.subrecords.inputs.j_s_o_n_list') }}"
-                            wire:model="subrecord.j_s_o_n_list"
-                        ></x-inputs.checkbox>
-                    </x-inputs.group>
-                    <x-inputs.group class="w-full md:w-4/12">
-                        <x-inputs.checkbox
-                            name="subrecord.j_s_o_n_list"
-                            label="{{ __('crud.subrecords.inputs.j_s_o_n_list') }}"
-                            wire:model="subrecord.j_s_o_n_list"
-                        ></x-inputs.checkbox>
-                    </x-inputs.group>
-                    <x-inputs.group class="w-full md:w-4/12">
-                        <x-inputs.checkbox
-                            name="subrecord.j_s_o_n_list"
-                            label="{{ __('crud.subrecords.inputs.j_s_o_n_list') }}"
-                            wire:model="subrecord.j_s_o_n_list"
-                        ></x-inputs.checkbox>
-                    </x-inputs.group>
                     <x-inputs.group class="w-full">
                         <x-inputs.text
                             name="subrecord.latitude"
@@ -251,9 +230,6 @@
                 <th class="px-4 py-3 text-left">
                     @lang('crud.record_subrecords.inputs.i_p_address')
                 </th>
-                <th class="px-4 py-3 text-left">
-                    @lang('crud.record_subrecords.inputs.j_s_o_n_list')
-                </th>
                 <th></th>
             </tr>
             </thead>
@@ -275,12 +251,6 @@
                     </td>
                     <td class="px-4 py-3 text-left">
                         {{ $subrecord->i_p_address ?? '-' }}
-                    </td>
-                    <td class="px-4 py-3 text-right">
-                        <pre>
-                                            {{ json_encode($subrecord->j_s_o_n_list) ?? '-' }}
-                                        </pre
-                                        >
                     </td>
                     <td class="px-4 py-3 text-right" style="width: 134px;">
                         <div
@@ -304,7 +274,7 @@
             </tbody>
             <tfoot>
             <tr>
-                <td colspan="5">
+                <td colspan="4">
                     <div class="mt-10 px-4">
                         {{ $subrecords->render() }}
                     </div>

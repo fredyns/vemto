@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Support\Str;
 use App\Models\UserActivityLog;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -28,7 +29,7 @@ class UserActivityLogFactory extends Factory
             'link' => $this->faker->text(),
             'message' => $this->faker->sentence(20),
             'i_p_address' => $this->faker->ipv4(),
-            'user_id' => \App\Models\User::factory(),
+            'user_id' => User::factory(),
         ];
     }
 }

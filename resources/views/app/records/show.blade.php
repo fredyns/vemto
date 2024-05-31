@@ -137,14 +137,6 @@
                     </div>
                     <div class="mb-4 w-full">
                         <h5 class="font-medium text-gray-700">
-                            @lang('crud.records.inputs.j_s_o_n_list')
-                        </h5>
-                        <pre>
-                            {{ json_encode($record->j_s_o_n_list) ?? '-' }}
-                        </pre>
-                    </div>
-                    <div class="mb-4 w-full">
-                        <h5 class="font-medium text-gray-700">
                             @lang('crud.records.inputs.latitude')
                         </h5>
                         <span> {{ $record->latitude ?? '-' }} </span>

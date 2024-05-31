@@ -31,7 +31,6 @@ return new class extends Migration {
             $table->text('image')->nullable();
             $table->text('markdown_text')->nullable();
             $table->text('w_y_s_i_w_y_g')->nullable();
-            $table->json('j_s_o_n_list')->nullable();
             $table->float('latitude')->nullable();
             $table->float('longitude')->nullable();
 

@@ -14,7 +14,6 @@
         font-size: 1rem;
         line-height: 1.5;
     }
-
 </style>
 
 <x-partials.card>

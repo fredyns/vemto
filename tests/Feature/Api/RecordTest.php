@@ -87,7 +87,6 @@ class RecordTest extends TestCase
             'image' => $this->faker->text(),
             'markdown_text' => $this->faker->text(),
             'w_y_s_i_w_y_g' => $this->faker->text(),
-            'j_s_o_n_list' => [],
             'latitude' => $this->faker->latitude(),
             'longitude' => $this->faker->longitude(),
             'user_id' => $user->id,
