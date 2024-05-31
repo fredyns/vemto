@@ -202,35 +202,11 @@
                             placeholder="{{ __('crud.subrecords.inputs.longitude') }}"
                         ></x-inputs.text>
                     </x-inputs.group>
-                    <x-inputs.group class="w-full md:w-4/12 lg:w-2/12">
-                        <x-inputs.text
-                            name="subrecord.time"
-                            label="{{ __('crud.subrecords.inputs.time') }}"
-                            wire:model="subrecord.time"
-                            maxlength="255"
-                            placeholder="{{ __('crud.subrecords.inputs.time') }}"
-                        ></x-inputs.text>
-                    </x-inputs.group>
-                    <x-inputs.group class="w-full md:w-4/12 lg:w-2/12">
-                        <x-inputs.text
-                            name="subrecord.time"
-                            label="{{ __('crud.subrecords.inputs.time') }}"
-                            wire:model="subrecord.time"
-                            maxlength="255"
-                            placeholder="{{ __('crud.subrecords.inputs.time') }}"
-                        ></x-inputs.text>
-                    </x-inputs.group>
-                    <x-inputs.group class="w-full md:w-4/12 lg:w-2/12">
-                        <x-inputs.text
-                            name="subrecord.time"
-                            label="{{ __('crud.subrecords.inputs.time') }}"
-                            wire:model="subrecord.time"
-                            maxlength="255"
-                            placeholder="{{ __('crud.subrecords.inputs.time') }}"
-                        ></x-inputs.text>
-                    </x-inputs.group>
                 </div>
             </div>
+
+            @include('livewire.record-subrecords-grid-sample')
+
         </div>
 
         <div class="px-6 py-4 bg-gray-50 flex justify-between">
