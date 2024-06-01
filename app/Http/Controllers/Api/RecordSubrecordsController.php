@@ -32,7 +32,7 @@ class RecordSubrecordsController extends Controller
         $validated = $request->validate([
             'datetime' => ['nullable', 'date'],
             'date' => ['nullable', 'date'],
-            'time' => ['nullable', 'date_format:H:i:s'],
+            'time' => ['nullable', 'date_format:H:i'],
             'n_p_w_p' => ['nullable'],
             'markdown_text' => ['nullable', 'string'],
             'w_y_s_i_w_y_g' => ['nullable', 'string'],
