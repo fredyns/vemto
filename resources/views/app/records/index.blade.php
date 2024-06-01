@@ -83,7 +83,11 @@
                                     {{ $record->n_p_w_p ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
-                                    {{ $record->datetime ?? '-' }}
+                                    {{
+                                    $record->datetime ?
+                                    $record->datetime->format('D, d M Y, H:i'):
+                                    '-'
+                                    }}
                                 </td>
                                 <td
                                     class="px-4 py-3 text-center"

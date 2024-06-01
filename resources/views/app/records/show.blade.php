@@ -60,13 +60,25 @@
                         <h5 class="font-medium text-gray-700">
                             @lang('crud.records.inputs.datetime')
                         </h5>
-                        <span> {{ $record->datetime ?? '-' }} </span>
+                        <span>
+                            {{
+                            $record->datetime ?
+                            $record->datetime->format('l, d F Y, H:i'):
+                            '-'
+                            }}
+                        </span>
                     </div>
                     <div class="mb-4 w-full">
                         <h5 class="font-medium text-gray-700">
                             @lang('crud.records.inputs.date')
                         </h5>
-                        <span> {{ $record->date ?? '-' }} </span>
+                        <span>
+                            {{
+                            $record->date ?
+                            $record->date->format('l, d F Y'):
+                            '-'
+                            }}
+                        </span>
                     </div>
                     <div class="mb-4 w-full">
                         <h5 class="font-medium text-gray-700">
