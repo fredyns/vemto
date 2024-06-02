@@ -120,6 +120,29 @@ return [
         ],
     ],
 
+    'subrecords' => [
+        'name' => 'Subrecords',
+        'index_title' => 'Subrecords List',
+        'new_title' => 'New Subrecord',
+        'create_title' => 'Create Subrecord',
+        'edit_title' => 'Edit Subrecord',
+        'show_title' => 'Show Subrecord',
+        'inputs' => [
+            'record_id' => 'Record',
+            'datetime' => 'Datetime',
+            'date' => 'Date',
+            'time' => 'Time',
+            'n_p_w_p' => 'N P W P',
+            'markdown_text' => 'Markdown Text',
+            'w_y_s_i_w_y_g' => 'W Y S I W Y G',
+            'file' => 'File',
+            'image' => 'Image',
+            'i_p_address' => 'I P Address',
+            'latitude' => 'Latitude',
+            'longitude' => 'Longitude',
+        ],
+    ],
+
     'record_subrecords' => [
         'name' => 'Record Subrecords',
         'index_title' => 'Subrecords List',
