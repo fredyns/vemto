@@ -27,9 +27,9 @@
                     <x-inputs.group class="w-full">
                         <x-inputs.datetime
                             name="subrecordDatetime"
-                            label="Datetime"
+                            label="{{ __('crud.subrecords.inputs.datetime') }}"
                             wire:model="subrecordDatetime"
-                            max="255"
+                            placeholder="{{ __('crud.subrecords.inputs.datetime') }}"
                         ></x-inputs.datetime>
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
