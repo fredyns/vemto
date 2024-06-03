@@ -61,11 +61,7 @@
                             @lang('crud.records.inputs.datetime')
                         </h5>
                         <span>
-                            {{
-                            $record->datetime ?
-                            $record->datetime->format('l, d F Y, H:i'):
-                            '-'
-                            }}
+                            {{ optional($record->datetime)->format('D, d M Y, H:i') }}
                         </span>
                     </div>
                     <div class="mb-4 w-full">
@@ -73,11 +69,7 @@
                             @lang('crud.records.inputs.date')
                         </h5>
                         <span>
-                            {{
-                            $record->date ?
-                            $record->date->format('l, d F Y'):
-                            '-'
-                            }}
+                            {{ optional($record->date)->format('l, d F Y') }}
                         </span>
                     </div>
                     <div class="mb-4 w-full">
