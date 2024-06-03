@@ -37,7 +37,6 @@
                             name="subrecordDate"
                             label="{{ __('crud.subrecords.inputs.date') }}"
                             wire:model="subrecordDate"
-                            max="255"
                         ></x-inputs.date>
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
