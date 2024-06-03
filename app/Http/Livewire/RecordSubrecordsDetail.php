@@ -81,7 +81,7 @@ class RecordSubrecordsDetail extends Component
         $this->subrecord = $subrecord;
 
         $this->subrecordDatetime = optional($this->subrecord->datetime)->format(
-            'Y-m-d'
+            'Y-m-d H:i:s'
         );
         $this->subrecordDate = optional($this->subrecord->date)->format(
             'Y-m-d'

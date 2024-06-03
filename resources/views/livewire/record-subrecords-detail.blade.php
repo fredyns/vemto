@@ -26,9 +26,9 @@
                 <div class="flex flex-wrap">
                     <x-inputs.group class="w-full">
                         <x-inputs.datetime
-                            name="subrecord.datetime"
+                            name="subrecordDatetime"
                             label="Datetime"
-                            wire:model="subrecord.datetime"
+                            wire:model="subrecordDatetime"
                             max="255"
                         ></x-inputs.datetime>
                     </x-inputs.group>
