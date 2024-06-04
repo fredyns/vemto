@@ -40,13 +40,12 @@
                         ></x-inputs.date>
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
-                        <x-inputs.text
+                        <x-inputs.time
                             name="subrecord.time"
                             label="{{ __('crud.subrecords.inputs.time') }}"
                             wire:model="subrecord.time"
-                            maxlength="255"
                             placeholder="{{ __('crud.subrecords.inputs.time') }}"
-                        ></x-inputs.text>
+                        ></x-inputs.time>
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
                         <x-inputs.text
