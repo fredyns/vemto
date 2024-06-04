@@ -33,6 +33,7 @@ class Subrecord extends Model
     protected $casts = [
         'datetime' => 'datetime',
         'date' => 'date',
+        'time' => 'datetime:H:i:s',
     ];
 
     public function record()
