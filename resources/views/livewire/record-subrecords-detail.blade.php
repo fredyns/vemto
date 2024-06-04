@@ -242,7 +242,7 @@
                         />
                     </td>
                     <td class="px-4 py-3 text-left">
-                        {{ $subrecord->datetime ?? '-' }}
+                        {{ optional($subrecord->datetime)->format('D, d M Y, H:i') }}
                     </td>
                     <td class="px-4 py-3 text-left">
                         {{ $subrecord->n_p_w_p ?? '-' }}
