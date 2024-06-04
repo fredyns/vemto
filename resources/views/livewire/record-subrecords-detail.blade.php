@@ -26,19 +26,88 @@
                 <div class="flex flex-wrap">
                     <div class="mb-4 w-full">
                         <h5 class="font-medium text-gray-700">
-                            @lang('crud.records.inputs.datetime')
+                            @lang('crud.subrecords.inputs.datetime')
                         </h5>
                         <span>
-                            {{ optional($subrecord->datetime)->format('D, d M Y, H:i') }}
+                            {{ optional($subrecord->datetime)->format('l, d F Y, H:i') }}
                         </span>
                     </div>
                     <div class="mb-4 w-full">
                         <h5 class="font-medium text-gray-700">
-                            @lang('crud.records.inputs.w_y_s_i_w_y_g')
+                            @lang('crud.subrecords.inputs.date')
                         </h5>
                         <span>
-                        {{ $subrecord->w_y_s_i_w_y_g ?? '-' }}
+                            {{ optional($subrecord->date)->format('l, d F Y') }}
                         </span>
+                    </div>
+                    <div class="mb-4 w-full">
+                        <h5 class="font-medium text-gray-700">
+                            @lang('crud.subrecords.inputs.time')
+                        </h5>
+                        <span>
+                            {{ optional($subrecord->time)->format('H:i') }}
+                        </span>
+                    </div>
+                    <div class="mb-4 w-full">
+                        <h5 class="font-medium text-gray-700">
+                            @lang('crud.subrecords.inputs.n_p_w_p')
+                        </h5>
+                        <span> {{ $subrecord->n_p_w_p ?? '-' }} </span>
+                    </div>
+                    <div class="mb-4 w-full">
+                        <h5 class="font-medium text-gray-700">
+                            @lang('crud.subrecords.inputs.markdown_text')
+                        </h5>
+                        <span> {{ $subrecord->markdown_text ?? '-' }} </span>
+                    </div>
+                    <div class="mb-4 w-full">
+                        <h5 class="font-medium text-gray-700">
+                            @lang('crud.subrecords.inputs.w_y_s_i_w_y_g')
+                        </h5>
+                        <span> {{ $subrecord->w_y_s_i_w_y_g ?? '-' }} </span>
+                    </div>
+                    <div class="mb-4 w-full">
+                        <h5 class="font-medium text-gray-700">
+                            @lang('crud.subrecords.inputs.file')
+                        </h5>
+                        @if($subrecord->file)
+                            <a
+                                href="{{ Storage::url($subrecord->file) }}"
+                                target="blank"
+                            >
+                                <i class="mr-1 icon ion-md-download"></i>
+                                Download
+                            </a>
+                        @else
+                            -
+                        @endif
+                    </div>
+                    <div class="mb-4 w-full">
+                        <h5 class="font-medium text-gray-700">
+                            @lang('crud.subrecords.inputs.image')
+                        </h5>
+                        <x-partials.thumbnail
+                            src="{{ $subrecord->image ? Storage::url($subrecord->image) : '' }}"
+                            size="150"
+                        />
+                    </div>
+                    <div class="mb-4 w-full">
+                        <h5 class="font-medium text-gray-700">
+                            @lang('crud.subrecords.inputs.i_p_address')
+                        </h5>
+                        <span> {{ $subrecord->i_p_address ?? '-' }} </span>
+                    </div>
+                    <div class="mb-4 w-full">
+                        <h5 class="font-medium text-gray-700">
+                            @lang('crud.subrecords.inputs.latitude')
+                        </h5>
+                        <span> {{ $subrecord->latitude ?? '-' }} </span>
+                    </div>
+                    <div class="mb-4 w-full">
+                        <h5 class="font-medium text-gray-700">
+                            @lang('crud.subrecords.inputs.longitude')
+                        </h5>
+                        <span> {{ $subrecord->longitude ?? '-' }} </span>
                     </div>
                 </div>
             </div>
@@ -100,7 +169,6 @@
                             name="subrecord.n_p_w_p"
                             label="{{ __('crud.subrecords.inputs.n_p_w_p') }}"
                             wire:model="subrecord.n_p_w_p"
-                            maxlength="255"
                             placeholder="{{ __('crud.subrecords.inputs.n_p_w_p') }}"
                         ></x-inputs.text>
                     </x-inputs.group>
@@ -109,6 +177,7 @@
                             name="subrecord.markdown_text"
                             label="{{ __('crud.subrecords.inputs.markdown_text') }}"
                             wire:model="subrecord.markdown_text"
+                            placeholder="{{ __('crud.subrecords.inputs.markdown_text') }}"
                         ></x-inputs.textarea>
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
@@ -116,7 +185,7 @@
                             name="subrecord.w_y_s_i_w_y_g"
                             label="{{ __('crud.subrecords.inputs.w_y_s_i_w_y_g') }}"
                             wire:model="subrecord.w_y_s_i_w_y_g"
-                            maxlength="255"
+                            placeholder="{{ __('crud.subrecords.inputs.w_y_s_i_w_y_g') }}"
                         ></x-inputs.textarea>
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
