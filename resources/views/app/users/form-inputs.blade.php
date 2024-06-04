@@ -1,5 +1,21 @@
 @php $editing = isset($user) @endphp
 
+<style>
+    .ts-control {
+        border: none;
+        padding: 0;
+    }
+
+    .ts-dropdown,
+    .ts-control,
+    .ts-control input {
+        color: rgb(31 41 55 / var(--tw-text-opacity));
+        font-family: inherit;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+</style>
+
 <x-partials.card>
     {{--
     <x-slot name="title">

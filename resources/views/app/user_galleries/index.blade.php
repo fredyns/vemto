@@ -68,11 +68,10 @@
                         @forelse($userGalleries as $userGallery)
                             <tr class="hover:bg-gray-50">
                                 <td class="px-4 py-3 text-left">
-                                    {{ optional($userGallery->user)->name ?? '-'
-                                    }}
+                                    {{ optional($userGallery->user)->name ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
-                                    {{ $userGallery->at ?? '-' }}
+                                    {{ optional($userGallery->at)->format('D, d M Y') }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
                                     <x-partials.thumbnail

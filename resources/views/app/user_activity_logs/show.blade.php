@@ -22,7 +22,9 @@
                         <h5 class="font-medium text-gray-700">
                             @lang('crud.user_activity_logs.inputs.at')
                         </h5>
-                        <span> {{ $userActivityLog->at ?? '-' }} </span>
+                        <span>
+                            {{ optional($userActivityLog->at)->format('l, d F Y') }}
+                        </span>
                     </div>
                     <div class="mb-4 w-full">
                         <h5 class="font-medium text-gray-700">

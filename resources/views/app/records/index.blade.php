@@ -62,7 +62,7 @@
                                 @lang('crud.records.inputs.n_p_w_p')
                             </th>
                             <th class="px-4 py-3 text-left">
-                                @lang('crud.records.inputs.time')
+                                @lang('crud.records.inputs.datetime')
                             </th>
                             <th></th>
                         </tr>
@@ -83,7 +83,7 @@
                                     {{ $record->n_p_w_p ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
-                                    {{ optional($record->time)->format('H:i') }}
+                                    {{ optional($record->datetime)->format('D, d M Y, H:i') }}
                                 </td>
                                 <td
                                     class="px-4 py-3 text-center"

@@ -68,11 +68,10 @@
                         @forelse($userActivityLogs as $userActivityLog)
                             <tr class="hover:bg-gray-50">
                                 <td class="px-4 py-3 text-left">
-                                    {{ $userActivityLog->at ?? '-' }}
+                                    {{ optional($userActivityLog->at)->format('D, d M Y') }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
-                                    {{ optional($userActivityLog->user)->name ??
-                                    '-' }}
+                                    {{ optional($userActivityLog->user)->name ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
                                     {{ $userActivityLog->title ?? '-' }}

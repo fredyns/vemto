@@ -65,11 +65,10 @@
                         @forelse($userUploads as $userUpload)
                             <tr class="hover:bg-gray-50">
                                 <td class="px-4 py-3 text-left">
-                                    {{ optional($userUpload->user)->name ?? '-'
-                                    }}
+                                    {{ optional($userUpload->user)->name ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
-                                    {{ $userUpload->at ?? '-' }}
+                                    {{ optional($userUpload->at)->format('D, d M Y') }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
                                     @if($userUpload->file)

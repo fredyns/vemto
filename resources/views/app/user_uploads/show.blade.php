@@ -30,7 +30,9 @@
                         <h5 class="font-medium text-gray-700">
                             @lang('crud.user_uploads.inputs.at')
                         </h5>
-                        <span> {{ $userUpload->at ?? '-' }} </span>
+                        <span>
+                            {{ optional($userUpload->at)->format('l, d F Y') }}
+                        </span>
                     </div>
                     <div class="mb-4 w-full">
                         <h5 class="font-medium text-gray-700">
@@ -71,8 +73,9 @@
                             @lang('crud.user_uploads.inputs.metadata')
                         </h5>
                         <pre>
-                            {{ json_encode($userUpload->metadata) ?? '-' }}
-                        </pre>
+                                        {{ json_encode($userUpload->metadata) ?? '-' }}
+                                    </pre
+                                    >
                     </div>
                 </div>
             </x-partials.card>

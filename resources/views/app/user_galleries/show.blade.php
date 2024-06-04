@@ -30,7 +30,9 @@
                         <h5 class="font-medium text-gray-700">
                             @lang('crud.user_galleries.inputs.at')
                         </h5>
-                        <span> {{ $userGallery->at ?? '-' }} </span>
+                        <span>
+                            {{ optional($userGallery->at)->format('l, d F Y') }}
+                        </span>
                     </div>
                     <div class="mb-4 w-full">
                         <h5 class="font-medium text-gray-700">
