@@ -72,7 +72,7 @@ class RecordSubrecordsDetail extends Component
         $this->modalTitle = trans('crud.record_subrecords.new_title');
         $this->resetSubrecordData();
 
-        $this->showModal();
+        $this->showModalForm();
     }
 
     public function viewSubrecord(Subrecord $subrecord): void
@@ -108,7 +108,7 @@ class RecordSubrecordsDetail extends Component
             'Y-m-d'
         );
 
-        $this->subrecord->time = substr($this->subrecord->time,0, 5);
+        $this->subrecord->time = substr($this->subrecord->time, 0, 5);
 
         $this->dispatchBrowserEvent('refresh');
 
