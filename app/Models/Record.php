@@ -42,6 +42,7 @@ class Record extends Model
     protected $casts = [
         'datetime' => 'datetime',
         'date' => 'date',
+        'time' => 'datetime:H:i:s',
         'bool' => 'boolean',
     ];
 

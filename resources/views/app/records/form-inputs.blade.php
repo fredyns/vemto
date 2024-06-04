@@ -104,12 +104,12 @@
         </x-inputs.group>
 
         <x-inputs.group class="w-full">
-            <x-inputs.text
+            <x-inputs.time
                 name="time"
                 label="{{ __('crud.records.inputs.time') }}"
-                :value="old('time', ($editing ? $record->time : ''))"
+                value="{{ old('time', ($editing ? optional($record->time)->format('H:i') : '')) }}"
                 placeholder="{{ __('crud.records.inputs.time') }}"
-            ></x-inputs.text>
+            ></x-inputs.time>
         </x-inputs.group>
 
         <x-inputs.group class="w-full">

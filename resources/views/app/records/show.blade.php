@@ -76,7 +76,7 @@
                         <h5 class="font-medium text-gray-700">
                             @lang('crud.records.inputs.time')
                         </h5>
-                        <span> {{ $record->time ?? '-' }} </span>
+                        <span> {{ optional($record->time)->format('H:i') }} </span>
                     </div>
                     <div class="mb-4 w-full">
                         <h5 class="font-medium text-gray-700">
