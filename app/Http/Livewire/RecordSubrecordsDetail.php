@@ -108,6 +108,8 @@ class RecordSubrecordsDetail extends Component
             'Y-m-d'
         );
 
+        $this->subrecord->time = substr($this->subrecord->time,0, 5);
+
         $this->dispatchBrowserEvent('refresh');
 
         $this->showModalForm();
