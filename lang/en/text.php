@@ -2,6 +2,7 @@
 return [
     // common phrases
     'actions' => 'Actions',
+    'close' => 'Close',
     'at' => 'At',
     'new' => 'New',
     'save' => 'Save',

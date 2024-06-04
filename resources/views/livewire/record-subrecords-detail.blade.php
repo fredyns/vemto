@@ -18,7 +18,55 @@
         @endcan
     </div>
 
-    <x-modal wire:model="showingModal">
+    <x-modal wire:model="showingModalView">
+        <div class="px-6 py-4">
+            <div class="text-lg font-bold">{{ $modalTitle }}</div>
+
+            <div class="mt-5">
+                <div class="flex flex-wrap">
+                    <div class="mb-4 w-full">
+                        <h5 class="font-medium text-gray-700">
+                            @lang('crud.records.inputs.datetime')
+                        </h5>
+                        <span>
+                            {{ optional($subrecord->datetime)->format('D, d M Y, H:i') }}
+                        </span>
+                    </div>
+                    <div class="mb-4 w-full">
+                        <h5 class="font-medium text-gray-700">
+                            @lang('crud.records.inputs.w_y_s_i_w_y_g')
+                        </h5>
+                        <span>
+                        {{ $subrecord->w_y_s_i_w_y_g ?? '-' }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="px-6 py-4 bg-gray-50 flex justify-between">
+            <button
+                type="button"
+                class="button"
+                wire:click="$toggle('showingModalView')"
+            >
+                <i class="mr-1 icon ion-md-close"></i>
+                @lang('text.close')
+            </button>
+            @can('update', $subrecord)
+                <button
+                    type="button"
+                    class="button mr-1"
+                    wire:click="editSubrecord('{{ $subrecord->id }}')"
+                >
+                    <i class="mr-1 icon ion-md-create"></i>
+                    @lang('crud.common.edit')
+                </button>
+            @endcan
+        </div>
+    </x-modal>
+
+    <x-modal wire:model="showingModalForm">
         <div class="px-6 py-4">
             <div class="text-lg font-bold">{{ $modalTitle }}</div>
 
@@ -190,7 +238,7 @@
             <button
                 type="button"
                 class="button"
-                wire:click="$toggle('showingModal')"
+                wire:click="$toggle('showingModalForm')"
             >
                 <i class="mr-1 icon ion-md-close"></i>
                 @lang('crud.common.cancel')
@@ -256,10 +304,17 @@
                             aria-label="Row Actions"
                             class="relative inline-flex align-middle"
                         >
+                            <button
+                                type="button"
+                                class="button mr-1"
+                                wire:click="viewSubrecord('{{ $subrecord->id }}')"
+                            >
+                                <i class="icon ion-md-eye"></i>
+                            </button>
                             @can('update', $subrecord)
                                 <button
                                     type="button"
-                                    class="button"
+                                    class="button mr-1"
                                     wire:click="editSubrecord('{{ $subrecord->id }}')"
                                 >
                                     <i class="icon ion-md-create"></i>

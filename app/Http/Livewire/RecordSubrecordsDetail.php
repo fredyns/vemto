@@ -29,7 +29,8 @@ class RecordSubrecordsDetail extends Component
     public $selected = [];
     public $editing = false;
     public $allSelected = false;
-    public $showingModal = false;
+    public $showingModalView = false;
+    public $showingModalForm = false;
 
     public $modalTitle = 'New Subrecord';
 
@@ -74,6 +75,25 @@ class RecordSubrecordsDetail extends Component
         $this->showModal();
     }
 
+    public function viewSubrecord(Subrecord $subrecord): void
+    {
+        $this->editing = false;
+        $this->modalTitle = trans('crud.record_subrecords.show_title');
+        $this->subrecord = $subrecord;
+
+        $this->subrecordDatetime = optional($this->subrecord->datetime)->format(
+            'Y-m-d H:i:s'
+        );
+
+        $this->subrecordDate = optional($this->subrecord->date)->format(
+            'Y-m-d'
+        );
+
+        $this->dispatchBrowserEvent('refresh');
+
+        $this->showModalView();
+    }
+
     public function editSubrecord(Subrecord $subrecord): void
     {
         $this->editing = true;
@@ -90,18 +110,27 @@ class RecordSubrecordsDetail extends Component
 
         $this->dispatchBrowserEvent('refresh');
 
-        $this->showModal();
+        $this->showModalForm();
     }
 
-    public function showModal(): void
+    public function showModalView(): void
     {
         $this->resetErrorBag();
-        $this->showingModal = true;
+        $this->showingModalView = true;
+        $this->showingModalForm = false;
+    }
+
+    public function showModalForm(): void
+    {
+        $this->resetErrorBag();
+        $this->showingModalView = false;
+        $this->showingModalForm = true;
     }
 
     public function hideModal(): void
     {
-        $this->showingModal = false;
+        $this->showingModalView = false;
+        $this->showingModalForm = false;
     }
 
     public function save(): void
