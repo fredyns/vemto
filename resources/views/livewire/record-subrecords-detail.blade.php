@@ -158,9 +158,9 @@
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
                         <x-inputs.time
-                            name="subrecord.time"
+                            name="subrecordTime"
                             label="{{ __('crud.subrecords.inputs.time') }}"
-                            wire:model="subrecord.time"
+                            wire:model="subrecordTime"
                             placeholder="{{ __('crud.subrecords.inputs.time') }}"
                         ></x-inputs.time>
                     </x-inputs.group>

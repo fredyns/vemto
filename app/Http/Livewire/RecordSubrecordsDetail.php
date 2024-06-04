@@ -25,6 +25,7 @@ class RecordSubrecordsDetail extends Component
     public $uploadIteration = 0;
     public $subrecordDatetime;
     public $subrecordDate;
+    public $subrecordTime;
 
     public $selected = [];
     public $editing = false;
@@ -37,7 +38,7 @@ class RecordSubrecordsDetail extends Component
     protected $rules = [
         'subrecordDatetime' => ['nullable', 'date'],
         'subrecordDate' => ['nullable', 'date'],
-        'subrecord.time' => ['nullable', 'date_format:H:i'],
+        'subrecordTime' => ['nullable', 'date_format:H:i'],
         'subrecord.n_p_w_p' => ['nullable'],
         'subrecord.markdown_text' => ['nullable', 'string'],
         'subrecord.w_y_s_i_w_y_g' => ['nullable', 'string'],
@@ -62,6 +63,7 @@ class RecordSubrecordsDetail extends Component
         $this->subrecordImage = null;
         $this->subrecordDatetime = null;
         $this->subrecordDate = null;
+        $this->subrecordTime = null;
 
         $this->dispatchBrowserEvent('refresh');
     }
@@ -89,6 +91,12 @@ class RecordSubrecordsDetail extends Component
             'Y-m-d'
         );
 
+//        $this->subrecord->time = null;
+
+        $this->subrecordTime = optional($this->subrecord->time)->format(
+            'H:i'
+        );
+
         $this->dispatchBrowserEvent('refresh');
 
         $this->showModalView();
@@ -108,7 +116,11 @@ class RecordSubrecordsDetail extends Component
             'Y-m-d'
         );
 
-        $this->subrecord->time = substr($this->subrecord->time, 0, 5);
+        $this->subrecordTime = optional($this->subrecord->time)->format(
+            'H:i'
+        );
+
+//        $this->subrecord->time = optional($subrecord->time)->format('H:i');
 
         $this->dispatchBrowserEvent('refresh');
 
@@ -159,6 +171,8 @@ class RecordSubrecordsDetail extends Component
             $this->subrecordDatetime
         );
         $this->subrecord->date = Carbon::make($this->subrecordDate);
+
+        $this->subrecord->time = $this->subrecordTime.':00';
 
         $this->subrecord->save();
 
