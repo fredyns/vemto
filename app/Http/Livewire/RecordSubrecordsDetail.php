@@ -91,11 +91,7 @@ class RecordSubrecordsDetail extends Component
             'Y-m-d'
         );
 
-//        $this->subrecord->time = null;
-
-        $this->subrecordTime = optional($this->subrecord->time)->format(
-            'H:i'
-        );
+        $this->subrecordTime = optional($this->subrecord->time)->format('H:i');
 
         $this->dispatchBrowserEvent('refresh');
 
@@ -116,11 +112,7 @@ class RecordSubrecordsDetail extends Component
             'Y-m-d'
         );
 
-        $this->subrecordTime = optional($this->subrecord->time)->format(
-            'H:i'
-        );
-
-//        $this->subrecord->time = optional($subrecord->time)->format('H:i');
+        $this->subrecordTime = optional($this->subrecord->time)->format('H:i');
 
         $this->dispatchBrowserEvent('refresh');
 
@@ -172,7 +164,7 @@ class RecordSubrecordsDetail extends Component
         );
         $this->subrecord->date = Carbon::make($this->subrecordDate);
 
-        $this->subrecord->time = $this->subrecordTime.':00';
+        $this->subrecord->time = $this->subrecordTime . ':00';
 
         $this->subrecord->save();
 
