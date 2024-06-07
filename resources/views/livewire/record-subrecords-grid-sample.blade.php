@@ -2,21 +2,21 @@
     <div class="flex flex-wrap">
         <x-inputs.group class="w-full md:w-4/12 lg:w-2/12">
             <x-inputs.text
-                name="sample[]"
+                name="sample[1]"
                 label="M4/L2"
                 placeholder="M4/L2"
             ></x-inputs.text>
         </x-inputs.group>
         <x-inputs.group class="w-full md:w-4/12 lg:w-2/12">
             <x-inputs.text
-                name="sample[]"
+                name="sample[2]"
                 label="M4/L2"
                 placeholder="M4/L2"
             ></x-inputs.text>
         </x-inputs.group>
         <x-inputs.group class="w-full md:w-4/12 lg:w-2/12">
             <x-inputs.text
-                name="sample[]"
+                name="sample[3]"
                 label="M4/L2"
                 placeholder="M4/L2"
             ></x-inputs.text>
