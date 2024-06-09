@@ -59,12 +59,12 @@
         </x-inputs.group>
 
         <x-inputs.group class="w-full">
-            <x-inputs.number
+            <x-inputs.slider
                 name="integer"
                 label="{{ __('crud.records.inputs.integer') }}"
-                :value="old('integer', ($editing ? $record->integer : ''))"
+                :value="old('integer', ($editing ? $record->integer : 0))"
                 placeholder="{{ __('crud.records.inputs.integer') }}"
-            ></x-inputs.number>
+            ></x-inputs.slider>
         </x-inputs.group>
 
         <x-inputs.group class="w-full">
