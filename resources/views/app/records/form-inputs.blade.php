@@ -122,11 +122,11 @@
         </x-inputs.group>
 
         <x-inputs.group class="w-full">
-            <x-inputs.checkbox
+            <x-inputs.toggle
                 name="bool"
                 label="{{ __('crud.records.inputs.bool') }}"
-                :checked="old('bool', ($editing ? $record->bool : 0))"
-            ></x-inputs.checkbox>
+                :value="old('bool', ($editing ? $record->bool : 0))"
+            ></x-inputs.toggle>
         </x-inputs.group>
 
         <x-inputs.group class="w-full">
