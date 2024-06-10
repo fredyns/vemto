@@ -144,16 +144,17 @@
                     <x-inputs.group class="w-full">
                         <x-inputs.datetime
                             name="subrecordDatetime"
-                            label="{{ __('crud.subrecords.inputs.datetime') }}"
                             wire:model="subrecordDatetime"
+                            label="{{ __('crud.subrecords.inputs.datetime') }}"
                             placeholder="{{ __('crud.subrecords.inputs.datetime') }}"
                         ></x-inputs.datetime>
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
                         <x-inputs.date
                             name="subrecordDate"
-                            label="{{ __('crud.subrecords.inputs.date') }}"
                             wire:model="subrecordDate"
+                            label="{{ __('crud.subrecords.inputs.date') }}"
+                            placeholder="{{ __('crud.subrecords.inputs.date') }}"
                         ></x-inputs.date>
                     </x-inputs.group>
                     <x-inputs.group class="w-full">

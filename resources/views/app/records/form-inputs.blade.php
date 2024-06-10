@@ -90,16 +90,18 @@
         <x-inputs.group class="w-full">
             <x-inputs.datetime
                 name="datetime"
-                label="Datetime"
-                value="{{ old('datetime', ($editing ? optional($record->datetime)->format('Y-m-d\TH:i:s') : '')) }}"
+                value="{{ old('datetime', ($editing ? optional($record->datetime)->format('Y-m-d H:i:s') : '')) }}"
+                label="{{ __('crud.records.inputs.datetime') }}"
+                placeholder="{{ __('crud.records.inputs.datetime') }}"
             ></x-inputs.datetime>
         </x-inputs.group>
 
         <x-inputs.group class="w-full">
             <x-inputs.date
                 name="date"
-                label="{{ __('crud.records.inputs.date') }}"
                 value="{{ old('date', ($editing ? optional($record->date)->format('Y-m-d') : '')) }}"
+                label="{{ __('crud.records.inputs.date') }}"
+                placeholder="{{ __('crud.records.inputs.date') }}"
             ></x-inputs.date>
         </x-inputs.group>
 
@@ -144,6 +146,7 @@
             <x-inputs.textarea
                 name="text"
                 label="{{ __('crud.records.inputs.text') }}"
+                placeholder="{{ __('crud.records.inputs.text') }}"
             >
                 {{ old('text', ($editing ? $record->text : '')) }}
             </x-inputs.textarea>
@@ -219,6 +222,7 @@
             <x-inputs.textarea
                 name="markdown_text"
                 label="{{ __('crud.records.inputs.markdown_text') }}"
+                placeholder="{{ __('crud.records.inputs.markdown_text') }}"
             >
                 {{ old('markdown_text', ($editing ? $record->markdown_text : '')) }}
             </x-inputs.textarea>
@@ -229,6 +233,7 @@
                 name="w_y_s_i_w_y_g"
                 label="{{ __('crud.records.inputs.w_y_s_i_w_y_g') }}"
                 maxlength="255"
+                placeholder="{{ __('crud.records.inputs.w_y_s_i_w_y_g') }}"
             >
                 {{ old('w_y_s_i_w_y_g', ($editing ? $record->w_y_s_i_w_y_g : '')) }}
             </x-inputs.textarea>
