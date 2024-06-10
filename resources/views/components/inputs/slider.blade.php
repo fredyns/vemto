@@ -26,17 +26,20 @@
         {{ $step ? "step={$step}" : '' }}
         autocomplete="off"
     />
-    <input
-        type="range"
-        id="sliding{{ $name }}"
-        name="sliding{{ $name }}"
-        x-model="slider{{ $name }}"
-        {{ $min ? "min={$min}" : '' }}
-        {{ $max ? "max={$max}" : '' }}
-        {{ $step ? "step={$step}" : '' }}
-        class="mt-3"
-        style="width: 100%;"
-    />
+
+    @if(is_numeric($min) && is_numeric($max))
+        <input
+            type="range"
+            id="sliding{{ $name }}"
+            name="sliding{{ $name }}"
+            x-model="slider{{ $name }}"
+            {{ $min ? "min={$min}" : '' }}
+            {{ $max ? "max={$max}" : '' }}
+            {{ $step ? "step={$step}" : '' }}
+            class="mt-3"
+            style="width: 100%;"
+        />
+    @endif
 
 </div>
 @error($name)
