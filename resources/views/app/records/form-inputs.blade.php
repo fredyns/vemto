@@ -64,6 +64,8 @@
                 :value="old('integer', ($editing ? $record->integer : ''))"
                 label="{{ __('crud.records.inputs.integer') }}"
                 placeholder="{{ __('crud.records.inputs.integer') }}"
+                min="0"
+                max="100"
             ></x-inputs.slider>
         </x-inputs.group>
 
