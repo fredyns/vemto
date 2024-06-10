@@ -39,13 +39,13 @@
         </x-inputs.group>
 
         <x-inputs.group class="w-full">
-            <x-inputs.date
+            <x-inputs.datetime
                 name="at"
+                value="{{ old('at', ($editing ? optional($userGallery->at)->format('Y-m-d H:i:s') : '')) }}"
                 label="{{ __('crud.user_galleries.inputs.at') }}"
-                value="{{ old('at', ($editing ? optional($userGallery->at)->format('Y-m-d') : '')) }}"
-                max="255"
+                placeholder="{{ __('crud.user_galleries.inputs.at') }}"
                 required
-            ></x-inputs.date>
+            ></x-inputs.datetime>
         </x-inputs.group>
 
         <x-inputs.group class="w-full">
@@ -92,10 +92,10 @@
         <x-inputs.group class="w-full">
             <x-inputs.text
                 name="name"
-                label="{{ __('crud.user_galleries.inputs.name') }}"
                 :value="old('name', ($editing ? $userGallery->name : ''))"
-                maxlength="255"
+                label="{{ __('crud.user_galleries.inputs.name') }}"
                 placeholder="{{ __('crud.user_galleries.inputs.name') }}"
+                maxlength="255"
             ></x-inputs.text>
         </x-inputs.group>
 
@@ -103,6 +103,7 @@
             <x-inputs.textarea
                 name="description"
                 label="{{ __('crud.user_galleries.inputs.description') }}"
+                placeholder="{{ __('crud.user_galleries.inputs.description') }}"
             >
                 {{ old('description', ($editing ? $userGallery->description : '')) }}
             </x-inputs.textarea>
@@ -111,8 +112,8 @@
         <x-inputs.group class="w-full">
             <x-inputs.text
                 name="type"
-                label="{{ __('crud.user_galleries.inputs.type') }}"
                 :value="old('type', ($editing ? $userGallery->type : ''))"
+                label="{{ __('crud.user_galleries.inputs.type') }}"
                 placeholder="{{ __('crud.user_galleries.inputs.type') }}"
             ></x-inputs.text>
         </x-inputs.group>
@@ -121,6 +122,7 @@
             <x-inputs.textarea
                 name="metadata"
                 label="{{ __('crud.user_galleries.inputs.metadata') }}"
+                placeholder="{{ __('crud.user_galleries.inputs.metadata') }}"
             >
                 {{ old('metadata', ($editing ? json_encode($userGallery->metadata) : '')) }}
             </x-inputs.textarea>

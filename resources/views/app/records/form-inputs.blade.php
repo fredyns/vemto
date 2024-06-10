@@ -40,10 +40,10 @@
         <x-inputs.group class="w-full">
             <x-inputs.text
                 name="string"
-                label="{{ __('crud.records.inputs.string') }}"
                 :value="old('string', ($editing ? $record->string : ''))"
-                maxlength="255"
+                label="{{ __('crud.records.inputs.string') }}"
                 placeholder="{{ __('crud.records.inputs.string') }}"
+                maxlength="255"
                 required
             ></x-inputs.text>
         </x-inputs.group>
@@ -51,38 +51,38 @@
         <x-inputs.group class="w-full">
             <x-inputs.email
                 name="email"
-                label="{{ __('crud.records.inputs.email') }}"
                 :value="old('email', ($editing ? $record->email : ''))"
-                maxlength="255"
+                label="{{ __('crud.records.inputs.email') }}"
                 placeholder="{{ __('crud.records.inputs.email') }}"
+                maxlength="255"
             ></x-inputs.email>
         </x-inputs.group>
 
         <x-inputs.group class="w-full">
             <x-inputs.slider
                 name="integer"
+                :value="old('integer', ($editing ? $record->integer : ''))"
                 label="{{ __('crud.records.inputs.integer') }}"
-                :value="old('integer', ($editing ? $record->integer : 0))"
                 placeholder="{{ __('crud.records.inputs.integer') }}"
             ></x-inputs.slider>
         </x-inputs.group>
 
         <x-inputs.group class="w-full">
-            <x-inputs.number
+            <x-inputs.slider
                 name="decimal"
-                label="{{ __('crud.records.inputs.decimal') }}"
                 :value="old('decimal', ($editing ? $record->decimal : ''))"
+                label="{{ __('crud.records.inputs.decimal') }}"
+                placeholder="{{ __('crud.records.inputs.decimal') }}"
                 max="255"
                 step="0.01"
-                placeholder="{{ __('crud.records.inputs.decimal') }}"
-            ></x-inputs.number>
+            ></x-inputs.slider>
         </x-inputs.group>
 
         <x-inputs.group class="w-full">
             <x-inputs.text
                 name="n_p_w_p"
-                label="{{ __('crud.records.inputs.n_p_w_p') }}"
                 :value="old('n_p_w_p', ($editing ? $record->n_p_w_p : ''))"
+                label="{{ __('crud.records.inputs.n_p_w_p') }}"
                 placeholder="{{ __('crud.records.inputs.n_p_w_p') }}"
             ></x-inputs.text>
         </x-inputs.group>
@@ -108,8 +108,8 @@
         <x-inputs.group class="w-full">
             <x-inputs.time
                 name="time"
-                label="{{ __('crud.records.inputs.time') }}"
                 value="{{ old('time', ($editing ? optional($record->time)->format('H:i') : '')) }}"
+                label="{{ __('crud.records.inputs.time') }}"
                 placeholder="{{ __('crud.records.inputs.time') }}"
             ></x-inputs.time>
         </x-inputs.group>
@@ -117,8 +117,8 @@
         <x-inputs.group class="w-full">
             <x-inputs.text
                 name="i_p_address"
-                label="{{ __('crud.records.inputs.i_p_address') }}"
                 :value="old('i_p_address', ($editing ? $record->i_p_address : ''))"
+                label="{{ __('crud.records.inputs.i_p_address') }}"
                 placeholder="{{ __('crud.records.inputs.i_p_address') }}"
             ></x-inputs.text>
         </x-inputs.group>
@@ -126,8 +126,8 @@
         <x-inputs.group class="w-full">
             <x-inputs.toggle
                 name="bool"
-                label="{{ __('crud.records.inputs.bool') }}"
                 :value="old('bool', ($editing ? $record->bool : 0))"
+                label="{{ __('crud.records.inputs.bool') }}"
             ></x-inputs.toggle>
         </x-inputs.group>
 
@@ -232,7 +232,6 @@
             <x-inputs.textarea
                 name="w_y_s_i_w_y_g"
                 label="{{ __('crud.records.inputs.w_y_s_i_w_y_g') }}"
-                maxlength="255"
                 placeholder="{{ __('crud.records.inputs.w_y_s_i_w_y_g') }}"
             >
                 {{ old('w_y_s_i_w_y_g', ($editing ? $record->w_y_s_i_w_y_g : '')) }}
@@ -242,9 +241,8 @@
         <x-inputs.group class="w-full">
             <x-inputs.text
                 name="latitude"
-                label="{{ __('crud.records.inputs.latitude') }}"
                 :value="old('latitude', ($editing ? $record->latitude : ''))"
-                maxlength="255"
+                label="{{ __('crud.records.inputs.latitude') }}"
                 placeholder="{{ __('crud.records.inputs.latitude') }}"
             ></x-inputs.text>
         </x-inputs.group>
@@ -252,9 +250,8 @@
         <x-inputs.group class="w-full">
             <x-inputs.text
                 name="longitude"
-                label="{{ __('crud.records.inputs.longitude') }}"
                 :value="old('longitude', ($editing ? $record->longitude : ''))"
-                maxlength="255"
+                label="{{ __('crud.records.inputs.longitude') }}"
                 placeholder="{{ __('crud.records.inputs.longitude') }}"
             ></x-inputs.text>
         </x-inputs.group>

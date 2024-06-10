@@ -160,34 +160,39 @@
                     <x-inputs.group class="w-full">
                         <x-inputs.time
                             name="subrecordTime"
-                            label="{{ __('crud.subrecords.inputs.time') }}"
                             wire:model="subrecordTime"
+                            label="{{ __('crud.subrecords.inputs.time') }}"
                             placeholder="{{ __('crud.subrecords.inputs.time') }}"
+                            maxlength="255"
                         ></x-inputs.time>
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
                         <x-inputs.text
                             name="subrecord.n_p_w_p"
-                            label="{{ __('crud.subrecords.inputs.n_p_w_p') }}"
                             wire:model="subrecord.n_p_w_p"
+                            label="{{ __('crud.subrecords.inputs.n_p_w_p') }}"
                             placeholder="{{ __('crud.subrecords.inputs.n_p_w_p') }}"
                         ></x-inputs.text>
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
                         <x-inputs.textarea
                             name="subrecord.markdown_text"
-                            label="{{ __('crud.subrecords.inputs.markdown_text') }}"
                             wire:model="subrecord.markdown_text"
+                            label="{{ __('crud.subrecords.inputs.markdown_text') }}"
                             placeholder="{{ __('crud.subrecords.inputs.markdown_text') }}"
-                        ></x-inputs.textarea>
+                        >
+                            {{ old('markdown_text', ($editing ? $subrecord->markdown_text : '')) }}
+                        </x-inputs.textarea>
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
                         <x-inputs.textarea
                             name="subrecord.w_y_s_i_w_y_g"
-                            label="{{ __('crud.subrecords.inputs.w_y_s_i_w_y_g') }}"
                             wire:model="subrecord.w_y_s_i_w_y_g"
+                            label="{{ __('crud.subrecords.inputs.w_y_s_i_w_y_g') }}"
                             placeholder="{{ __('crud.subrecords.inputs.w_y_s_i_w_y_g') }}"
-                        ></x-inputs.textarea>
+                        >
+                            {{ old('w_y_s_i_w_y_g', ($editing ? $subrecord->w_y_s_i_w_y_g : '')) }}
+                        </x-inputs.textarea>
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
                         <x-inputs.partials.label
@@ -273,28 +278,28 @@
                     <x-inputs.group class="w-full">
                         <x-inputs.text
                             name="subrecord.i_p_address"
-                            label="{{ __('crud.subrecords.inputs.i_p_address') }}"
                             wire:model="subrecord.i_p_address"
-                            maxlength="255"
+                            label="{{ __('crud.subrecords.inputs.i_p_address') }}"
                             placeholder="{{ __('crud.subrecords.inputs.i_p_address') }}"
+                            maxlength="255"
                         ></x-inputs.text>
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
                         <x-inputs.text
                             name="subrecord.latitude"
-                            label="{{ __('crud.subrecords.inputs.latitude') }}"
                             wire:model="subrecord.latitude"
-                            maxlength="255"
+                            label="{{ __('crud.subrecords.inputs.latitude') }}"
                             placeholder="{{ __('crud.subrecords.inputs.latitude') }}"
+                            maxlength="255"
                         ></x-inputs.text>
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
                         <x-inputs.text
                             name="subrecord.longitude"
-                            label="{{ __('crud.subrecords.inputs.longitude') }}"
                             wire:model="subrecord.longitude"
-                            maxlength="255"
+                            label="{{ __('crud.subrecords.inputs.longitude') }}"
                             placeholder="{{ __('crud.subrecords.inputs.longitude') }}"
+                            maxlength="255"
                         ></x-inputs.text>
                     </x-inputs.group>
                 </div>

@@ -41,8 +41,9 @@
         <x-inputs.group class="w-full">
             <x-inputs.date
                 name="at"
-                label="{{ __('crud.user_uploads.inputs.at') }}"
                 value="{{ old('at', ($editing ? optional($userUpload->at)->format('Y-m-d') : '')) }}"
+                label="{{ __('crud.user_uploads.inputs.at') }}"
+                placeholder="{{ __('crud.user_uploads.inputs.at') }}"
                 required
             ></x-inputs.date>
         </x-inputs.group>
@@ -78,10 +79,10 @@
         <x-inputs.group class="w-full">
             <x-inputs.text
                 name="name"
-                label="{{ __('crud.user_uploads.inputs.name') }}"
                 :value="old('name', ($editing ? $userUpload->name : ''))"
-                maxlength="255"
+                label="{{ __('crud.user_uploads.inputs.name') }}"
                 placeholder="{{ __('crud.user_uploads.inputs.name') }}"
+                maxlength="255"
             ></x-inputs.text>
         </x-inputs.group>
 
@@ -89,6 +90,7 @@
             <x-inputs.textarea
                 name="description"
                 label="{{ __('crud.user_uploads.inputs.description') }}"
+                placeholder="{{ __('crud.user_uploads.inputs.description') }}"
             >
                 {{ old('description', ($editing ? $userUpload->description : '')) }}
             </x-inputs.textarea>
@@ -97,10 +99,10 @@
         <x-inputs.group class="w-full">
             <x-inputs.text
                 name="type"
-                label="{{ __('crud.user_uploads.inputs.type') }}"
                 :value="old('type', ($editing ? $userUpload->type : ''))"
-                maxlength="255"
+                label="{{ __('crud.user_uploads.inputs.type') }}"
                 placeholder="{{ __('crud.user_uploads.inputs.type') }}"
+                maxlength="255"
             ></x-inputs.text>
         </x-inputs.group>
 
@@ -108,6 +110,7 @@
             <x-inputs.textarea
                 name="metadata"
                 label="{{ __('crud.user_uploads.inputs.metadata') }}"
+                placeholder="{{ __('crud.user_uploads.inputs.metadata') }}"
             >
                 {{ old('metadata', ($editing ? json_encode($userUpload->metadata) : '')) }}
             </x-inputs.textarea>

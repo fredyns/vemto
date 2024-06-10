@@ -25,12 +25,13 @@
 
     <div class="flex flex-wrap">
         <x-inputs.group class="w-full">
-            <x-inputs.date
+            <x-inputs.datetime
                 name="at"
+                value="{{ old('at', ($editing ? optional($userActivityLog->at)->format('Y-m-d H:i:s') : '')) }}"
                 label="{{ __('crud.user_activity_logs.inputs.at') }}"
-                value="{{ old('at', ($editing ? optional($userActivityLog->at)->format('Y-m-d') : '')) }}"
+                placeholder="{{ __('crud.user_activity_logs.inputs.at') }}"
                 required
-            ></x-inputs.date>
+            ></x-inputs.datetime>
         </x-inputs.group>
 
         <x-inputs.group class="w-full">
@@ -50,10 +51,10 @@
         <x-inputs.group class="w-full">
             <x-inputs.text
                 name="title"
-                label="{{ __('crud.user_activity_logs.inputs.title') }}"
                 :value="old('title', ($editing ? $userActivityLog->title : ''))"
-                maxlength="255"
+                label="{{ __('crud.user_activity_logs.inputs.title') }}"
                 placeholder="{{ __('crud.user_activity_logs.inputs.title') }}"
+                maxlength="255"
                 required
             ></x-inputs.text>
         </x-inputs.group>
@@ -61,8 +62,8 @@
         <x-inputs.group class="w-full">
             <x-inputs.url
                 name="link"
-                label="{{ __('crud.user_activity_logs.inputs.link') }}"
                 :value="old('link', ($editing ? $userActivityLog->link : ''))"
+                label="{{ __('crud.user_activity_logs.inputs.link') }}"
                 placeholder="{{ __('crud.user_activity_logs.inputs.link') }}"
             ></x-inputs.url>
         </x-inputs.group>
@@ -71,6 +72,7 @@
             <x-inputs.textarea
                 name="message"
                 label="{{ __('crud.user_activity_logs.inputs.message') }}"
+                placeholder="{{ __('crud.user_activity_logs.inputs.message') }}"
             >
                 {{ old('message', ($editing ? $userActivityLog->message : '')) }}
             </x-inputs.textarea>
@@ -79,10 +81,10 @@
         <x-inputs.group class="w-full">
             <x-inputs.text
                 name="i_p_address"
-                label="{{ __('crud.user_activity_logs.inputs.i_p_address') }}"
                 :value="old('i_p_address', ($editing ? $userActivityLog->i_p_address : ''))"
-                maxlength="255"
+                label="{{ __('crud.user_activity_logs.inputs.i_p_address') }}"
                 placeholder="{{ __('crud.user_activity_logs.inputs.i_p_address') }}"
+                maxlength="255"
             ></x-inputs.text>
         </x-inputs.group>
     </div>
