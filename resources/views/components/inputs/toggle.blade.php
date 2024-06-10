@@ -23,7 +23,7 @@
             @click="$refs.toggling{{ $name }}.click(); $refs.toggling{{ $name }}.focus()"
             :id="$id('toggle-label-{{ $name }}')"
             class="{{ ($required ?? false) ? 'label label-required font-medium text-gray-700' : 'label font-medium text-gray-700' }}"
-            for="{{ $name }}"
+            for="toggler{{ $name }}"
         >
             {{ $label }}
         </label>
@@ -32,6 +32,7 @@
 
     <!-- Button -->
     <button
+        id="toggler{{ $name }}"
         x-ref="toggling{{ $name }}"
         @click="toggle{{ $name }} = toggle{{ $name }} ? 0 : 1"
         type="button"
