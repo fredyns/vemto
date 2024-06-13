@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Record;
+use fredyns\stringcleaner\StringCleaner;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
@@ -58,6 +59,7 @@ class RecordController extends Controller
             $validated['image'] = $request->file('image')->store('public');
         }
 
+        $validated['w_y_s_i_w_y_g'] = StringCleaner::forRTF($validated['w_y_s_i_w_y_g']);
         $record = Record::create($validated);
 
         return redirect()
@@ -114,6 +116,7 @@ class RecordController extends Controller
             $validated['image'] = $request->file('image')->store('public');
         }
 
+        $validated['w_y_s_i_w_y_g'] = StringCleaner::forRTF($validated['w_y_s_i_w_y_g']);
         $record->update($validated);
 
         return redirect()

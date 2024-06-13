@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Record;
+use fredyns\stringcleaner\StringCleaner;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
@@ -40,6 +41,7 @@ class RecordController extends Controller
             $validated['image'] = $request->file('image')->store('public');
         }
 
+        $validated['w_y_s_i_w_y_g'] = StringCleaner::forRTF($validated['w_y_s_i_w_y_g']);
         $record = Record::create($validated);
 
         return new RecordResource($record);
@@ -77,6 +79,7 @@ class RecordController extends Controller
             $validated['image'] = $request->file('image')->store('public');
         }
 
+        $validated['w_y_s_i_w_y_g'] = StringCleaner::forRTF($validated['w_y_s_i_w_y_g']);
         $record->update($validated);
 
         return new RecordResource($record);

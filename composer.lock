@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "77702936ab109b47a522550eab268253",
+    "content-hash": "d4da15e7714378ea7546388b042d1a41",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -609,6 +609,52 @@
                 }
             ],
             "time": "2023-10-06T06:47:41+00:00"
+        },
+        {
+            "name": "fredyns/stringcleaner",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fredyns/stringcleaner.git",
+                "reference": "698dcd5e80912a7f099ca87ff6c4cfa88d5f7ed6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fredyns/stringcleaner/zipball/698dcd5e80912a7f099ca87ff6c4cfa88d5f7ed6",
+                "reference": "698dcd5e80912a7f099ca87ff6c4cfa88d5f7ed6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "fredyns\\stringcleaner\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fredy Nurman Saleh",
+                    "email": "email@fredyns.net"
+                }
+            ],
+            "description": "Clean string variable",
+            "keywords": [
+                "library",
+                "php",
+                "string",
+                "stringcleaner"
+            ],
+            "support": {
+                "issues": "https://github.com/fredyns/stringcleaner/issues",
+                "source": "https://github.com/fredyns/stringcleaner/tree/master"
+            },
+            "time": "2018-08-22T12:02:54+00:00"
         },
         {
             "name": "fruitcake/php-cors",
