@@ -230,14 +230,46 @@
             </x-inputs.textarea>
         </x-inputs.group>
 
+{{--        <x-inputs.group class="w-full">--}}
+{{--            <x-inputs.textarea--}}
+{{--                name="w_y_s_i_w_y_g"--}}
+{{--                label="{{ __('crud.records.inputs.w_y_s_i_w_y_g') }}"--}}
+{{--                placeholder="{{ __('crud.records.inputs.w_y_s_i_w_y_g') }}"--}}
+{{--            >--}}
+{{--                {{ old('w_y_s_i_w_y_g', ($editing ? $record->w_y_s_i_w_y_g : '')) }}--}}
+{{--            </x-inputs.textarea>--}}
+{{--        </x-inputs.group>--}}
+
+{{--        <x-inputs.group class="w-full">--}}
+{{--            <x-inputs.trix--}}
+{{--                name="w_y_s_i_w_y_g"--}}
+{{--                label="{{ __('crud.records.inputs.w_y_s_i_w_y_g') }}"--}}
+{{--            >--}}
+{{--                {{ old('w_y_s_i_w_y_g', ($editing ? $record->w_y_s_i_w_y_g : '')) }}--}}
+{{--            </x-inputs.trix>--}}
+{{--        </x-inputs.group>--}}
+
         <x-inputs.group class="w-full">
-            <x-inputs.textarea
-                name="w_y_s_i_w_y_g"
-                label="{{ __('crud.records.inputs.w_y_s_i_w_y_g') }}"
-                placeholder="{{ __('crud.records.inputs.w_y_s_i_w_y_g') }}"
+            @include('components.inputs.partials.label',['name'=>'','label'=>'Trix'])
+
+            <div
+                x-data="{ valuew_y_s_i_w_y_g: '' }"
+                x-init="$refs.trixw_y_s_i_w_y_g.editor.loadHTML(value)"
+                x-id="['trixw_y_s_i_w_y_g']"
+                class="max-w-2xl w-full"
+                @trix-change="valuew_y_s_i_w_y_g = $refs.inputw_y_s_i_w_y_g.value"
+                @trix-file-accept.prevent
             >
-                {{ old('w_y_s_i_w_y_g', ($editing ? $record->w_y_s_i_w_y_g : '')) }}
-            </x-inputs.textarea>
+                <input :id="$id('trixw_y_s_i_w_y_g')" type="hidden" name="w_y_s_i_w_y_g" x-ref="inputw_y_s_i_w_y_g">
+
+                <!-- Optional .prose class added to utilize Tailwind's Typography Plugin for styling -->
+                <trix-editor
+                    x-ref="trixw_y_s_i_w_y_g"
+                    :input="$id('trixw_y_s_i_w_y_g')"
+                    class="bg-white block appearance-none w-full py-1 px-2 text-base leading-normal text-gray-800 border border-gray-200 rounded"
+                ></trix-editor>
+            </div>
+
         </x-inputs.group>
 
         <x-inputs.group class="w-full">
