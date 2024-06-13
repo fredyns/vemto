@@ -5,7 +5,7 @@
 ])
 
 @if($label ?? null)
-    <label class="{{ ($required ?? false) ? 'label label-required font-medium text-gray-700' : 'label font-medium text-gray-700' }}" for="trixer{{ $name }}">
+    <label class="{{ ($required ?? false) ? 'label label-required font-medium text-gray-700' : 'label font-medium text-gray-700' }}">
         {{ $label }}
     </label>
 @endif
