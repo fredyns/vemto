@@ -221,13 +221,11 @@
         </x-inputs.group>
 
         <x-inputs.group class="w-full">
-            <x-inputs.textarea
+            <x-inputs.trix
                 name="markdown_text"
                 label="{{ __('crud.records.inputs.markdown_text') }}"
-                placeholder="{{ __('crud.records.inputs.markdown_text') }}"
-            >
-                {{ old('markdown_text', ($editing ? $record->markdown_text : '')) }}
-            </x-inputs.textarea>
+                :value="old('markdown_text', ($editing ? $record->markdown_text : ''))"
+            ></x-inputs.trix>
         </x-inputs.group>
 
         <x-inputs.group class="w-full">
