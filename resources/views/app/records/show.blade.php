@@ -137,7 +137,7 @@
                         <h5 class="font-medium text-gray-700">
                             @lang('crud.records.inputs.w_y_s_i_w_y_g')
                         </h5>
-                        <span> {{ $record->w_y_s_i_w_y_g ?? '-' }} </span>
+                        <span> {!! $record->w_y_s_i_w_y_g ?? '-' !!} </span>
                     </div>
                     <div class="mb-4 w-full">
                         <h5 class="font-medium text-gray-700">
