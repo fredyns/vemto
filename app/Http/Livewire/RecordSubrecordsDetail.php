@@ -164,7 +164,7 @@ class RecordSubrecordsDetail extends Component
         );
         $this->subrecord->date = Carbon::make($this->subrecordDate);
 
-        $this->subrecord->time = $this->subrecordTime . ':00';
+        $this->subrecord->time = $this->subrecordTime ? $this->subrecordTime . ':00' : null;
 
         $this->subrecord->save();
 
