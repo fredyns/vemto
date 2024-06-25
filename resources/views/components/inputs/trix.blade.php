@@ -17,6 +17,7 @@
     class="max-w-2xl w-full"
     @trix-change="value = $refs.input.value"
     @trix-file-accept.prevent
+    wire:ignore
 >
     <input
         type="hidden"

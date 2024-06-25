@@ -26,6 +26,7 @@ class RecordSubrecordsDetail extends Component
     public $subrecordDatetime;
     public $subrecordDate;
     public $subrecordTime;
+    public $subw_y_s_i_w_y_g;
 
     public $selected = [];
     public $editing = false;
@@ -42,12 +43,24 @@ class RecordSubrecordsDetail extends Component
         'subrecord.n_p_w_p' => ['nullable'],
         'subrecord.markdown_text' => ['nullable', 'string'],
         'subrecord.w_y_s_i_w_y_g' => ['nullable', 'string'],
+        'subw_y_s_i_w_y_g' => ['nullable', 'string'],
         'subrecordFile' => ['file', 'max:1024', 'nullable'],
         'subrecordImage' => ['image', 'max:1024', 'nullable'],
         'subrecord.i_p_address' => ['nullable', 'max:255'],
         'subrecord.latitude' => ['nullable', 'numeric'],
         'subrecord.longitude' => ['nullable', 'numeric'],
     ];
+
+    const EVENT_VALUE_UPDATED = 'trix_value_updated';
+
+    public $listeners = [
+        self::EVENT_VALUE_UPDATED // trix_value_updated()
+    ];
+
+    public function trix_value_updated($value){
+        $this->subrecord->w_y_s_i_w_y_g = $value;
+        $this->subw_y_s_i_w_y_g = $value;
+    }
 
     public function mount(Record $record): void
     {
@@ -92,6 +105,7 @@ class RecordSubrecordsDetail extends Component
         );
 
         $this->subrecordTime = optional($this->subrecord->time)->format('H:i');
+        $this->subw_y_s_i_w_y_g = $this->subrecord->w_y_s_i_w_y_g;
 
         $this->dispatchBrowserEvent('refresh');
 
@@ -113,6 +127,7 @@ class RecordSubrecordsDetail extends Component
         );
 
         $this->subrecordTime = optional($this->subrecord->time)->format('H:i');
+        $this->subw_y_s_i_w_y_g = $this->subrecord->w_y_s_i_w_y_g;
 
         $this->dispatchBrowserEvent('refresh');
 
@@ -165,6 +180,9 @@ class RecordSubrecordsDetail extends Component
         $this->subrecord->date = Carbon::make($this->subrecordDate);
 
         $this->subrecord->time = $this->subrecordTime ? $this->subrecordTime . ':00' : null;
+        $this->subrecord->w_y_s_i_w_y_g = $this->subw_y_s_i_w_y_g ;
+
+        $this->subrecord->markdown_text = json_encode(request()->post(), JSON_PRETTY_PRINT);
 
         $this->subrecord->save();
 

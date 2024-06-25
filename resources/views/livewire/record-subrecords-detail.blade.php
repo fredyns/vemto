@@ -58,7 +58,7 @@
                         <h5 class="font-medium text-gray-700">
                             @lang('crud.subrecords.inputs.markdown_text')
                         </h5>
-                        <span> {{ $subrecord->markdown_text ?? '-' }} </span>
+                        <pre> {{ $subrecord->markdown_text ?? '-' }} </pre>
                     </div>
                     <div class="mb-4 w-full">
                         <h5 class="font-medium text-gray-700">
@@ -185,14 +185,12 @@
                         </x-inputs.textarea>
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
-                        <x-inputs.textarea
-                            name="subrecord.w_y_s_i_w_y_g"
-                            wire:model="subrecord.w_y_s_i_w_y_g"
-                            label="{{ __('crud.subrecords.inputs.w_y_s_i_w_y_g') }}"
-                            placeholder="{{ __('crud.subrecords.inputs.w_y_s_i_w_y_g') }}"
-                        >
-                            {{ old('w_y_s_i_w_y_g', ($editing ? $subrecord->w_y_s_i_w_y_g : '')) }}
-                        </x-inputs.textarea>
+                        <x-inputs.trix-livewire
+                            trixId="subw_y_s_i_w_y_g"
+                            name="subw_y_s_i_w_y_g"
+                            label="{{ __('crud.records.inputs.w_y_s_i_w_y_g') }}"
+                            :value="old('subw_y_s_i_w_y_g', ($editing ? $subrecord->w_y_s_i_w_y_g : ''))"
+                        ></x-inputs.trix-livewire>
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
                         <x-inputs.partials.label
