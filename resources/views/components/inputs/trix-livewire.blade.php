@@ -27,6 +27,7 @@
         wire:ignore
         id="trix_{{ $name }}"
         input="{{ $name }}"
+        @trix-file-accept.prevent
         {{ $attributes->merge(['class' => 'block appearance-none w-full py-1 px-2 text-base leading-normal text-gray-800 border border-gray-200 rounded']) }}
     ></trix-editor>
 </div>
