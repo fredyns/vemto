@@ -186,10 +186,9 @@
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
                         <x-inputs.trix-livewire
-                            trixId="subw_y_s_i_w_y_g"
-                            name="subw_y_s_i_w_y_g"
+                            name="subrecord.w_y_s_i_w_y_g"
                             label="{{ __('crud.records.inputs.w_y_s_i_w_y_g') }}"
-                            :value="old('subw_y_s_i_w_y_g', ($editing ? $subrecord->w_y_s_i_w_y_g : ''))"
+                            :value="old('subrecord.w_y_s_i_w_y_g', ($editing ? $subrecord->w_y_s_i_w_y_g : ''))"
                         ></x-inputs.trix-livewire>
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
