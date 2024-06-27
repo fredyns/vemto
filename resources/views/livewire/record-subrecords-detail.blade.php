@@ -185,11 +185,25 @@
                         </x-inputs.textarea>
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
-                        <x-inputs.trix-livewire
+                        <x-inputs.trix5
                             name="subrecord.w_y_s_i_w_y_g"
-                            label="{{ __('crud.records.inputs.w_y_s_i_w_y_g') }}"
-                            :value="old('subrecord.w_y_s_i_w_y_g', ($editing ? $subrecord->w_y_s_i_w_y_g : ''))"
-                        ></x-inputs.trix-livewire>
+                            label="{{ __('crud.subrecords.inputs.w_y_s_i_w_y_g') }}"
+                            value="{{ old('subrecord.w_y_s_i_w_y_g', ($editing ? $subrecord->w_y_s_i_w_y_g : '')) }}"
+                        ></x-inputs.trix5>
+                        @push('scripts')
+                            <script>
+                                let trixInput = document.getElementById("subrecord.w_y_s_i_w_y_g")
+                                let trixEditor = document.getElementById("trix_subrecord.w_y_s_i_w_y_g")
+
+                                Livewire.on('editSubrecord', () => {
+                                    trixEditor.editor.loadHTML(trixInput.value);
+                                })
+
+                                addEventListener("trix-blur", function(event) {
+                                    @this.set('subrecord.w_y_s_i_w_y_g', trixInput.getAttribute('value'))
+                                })
+                            </script>
+                        @endpush
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
                         <x-inputs.partials.label

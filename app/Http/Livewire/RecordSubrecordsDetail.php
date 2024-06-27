@@ -117,6 +117,7 @@ class RecordSubrecordsDetail extends Component
         $this->dispatchBrowserEvent('refresh');
 
         $this->showModalForm();
+        $this->emit('editSubrecord');
     }
 
     public function showModalView(): void
