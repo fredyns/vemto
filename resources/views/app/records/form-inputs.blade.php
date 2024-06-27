@@ -221,19 +221,19 @@
         </x-inputs.group>
 
         <x-inputs.group class="w-full">
-            <x-inputs.trix
+            <x-inputs.trix5
                 name="markdown_text"
                 label="{{ __('crud.records.inputs.markdown_text') }}"
-                :value="old('markdown_text', ($editing ? $record->markdown_text : ''))"
-            ></x-inputs.trix>
+                value="{{ old('markdown_text', ($editing ? $record->markdown_text : '')) }}"
+            ></x-inputs.trix5>
         </x-inputs.group>
 
         <x-inputs.group class="w-full">
-            <x-inputs.trix
+            <x-inputs.trix5
                 name="w_y_s_i_w_y_g"
                 label="{{ __('crud.records.inputs.w_y_s_i_w_y_g') }}"
-                :value="old('w_y_s_i_w_y_g', ($editing ? $record->w_y_s_i_w_y_g : ''))"
-            ></x-inputs.trix>
+                value="{{ old('w_y_s_i_w_y_g', ($editing ? $record->w_y_s_i_w_y_g : '')) }}"
+            ></x-inputs.trix5>
         </x-inputs.group>
 
         <x-inputs.group class="w-full">
