@@ -175,14 +175,11 @@
                         ></x-inputs.text>
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
-                        <x-inputs.textarea
+                        <x-inputs.trix5
                             name="subrecord.markdown_text"
-                            wire:model="subrecord.markdown_text"
                             label="{{ __('crud.subrecords.inputs.markdown_text') }}"
-                            placeholder="{{ __('crud.subrecords.inputs.markdown_text') }}"
-                        >
-                            {{ old('markdown_text', ($editing ? $subrecord->markdown_text : '')) }}
-                        </x-inputs.textarea>
+                            value="{{ old('subrecord.markdown_text', ($editing ? $subrecord->markdown_text : '')) }}"
+                        ></x-inputs.trix5>
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
                         <x-inputs.trix5
@@ -190,20 +187,6 @@
                             label="{{ __('crud.subrecords.inputs.w_y_s_i_w_y_g') }}"
                             value="{{ old('subrecord.w_y_s_i_w_y_g', ($editing ? $subrecord->w_y_s_i_w_y_g : '')) }}"
                         ></x-inputs.trix5>
-                        @push('scripts')
-                            <script>
-                                let trixInput = document.getElementById("subrecord.w_y_s_i_w_y_g")
-                                let trixEditor = document.getElementById("trix_subrecord.w_y_s_i_w_y_g")
-
-                                Livewire.on('editSubrecord', () => {
-                                    trixEditor.editor.loadHTML(trixInput.value);
-                                })
-
-                                addEventListener("trix-blur", function(event) {
-                                    @this.set('subrecord.w_y_s_i_w_y_g', trixInput.getAttribute('value'))
-                                })
-                            </script>
-                        @endpush
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
                         <x-inputs.partials.label
@@ -319,6 +302,25 @@
             @include('livewire.record-subrecords-grid-sample')
 
         </div>
+
+        @push('scripts')
+            <script>
+                let mdInput = document.getElementById("subrecord.markdown_text")
+                let rtfInput = document.getElementById("subrecord.w_y_s_i_w_y_g")
+                let mdEditor = document.getElementById("trix_subrecord.markdown_text")
+                let rtfEditor = document.getElementById("trix_subrecord.w_y_s_i_w_y_g")
+
+                Livewire.on('editSubrecord', () => {
+                    mdEditor.editor.loadHTML(mdInput.value);
+                    rtfEditor.editor.loadHTML(rtfInput.value);
+                })
+
+                addEventListener("trix-blur", function(event) {
+                @this.set('subrecord.markdown_text', mdInput.getAttribute('value'))
+                @this.set('subrecord.w_y_s_i_w_y_g', rtfInput.getAttribute('value'))
+                })
+            </script>
+        @endpush
 
         <div class="px-6 py-4 bg-gray-50 flex justify-between">
             <button

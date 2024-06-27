@@ -167,8 +167,6 @@ class RecordSubrecordsDetail extends Component
 
         $this->subrecord->time = $this->subrecordTime ? $this->subrecordTime . ':00' : null;
 
-        $this->subrecord->markdown_text = json_encode(request()->post(), JSON_PRETTY_PRINT);
-
         $this->subrecord->save();
 
         $this->uploadIteration++;
