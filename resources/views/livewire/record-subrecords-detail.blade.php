@@ -175,18 +175,18 @@
                         ></x-inputs.text>
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
-                        <x-inputs.trix5
+                        <x-inputs.trix
                             name="subrecord.markdown_text"
                             label="{{ __('crud.subrecords.inputs.markdown_text') }}"
                             value="{{ old('subrecord.markdown_text', ($editing ? $subrecord->markdown_text : '')) }}"
-                        ></x-inputs.trix5>
+                        ></x-inputs.trix>
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
-                        <x-inputs.trix5
+                        <x-inputs.trix
                             name="subrecord.w_y_s_i_w_y_g"
                             label="{{ __('crud.subrecords.inputs.w_y_s_i_w_y_g') }}"
                             value="{{ old('subrecord.w_y_s_i_w_y_g', ($editing ? $subrecord->w_y_s_i_w_y_g : '')) }}"
-                        ></x-inputs.trix5>
+                        ></x-inputs.trix>
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
                         <x-inputs.partials.label

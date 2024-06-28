@@ -4,30 +4,30 @@
     'value',
 ])
 
+{{-- source: https://devdojo.com/tnylea/laravel-livewire-trix-editor-component --}}
+
 @if($label ?? null)
-    <label class="{{ ($required ?? false) ? 'label label-required font-medium text-gray-700' : 'label font-medium text-gray-700' }}">
+    <label
+        class="{{ ($required ?? false) ? 'label label-required font-medium text-gray-700' : 'label font-medium text-gray-700' }}"
+        for="trix_{{ $name }}"
+    >
         {{ $label }}
     </label>
 @endif
 
-<div
-    x-data="{ value: '{{addslashes($value)}}' }"
-    x-init="$refs.trix.editor.loadHTML(value)"
-    x-id="['trix']"
-    class="max-w-2xl w-full"
-    @trix-change="value = $refs.input.value"
-    @trix-file-accept.prevent
->
-    <input
-        type="hidden"
-        name="{{ $name }}"
-        :id="$id('trix')"
-        x-ref="input"
-    />
+<input
+    type="hidden"
+    id="{{ $name }}"
+    name="{{ $name }}"
+    value="{!! addslashes($value) !!}"
+/>
 
+<div wire:ignore>
     <trix-editor
-        x-ref="trix"
-        :input="$id('trix')"
+        wire:ignore
+        id="trix_{{ $name }}"
+        input="{{ $name }}"
+        @trix-file-accept.prevent
         {{ $attributes->merge(['class' => 'block appearance-none w-full py-1 px-2 text-base leading-normal text-gray-800 border border-gray-200 rounded']) }}
     ></trix-editor>
 </div>
