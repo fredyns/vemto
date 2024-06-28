@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::table('subrecords', function (Blueprint $table) {
             $table
-                ->foreign('record_id')
+                ->foreignUuid('record_id')
                 ->references('id')
                 ->on('records')
                 ->onUpdate('CASCADE')

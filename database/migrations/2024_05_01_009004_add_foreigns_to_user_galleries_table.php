@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::table('user_galleries', function (Blueprint $table) {
             $table
-                ->foreign('user_id')
+                ->foreignUuid('user_id')
                 ->references('id')
                 ->on('users')
                 ->onUpdate('CASCADE')
