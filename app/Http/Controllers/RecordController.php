@@ -59,6 +59,7 @@ class RecordController extends Controller
             $validated['image'] = $request->file('image')->store('public');
         }
 
+        $validated['markdown_text'] = StringCleaner::forRTF($validated['markdown_text']);
         $validated['w_y_s_i_w_y_g'] = StringCleaner::forRTF($validated['w_y_s_i_w_y_g']);
         $record = Record::create($validated);
 
@@ -116,6 +117,7 @@ class RecordController extends Controller
             $validated['image'] = $request->file('image')->store('public');
         }
 
+        $validated['markdown_text'] = StringCleaner::forRTF($validated['markdown_text']);
         $validated['w_y_s_i_w_y_g'] = StringCleaner::forRTF($validated['w_y_s_i_w_y_g']);
         $record->update($validated);
 

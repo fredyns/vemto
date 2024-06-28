@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Record;
 use Carbon\Carbon;
+use fredyns\stringcleaner\StringCleaner;
 use Livewire\Component;
 use Illuminate\View\View;
 use App\Models\Subrecord;
@@ -166,6 +167,9 @@ class RecordSubrecordsDetail extends Component
         $this->subrecord->date = Carbon::make($this->subrecordDate);
 
         $this->subrecord->time = $this->subrecordTime ? $this->subrecordTime . ':00' : null;
+
+        $this->subrecord->markdown_text = StringCleaner::forRTF($this->subrecord->markdown_text);
+        $this->subrecord->w_y_s_i_w_y_g = StringCleaner::forRTF($this->subrecord->w_y_s_i_w_y_g);
 
         $this->subrecord->save();
 
