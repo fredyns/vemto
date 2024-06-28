@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::table('user_activity_logs', function (Blueprint $table) {
             $table
-                ->foreignUuid('user_id')
+                ->foreign('user_id')
                 ->references('id')
                 ->on('users')
                 ->onUpdate('CASCADE')
