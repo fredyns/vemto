@@ -310,14 +310,14 @@
                 let mdEditor = document.getElementById("trix_subrecord.markdown_text")
                 let rtfEditor = document.getElementById("trix_subrecord.w_y_s_i_w_y_g")
 
-                Livewire.on('editSubrecord', () => {
+                Livewire.on('reset-trix', () => {
                     mdEditor.editor.loadHTML(mdInput.value);
                     rtfEditor.editor.loadHTML(rtfInput.value);
                 })
 
                 addEventListener("trix-blur", function(event) {
-                @this.set('subrecord.markdown_text', mdInput.getAttribute('value'))
-                @this.set('subrecord.w_y_s_i_w_y_g', rtfInput.getAttribute('value'))
+                    @this.set('subrecord.markdown_text', mdInput.getAttribute('value'))
+                    @this.set('subrecord.w_y_s_i_w_y_g', rtfInput.getAttribute('value'))
                 })
             </script>
         @endpush

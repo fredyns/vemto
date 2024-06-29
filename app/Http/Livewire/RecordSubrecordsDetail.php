@@ -76,6 +76,7 @@ class RecordSubrecordsDetail extends Component
         $this->resetSubrecordData();
 
         $this->showModalForm();
+        $this->emit('reset-trix');
     }
 
     public function viewSubrecord(Subrecord $subrecord): void
@@ -118,7 +119,7 @@ class RecordSubrecordsDetail extends Component
         $this->dispatchBrowserEvent('refresh');
 
         $this->showModalForm();
-        $this->emit('editSubrecord');
+        $this->emit('reset-trix');
     }
 
     public function showModalView(): void
