@@ -83,6 +83,8 @@
         <x-inputs.group class="w-full">
             <x-inputs.text
                 name="n_p_w_p"
+                x-data
+                x-mask="99.999.999.9-999.999"
                 :value="old('n_p_w_p', ($editing ? $record->n_p_w_p : ''))"
                 label="{{ __('crud.records.inputs.n_p_w_p') }}"
                 placeholder="{{ __('crud.records.inputs.n_p_w_p') }}"
@@ -119,6 +121,8 @@
         <x-inputs.group class="w-full">
             <x-inputs.text
                 name="i_p_address"
+                x-data
+                x-mask="999.999.999.999"
                 :value="old('i_p_address', ($editing ? $record->i_p_address : ''))"
                 label="{{ __('crud.records.inputs.i_p_address') }}"
                 placeholder="{{ __('crud.records.inputs.i_p_address') }}"
