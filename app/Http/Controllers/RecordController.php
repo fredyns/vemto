@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\NPWP;
 use App\Models\User;
 use App\Models\Record;
 use fredyns\stringcleaner\StringCleaner;
@@ -61,6 +62,7 @@ class RecordController extends Controller
 
         $validated['markdown_text'] = StringCleaner::forRTF($validated['markdown_text']);
         $validated['w_y_s_i_w_y_g'] = StringCleaner::forRTF($validated['w_y_s_i_w_y_g']);
+        $validated['n_p_w_p'] = NPWP::native($validated['n_p_w_p']);
         $record = Record::create($validated);
 
         return redirect()
@@ -119,6 +121,7 @@ class RecordController extends Controller
 
         $validated['markdown_text'] = StringCleaner::forRTF($validated['markdown_text']);
         $validated['w_y_s_i_w_y_g'] = StringCleaner::forRTF($validated['w_y_s_i_w_y_g']);
+        $validated['n_p_w_p'] = NPWP::native($validated['n_p_w_p']);
         $record->update($validated);
 
         return redirect()

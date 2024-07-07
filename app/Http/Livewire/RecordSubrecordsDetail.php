@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Helpers\NPWP;
 use App\Models\Record;
 use Carbon\Carbon;
 use fredyns\stringcleaner\StringCleaner;
@@ -171,6 +172,7 @@ class RecordSubrecordsDetail extends Component
 
         $this->subrecord->markdown_text = StringCleaner::forRTF($this->subrecord->markdown_text);
         $this->subrecord->w_y_s_i_w_y_g = StringCleaner::forRTF($this->subrecord->w_y_s_i_w_y_g);
+        $this->subrecord->n_p_w_p = NPWP::native($this->subrecord->n_p_w_p);
 
         $this->subrecord->save();
 

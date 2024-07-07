@@ -1,3 +1,6 @@
+<?php
+use App\Helpers\NPWP;
+?>
 <div>
     <div>
         @can('create', App\Models\Subrecord::class)
@@ -52,7 +55,7 @@
                         <h5 class="font-medium text-gray-700">
                             @lang('crud.subrecords.inputs.n_p_w_p')
                         </h5>
-                        <span> {{ $subrecord->n_p_w_p ?? '-' }} </span>
+                        <span> {{ $subrecord->n_p_w_p ? NPWP::format($subrecord->n_p_w_p) : '-' }} </span>
                     </div>
                     <div class="mb-4 w-full">
                         <h5 class="font-medium text-gray-700">
@@ -167,12 +170,11 @@
                         ></x-inputs.time>
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
-                        <x-inputs.text
+                        <x-inputs.npwp
                             name="subrecord.n_p_w_p"
-                            wire:model="subrecord.n_p_w_p"
                             label="{{ __('crud.subrecords.inputs.n_p_w_p') }}"
-                            placeholder="{{ __('crud.subrecords.inputs.n_p_w_p') }}"
-                        ></x-inputs.text>
+                            value="{{ old('n_p_w_p', ($editing ? NPWP::format($subrecord->n_p_w_p) : '')) }}"
+                        ></x-inputs.npwp>
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
                         <x-inputs.trix
@@ -273,9 +275,10 @@
                         <x-inputs.text
                             name="subrecord.i_p_address"
                             wire:model="subrecord.i_p_address"
+                            x-data
+                            x-mask="999.999.999.999"
                             label="{{ __('crud.subrecords.inputs.i_p_address') }}"
-                            placeholder="{{ __('crud.subrecords.inputs.i_p_address') }}"
-                            maxlength="255"
+                            placeholder="000.000.000.000"
                         ></x-inputs.text>
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
@@ -381,7 +384,7 @@
                         {{ optional($subrecord->datetime)->format('D, d M Y, H:i') }}
                     </td>
                     <td class="px-4 py-3 text-left">
-                        {{ $subrecord->n_p_w_p ?? '-' }}
+                        {{ $subrecord->n_p_w_p ? NPWP::format($subrecord->n_p_w_p) : '-' }}
                     </td>
                     <td class="px-4 py-3 text-left">
                         {{ $subrecord->i_p_address ?? '-' }}

@@ -81,14 +81,11 @@
         </x-inputs.group>
 
         <x-inputs.group class="w-full">
-            <x-inputs.text
+            <x-inputs.npwp
                 name="n_p_w_p"
-                x-data
-                x-mask="99.999.999.9-999.999"
-                :value="old('n_p_w_p', ($editing ? $record->n_p_w_p : ''))"
+                value="{{ old('n_p_w_p', ($editing ? \App\Helpers\NPWP::format($record->n_p_w_p) : '')) }}"
                 label="{{ __('crud.records.inputs.n_p_w_p') }}"
-                placeholder="{{ __('crud.records.inputs.n_p_w_p') }}"
-            ></x-inputs.text>
+            ></x-inputs.npwp>
         </x-inputs.group>
 
         <x-inputs.group class="w-full">
@@ -125,7 +122,7 @@
                 x-mask="999.999.999.999"
                 :value="old('i_p_address', ($editing ? $record->i_p_address : ''))"
                 label="{{ __('crud.records.inputs.i_p_address') }}"
-                placeholder="{{ __('crud.records.inputs.i_p_address') }}"
+                placeholder="000.000.000.000"
             ></x-inputs.text>
         </x-inputs.group>
 
