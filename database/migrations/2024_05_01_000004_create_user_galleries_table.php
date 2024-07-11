@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('user_galleries', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('user_id');
+            $table->uuid('user_id')->nullable();
             $table->timestampTz('at');
             $table->text('file');
             $table->string('name')->nullable();
@@ -20,6 +20,8 @@ return new class extends Migration {
             $table->string('type')->nullable();
             $table->json('metadata')->nullable();
             $table->text('thumbnail')->nullable();
+
+            $table->index('user_id');
         });
     }
 

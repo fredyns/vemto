@@ -13,11 +13,13 @@ return new class extends Migration {
         Schema::create('user_activity_logs', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->timestampTz('at');
-            $table->foreignUuid('user_id')->nullable();
+            $table->uuid('user_id')->nullable();
             $table->string('title');
             $table->text('link')->nullable();
             $table->text('message')->nullable();
             $table->ipAddress('i_p_address')->nullable();
+
+            $table->index('user_id');
         });
     }
 

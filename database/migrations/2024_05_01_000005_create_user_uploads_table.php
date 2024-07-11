@@ -12,13 +12,15 @@ return new class extends Migration {
     {
         Schema::create('user_uploads', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('user_id');
+            $table->uuid('user_id')->nullable();
             $table->timestampTz('at');
             $table->text('file');
             $table->string('name')->nullable();
             $table->text('description')->nullable();
             $table->string('type')->nullable();
             $table->json('metadata')->nullable();
+
+            $table->index('user_id');
         });
     }
 

@@ -16,7 +16,7 @@ return new class extends Migration {
                 ->references('id')
                 ->on('users')
                 ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
+                ->onDelete('SET NULL');
         });
     }
 

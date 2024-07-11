@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->uuid('id')->primary();
             $table->uuid('created_by')->nullable();
             $table->uuid('updated_by')->nullable();
-            $table->foreignUuid('user_id')->nullable();
+            $table->uuid('user_id')->nullable();
             $table->string('string');
             $table->string('email')->nullable();
             $table->integer('integer')->nullable();
@@ -33,6 +33,8 @@ return new class extends Migration {
             $table->text('w_y_s_i_w_y_g')->nullable();
             $table->float('latitude')->nullable();
             $table->float('longitude')->nullable();
+
+            $table->index('user_id');
 
             $table->timestamps();
         });

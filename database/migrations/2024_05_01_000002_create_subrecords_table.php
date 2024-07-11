@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('subrecords', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('record_id');
+            $table->uuid('record_id');
             $table->dateTime('datetime')->nullable();
             $table->date('date')->nullable();
             $table->time('time')->nullable();
@@ -24,6 +24,8 @@ return new class extends Migration {
             $table->ipAddress('i_p_address')->nullable();
             $table->float('latitude')->nullable();
             $table->float('longitude')->nullable();
+
+            $table->index('record_id');
 
             $table->timestamps();
         });
