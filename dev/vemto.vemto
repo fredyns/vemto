@@ -4217,11 +4217,11 @@
                         "hasMany": {
                             "inputs.crudId": [
                                 1320,
-                                1321,
                                 1322,
                                 1324,
                                 1343,
-                                1416
+                                1416,
+                                1321
                             ]
                         },
                         "hasOne": {},
@@ -4231,7 +4231,6 @@
                     "188": {
                         "hasMany": {
                             "inputs.crudId": [
-                                1325,
                                 1326,
                                 1327,
                                 1329,
@@ -4246,10 +4245,11 @@
                                 1334,
                                 1335,
                                 1337,
-                                1328,
                                 1340,
                                 1363,
-                                1362
+                                1362,
+                                1328,
+                                1325
                             ],
                             "hasmanydetails.crudId": [
                                 129
@@ -4283,12 +4283,12 @@
                         "hasMany": {
                             "inputs.crudId": [
                                 1372,
-                                1371,
                                 1375,
                                 1376,
                                 1377,
                                 1374,
-                                1378
+                                1378,
+                                1371
                             ]
                         },
                         "hasOne": {},
@@ -4298,14 +4298,14 @@
                     "191": {
                         "hasMany": {
                             "inputs.crudId": [
-                                1379,
                                 1380,
                                 1386,
                                 1384,
                                 1388,
                                 1382,
                                 1418,
-                                1387
+                                1387,
+                                1379
                             ]
                         },
                         "hasOne": {},
@@ -7647,8 +7647,8 @@
                                 158
                             ],
                             "foreigns.relatedEntityId": [
-                                162,
                                 185,
+                                162,
                                 186,
                                 187
                             ],
@@ -7692,8 +7692,8 @@
                                 2044,
                                 1997,
                                 2038,
-                                1731,
-                                2039
+                                2039,
+                                1731
                             ],
                             "basicrelationships.modelId": [
                                 368,
@@ -8235,7 +8235,7 @@
                 "pluralAndSingularAreSame": false,
                 "table": "records",
                 "projectId": 12,
-                "top": "381px",
+                "top": "382px",
                 "left": "750px",
                 "pivot": false,
                 "softDeletes": false,
@@ -8248,7 +8248,7 @@
                 "oldForeignsMigrationName": null,
                 "id": 185,
                 "createdAt": "2023-05-11 06:07:15",
-                "updatedAt": "2024-06-04 06:16:39"
+                "updatedAt": "2024-07-12 04:07:30"
             },
             "item_204": {
                 "__returnRelationsAutomatically": true,
@@ -8274,7 +8274,7 @@
                 "oldForeignsMigrationName": null,
                 "id": 204,
                 "createdAt": "2024-05-01 09:57:22",
-                "updatedAt": "2024-05-02 22:41:12"
+                "updatedAt": "2024-06-13 18:07:02"
             },
             "item_184": {
                 "__returnRelationsAutomatically": true,
@@ -8313,8 +8313,8 @@
                 "pluralAndSingularAreSame": false,
                 "table": "user_activity_logs",
                 "projectId": 12,
-                "top": "46px",
-                "left": "-484px",
+                "top": "47px",
+                "left": "-485px",
                 "pivot": false,
                 "softDeletes": false,
                 "timestamps": false,
@@ -8326,7 +8326,7 @@
                 "oldForeignsMigrationName": null,
                 "id": 205,
                 "createdAt": "2024-05-01 10:24:01",
-                "updatedAt": "2024-05-09 17:19:14"
+                "updatedAt": "2024-07-12 04:07:10"
             },
             "item_207": {
                 "__returnRelationsAutomatically": true,
@@ -8339,7 +8339,7 @@
                 "pluralAndSingularAreSame": false,
                 "table": "user_galleries",
                 "projectId": 12,
-                "top": "681px",
+                "top": "685px",
                 "left": "-450px",
                 "pivot": false,
                 "softDeletes": false,
@@ -8352,7 +8352,7 @@
                 "oldForeignsMigrationName": null,
                 "id": 207,
                 "createdAt": "2024-05-01 11:41:43",
-                "updatedAt": "2024-05-02 22:41:12"
+                "updatedAt": "2024-07-12 04:12:53"
             },
             "item_206": {
                 "__returnRelationsAutomatically": true,
@@ -8378,7 +8378,7 @@
                 "oldForeignsMigrationName": null,
                 "id": 206,
                 "createdAt": "2024-05-01 10:37:37",
-                "updatedAt": "2024-05-09 17:19:19"
+                "updatedAt": "2024-07-12 04:12:48"
             }
         },
         "fields": {
@@ -17808,8 +17808,8 @@
                     "1719": {
                         "hasMany": {
                             "foreigns.relatedFieldId": [
-                                162,
                                 185,
+                                162,
                                 186,
                                 187
                             ],
@@ -20771,7 +20771,7 @@
                 "unique": false,
                 "id": 1731,
                 "createdAt": "2023-05-11 06:35:08",
-                "updatedAt": "2024-05-09 19:50:25",
+                "updatedAt": "2024-07-12 04:07:47",
                 "order": 3
             },
             "item_1743": {
@@ -21851,7 +21851,7 @@
                     "options": null
                 },
                 "faker": "$faker->uuid()",
-                "nullable": false,
+                "nullable": true,
                 "hidden": false,
                 "fillable": true,
                 "defaultValue": null,
@@ -21859,7 +21859,7 @@
                 "unique": false,
                 "id": 2014,
                 "createdAt": "2024-05-01 10:24:44",
-                "updatedAt": "2024-05-09 19:51:08",
+                "updatedAt": "2024-07-12 04:07:26",
                 "order": 2
             },
             "item_2016": {
@@ -21995,7 +21995,7 @@
                     "options": null
                 },
                 "faker": "$faker->uuid()",
-                "nullable": false,
+                "nullable": true,
                 "hidden": false,
                 "fillable": true,
                 "defaultValue": null,
@@ -22003,7 +22003,7 @@
                 "unique": false,
                 "id": 2029,
                 "createdAt": "2024-05-01 11:42:12",
-                "updatedAt": "2024-05-09 19:50:54",
+                "updatedAt": "2024-07-12 04:12:57",
                 "order": 1
             },
             "item_2030": {
@@ -22216,7 +22216,7 @@
                     "options": null
                 },
                 "faker": "$faker->uuid()",
-                "nullable": false,
+                "nullable": true,
                 "hidden": false,
                 "fillable": true,
                 "defaultValue": null,
@@ -22224,7 +22224,7 @@
                 "unique": false,
                 "id": 2021,
                 "createdAt": "2024-05-01 11:05:00",
-                "updatedAt": "2024-05-09 19:51:01",
+                "updatedAt": "2024-07-12 04:12:51",
                 "order": 1
             },
             "item_2020": {
@@ -23069,13 +23069,13 @@
                 "relatedFieldId": 1719,
                 "basicRelationshipId": null,
                 "on": "",
-                "onTableDelete": "CASCADE",
+                "onTableDelete": "SET NULL",
                 "onTableUpdate": "CASCADE",
                 "indexName": "record_user_id_foreign",
                 "defaultIndexName": "record_user_id_foreign",
                 "id": 162,
                 "createdAt": "2023-05-11 06:35:08",
-                "updatedAt": "2023-12-29 06:14:37"
+                "updatedAt": "2024-07-12 04:07:47"
             },
             "item_185": {
                 "__returnRelationsAutomatically": true,
@@ -23088,13 +23088,13 @@
                 "relatedFieldId": 1719,
                 "basicRelationshipId": null,
                 "on": "",
-                "onTableDelete": "CASCADE",
+                "onTableDelete": "SET NULL",
                 "onTableUpdate": "CASCADE",
                 "indexName": "user_activity_log_user_id_foreign",
                 "defaultIndexName": "user_activity_log_user_id_foreign",
                 "id": 185,
                 "createdAt": "2024-05-01 10:24:44",
-                "updatedAt": "2024-05-01 10:24:44"
+                "updatedAt": "2024-07-12 04:07:25"
             },
             "item_186": {
                 "__returnRelationsAutomatically": true,
@@ -23107,13 +23107,13 @@
                 "relatedFieldId": 1719,
                 "basicRelationshipId": null,
                 "on": "",
-                "onTableDelete": "CASCADE",
+                "onTableDelete": "SET NULL",
                 "onTableUpdate": "CASCADE",
                 "indexName": "user_upload_user_id_foreign",
                 "defaultIndexName": "user_upload_user_id_foreign",
                 "id": 186,
                 "createdAt": "2024-05-01 11:05:00",
-                "updatedAt": "2024-05-01 11:05:00"
+                "updatedAt": "2024-07-12 04:08:23"
             },
             "item_187": {
                 "__returnRelationsAutomatically": true,
@@ -23126,13 +23126,13 @@
                 "relatedFieldId": 1719,
                 "basicRelationshipId": null,
                 "on": "",
-                "onTableDelete": "CASCADE",
+                "onTableDelete": "SET NULL",
                 "onTableUpdate": "CASCADE",
                 "indexName": "user_gallery_user_id_foreign",
                 "defaultIndexName": "user_gallery_user_id_foreign",
                 "id": 187,
                 "createdAt": "2024-05-01 11:42:12",
-                "updatedAt": "2024-05-01 11:42:12"
+                "updatedAt": "2024-07-12 04:08:39"
             }
         },
         "hasmanydetails": {
@@ -28363,13 +28363,11 @@
                 "items": [],
                 "dependentSelectItems": {},
                 "validation": [
-                    "required",
-                    "uuid",
+                    "nullable",
                     "exists:users,id"
                 ],
                 "updateValidation": [
-                    "required",
-                    "uuid",
+                    "nullable",
                     "exists:users,id"
                 ],
                 "onCreate": true,
@@ -28380,7 +28378,7 @@
                 "dependentSelectId": null,
                 "id": 1321,
                 "createdAt": "2024-05-01 22:17:22",
-                "updatedAt": "2024-05-28 21:24:48"
+                "updatedAt": "2024-07-12 04:07:26"
             },
             "item_1322": {
                 "__returnRelationsAutomatically": true,
@@ -28630,12 +28628,10 @@
                 "dependentSelectItems": {},
                 "validation": [
                     "nullable",
-                    "uuid",
                     "exists:users,id"
                 ],
                 "updateValidation": [
                     "nullable",
-                    "uuid",
                     "exists:users,id"
                 ],
                 "onCreate": true,
@@ -28646,7 +28642,7 @@
                 "dependentSelectId": null,
                 "id": 1325,
                 "createdAt": "2024-05-01 22:41:53",
-                "updatedAt": "2024-05-28 21:59:22"
+                "updatedAt": "2024-07-12 04:07:47"
             },
             "item_1326": {
                 "__returnRelationsAutomatically": true,
@@ -28783,18 +28779,22 @@
                 "livewireInputReference": null,
                 "type": "number",
                 "checked": false,
-                "max": null,
-                "min": null,
+                "max": "100",
+                "min": 0,
                 "step": null,
                 "items": [],
                 "dependentSelectItems": {},
                 "validation": [
                     "nullable",
-                    "numeric"
+                    "numeric",
+                    "min:0",
+                    "max:100"
                 ],
                 "updateValidation": [
                     "nullable",
-                    "numeric"
+                    "numeric",
+                    "min:0",
+                    "max:100"
                 ],
                 "onCreate": true,
                 "onUpdate": true,
@@ -28804,7 +28804,7 @@
                 "dependentSelectId": null,
                 "id": 1328,
                 "createdAt": "2024-05-01 22:41:53",
-                "updatedAt": "2024-05-30 18:49:59"
+                "updatedAt": "2024-06-11 06:03:30"
             },
             "item_1329": {
                 "__returnRelationsAutomatically": true,
@@ -30206,13 +30206,11 @@
                 "items": [],
                 "dependentSelectItems": {},
                 "validation": [
-                    "required",
-                    "uuid",
+                    "nullable",
                     "exists:users,id"
                 ],
                 "updateValidation": [
-                    "required",
-                    "uuid",
+                    "nullable",
                     "exists:users,id"
                 ],
                 "onCreate": true,
@@ -30223,7 +30221,7 @@
                 "dependentSelectId": null,
                 "id": 1371,
                 "createdAt": "2024-05-02 22:30:30",
-                "updatedAt": "2024-05-19 12:06:04"
+                "updatedAt": "2024-07-12 04:12:51"
             },
             "item_1372": {
                 "__returnRelationsAutomatically": true,
@@ -30578,13 +30576,11 @@
                 "items": [],
                 "dependentSelectItems": {},
                 "validation": [
-                    "required",
-                    "uuid",
+                    "nullable",
                     "exists:users,id"
                 ],
                 "updateValidation": [
-                    "required",
-                    "uuid",
+                    "nullable",
                     "exists:users,id"
                 ],
                 "onCreate": true,
@@ -30595,7 +30591,7 @@
                 "dependentSelectId": null,
                 "id": 1379,
                 "createdAt": "2024-05-02 22:32:17",
-                "updatedAt": "2024-05-28 21:48:44"
+                "updatedAt": "2024-07-12 04:12:57"
             },
             "item_1380": {
                 "__returnRelationsAutomatically": true,
@@ -31883,12 +31879,12 @@
                     "12": {
                         "hasMany": {
                             "entities.projectId": [
-                                204,
-                                207,
-                                205,
-                                206,
                                 184,
-                                185
+                                204,
+                                205,
+                                185,
+                                206,
+                                207
                             ],
                             "cruds.projectId": [
                                 158,
@@ -31984,8 +31980,8 @@
                     "viewsFolder": "/resources/views/app",
                     "controllerNameMode": "singular",
                     "schemaZoom": 0.8,
-                    "schemaScrollTop": 4373.60009765625,
-                    "schemaScrollLeft": 3896.800048828125,
+                    "schemaScrollTop": 4387.2001953125,
+                    "schemaScrollLeft": 3857.60009765625,
                     "turbolinks": false,
                     "modules": []
                 },
@@ -32008,65 +32004,65 @@
                         "158": {
                             "crudId": 158,
                             "name": "Users",
-                            "requests": true,
-                            "controller": true,
-                            "views": true,
-                            "tests": true,
-                            "api": true
+                            "requests": false,
+                            "controller": false,
+                            "views": false,
+                            "tests": false,
+                            "api": false
                         },
                         "187": {
                             "crudId": 187,
                             "name": "User Activity Logs",
-                            "requests": true,
-                            "controller": true,
-                            "views": true,
-                            "tests": true,
-                            "api": true
+                            "requests": false,
+                            "controller": false,
+                            "views": false,
+                            "tests": false,
+                            "api": false
                         },
                         "188": {
                             "crudId": 188,
                             "name": "Records",
-                            "requests": true,
-                            "controller": true,
-                            "views": true,
-                            "tests": true,
-                            "api": true
+                            "requests": false,
+                            "controller": false,
+                            "views": false,
+                            "tests": false,
+                            "api": false
                         },
                         "189": {
                             "crudId": 189,
                             "name": "Record Subrecords",
-                            "requests": true,
-                            "controller": true,
-                            "views": true,
-                            "tests": true,
-                            "api": true
+                            "requests": false,
+                            "controller": false,
+                            "views": false,
+                            "tests": false,
+                            "api": false
                         },
                         "190": {
                             "crudId": 190,
                             "name": "User Uploads",
-                            "requests": true,
-                            "controller": true,
-                            "views": true,
-                            "tests": true,
-                            "api": true
+                            "requests": false,
+                            "controller": false,
+                            "views": false,
+                            "tests": false,
+                            "api": false
                         },
                         "191": {
                             "crudId": 191,
                             "name": "User Galleries",
-                            "requests": true,
-                            "controller": true,
-                            "views": true,
-                            "tests": true,
-                            "api": true
+                            "requests": false,
+                            "controller": false,
+                            "views": false,
+                            "tests": false,
+                            "api": false
                         },
                         "196": {
                             "crudId": 196,
                             "name": "Subrecords",
-                            "requests": true,
+                            "requests": false,
                             "controller": false,
                             "views": false,
-                            "tests": true,
-                            "api": true
+                            "tests": false,
+                            "api": false
                         }
                     },
                     "modules": {
@@ -32859,25 +32855,25 @@
                     },
                     "\\database\\migrations\\2024_05_01_000003_create_user_activity_logs_table.php": {
                         "deleteOnGeneration": true,
-                        "content": "<?php\n\nuse Illuminate\\Support\\Facades\\Schema;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Database\\Migrations\\Migration;\n\nreturn new class extends Migration {\n    /**\n     * Run the migrations.\n     */\n    public function up(): void\n    {\n        Schema::create('user_activity_logs', function (Blueprint $table) {\n            $table->uuid('id')->primary();\n            $table->timestampTz('at');\n            $table->uuid('user_id');\n            $table->string('title');\n            $table->text('link')->nullable();\n            $table->text('message')->nullable();\n            $table->ipAddress('i_p_address')->nullable();\n\n            $table->index('user_id');\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     */\n    public function down(): void\n    {\n        Schema::dropIfExists('user_activity_logs');\n    }\n};\n",
+                        "content": "<?php\n\nuse Illuminate\\Support\\Facades\\Schema;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Database\\Migrations\\Migration;\n\nreturn new class extends Migration {\n    /**\n     * Run the migrations.\n     */\n    public function up(): void\n    {\n        Schema::create('user_activity_logs', function (Blueprint $table) {\n            $table->uuid('id')->primary();\n            $table->timestampTz('at');\n            $table->uuid('user_id')->nullable();\n            $table->string('title');\n            $table->text('link')->nullable();\n            $table->text('message')->nullable();\n            $table->ipAddress('i_p_address')->nullable();\n\n            $table->index('user_id');\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     */\n    public function down(): void\n    {\n        Schema::dropIfExists('user_activity_logs');\n    }\n};\n",
                         "module": "entity:205",
                         "path": "\\database\\migrations\\2024_05_01_000003_create_user_activity_logs_table.php"
                     },
                     "\\database\\migrations\\2024_05_01_000004_create_user_galleries_table.php": {
                         "deleteOnGeneration": true,
-                        "content": "<?php\n\nuse Illuminate\\Support\\Facades\\Schema;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Database\\Migrations\\Migration;\n\nreturn new class extends Migration {\n    /**\n     * Run the migrations.\n     */\n    public function up(): void\n    {\n        Schema::create('user_galleries', function (Blueprint $table) {\n            $table->uuid('id')->primary();\n            $table->uuid('user_id');\n            $table->timestampTz('at');\n            $table->text('file');\n            $table->string('name')->nullable();\n            $table->text('description')->nullable();\n            $table->string('type')->nullable();\n            $table->json('metadata')->nullable();\n            $table->text('thumbnail')->nullable();\n\n            $table->index('user_id');\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     */\n    public function down(): void\n    {\n        Schema::dropIfExists('user_galleries');\n    }\n};\n",
+                        "content": "<?php\n\nuse Illuminate\\Support\\Facades\\Schema;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Database\\Migrations\\Migration;\n\nreturn new class extends Migration {\n    /**\n     * Run the migrations.\n     */\n    public function up(): void\n    {\n        Schema::create('user_galleries', function (Blueprint $table) {\n            $table->uuid('id')->primary();\n            $table->uuid('user_id')->nullable();\n            $table->timestampTz('at');\n            $table->text('file');\n            $table->string('name')->nullable();\n            $table->text('description')->nullable();\n            $table->string('type')->nullable();\n            $table->json('metadata')->nullable();\n            $table->text('thumbnail')->nullable();\n\n            $table->index('user_id');\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     */\n    public function down(): void\n    {\n        Schema::dropIfExists('user_galleries');\n    }\n};\n",
                         "module": "entity:207",
                         "path": "\\database\\migrations\\2024_05_01_000004_create_user_galleries_table.php"
                     },
                     "\\database\\migrations\\2024_05_01_000005_create_user_uploads_table.php": {
                         "deleteOnGeneration": true,
-                        "content": "<?php\n\nuse Illuminate\\Support\\Facades\\Schema;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Database\\Migrations\\Migration;\n\nreturn new class extends Migration {\n    /**\n     * Run the migrations.\n     */\n    public function up(): void\n    {\n        Schema::create('user_uploads', function (Blueprint $table) {\n            $table->uuid('id')->primary();\n            $table->uuid('user_id');\n            $table->timestampTz('at');\n            $table->text('file');\n            $table->string('name')->nullable();\n            $table->text('description')->nullable();\n            $table->string('type')->nullable();\n            $table->json('metadata')->nullable();\n\n            $table->index('user_id');\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     */\n    public function down(): void\n    {\n        Schema::dropIfExists('user_uploads');\n    }\n};\n",
+                        "content": "<?php\n\nuse Illuminate\\Support\\Facades\\Schema;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Database\\Migrations\\Migration;\n\nreturn new class extends Migration {\n    /**\n     * Run the migrations.\n     */\n    public function up(): void\n    {\n        Schema::create('user_uploads', function (Blueprint $table) {\n            $table->uuid('id')->primary();\n            $table->uuid('user_id')->nullable();\n            $table->timestampTz('at');\n            $table->text('file');\n            $table->string('name')->nullable();\n            $table->text('description')->nullable();\n            $table->string('type')->nullable();\n            $table->json('metadata')->nullable();\n\n            $table->index('user_id');\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     */\n    public function down(): void\n    {\n        Schema::dropIfExists('user_uploads');\n    }\n};\n",
                         "module": "entity:206",
                         "path": "\\database\\migrations\\2024_05_01_000005_create_user_uploads_table.php"
                     },
                     "\\database\\migrations\\2024_05_01_009001_add_foreigns_to_records_table.php": {
                         "deleteOnGeneration": true,
-                        "content": "<?php\n\nuse Illuminate\\Support\\Facades\\Schema;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Database\\Migrations\\Migration;\n\nreturn new class extends Migration {\n    /**\n     * Run the migrations.\n     */\n    public function up(): void\n    {\n        Schema::table('records', function (Blueprint $table) {\n            $table\n                ->foreign('user_id')\n                ->references('id')\n                ->on('users')\n                ->onUpdate('CASCADE')\n                ->onDelete('CASCADE');\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     */\n    public function down(): void\n    {\n        Schema::table('records', function (Blueprint $table) {\n            $table->dropForeign(['user_id']);\n        });\n    }\n};\n",
+                        "content": "<?php\n\nuse Illuminate\\Support\\Facades\\Schema;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Database\\Migrations\\Migration;\n\nreturn new class extends Migration {\n    /**\n     * Run the migrations.\n     */\n    public function up(): void\n    {\n        Schema::table('records', function (Blueprint $table) {\n            $table\n                ->foreign('user_id')\n                ->references('id')\n                ->on('users')\n                ->onUpdate('CASCADE')\n                ->onDelete('SET NULL');\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     */\n    public function down(): void\n    {\n        Schema::table('records', function (Blueprint $table) {\n            $table->dropForeign(['user_id']);\n        });\n    }\n};\n",
                         "module": "entity:185|entity:184",
                         "path": "\\database\\migrations\\2024_05_01_009001_add_foreigns_to_records_table.php"
                     },
@@ -32889,19 +32885,19 @@
                     },
                     "\\database\\migrations\\2024_05_01_009003_add_foreigns_to_user_activity_logs_table.php": {
                         "deleteOnGeneration": true,
-                        "content": "<?php\n\nuse Illuminate\\Support\\Facades\\Schema;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Database\\Migrations\\Migration;\n\nreturn new class extends Migration {\n    /**\n     * Run the migrations.\n     */\n    public function up(): void\n    {\n        Schema::table('user_activity_logs', function (Blueprint $table) {\n            $table\n                ->foreign('user_id')\n                ->references('id')\n                ->on('users')\n                ->onUpdate('CASCADE')\n                ->onDelete('CASCADE');\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     */\n    public function down(): void\n    {\n        Schema::table('user_activity_logs', function (Blueprint $table) {\n            $table->dropForeign(['user_id']);\n        });\n    }\n};\n",
+                        "content": "<?php\n\nuse Illuminate\\Support\\Facades\\Schema;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Database\\Migrations\\Migration;\n\nreturn new class extends Migration {\n    /**\n     * Run the migrations.\n     */\n    public function up(): void\n    {\n        Schema::table('user_activity_logs', function (Blueprint $table) {\n            $table\n                ->foreign('user_id')\n                ->references('id')\n                ->on('users')\n                ->onUpdate('CASCADE')\n                ->onDelete('SET NULL');\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     */\n    public function down(): void\n    {\n        Schema::table('user_activity_logs', function (Blueprint $table) {\n            $table->dropForeign(['user_id']);\n        });\n    }\n};\n",
                         "module": "entity:205|entity:184",
                         "path": "\\database\\migrations\\2024_05_01_009003_add_foreigns_to_user_activity_logs_table.php"
                     },
                     "\\database\\migrations\\2024_05_01_009004_add_foreigns_to_user_galleries_table.php": {
                         "deleteOnGeneration": true,
-                        "content": "<?php\n\nuse Illuminate\\Support\\Facades\\Schema;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Database\\Migrations\\Migration;\n\nreturn new class extends Migration {\n    /**\n     * Run the migrations.\n     */\n    public function up(): void\n    {\n        Schema::table('user_galleries', function (Blueprint $table) {\n            $table\n                ->foreign('user_id')\n                ->references('id')\n                ->on('users')\n                ->onUpdate('CASCADE')\n                ->onDelete('CASCADE');\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     */\n    public function down(): void\n    {\n        Schema::table('user_galleries', function (Blueprint $table) {\n            $table->dropForeign(['user_id']);\n        });\n    }\n};\n",
+                        "content": "<?php\n\nuse Illuminate\\Support\\Facades\\Schema;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Database\\Migrations\\Migration;\n\nreturn new class extends Migration {\n    /**\n     * Run the migrations.\n     */\n    public function up(): void\n    {\n        Schema::table('user_galleries', function (Blueprint $table) {\n            $table\n                ->foreign('user_id')\n                ->references('id')\n                ->on('users')\n                ->onUpdate('CASCADE')\n                ->onDelete('SET NULL');\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     */\n    public function down(): void\n    {\n        Schema::table('user_galleries', function (Blueprint $table) {\n            $table->dropForeign(['user_id']);\n        });\n    }\n};\n",
                         "module": "entity:207|entity:184",
                         "path": "\\database\\migrations\\2024_05_01_009004_add_foreigns_to_user_galleries_table.php"
                     },
                     "\\database\\migrations\\2024_05_01_009005_add_foreigns_to_user_uploads_table.php": {
                         "deleteOnGeneration": true,
-                        "content": "<?php\n\nuse Illuminate\\Support\\Facades\\Schema;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Database\\Migrations\\Migration;\n\nreturn new class extends Migration {\n    /**\n     * Run the migrations.\n     */\n    public function up(): void\n    {\n        Schema::table('user_uploads', function (Blueprint $table) {\n            $table\n                ->foreign('user_id')\n                ->references('id')\n                ->on('users')\n                ->onUpdate('CASCADE')\n                ->onDelete('CASCADE');\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     */\n    public function down(): void\n    {\n        Schema::table('user_uploads', function (Blueprint $table) {\n            $table->dropForeign(['user_id']);\n        });\n    }\n};\n",
+                        "content": "<?php\n\nuse Illuminate\\Support\\Facades\\Schema;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Database\\Migrations\\Migration;\n\nreturn new class extends Migration {\n    /**\n     * Run the migrations.\n     */\n    public function up(): void\n    {\n        Schema::table('user_uploads', function (Blueprint $table) {\n            $table\n                ->foreign('user_id')\n                ->references('id')\n                ->on('users')\n                ->onUpdate('CASCADE')\n                ->onDelete('SET NULL');\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     */\n    public function down(): void\n    {\n        Schema::table('user_uploads', function (Blueprint $table) {\n            $table->dropForeign(['user_id']);\n        });\n    }\n};\n",
                         "module": "entity:206|entity:184",
                         "path": "\\database\\migrations\\2024_05_01_009005_add_foreigns_to_user_uploads_table.php"
                     },
@@ -33194,7 +33190,7 @@
                 "usesVite": true,
                 "id": 12,
                 "createdAt": "2023-05-11 05:39:57",
-                "updatedAt": "2024-06-10 22:47:13"
+                "updatedAt": "2024-07-12 04:30:44"
             }
         },
         "manytomanycomponents": {},
