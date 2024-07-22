@@ -2650,10 +2650,16 @@
         },
         "comments": {
             "comments": {
-                "count": 1,
-                "lastPrimaryKey": 4,
+                "count": 2,
+                "lastPrimaryKey": 5,
                 "index": {
                     "4": {
+                        "hasMany": {},
+                        "hasOne": {},
+                        "belongsTo": {},
+                        "belongsToMany": {}
+                    },
+                    "5": {
                         "hasMany": {},
                         "hasOne": {},
                         "belongsTo": {},
@@ -2664,6 +2670,20 @@
                 "items": [],
                 "relations": [],
                 "reladbVersion": "0.3.1"
+            },
+            "item_5": {
+                "__returnRelationsAutomatically": true,
+                "__saveDataToStorage": true,
+                "__onUpdateListener": null,
+                "__customEventsEnabled": false,
+                "content": "Ganti BOOLEAN &  ENUMERATE",
+                "projectId": 12,
+                "parsedContent": "<p>Ganti BOOLEAN &amp;  ENUMERATE</p>",
+                "top": "307px",
+                "left": "709px",
+                "id": 5,
+                "createdAt": "2024-07-19 03:09:42",
+                "updatedAt": "2024-07-19 03:10:12"
             },
             "item_4": {
                 "__returnRelationsAutomatically": true,
@@ -4239,17 +4259,17 @@
                                 1345,
                                 1346,
                                 1369,
-                                1330,
                                 1331,
                                 1332,
                                 1334,
-                                1335,
                                 1337,
                                 1340,
                                 1363,
                                 1362,
                                 1328,
-                                1325
+                                1325,
+                                1330,
+                                1335
                             ],
                             "hasmanydetails.crudId": [
                                 129
@@ -7636,9 +7656,9 @@
                                 1725,
                                 1726,
                                 1727,
-                                1728,
                                 1729,
-                                1719
+                                1719,
+                                1728
                             ],
                             "projects.authModelId": [
                                 12
@@ -7679,12 +7699,10 @@
                                 1995,
                                 1735,
                                 1736,
-                                1996,
                                 1739,
                                 1738,
                                 1737,
                                 1742,
-                                1734,
                                 1733,
                                 1732,
                                 1740,
@@ -7693,7 +7711,9 @@
                                 1997,
                                 2038,
                                 2039,
-                                1731
+                                1731,
+                                1996,
+                                1734
                             ],
                             "basicrelationships.modelId": [
                                 368,
@@ -8248,7 +8268,7 @@
                 "oldForeignsMigrationName": null,
                 "id": 185,
                 "createdAt": "2023-05-11 06:07:15",
-                "updatedAt": "2024-07-12 04:07:30"
+                "updatedAt": "2024-07-19 03:27:38"
             },
             "item_204": {
                 "__returnRelationsAutomatically": true,
@@ -8274,7 +8294,7 @@
                 "oldForeignsMigrationName": null,
                 "id": 204,
                 "createdAt": "2024-05-01 09:57:22",
-                "updatedAt": "2024-06-13 18:07:02"
+                "updatedAt": "2024-07-19 04:40:23"
             },
             "item_184": {
                 "__returnRelationsAutomatically": true,
@@ -8286,8 +8306,8 @@
                 "type": "model",
                 "table": "users",
                 "plural": "Users",
-                "top": "254px",
-                "left": "126px",
+                "top": "253px",
+                "left": "127px",
                 "pivot": false,
                 "softDeletes": false,
                 "timestamps": true,
@@ -8300,7 +8320,7 @@
                 "oldForeignsMigrationName": null,
                 "id": 184,
                 "createdAt": "2023-05-11 05:39:57",
-                "updatedAt": "2024-05-09 19:50:12"
+                "updatedAt": "2024-07-19 17:47:34"
             },
             "item_205": {
                 "__returnRelationsAutomatically": true,
@@ -20895,7 +20915,7 @@
                 "order": 8,
                 "id": 1996,
                 "createdAt": "2024-04-30 23:26:18",
-                "updatedAt": "2024-05-02 22:06:13"
+                "updatedAt": "2024-07-19 03:24:10"
             },
             "item_1739": {
                 "__returnRelationsAutomatically": true,
@@ -21018,7 +21038,7 @@
                 "order": 13,
                 "id": 1734,
                 "createdAt": "2023-05-11 06:36:10",
-                "updatedAt": "2024-05-02 22:06:13"
+                "updatedAt": "2024-07-19 03:26:20"
             },
             "item_1733": {
                 "__returnRelationsAutomatically": true,
@@ -21748,20 +21768,22 @@
                 "__customEventsEnabled": false,
                 "name": "current_team_id",
                 "entityId": 184,
-                "type": "foreignId",
+                "type": "uuid",
                 "pk": false,
                 "fk": false,
-                "params": {},
-                "faker": "",
+                "params": {
+                    "options": null
+                },
+                "faker": "$faker->uuid()",
                 "nullable": true,
                 "hidden": false,
                 "fillable": false,
                 "defaultValue": null,
-                "index": false,
+                "index": true,
                 "unique": false,
                 "id": 1728,
                 "createdAt": "2023-05-11 05:39:57",
-                "updatedAt": "2023-12-29 06:14:36",
+                "updatedAt": "2024-07-19 08:36:57",
                 "order": 9
             },
             "item_1729": {
@@ -28887,16 +28909,18 @@
                 "livewireInputReference": null,
                 "type": "text",
                 "checked": false,
-                "max": null,
+                "max": 255,
                 "min": null,
                 "step": null,
                 "items": [],
                 "dependentSelectItems": {},
                 "validation": [
-                    "nullable"
+                    "nullable",
+                    "max:255"
                 ],
                 "updateValidation": [
-                    "nullable"
+                    "nullable",
+                    "max:255"
                 ],
                 "onCreate": true,
                 "onUpdate": true,
@@ -28906,7 +28930,7 @@
                 "dependentSelectId": null,
                 "id": 1330,
                 "createdAt": "2024-05-01 22:41:53",
-                "updatedAt": "2024-05-29 22:22:16"
+                "updatedAt": "2024-07-19 03:24:10"
             },
             "item_1331": {
                 "__returnRelationsAutomatically": true,
@@ -29145,7 +29169,7 @@
                 "livewireInputReference": null,
                 "type": "checkbox",
                 "checked": false,
-                "max": null,
+                "max": 255,
                 "min": null,
                 "step": null,
                 "items": [],
@@ -29166,7 +29190,7 @@
                 "dependentSelectId": null,
                 "id": 1335,
                 "createdAt": "2024-05-01 22:41:53",
-                "updatedAt": "2024-05-29 22:22:59"
+                "updatedAt": "2024-07-19 03:26:20"
             },
             "item_1336": {
                 "__returnRelationsAutomatically": true,
@@ -31879,12 +31903,12 @@
                     "12": {
                         "hasMany": {
                             "entities.projectId": [
-                                184,
-                                204,
                                 205,
-                                185,
                                 206,
-                                207
+                                207,
+                                185,
+                                204,
+                                184
                             ],
                             "cruds.projectId": [
                                 158,
@@ -31896,7 +31920,8 @@
                                 189
                             ],
                             "comments.projectId": [
-                                4
+                                4,
+                                5
                             ]
                         },
                         "hasOne": {},
@@ -31980,8 +32005,8 @@
                     "viewsFolder": "/resources/views/app",
                     "controllerNameMode": "singular",
                     "schemaZoom": 0.8,
-                    "schemaScrollTop": 4387.2001953125,
-                    "schemaScrollLeft": 3857.60009765625,
+                    "schemaScrollTop": 4568,
+                    "schemaScrollLeft": 4000,
                     "turbolinks": false,
                     "modules": []
                 },
@@ -32004,11 +32029,11 @@
                         "158": {
                             "crudId": 158,
                             "name": "Users",
-                            "requests": false,
-                            "controller": false,
-                            "views": false,
-                            "tests": false,
-                            "api": false
+                            "requests": true,
+                            "controller": true,
+                            "views": true,
+                            "tests": true,
+                            "api": true
                         },
                         "187": {
                             "crudId": 187,
@@ -32735,7 +32760,7 @@
                     },
                     "\\database\\factories\\UserFactory.php": {
                         "deleteOnGeneration": true,
-                        "content": "<?php\n\nnamespace Database\\Factories;\n\nuse App\\Models\\User;\nuse Illuminate\\Support\\Str;\nuse Illuminate\\Database\\Eloquent\\Factories\\Factory;\n\nclass UserFactory extends Factory\n{\n    /**\n     * The name of the factory's corresponding model.\n     *\n     * @var string\n     */\n    protected $model = User::class;\n\n    /**\n     * Define the model's default state.\n     *\n     * @return array<string, mixed>\n     */\n    public function definition(): array\n    {\n        return [\n            'name' => $this->faker->name(),\n            'email' => $this->faker->unique->email(),\n            'email_verified_at' => now(),\n            'password' => \\Hash::make('password'),\n            'remember_token' => Str::random(10),\n        ];\n    }\n\n    /**\n     * Indicate that the model's email address should be unverified.\n     */\n    public function unverified(): Factory\n    {\n        return $this->state(function (array $attributes) {\n            return [\n                'email_verified_at' => null,\n            ];\n        });\n    }\n}\n",
+                        "content": "<?php\n\nnamespace Database\\Factories;\n\nuse App\\Models\\User;\nuse Illuminate\\Support\\Str;\nuse Illuminate\\Database\\Eloquent\\Factories\\Factory;\n\nclass UserFactory extends Factory\n{\n    /**\n     * The name of the factory's corresponding model.\n     *\n     * @var string\n     */\n    protected $model = User::class;\n\n    /**\n     * Define the model's default state.\n     *\n     * @return array<string, mixed>\n     */\n    public function definition(): array\n    {\n        return [\n            'name' => $this->faker->name(),\n            'email' => $this->faker->unique->email(),\n            'email_verified_at' => now(),\n            'password' => \\Hash::make('password'),\n            'remember_token' => Str::random(10),\n            'current_team_id' => $this->faker->uuid(),\n        ];\n    }\n\n    /**\n     * Indicate that the model's email address should be unverified.\n     */\n    public function unverified(): Factory\n    {\n        return $this->state(function (array $attributes) {\n            return [\n                'email_verified_at' => null,\n            ];\n        });\n    }\n}\n",
                         "module": "entity:184",
                         "path": "\\database\\factories\\UserFactory.php"
                     },
@@ -32963,7 +32988,7 @@
                     },
                     "\\database\\migrations\\2014_10_12_000000_create_users_table.php": {
                         "deleteOnGeneration": true,
-                        "content": "<?php\n\nuse Illuminate\\Support\\Facades\\Schema;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Database\\Migrations\\Migration;\n\nreturn new class extends Migration {\n    /**\n     * Run the migrations.\n     */\n    public function up(): void\n    {\n        Schema::create('users', function (Blueprint $table) {\n            $table->uuid('id')->primary();\n            $table->string('name');\n            $table->string('email')->unique();\n            $table->timestamp('email_verified_at')->nullable();\n            $table->string('password');\n            $table->string('remember_token', 100)->nullable();\n            $table->text('two_factor_secret')->nullable();\n            $table->text('two_factor_recovery_codes')->nullable();\n            $table->timestamp('two_factor_confirmed_at')->nullable();\n            $table->foreignId('current_team_id')->nullable();\n            $table->text('profile_photo_path')->nullable();\n\n            $table->timestamps();\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     */\n    public function down(): void\n    {\n        Schema::dropIfExists('users');\n    }\n};\n",
+                        "content": "<?php\n\nuse Illuminate\\Support\\Facades\\Schema;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Database\\Migrations\\Migration;\n\nreturn new class extends Migration {\n    /**\n     * Run the migrations.\n     */\n    public function up(): void\n    {\n        Schema::create('users', function (Blueprint $table) {\n            $table->uuid('id')->primary();\n            $table->string('name');\n            $table->string('email')->unique();\n            $table->timestamp('email_verified_at')->nullable();\n            $table->string('password');\n            $table->string('remember_token', 100)->nullable();\n            $table->text('two_factor_secret')->nullable();\n            $table->text('two_factor_recovery_codes')->nullable();\n            $table->timestamp('two_factor_confirmed_at')->nullable();\n            $table->uuid('current_team_id')->nullable();\n            $table->text('profile_photo_path')->nullable();\n\n            $table->index('current_team_id');\n\n            $table->timestamps();\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     */\n    public function down(): void\n    {\n        Schema::dropIfExists('users');\n    }\n};\n",
                         "module": "entity:184",
                         "path": "\\database\\migrations\\2014_10_12_000000_create_users_table.php"
                     },
@@ -33148,7 +33173,7 @@
                     },
                     "views/frameworks/tailwind/IndexView_Table.vemtl": {
                         "path": "views/frameworks/tailwind/IndexView_Table.vemtl",
-                        "content": "<% let cols = 1 %>\r\n<div class=\"block w-full overflow-auto scrolling-touch\">\r\n    <table class=\"w-full max-w-full mb-4 bg-transparent\">\r\n        <thead class=\"text-gray-700\">\r\n            <tr>\r\n                <% for(let input of this.crud.inputs) { %>\r\n                    <% if(input.isAllowedOnIndexPages() && input.onIndex) { %>\r\n                        <% cols++ %>\r\n                        <% if(input.isNumeric()) { %>\r\n                            <th class=\"px-4 py-3 text-right\">@lang('crud.<$ crudNameSnakeCase $>.inputs.<$ input.name $>')</th>\r\n                        <% } else { %>\r\n                            <th class=\"px-4 py-3 text-left\">@lang('crud.<$ crudNameSnakeCase $>.inputs.<$ input.name $>')</th>\r\n                        <% } %>\r\n                    <% } %>\r\n                <% } %>\r\n                <th></th>\r\n            </tr>\r\n        </thead>\r\n        <tbody class=\"text-gray-600\">\r\n            @forelse($<$ modelPluralCamelCase $> as $<$ modelNameCamelCase $>)\r\n            <tr class=\"hover:bg-gray-50\">\r\n                <% for(let input of this.crud.inputs) { %>\r\n                    <# COMPUTED INPUT #>\r\n                    <% if(input.isComputed && input.onIndex) { %>\r\n                        <% if(input.isNumeric()) { %>\r\n                        <td class=\"px-4 py-3 text-right\">{{ <$ input.computedFormula $> }}</td>\r\n                        <% } else { %>\r\n                        <td class=\"px-4 py-3 text-left\">{{ <$ input.computedFormula $> }}</td>\r\n                        <% } %>\r\n                    <% } %>\r\n                    <# INPUT LINKED TO FIELD #>\r\n                    <% if(input.isLinkedToField() && input.onIndex) { %>\r\n                    /** <$ input.getType() $> */\r\n                        <% if(input.isImage()) { %>\r\n                        <td class=\"px-4 py-3 text-left\"><x-partials.thumbnail src=\"{{ $<$ modelNameCamelCase $>-><$ input.name $> ? \\Storage::url($<$ modelNameCamelCase $>-><$ input.name $>) : '' }}\"/></td>\r\n                        <% } else if(input.isFile()) { %>\r\n                        <td class=\"px-4 py-3 text-left\">@if($<$ modelNameCamelCase $>-><$ input.name $>) <a href=\"{{ \\Storage::url($<$ modelNameCamelCase $>-><$ input.name $>) }}\" target=\"blank\"><i class=\"mr-1 icon ion-md-download\"></i>&nbsp;Download</a> @else - @endif</td>\r\n                        <% } else { %>\r\n                            <% if(input.isForRelationship()) { %>\r\n                            <td class=\"px-4 py-3 text-left\">{{ optional($<$ modelNameCamelCase $>-><$ input.relationship.name $>)-><$ input.relationship.model.getLabelFieldName() $> ?? '-' }}</td>\r\n                            <% } else if(input.isNumeric()) { %>\r\n                            <td class=\"px-4 py-3 text-right\">{{ $<$ modelNameCamelCase $>-><$ input.name $> ?? '-' }}</td>\r\n                            <% } else if(input.isJson()) { %>\r\n                            <td class=\"px-4 py-3 text-right\"><pre>{{ json_encode($<$ modelNameCamelCase $>-><$ input.name $>) ?? '-' }}</pre></td>\r\n                            <% } else if(input.isUrl()) { %>\r\n                            <td class=\"px-4 py-3 text-left\"><a class=\"underline cursor-pointer\" target=\"_blank\" href=\"{{ $<$ modelNameCamelCase $>-><$ input.name $> }}\">{{ $<$ modelNameCamelCase $>-><$ input.name $> ?? '-' }}</a></td>\r\n                            <% } else if(input.type == 'datetime') { %>\r\n                            <td class=\"px-4 py-3 text-left\">{{ optional($<$ modelNameCamelCase $>-><$ input.name $>)->format('D, d M Y, H:i') }}</td>\r\n                            <% } else if(input.type == 'time') { %>\r\n                            <td class=\"px-4 py-3 text-left\">{{ optional($<$ modelNameCamelCase $>-><$ input.name $>)->format('H:i') }}</td>\r\n                            <% } else if(input.isDate()) { %>\r\n                            <td class=\"px-4 py-3 text-left\">{{ optional($<$ modelNameCamelCase $>-><$ input.name $>)->format('D, d M Y') }}</td>\r\n                            <% } else { %>\r\n                            <td class=\"px-4 py-3 text-left\">{{ $<$ modelNameCamelCase $>-><$ input.name $> ?? '-' }}</td>\r\n                            <% } %>\r\n                        <% } %>\r\n                    <% } %>\r\n                <% } %>\r\n                <td class=\"px-4 py-3 text-center\" style=\"width: 134px;\">\r\n                    <div role=\"group\" aria-label=\"Row Actions\" class=\"relative inline-flex align-middle\">\r\n                        @can('update', $<$ modelNameCamelCase $>)\r\n                        <a href=\"{{ route('<$ modelPluralParamCase $>.edit', $<$ modelNameCamelCase $>) }}\" class=\"mr-1\">\r\n                            <button type=\"button\" class=\"button\">\r\n                                <i class=\"icon ion-md-create\"></i>\r\n                            </button>\r\n                        </a>\r\n                        @endcan\r\n                        \r\n                        @can('view', $<$ modelNameCamelCase $>)\r\n                        <a href=\"{{ route('<$ modelPluralParamCase $>.show', $<$ modelNameCamelCase $>) }}\" class=\"mr-1\">\r\n                            <button type=\"button\" class=\"button\">\r\n                                <i class=\"icon ion-md-eye\"></i>\r\n                            </button>\r\n                        </a>\r\n                        @endcan\r\n                    </div>\r\n                </td>\r\n            </tr>\r\n            @empty\r\n            <tr>\r\n                <td colspan=\"<$ cols $>\">@lang('crud.common.no_items_found')</td>\r\n            </tr>\r\n            @endforelse\r\n        </tbody>\r\n        <tfoot>\r\n            <tr>\r\n                <td colspan=\"<$ cols $>\">\r\n                    <div class=\"mt-10 px-4\">\r\n                        {!! $<$ modelPluralCamelCase $>->render() !!}\r\n                    </div>\r\n                </td>\r\n            </tr>\r\n        </tfoot>\r\n    </table>\r\n</div>",
+                        "content": "<% let cols = 1 %>\r\n<div class=\"block w-full overflow-auto scrolling-touch\">\r\n    <table class=\"w-full max-w-full mb-4 bg-transparent\">\r\n        <thead class=\"text-gray-700\">\r\n            <tr>\r\n                <% for(let input of this.crud.inputs) { %>\r\n                    <% if(input.isAllowedOnIndexPages() && input.onIndex) { %>\r\n                        <% cols++ %>\r\n                        <% if(input.isNumeric()) { %>\r\n                            <th class=\"px-4 py-3 text-right\">@lang('crud.<$ crudNameSnakeCase $>.inputs.<$ input.name $>')</th>\r\n                        <% } else { %>\r\n                            <th class=\"px-4 py-3 text-left\">@lang('crud.<$ crudNameSnakeCase $>.inputs.<$ input.name $>')</th>\r\n                        <% } %>\r\n                    <% } %>\r\n                <% } %>\r\n                <th></th>\r\n            </tr>\r\n        </thead>\r\n        <tbody class=\"text-gray-600\">\r\n            @forelse($<$ modelPluralCamelCase $> as $<$ modelNameCamelCase $>)\r\n            <tr class=\"hover:bg-gray-50\">\r\n                <% for(let input of this.crud.inputs) { %>\r\n                    <# COMPUTED INPUT #>\r\n                    <% if(input.isComputed && input.onIndex) { %>\r\n                        <% if(input.isNumeric()) { %>\r\n                        <td class=\"px-4 py-3 text-right\">{{ <$ input.computedFormula $> }}</td>\r\n                        <% } else { %>\r\n                        <td class=\"px-4 py-3 text-left\">{{ <$ input.computedFormula $> }}</td>\r\n                        <% } %>\r\n                    <% } %>\r\n                    <# INPUT LINKED TO FIELD #>\r\n                    <% if(input.isLinkedToField() && input.onIndex) { %>\r\n                        <% if(input.isImage()) { %>\r\n                        <td class=\"px-4 py-3 text-left\"><x-partials.thumbnail src=\"{{ $<$ modelNameCamelCase $>-><$ input.name $> ? \\Storage::url($<$ modelNameCamelCase $>-><$ input.name $>) : '' }}\"/></td>\r\n                        <% } else if(input.isFile()) { %>\r\n                        <td class=\"px-4 py-3 text-left\">@if($<$ modelNameCamelCase $>-><$ input.name $>) <a href=\"{{ \\Storage::url($<$ modelNameCamelCase $>-><$ input.name $>) }}\" target=\"blank\"><i class=\"mr-1 icon ion-md-download\"></i>&nbsp;Download</a> @else - @endif</td>\r\n                        <% } else { %>\r\n                            <% if(input.isForRelationship()) { %>\r\n                            <td class=\"px-4 py-3 text-left\">{{ optional($<$ modelNameCamelCase $>-><$ input.relationship.name $>)-><$ input.relationship.model.getLabelFieldName() $> ?? '-' }}</td>\r\n                            <% } else if(input.isNumeric()) { %>\r\n                            <td class=\"px-4 py-3 text-right\">{{ $<$ modelNameCamelCase $>-><$ input.name $> ?? '-' }}</td>\r\n                            <% } else if(input.isJson()) { %>\r\n                            <td class=\"px-4 py-3 text-right\"><pre>{{ json_encode($<$ modelNameCamelCase $>-><$ input.name $>) ?? '-' }}</pre></td>\r\n                            <% } else if(input.isUrl()) { %>\r\n                            <td class=\"px-4 py-3 text-left\"><a class=\"underline cursor-pointer\" target=\"_blank\" href=\"{{ $<$ modelNameCamelCase $>-><$ input.name $> }}\">{{ $<$ modelNameCamelCase $>-><$ input.name $> ?? '-' }}</a></td>\r\n                            <% } else if(input.type == 'datetime') { %>\r\n                            <td class=\"px-4 py-3 text-left\">{{ optional($<$ modelNameCamelCase $>-><$ input.name $>)->format('D, d M Y, H:i') }}</td>\r\n                            <% } else if(input.type == 'time') { %>\r\n                            <td class=\"px-4 py-3 text-left\">{{ optional($<$ modelNameCamelCase $>-><$ input.name $>)->format('H:i') }}</td>\r\n                            <% } else if(input.isDate()) { %>\r\n                            <td class=\"px-4 py-3 text-left\">{{ optional($<$ modelNameCamelCase $>-><$ input.name $>)->format('D, d M Y') }}</td>\r\n                            <% } else { %>\r\n                            <td class=\"px-4 py-3 text-left\">{{ $<$ modelNameCamelCase $>-><$ input.name $> ?? '-' }}</td>\r\n                            <% } %>\r\n                        <% } %>\r\n                    <% } %>\r\n                <% } %>\r\n                <td class=\"px-4 py-3 text-center\" style=\"width: 134px;\">\r\n                    <div role=\"group\" aria-label=\"Row Actions\" class=\"relative inline-flex align-middle\">\r\n                        @can('update', $<$ modelNameCamelCase $>)\r\n                        <a href=\"{{ route('<$ modelPluralParamCase $>.edit', $<$ modelNameCamelCase $>) }}\" class=\"mr-1\">\r\n                            <button type=\"button\" class=\"button\">\r\n                                <i class=\"icon ion-md-create\"></i>\r\n                            </button>\r\n                        </a>\r\n                        @endcan\r\n                        \r\n                        @can('view', $<$ modelNameCamelCase $>)\r\n                        <a href=\"{{ route('<$ modelPluralParamCase $>.show', $<$ modelNameCamelCase $>) }}\" class=\"mr-1\">\r\n                            <button type=\"button\" class=\"button\">\r\n                                <i class=\"icon ion-md-eye\"></i>\r\n                            </button>\r\n                        </a>\r\n                        @endcan\r\n                    </div>\r\n                </td>\r\n            </tr>\r\n            @empty\r\n            <tr>\r\n                <td colspan=\"<$ cols $>\">@lang('crud.common.no_items_found')</td>\r\n            </tr>\r\n            @endforelse\r\n        </tbody>\r\n        <tfoot>\r\n            <tr>\r\n                <td colspan=\"<$ cols $>\">\r\n                    <div class=\"mt-10 px-4\">\r\n                        {!! $<$ modelPluralCamelCase $>->render() !!}\r\n                    </div>\r\n                </td>\r\n            </tr>\r\n        </tfoot>\r\n    </table>\r\n</div>",
                         "ignorePlugins": false
                     },
                     "views/inputs/blade/Url.vemtl": {
@@ -33190,7 +33215,7 @@
                 "usesVite": true,
                 "id": 12,
                 "createdAt": "2023-05-11 05:39:57",
-                "updatedAt": "2024-07-12 04:30:44"
+                "updatedAt": "2024-07-22 09:14:44"
             }
         },
         "manytomanycomponents": {},
