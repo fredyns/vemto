@@ -26,8 +26,8 @@ class Record extends Model
         'date',
         'time',
         'i_p_address',
-        'bool',
-        'enum',
+        'boolean',
+        'enumerate',
         'text',
         'file',
         'image',
@@ -43,7 +43,7 @@ class Record extends Model
         'datetime' => 'datetime',
         'date' => 'date',
         'time' => 'datetime:H:i:s',
-        'bool' => 'boolean',
+        'boolean' => 'boolean',
     ];
 
     public function subrecords()

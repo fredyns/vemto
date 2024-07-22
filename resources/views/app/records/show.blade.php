@@ -76,7 +76,9 @@
                         <h5 class="font-medium text-gray-700">
                             @lang('crud.records.inputs.time')
                         </h5>
-                        <span> {{ optional($record->time)->format('H:i') }} </span>
+                        <span>
+                            {{ optional($record->time)->format('H:i') }}
+                        </span>
                     </div>
                     <div class="mb-4 w-full">
                         <h5 class="font-medium text-gray-700">
@@ -86,15 +88,15 @@
                     </div>
                     <div class="mb-4 w-full">
                         <h5 class="font-medium text-gray-700">
-                            @lang('crud.records.inputs.bool')
+                            @lang('crud.records.inputs.boolean')
                         </h5>
-                        <span> {{ $record->bool ?? '-' }} </span>
+                        <span> {{ $record->boolean ?? '-' }} </span>
                     </div>
                     <div class="mb-4 w-full">
                         <h5 class="font-medium text-gray-700">
-                            @lang('crud.records.inputs.enum')
+                            @lang('crud.records.inputs.enumerate')
                         </h5>
-                        <span> {{ $record->enum ?? '-' }} </span>
+                        <span> {{ $record->enumerate ?? '-' }} </span>
                     </div>
                     <div class="mb-4 w-full">
                         <h5 class="font-medium text-gray-700">

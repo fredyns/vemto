@@ -128,18 +128,18 @@
 
         <x-inputs.group class="w-full">
             <x-inputs.toggle
-                name="bool"
-                :value="old('bool', ($editing ? $record->bool : 0))"
-                label="{{ __('crud.records.inputs.bool') }}"
+                name="boolean"
+                :value="old('boolean', ($editing ? $record->boolean : 0))"
+                label="{{ __('crud.records.inputs.boolean') }}"
             ></x-inputs.toggle>
         </x-inputs.group>
 
         <x-inputs.group class="w-full">
             <x-inputs.select
-                name="enum"
-                label="{{ __('crud.records.inputs.enum') }}"
+                name="enumerate"
+                label="{{ __('crud.records.inputs.enumerate') }}"
             >
-                @php $selected = old('enum', ($editing ? $record->enum : '')) @endphp
+                @php $selected = old('enumerate', ($editing ? $record->enumerate : '')) @endphp
                 <option value="enabled" {{ $selected == 'enabled' ? 'selected' : '' }} >Enabled</option>
                 <option value="disabled" {{ $selected == 'disabled' ? 'selected' : '' }} >Disabled</option>
             </x-inputs.select>

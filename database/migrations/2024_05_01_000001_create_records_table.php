@@ -24,8 +24,8 @@ return new class extends Migration {
             $table->date('date')->nullable();
             $table->time('time')->nullable();
             $table->ipAddress('i_p_address')->nullable();
-            $table->boolean('bool')->nullable();
-            $table->enum('enum', ['enabled', 'disabled'])->nullable();
+            $table->boolean('boolean')->nullable();
+            $table->enum('enumerate', ['enabled', 'disabled'])->nullable();
             $table->text('text')->nullable();
             $table->text('file')->nullable();
             $table->text('image')->nullable();

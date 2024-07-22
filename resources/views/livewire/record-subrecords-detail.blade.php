@@ -1,6 +1,3 @@
-<?php
-use App\Helpers\NPWP;
-?>
 <div>
     <div>
         @can('create', App\Models\Subrecord::class)
