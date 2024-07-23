@@ -104,7 +104,7 @@ class AuthController extends Controller
             ]);
         }
 
-        return (new CreateNewUser())->create($request->all());
+        return ['data' => (new CreateNewUser())->create($request->all())];
     }
 
     public function logout(Request $request)
