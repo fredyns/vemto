@@ -22,7 +22,7 @@ class UserGalleryController extends Controller
 
         $userGalleries = UserGallery::search($search)
             ->latest('id')
-            ->paginate();
+            ->paginate(10);
 
         return new UserGalleryCollection($userGalleries);
     }

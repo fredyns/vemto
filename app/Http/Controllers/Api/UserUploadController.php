@@ -22,7 +22,7 @@ class UserUploadController extends Controller
 
         $userUploads = UserUpload::search($search)
             ->latest('id')
-            ->paginate();
+            ->paginate(10);
 
         return new UserUploadCollection($userUploads);
     }

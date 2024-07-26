@@ -21,7 +21,7 @@ class UserActivityLogController extends Controller
 
         $userActivityLogs = UserActivityLog::search($search)
             ->latest('id')
-            ->paginate();
+            ->paginate(10);
 
         return new UserActivityLogCollection($userActivityLogs);
     }

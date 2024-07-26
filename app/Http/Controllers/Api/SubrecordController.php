@@ -22,7 +22,7 @@ class SubrecordController extends Controller
 
         $subrecords = Subrecord::search($search)
             ->latest()
-            ->paginate();
+            ->paginate(10);
 
         return new SubrecordCollection($subrecords);
     }

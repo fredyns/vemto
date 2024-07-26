@@ -23,7 +23,7 @@ class RecordController extends Controller
 
         $records = Record::search($search)
             ->latest()
-            ->paginate();
+            ->paginate(10);
 
         return new RecordCollection($records);
     }
