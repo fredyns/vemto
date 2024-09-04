@@ -1,0 +1,80 @@
+<?php
+<# TEMPLATE VARIABLES #>
+<% let modelName = this.crud.model.name %>
+<% let modelNameCamelCase = modelName.case('camelCase') %>
+<% let controllerName = this.relationship.getControllerName() %>
+<% let modelsNamespace = this.projectHelper.getModelsNamespace() %>
+<####>
+
+namespace <$ this.projectHelper.getApiControllersNamespace() $>;
+
+use <$ modelsNamespace $>\<$ modelName $>;
+use App\Http\Resources\<$ this.relationship.model.name $>Resource;
+use App\Http\Resources\<$ this.relationship.model.name $>Collection;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+<% if(this.relationshipCrud.hasPasswordInputs()) { %>
+use Illuminate\Support\Facades\Hash;
+<% } %>
+
+class <$ controllerName $> extends Controller
+{
+    public function index(Request $request, <$ modelName $> $<$ modelNameCamelCase $>): <$ this.relationship.model.name $>Collection
+    {
+        $this->authorize('view', $<$ modelNameCamelCase $>);
+
+        $search = (string)$request->get('search', '');
+
+        $<$ this.relationship.model.plural.case('camelCase') $> = $<$ modelNameCamelCase $>-><$ this.relationship.name $>()->search($search)
+            ->latest()
+            ->paginate(10);
+
+        return new <$ this.relationship.model.name $>Collection($<$ this.relationship.model.plural.case('camelCase') $>);
+    }
+
+    public function store(Request $request, <$ modelName $> $<$ modelNameCamelCase $>): <$ this.relationship.model.name $>Resource
+    {
+        $this->authorize('create', <$ this.relationship.model.name $>::class);
+
+        $validated = $request->validate([
+            <% for (let input of this.relationshipCrud.inputs) { %>
+                <# Inputs store validation #>
+                <% if(input.hasValidation() && !input.isRelatedToModel(this.crud.model)) { %>
+                '<$ input.name $>' => <$ input.getValidationForTemplate() $>,
+                <% } %>
+            <% } %>
+        ]);
+
+        <% if(this.relationshipCrud.hasPasswordInputs()) { %>
+
+            <% for(let input of this.relationshipCrud.getPasswordInputs()) { %>
+                <###>
+                <% if(!input.isRequiredOnCreate()) { %>
+                if(!empty($validated['<$ input.name $>'])) {
+                <% } %>
+                $validated['<$ input.name $>'] = Hash::make($validated['<$ input.name $>']);
+                <% if(!input.isRequiredOnCreate()) { %>
+                }
+                <% } %>
+
+            <% } %>
+        <% } %>
+        <% if(this.relationshipCrud.hasFileOrImageInputs()) { %>
+            <###>
+            <% for(let input of this.relationshipCrud.getFileAndImageInputs()) { %>
+            if($request->hasFile('<$ input.name $>')) {
+                $validated['<$ input.name $>'] = $request->file('<$ input.name $>')->store('public');
+            }
+
+            <% } %>
+        <% } %>
+
+        $<$ this.relationship.model.name.case('camelCase') $> = $<$ modelNameCamelCase $>-><$ this.relationship.name $>()->create($validated);
+
+        <% if(this.generatorSettings.modules.permissions && this.relationship.model.isAuthModel()) { %>
+        $<$ this.relationship.model.name.case('camelCase') $>->syncRoles($request->roles);
+        <% } %>
+
+        return new <$ this.relationship.model.name $>Resource($<$ this.relationship.model.name.case('camelCase') $>);
+    }
+}

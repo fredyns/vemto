@@ -1,0 +1,15 @@
+<x-inputs.group class="<$ this.project.css().getReponsiveClassesForInput(this) $>">
+    <% if(this.isLinkedToField()) { %>
+    <x-inputs.toggle
+        name="<$ this.livewireInputReference || this.name $>"
+        :value="old('<$ this.name $>', ($editing ? $<$ this.crud.model.name.case('camelCase') $>-><$ this.name $> : <$ this.checked ? 1 : 0 $>))"
+        label="{{ __('crud.<$ this.crud.model.plural.case('snakeCase') $>.inputs.<$ this.name.case('snakeCase') $>') }}"
+    ></x-inputs.toggle>
+    <% } else { %>
+    <x-inputs.toggle
+        name="<$ this.name $>"
+        :value="old('<$ this.name $>', '<$ this.defaultValue $>') ? true : false"
+        label="{{ __('crud.<$ this.crud.model.plural.case('snakeCase') $>.inputs.<$ this.name.case('snakeCase') $>') }}"
+    ></x-inputs.toggle>
+    <% } %>
+</x-inputs.group>

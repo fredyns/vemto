@@ -1,0 +1,32 @@
+<x-inputs.group class="<$ this.project.css().getReponsiveClassesForInput(this) $>">
+    <% if(this.isLinkedToField()) { %>
+        <x-inputs.date
+            <% if(this.crud.isForLivewire) { %>
+                name="<$ this.getLivewireSingleName() || this.livewireInputReference $>"
+                wire:model="<$ this.getLivewireSingleName() || this.livewireInputReference $>"
+            <% } else { %>
+                name="<$ this.name $>"
+                value="{{ old('<$ this.name $>', ($editing ? optional($<$ this.crud.model.name.case('camelCase') $>-><$ this.name $>)->format('Y-m-d') : '<$ this.defaultValue $>')) }}"
+            <% } %>
+            label="{{ __('crud.<$ this.crud.model.plural.case('snakeCase') $>.inputs.<$ this.name.case('snakeCase') $>') }}"
+            <$ this.placeholder ? ` placeholder="{{ __('crud.${this.crud.model.plural.case('snakeCase')}.inputs.${this.name.case('snakeCase')}') }}"` : '' $>
+            <$ this.min ? ` min="${this.min}"` : '' $>
+            <$ this.max ? ` max="${this.max}"` : '' $>
+            <% if(!this.crud.isForLivewire) { %>
+                <$ this.getRequiredAttributeForTemplate() $>
+            <% } %>
+        ></x-inputs.date>
+    <% } else { %>
+        <x-inputs.date
+            name="<$ this.name $>"
+            value="{{ old('<$ this.name $>', '<$ this.defaultValue $>') }}"
+            label="{{ __('crud.<$ this.crud.model.plural.case('snakeCase') $>.inputs.<$ this.name.case('snakeCase') $>') }}"
+            <$ this.placeholder ? ` placeholder="{{ __('crud.${this.crud.model.plural.case('snakeCase')}.inputs.${this.name.case('snakeCase')}') }}"` : '' $>
+            <$ this.min ? ` min="${this.min}"` : '' $>
+            <$ this.max ? ` max="${this.max}"` : '' $>
+            <% if(!this.crud.isForLivewire) { %>
+                <$ this.getRequiredAttributeForTemplate() $>
+            <% } %>
+        ></x-inputs.date>
+    <% } %>
+</x-inputs.group>

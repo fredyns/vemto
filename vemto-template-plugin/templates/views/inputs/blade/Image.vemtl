@@ -1,0 +1,60 @@
+<x-inputs.group class="<$ this.project.css().getReponsiveClassesForInput(this) $>">
+    <% if(this.crud.isForLivewire) { %>
+        <###>
+        <% if(this.crud.isManyToManyDetail) { %>
+        <div image-url="{{ $<$ this.getLivewireSingleName() $> ? \Storage::url($<$ this.getLivewireSingleName() $>) : '' }}"
+            x-data="imageViewer()"
+            @refresh.window="refreshUrl()"
+        >
+        <% } else { %>
+        <div image-url="{{ $editing && $<$ this.crud.model.name.case('camelCase') $>-><$ this.name $> ? \Storage::url($<$ this.crud.model.name.case('camelCase') $>-><$ this.name $>) : '' }}"
+            x-data="imageViewer()"
+            @refresh.window="refreshUrl()"
+        >
+        <% } %>
+    <% } else { %>
+    <div
+        x-data="imageViewer('{{ $editing && $<$ this.crud.model.name.case('camelCase') $>-><$ this.name $> ? \Storage::url($<$ this.crud.model.name.case('camelCase') $>-><$ this.name $>) : '' }}')"
+    >
+    <% } %>
+        <x-inputs.partials.label
+            name="<$ this.crud.isForLivewire ? this.getLivewireSingleName() : this.name $>"
+            label="{{ __('crud.<$ this.crud.model.plural.case('snakeCase') $>.inputs.<$ this.name.case('snakeCase') $>') }}"
+        ></x-inputs.partials.label>
+        <br/>
+
+        <!-- Show the image -->
+        <template x-if="imageUrl">
+            <img :src="imageUrl"
+                class="object-cover rounded border border-gray-200"
+                style="width: 100px; height: 100px;"
+            />
+        </template>
+
+        <!-- Show the gray box when image is not available -->
+        <template x-if="!imageUrl">
+            <div
+                class="border rounded border-gray-200 bg-gray-100"
+                style="width: 100px; height: 100px;"
+            ></div>
+        </template>
+
+        <div class="mt-2">
+            <input type="file"
+                <% if(this.crud.isForLivewire) { %>
+                name="<$ this.getLivewireSingleName() $>"
+                id="<$ this.getLivewireSingleName() $>{{ $uploadIteration }}"
+                wire:model="<$ this.getLivewireSingleName() $>"
+                <% } else { %>
+                name="<$ this.name $>"
+                id="<$ this.name $>"
+                <% } %>
+                @change="fileChosen"
+            />
+        </div>
+
+        @error('<$ this.crud.isForLivewire ? this.getLivewireSingleName() : this.name $>')
+            @include('components.inputs.partials.error')
+        @enderror
+    </div>
+</x-inputs.group>

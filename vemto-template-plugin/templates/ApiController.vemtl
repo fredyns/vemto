@@ -1,0 +1,206 @@
+<?php
+<# TEMPLATE VARIABLES #>
+<% let modelName = this.crud.model.name %>
+<% let controllerName = this.crud.model.getControllerName() %>
+<% let modelsNamespace = this.projectHelper.getModelsNamespace() %>
+<% let modelPluralCamelCase = this.crud.model.plural.case('camelCase') %>
+<% let crudModelNameCamelCase = this.crud.model.name.case('camelCase') %>
+<% let hasSpecificRequests = this.controllerSettings.requests %>
+<####>
+
+namespace <$ this.projectHelper.getApiControllersNamespace() $>;
+
+use Illuminate\Http\Response;
+use <$ modelsNamespace $>\<$ modelName $>;
+use App\Http\Resources\<$ modelName $>Resource;
+use App\Http\Resources\<$ modelName $>Collection;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+<###>
+<% if(hasSpecificRequests) { %>
+use <$ this.requestsNamespace $>\<$ modelName $>StoreRequest;
+use <$ this.requestsNamespace $>\<$ modelName $>UpdateRequest;
+<% } %>
+<% if(this.crud.hasPasswordInputs()) { %>
+use Illuminate\Support\Facades\Hash;
+<% } %>
+<% if(this.crud.hasFileOrImageInputs()) { %>
+use Illuminate\Support\Facades\Storage;
+<% } %>
+<% if(this.crud.model.hasUniqueFields() && !hasSpecificRequests) { %>
+use Illuminate\Validation\Rule;
+<% } %>
+
+class <$ controllerName $> extends Controller
+{
+    public function index(Request $request): <$ modelName $>Collection
+    {
+        $this->authorize('view-any', <$ modelName $>::class);
+
+        $search = (string)$request->get('search', '');
+
+        $<$ this.crud.model.plural.case('camelCase') $> = <$ modelName $>::search($search)
+            ->latest(<% if(!this.crud.model.hasTimestampFields()) { %>'<$ this.crud.model.getPkName() $>'<% } %>)
+            ->paginate(10);
+
+        return new <$ modelName $>Collection($<$ modelPluralCamelCase $>);
+    }
+
+    <% let storeRequestName = hasSpecificRequests ? modelName + 'StoreRequest' : 'Request' %>
+    public function store(
+        <$ storeRequestName $> $request
+    ): <$ modelName $>Resource
+    {
+        $this->authorize('create', <$ modelName $>::class);
+
+        <% if(hasSpecificRequests) { %>
+        $validated = $request->validated();
+        <% } else { %>
+        $validated = $request->validate([
+            <% for (let input of this.crud.inputs) { %>
+                <# Inputs store validations #>
+                <% if(input.hasValidation()) { %>
+                '<$ input.name $>' => <$ input.getValidationForTemplate() $>,
+                <% } %>
+            <% } %>
+        ]);
+        <% } %>
+        <###>
+        <% if(this.crud.hasPasswordInputs()) { %>
+
+            <% for(let input of this.crud.getPasswordInputs()) { %>
+            <# Determines if input is required #>
+                <% if(!input.isRequiredOnCreate()) { %>
+                if(!empty($validated['<$ input.name $>'])) {
+                <% } %>
+                $validated['<$ input.name $>'] = Hash::make($validated['<$ input.name $>']);
+                <###>
+                <% if(!input.isRequiredOnCreate()) { %>
+                }
+                <% } %>
+
+            <% } %>
+        <% } %>
+        <###>
+        <% if(this.crud.hasFileOrImageInputs()) { %>
+            <###>
+            <% for(let input of this.crud.getFileAndImageInputs()) { %>
+            if($request->hasFile('<$ input.name $>')) {
+                $validated['<$ input.name $>'] = $request->file('<$ input.name $>')->store('public');
+            }
+
+            <% } %>
+        <% } %>
+        <###>
+        <% if(this.crud.hasJsonInputs()) { %>
+            <###>
+            <% for(let input of this.crud.getJsonInputs()) { %>
+            $validated['<$ input.name $>'] = json_decode($validated['<$ input.name $>'], true);
+
+            <% } %>
+        <% } %>
+
+        $<$ crudModelNameCamelCase $> = <$ modelName $>::create($validated);
+
+        <% if(this.generatorSettings.modules.permissions && this.crud.model.isAuthModel()) { %>
+        $<$ crudModelNameCamelCase $>->syncRoles($request->roles);
+        <% } %>
+
+        return new <$ modelName $>Resource($<$ crudModelNameCamelCase $>);
+    }
+
+    public function show(
+        Request $request,
+        <$ modelName $> $<$ crudModelNameCamelCase $>
+    ): <$ modelName $>Resource
+    {
+        $this->authorize('view', $<$ crudModelNameCamelCase $>);
+
+        return new <$ modelName $>Resource($<$ crudModelNameCamelCase $>);
+    }
+
+    <% let updateRequestName = hasSpecificRequests ? modelName + 'UpdateRequest' : 'Request' %>
+    public function update(
+        <$ updateRequestName $> $request,
+        <$ modelName $> $<$ crudModelNameCamelCase $>
+    ): <$ modelName $>Resource
+    {
+        $this->authorize('update', $<$ crudModelNameCamelCase $>);
+
+        <% if(hasSpecificRequests) { %>
+        $validated = $request->validated();
+        <% } else { %>
+        $validated = $request->validate([
+            <% for (let input of this.crud.inputs) { %>
+                <# Inputs update validations #>
+                <% if(input.hasUpdateValidation()) { %>
+                '<$ input.name $>' => <$ input.getUpdateValidationWithUniqueRules() $>,
+                <% } %>
+            <% } %>
+        ]);
+        <% } %>
+
+        <% if(this.crud.hasPasswordInputs()) { %>
+            <###>
+            <% for(let input of this.crud.getPasswordInputs()) { %>
+            if(empty($validated['<$ input.name $>'])) {
+                unset($validated['<$ input.name $>']);
+            } else {
+                $validated['<$ input.name $>'] = Hash::make($validated['<$ input.name $>']);
+            }
+
+            <% } %>
+        <% } %>
+        <###>
+        <% if(this.crud.hasFileOrImageInputs()) { %>
+            <###>
+            <% for(let input of this.crud.getFileAndImageInputs()) { %>
+            if($request->hasFile('<$ input.name $>')) {
+                if($<$ crudModelNameCamelCase $>-><$ input.name $>) {
+                    Storage::delete($<$ crudModelNameCamelCase $>-><$ input.name $>);
+                }
+
+                $validated['<$ input.name $>'] = $request->file('<$ input.name $>')->store('public');
+            }
+
+            <% } %>
+        <% } %>
+        <###>
+        <% if(this.crud.hasJsonInputs()) { %>
+            <###>
+            <% for(let input of this.crud.getJsonInputs()) { %>
+            $validated['<$ input.name $>'] = json_decode($validated['<$ input.name $>'], true);
+
+            <% } %>
+        <% } %>
+
+        $<$ crudModelNameCamelCase $>->update($validated);
+
+        <% if(this.generatorSettings.modules.permissions && this.crud.model.isAuthModel()) { %>
+        $<$ crudModelNameCamelCase $>->syncRoles($request->roles);
+        <% } %>
+
+        return new <$ modelName $>Resource($<$ crudModelNameCamelCase $>);
+    }
+
+    public function destroy(
+        Request $request,
+        <$ modelName $> $<$ crudModelNameCamelCase $>
+    ): Response
+    {
+        $this->authorize('delete', $<$ crudModelNameCamelCase $>);
+
+        <% if(this.crud.hasFileOrImageInputs()) { %>
+            <###>
+            <% for(let input of this.crud.getFileAndImageInputs()) { %>
+            if($<$ crudModelNameCamelCase $>-><$ input.name $>) {
+                Storage::delete($<$ crudModelNameCamelCase $>-><$ input.name $>);
+            }
+
+            <% } %>
+        <% } %>
+        $<$ crudModelNameCamelCase $>->delete();
+
+        return response()->noContent();
+    }
+}

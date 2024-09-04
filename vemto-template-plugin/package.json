@@ -1,0 +1,15 @@
+{
+    "version": "1.0.0",
+    "id": "id.fredy.vemto-template-plugin",
+    "name": "vemto-template",
+    "title": "Vemto Template",
+    "description": "Replace default templates",
+    "image": "",
+    "main": "src/main.js",
+    "vueComponent": "dist/plugin-base.umd.min.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/fredyns/vemto"
+    },
+    "minVemtoVersion": "1.0.0"
+}
