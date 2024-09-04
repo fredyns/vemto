@@ -13,7 +13,7 @@ class SubrecordSeeder extends Seeder
     public function run(): void
     {
         Subrecord::factory()
-            ->count(5)
+            ->count(50)
             ->create();
     }
 }

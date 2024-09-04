@@ -13,7 +13,7 @@ class RecordSeeder extends Seeder
     public function run(): void
     {
         Record::factory()
-            ->count(5)
+            ->count(50)
             ->create();
     }
 }
