@@ -20,6 +20,8 @@ class SubrecordController extends Controller
 
         $search = (string)$request->get('search', '');
 
+        if (!$search or $search == 'null') $search = '';
+
         $subrecords = Subrecord::search($search)
             ->latest()
             ->paginate(10);

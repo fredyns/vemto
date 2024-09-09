@@ -19,6 +19,8 @@ class UserActivityLogController extends Controller
 
         $search = (string)$request->get('search', '');
 
+        if (!$search or $search == 'null') $search = '';
+
         $userActivityLogs = UserActivityLog::search($search)
             ->latest('id')
             ->paginate(10);

@@ -16,6 +16,8 @@ class RecordSubrecordsController extends Controller
 
         $search = (string)$request->get('search', '');
 
+        if (!$search or $search == 'null') $search = '';
+
         $subrecords = $record
             ->subrecords()
             ->search($search)

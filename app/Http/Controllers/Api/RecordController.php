@@ -21,6 +21,8 @@ class RecordController extends Controller
 
         $search = (string)$request->get('search', '');
 
+        if (!$search or $search == 'null') $search = '';
+
         $records = Record::search($search)
             ->latest()
             ->paginate(10);

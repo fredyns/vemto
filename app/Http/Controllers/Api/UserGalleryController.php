@@ -20,6 +20,8 @@ class UserGalleryController extends Controller
 
         $search = (string)$request->get('search', '');
 
+        if (!$search or $search == 'null') $search = '';
+
         $userGalleries = UserGallery::search($search)
             ->latest('id')
             ->paginate(10);

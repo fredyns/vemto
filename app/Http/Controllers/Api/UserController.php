@@ -21,6 +21,8 @@ class UserController extends Controller
 
         $search = (string)$request->get('search', '');
 
+        if (!$search or $search == 'null') $search = '';
+
         $users = User::search($search)
             ->latest()
             ->paginate(10);

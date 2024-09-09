@@ -20,6 +20,8 @@ class UserUploadController extends Controller
 
         $search = (string)$request->get('search', '');
 
+        if (!$search or $search == 'null') $search = '';
+
         $userUploads = UserUpload::search($search)
             ->latest('id')
             ->paginate(10);

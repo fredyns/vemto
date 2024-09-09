@@ -39,6 +39,8 @@ class <$ controllerName $> extends Controller
 
         $search = (string)$request->get('search', '');
 
+        if (!$search or $search == 'null') $search = '';
+
         $<$ this.crud.model.plural.case('camelCase') $> = <$ modelName $>::search($search)
             ->latest(<% if(!this.crud.model.hasTimestampFields()) { %>'<$ this.crud.model.getPkName() $>'<% } %>)
             ->paginate(10);
