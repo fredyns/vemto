@@ -1,0 +1,25 @@
+@stack('modals')
+
+@livewireScripts
+<% if(this.project.settings.turbolinks) { %>
+
+<script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false" data-turbo-eval="false"></script>
+<% } %>
+
+@stack('scripts')
+
+<script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+
+<script>
+    /* simple notification */
+    var notyf = new Notyf({dismissible: true});
+
+    @if (session()->has('success'))
+    notyf.success('{{ session('success') }}')
+    @endif
+
+    @if (session()->has('error'))
+    notyf.error('{{ session('error') }}')
+    @endif
+
+</script>
