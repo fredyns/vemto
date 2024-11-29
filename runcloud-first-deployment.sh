@@ -1,5 +1,8 @@
 # first install
 
+# shell
+chmod -R 775 *.sh
+
 composer update
 npm install
 npm update

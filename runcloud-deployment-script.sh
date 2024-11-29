@@ -1,6 +1,9 @@
 git reset --hard HEAD
 git pull
 
+# file
+chmod -R 775 *.sh
+
 # app migrations
 
 composer dump-autoload -o
