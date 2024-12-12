@@ -65,6 +65,7 @@ module.exports = (vemto) => {
                 'runcloud-deployment-script.sh',
                 'runcloud-first-deployment.sh',
                 'app/Helpers/NPWP.php',
+                'app/Models/Scopes/Searchable.php',
                 'dev/Vemto.postman_collection.json',
                 'lang/en/text.php',
                 'resources/js/app.js',
