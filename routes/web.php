@@ -47,9 +47,7 @@ Route::post('/email/verification-notification', function (Request $request) {
     ->middleware(['auth', 'throttle:6,1'])
     ->name('verification.send');
 
-Route::any('/home', function () {
-    return redirect('/dashboard');
-});
+Route::any('/home', fn() => redirect('/dashboard'));
 
 Route::middleware(['auth:sanctum', 'verified'])
     ->get('/dashboard', function () {
