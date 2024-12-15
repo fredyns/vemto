@@ -1,8 +1,9 @@
 git reset --hard HEAD
 git pull
 
-# file
+# shell
 chmod -R 775 *.sh
+#chmod -R 775 cron
 
 # app migrations
 
