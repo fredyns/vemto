@@ -16,6 +16,23 @@ use App\Http\Requests\RecordUpdateRequest;
 class RecordController extends Controller
 {
     /**
+     * Display the specified resource.
+     */
+    public function file(Request $request, Record $record)
+    {
+        $this->authorize('view', $record);
+
+        return Storage::download($record->file);
+    }
+
+    public function image(Request $request, Record $record)
+    {
+        $this->authorize('view', $record);
+
+        return Storage::download($record->image);
+    }
+
+    /**
      * Display a listing of the resource.
      */
     public function index(Request $request): View

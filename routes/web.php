@@ -58,6 +58,15 @@ Route::middleware(['auth:sanctum', 'verified'])
 Route::prefix('/')
     ->middleware(['auth:sanctum', 'verified'])
     ->group(function () {
+        Route::get(
+            'records/{record}/file',
+            [RecordController::class, 'file']
+        )->name('records.file');
+        Route::get(
+            'records/{record}/image',
+            [RecordController::class, 'image']
+        )->name('records.image');
+
         Route::resource('users', UserController::class);
         Route::resource('user-activity-logs', UserActivityLogController::class);
         Route::resource('records', RecordController::class);
