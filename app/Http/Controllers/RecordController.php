@@ -125,7 +125,7 @@ class RecordController extends Controller
                 Storage::delete($record->file);
             }
 
-            $validated['file'] = $request->file('file')->store('public');
+            $validated['file'] = $request->file('file')->store('public', 's3');
         }
 
         if ($request->hasFile('image')) {
