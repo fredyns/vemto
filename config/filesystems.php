@@ -63,7 +63,9 @@ return [
             'endpoint' => env('AWS_ENDPOINT'),
             'region' => env('AWS_DEFAULT_REGION'),
             'bucket' => env('AWS_BUCKET'),
+            'visibility' => 'public',
         ],
+
     ],
 
     /*

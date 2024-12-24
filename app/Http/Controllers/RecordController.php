@@ -52,12 +52,13 @@ class RecordController extends Controller
         $this->authorize('create', Record::class);
 
         $validated = $request->validated();
+        $uploadPath = 'public/records/' . date('Y/m/d');
         if ($request->hasFile('file')) {
-            $validated['file'] = $request->file('file')->store('public', 'spaces');
+            $validated['file'] = $request->file('file')->store($uploadPath, 'spaces');
         }
 
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('public', 'spaces');
+            $validated['image'] = $request->file('image')->store($uploadPath, 'spaces');
         }
 
         $validated['markdown_text'] = StringCleaner::forRTF($validated['markdown_text']);
@@ -103,12 +104,13 @@ class RecordController extends Controller
         $this->authorize('update', $record);
 
         $validated = $request->validated();
+        $uploadPath = 'public/records/' . date('Y/m/d');
         if ($request->hasFile('file')) {
             if ($record->file) {
                 Storage::delete($record->file);
             }
 
-            $validated['file'] = $request->file('file')->store('public', 'spaces');
+            $validated['file'] = $request->file('file')->store($uploadPath, 'spaces');
         }
 
         if ($request->hasFile('image')) {
@@ -116,7 +118,7 @@ class RecordController extends Controller
                 Storage::delete($record->image);
             }
 
-            $validated['image'] = $request->file('image')->store('public', 'spaces');
+            $validated['image'] = $request->file('image')->store($uploadPath, 'spaces');
         }
 
         $validated['markdown_text'] = StringCleaner::forRTF($validated['markdown_text']);
