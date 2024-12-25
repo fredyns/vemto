@@ -54,11 +54,11 @@ class RecordController extends Controller
         $validated = $request->validated();
         $uploadPath = 'public/records/' . date('Y/m/d');
         if ($request->hasFile('file')) {
-            $validated['file'] = $request->file('file')->store($uploadPath, 'spaces');
+            $validated['file'] = $request->file('file')->store($uploadPath);
         }
 
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store($uploadPath, 'spaces');
+            $validated['image'] = $request->file('image')->store($uploadPath);
         }
 
         $validated['markdown_text'] = StringCleaner::forRTF($validated['markdown_text']);
@@ -110,7 +110,7 @@ class RecordController extends Controller
                 Storage::delete($record->file);
             }
 
-            $validated['file'] = $request->file('file')->store($uploadPath, 'spaces');
+            $validated['file'] = $request->file('file')->store($uploadPath);
         }
 
         if ($request->hasFile('image')) {
@@ -118,7 +118,7 @@ class RecordController extends Controller
                 Storage::delete($record->image);
             }
 
-            $validated['image'] = $request->file('image')->store($uploadPath, 'spaces');
+            $validated['image'] = $request->file('image')->store($uploadPath);
         }
 
         $validated['markdown_text'] = StringCleaner::forRTF($validated['markdown_text']);
