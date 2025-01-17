@@ -62,6 +62,9 @@ Route::post('/email/verification-notification', function (Request $request) {
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+<% } else { %>
+Route::any('/home', fn() => redirect('/dashboard'));
 <% } %>
 
 <# Generate the specific routes when it uses Jetstream templates #>

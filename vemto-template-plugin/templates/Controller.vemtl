@@ -72,6 +72,8 @@ class <$ this.crud.getControllerName() $> extends Controller
 
         $search = (string)$request->get('search', '');
 
+        if (!$search or $search == 'null') $search = '';
+
         $<$ modelPluralCamelCase $> = <$ this.model.name $>::search($search)
             ->latest(<% if(!this.model.hasTimestampFields()) { %>'<$ this.model.getPkName() $>'<% } %>)
             ->paginate(10)
@@ -163,9 +165,10 @@ class <$ this.crud.getControllerName() $> extends Controller
         <# --- #>
         <# Checking for CRUD file inputs #>
         <% if(this.crud.hasFileOrImageInputs()) { %>
+            $uploadPath = 'public/<$ routesPrefix $>/' . date('Y/m/d');
             <% for(let input of this.crud.getFileAndImageInputs()) { %>
             if($request->hasFile('<$ input.name $>')) {
-                $validated['<$ input.name $>'] = $request->file('<$ input.name $>')->store('public');
+                $validated['<$ input.name $>'] = $request->file('<$ input.name $>')->store($uploadPath);
             }
 
             <% } %>
@@ -296,13 +299,14 @@ class <$ this.crud.getControllerName() $> extends Controller
         <# --- #>
         <# Checking for CRUD file inputs #>
         <% if(this.crud.hasFileOrImageInputs()) { %>
+            $uploadPath = 'public/<$ routesPrefix $>/' . date('Y/m/d');
             <% for(let input of this.crud.getFileAndImageInputs()) { %>
             if($request->hasFile('<$ input.name $>')) {
                 if($<$ modelNameCamelCase $>-><$ input.name $>) {
                     Storage::delete($<$ modelNameCamelCase $>-><$ input.name $>);
                 }
 
-                $validated['<$ input.name $>'] = $request->file('<$ input.name $>')->store('public');
+                $validated['<$ input.name $>'] = $request->file('<$ input.name $>')->store($uploadPath);
             }
 
             <% } %>
