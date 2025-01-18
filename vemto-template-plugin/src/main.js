@@ -64,7 +64,7 @@ module.exports = (vemto) => {
             const files = [
                 'runcloud-deployment-script.sh',
                 'runcloud-first-deployment.sh',
-                'app/Helpers/NPWP.php',
+                'addition/Helpers/NPWP.php',
                 'app/Http/Controllers/Api/AuthController.php',
                 'app/Models/Scopes/Searchable.php',
                 'dev/Vemto.postman_collection.json',

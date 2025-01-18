@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Helpers;
+namespace addition\Helpers;
 
 abstract class NPWP
 {

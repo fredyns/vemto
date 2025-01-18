@@ -52,7 +52,7 @@
                         <h5 class="font-medium text-gray-700">
                             @lang('crud.subrecords.inputs.n_p_w_p')
                         </h5>
-                        <span> {{ $subrecord->n_p_w_p ? \App\Helpers\NPWP::format($subrecord->n_p_w_p) : '-' }} </span>
+                        <span> {{ $subrecord->n_p_w_p ? \Addition\Helpers\NPWP::format($subrecord->n_p_w_p) : '-' }} </span>
                     </div>
                     <div class="mb-4 w-full">
                         <h5 class="font-medium text-gray-700">
@@ -170,7 +170,7 @@
                         <x-inputs.npwp
                             name="subrecord.n_p_w_p"
                             label="{{ __('crud.subrecords.inputs.n_p_w_p') }}"
-                            value="{{ old('n_p_w_p', ($editing ? \App\Helpers\NPWP::format($subrecord->n_p_w_p) : '')) }}"
+                            value="{{ old('n_p_w_p', ($editing ? \Addition\Helpers\NPWP::format($subrecord->n_p_w_p) : '')) }}"
                         ></x-inputs.npwp>
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
@@ -315,9 +315,9 @@
                     rtfEditor.editor.loadHTML(rtfInput.value);
                 })
 
-                addEventListener("trix-blur", function(event) {
-                    @this.set('subrecord.markdown_text', mdInput.getAttribute('value'))
-                    @this.set('subrecord.w_y_s_i_w_y_g', rtfInput.getAttribute('value'))
+                addEventListener("trix-blur", function (event) {
+                @this.set('subrecord.markdown_text', mdInput.getAttribute('value'))
+                @this.set('subrecord.w_y_s_i_w_y_g', rtfInput.getAttribute('value'))
                 })
             </script>
         @endpush
@@ -381,7 +381,7 @@
                         {{ optional($subrecord->datetime)->format('D, d M Y, H:i') }}
                     </td>
                     <td class="px-4 py-3 text-left">
-                        {{ $subrecord->n_p_w_p ? \App\Helpers\NPWP::format($subrecord->n_p_w_p) : '-' }}
+                        {{ $subrecord->n_p_w_p ? \Addition\Helpers\NPWP::format($subrecord->n_p_w_p) : '-' }}
                     </td>
                     <td class="px-4 py-3 text-left">
                         {{ $subrecord->i_p_address ?? '-' }}

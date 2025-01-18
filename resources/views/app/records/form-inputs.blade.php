@@ -83,7 +83,7 @@
         <x-inputs.group class="w-full">
             <x-inputs.npwp
                 name="n_p_w_p"
-                value="{{ old('n_p_w_p', ($editing ? \App\Helpers\NPWP::format($record->n_p_w_p) : '')) }}"
+                value="{{ old('n_p_w_p', ($editing ? \Addition\Helpers\NPWP::format($record->n_p_w_p) : '')) }}"
                 label="{{ __('crud.records.inputs.n_p_w_p') }}"
             ></x-inputs.npwp>
         </x-inputs.group>
@@ -232,7 +232,7 @@
         <x-inputs.group class="w-full">
             <x-inputs.trix
                 name="w_y_s_i_w_y_g"
-               label="{{ __('crud.records.inputs.w_y_s_i_w_y_g') }}"
+                label="{{ __('crud.records.inputs.w_y_s_i_w_y_g') }}"
                 value="{{ old('w_y_s_i_w_y_g', ($editing ? $record->w_y_s_i_w_y_g : '')) }}"
             ></x-inputs.trix>
         </x-inputs.group>
