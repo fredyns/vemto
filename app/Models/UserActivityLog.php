@@ -7,6 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
+/**
+ * This is the model class for table "user_activity_logs".
+ *
+ * @property uuid $id
+ * @property Datetime $at
+ * @property uuid $user_id
+ * @property string $title
+ * @property text $link
+ * @property text $message
+ * @property ipAddress $i_p_address
+ *
+ */
+
 class UserActivityLog extends Model
 {
     use HasUuids;

@@ -12,6 +12,23 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+/**
+ * This is the model class for table "users".
+ *
+ * @property uuid $id
+ * @property string $name
+ * @property string $email
+ * @property Datetime $email_verified_at
+ * @property string $password
+ * @property string $remember_token
+ * @property text $two_factor_secret
+ * @property text $two_factor_recovery_codes
+ * @property Datetime $two_factor_confirmed_at
+ * @property uuid $current_team_id
+ * @property text $profile_photo_path
+ *
+ */
+
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasUuids;

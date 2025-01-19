@@ -11,10 +11,9 @@ trait Searchable
      */
     public function scopeSearchLatestPaginated(
         Builder $query,
-        string  $search,
-        int     $paginationQuantity = 10
-    ): Builder
-    {
+        string $search,
+        int $paginationQuantity = 10
+    ): Builder {
         return $query
             ->search($search)
             ->orderBy('updated_at', 'desc')
@@ -27,11 +26,9 @@ trait Searchable
      */
     public function scopeSearch(Builder $query, string $search): Builder
     {
-        $dbConnection = env('DB_CONNECTION', 'mysql');
-        $searchOperator = $dbConnection == 'pgsql' ? 'ilike' : 'like';
-        $query->where(function ($query) use ($search, $searchOperator) {
+        $query->where(function ($query) use ($search) {
             foreach ($this->getSearchableFields() as $field) {
-                $query->orWhere($field, $searchOperator, "%{$search}%");
+                $query->orWhere($field, 'like', "%{$search}%");
             }
         });
 

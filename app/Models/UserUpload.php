@@ -7,6 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
+/**
+ * This is the model class for table "user_uploads".
+ *
+ * @property uuid $id
+ * @property uuid $user_id
+ * @property Datetime $at
+ * @property text $file
+ * @property string $name
+ * @property text $description
+ * @property string $type
+ * @property array $metadata
+ *
+ */
+
 class UserUpload extends Model
 {
     use HasUuids;

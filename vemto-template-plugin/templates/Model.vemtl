@@ -37,6 +37,7 @@ use Illuminate\Database\Eloquent\Model;
 <% if(this.model.softDeletes) { %>
 use Illuminate\Database\Eloquent\SoftDeletes;
 <% } %>
+use \Datetime;
 use <$ modelsNamespace $>\Scopes\Searchable;
 <# --- #>
 <% if(this.model.hasUuidPrimaryKey()) { %>
@@ -45,6 +46,31 @@ use <$ modelsNamespace $>\Scopes\Searchable;
 use <$ correctUuidNamespace $>;
 <% } %>
 <# --- #>
+
+/**
+ * This is the model class for table "<$ this.model.table $>".
+ *
+        <% for (let field of this.model.validFields()) { %>
+            <% if (field.type == "boolean") { %>
+ * @property bool $<$ field.name $>
+            <% } else if (field.type == "json") { %>
+ * @property array $<$ field.name $>
+            <% } else if (field.type == "date") { %>
+ * @property Datetime $<$ field.name $>
+            <% } else if (field.type == "time") { %>
+ * @property Datetime $<$ field.name $>
+            <% } else if (field.isDateTime()) { %>
+ * @property Datetime $<$ field.name $>
+            <% } else if (field.type == "decimal") { %>
+ * @property float $<$ field.name $>
+            <% } else if (field.type == "bigInteger") { %>
+ * @property integer $<$ field.name $>
+            <% } else { %>
+ * @property string $<$ field.name $>
+            <% } %>
+        <% } %>
+ *
+ */
 
 <% if(isAuthModel) { %>
 class <$ modelNamePascalCase $> extends Authenticatable implements MustVerifyEmail {
