@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
-use Datetime;
 use App\Models\Scopes\Searchable;
-use Illuminate\Database\Eloquent\Model;
+use Datetime;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * This is the model class for table "user_uploads".
@@ -24,7 +24,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  *
  *
  */
-
 class UserUpload extends Model
 {
     use HasUuids;
@@ -51,6 +50,11 @@ class UserUpload extends Model
         'at' => 'datetime',
         'metadata' => 'array',
     ];
+
+    public function metadata($key = null, $default = null)
+    {
+        return JsonField::getField($this, 'metadata', $key, $default);
+    }
 
     public function user()
     {

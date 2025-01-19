@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
-use Datetime;
 use App\Models\Scopes\Searchable;
-use Illuminate\Database\Eloquent\Model;
+use Datetime;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Snippet\Helpers\JsonField;
 
 /**
  * This is the model class for table "user_galleries".
@@ -25,7 +26,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  *
  *
  */
-
 class UserGallery extends Model
 {
     use HasUuids;
@@ -53,6 +53,11 @@ class UserGallery extends Model
         'at' => 'datetime',
         'metadata' => 'array',
     ];
+
+    public function metadata($key = null, $default = null)
+    {
+        return JsonField::getField($this, 'metadata', $key, $default);
+    }
 
     public function user()
     {
