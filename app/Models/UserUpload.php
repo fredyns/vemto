@@ -7,6 +7,7 @@ use Datetime;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Snippet\Helpers\JsonField;
 
 /**
  * This is the model class for table "user_uploads".
