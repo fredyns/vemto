@@ -64,7 +64,6 @@ module.exports = (vemto) => {
             const files = [
                 'runcloud-deployment-script.sh',
                 'runcloud-first-deployment.sh',
-                'addition/Helpers/NPWP.php',
                 'app/Http/Controllers/Api/AuthController.php',
                 'app/Models/Scopes/Searchable.php',
                 'dev/Vemto.postman_collection.json',
@@ -89,6 +88,7 @@ module.exports = (vemto) => {
                 'resources/views/components/inputs/tomselect.blade.php',
                 'resources/views/components/inputs/trix.blade.php',
                 'resources/views/components/inputs/url.blade.php',
+                'snippet/Helpers/NPWP.php',
             ];
             return files.map(function (path) {
                 return {
@@ -105,7 +105,7 @@ module.exports = (vemto) => {
             // adding namespace
             packages.autoload = {
                 "psr-4": {
-                    "Addition\\": "addition/",
+                    "Snippet\\": "snippet/",
                     "App\\": "app/",
                     "Database\\Factories\\": "database/factories/",
                     "Database\\Seeders\\": "database/seeders/"

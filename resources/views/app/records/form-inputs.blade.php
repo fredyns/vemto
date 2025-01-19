@@ -83,7 +83,7 @@
         <x-inputs.group class="w-full">
             <x-inputs.npwp
                 name="n_p_w_p"
-                value="{{ old('n_p_w_p', ($editing ? \Addition\Helpers\NPWP::format($record->n_p_w_p) : '')) }}"
+                value="{{ old('n_p_w_p', ($editing ? \Snippet\Helpers\NPWP::format($record->n_p_w_p) : '')) }}"
                 label="{{ __('crud.records.inputs.n_p_w_p') }}"
             ></x-inputs.npwp>
         </x-inputs.group>

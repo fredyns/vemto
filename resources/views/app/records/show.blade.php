@@ -54,7 +54,7 @@
                         <h5 class="font-medium text-gray-700">
                             @lang('crud.records.inputs.n_p_w_p')
                         </h5>
-                        <span> {{ $record->n_p_w_p ? \Addition\Helpers\NPWP::format($record->n_p_w_p) : '-' }} </span>
+                        <span> {{ $record->n_p_w_p ? \Snippet\Helpers\NPWP::format($record->n_p_w_p) : '-' }} </span>
                     </div>
                     <div class="mb-4 w-full">
                         <h5 class="font-medium text-gray-700">

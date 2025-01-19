@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Addition\Helpers\NPWP;
+use Snippet\Helpers\NPWP;
 use App\Http\Requests\RecordStoreRequest;
 use App\Http\Requests\RecordUpdateRequest;
 use App\Models\Record;

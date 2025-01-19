@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use Addition\Helpers\NPWP;
+use Snippet\Helpers\NPWP;
 use App\Models\Record;
 use App\Models\Subrecord;
 use Carbon\Carbon;
