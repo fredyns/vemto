@@ -25,6 +25,7 @@ use <$ requestsNamespace $>\<$ this.model.name $>UpdateRequest;
 <% if(this.crud.hasPasswordInputs()) { %>
 use Illuminate\Support\Facades\Hash;
 <% } %>
+use fredyns\stringcleaner\StringCleaner;
 use Illuminate\Http\RedirectResponse;
 <% if(this.crud.hasFileOrImageInputs()) { %>
 use Illuminate\Support\Facades\Storage;
@@ -182,6 +183,12 @@ class <$ this.crud.getControllerName() $> extends Controller
             <% } %>
         <% } %>
 
+        <% for (let field of this.model.validFields()) { %>
+            <% if (field.type == "text") { %>
+        $validated['<$ field.name $>'] = StringCleaner::forRTF($validated['<$ field.name $>']);
+            <% } %>
+        <% } %>
+
         $<$ modelNameCamelCase $> = <$ this.model.name $>::create($validated);
 
         <# Checking for CRUD BelongsToMany relationships #>
@@ -327,6 +334,12 @@ class <$ this.crud.getControllerName() $> extends Controller
                 <% let relationshipModelPluralCamelCase = component.relationship.model.plural.case('camelCase') %>
                 <###>
                 $<$ modelNameCamelCase $>-><$ relationshipModelPluralCamelCase $>()->sync($request-><$ relationshipModelPluralCamelCase $>);
+            <% } %>
+        <% } %>
+
+        <% for (let field of this.model.validFields()) { %>
+            <% if (field.type == "text") { %>
+        $validated['<$ field.name $>'] = StringCleaner::forRTF($validated['<$ field.name $>']);
             <% } %>
         <% } %>
 

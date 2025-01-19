@@ -15,6 +15,7 @@ use <$ modelsNamespace $>\<$ modelName $>;
 use App\Http\Resources\<$ modelName $>Resource;
 use App\Http\Resources\<$ modelName $>Collection;
 use App\Http\Controllers\Controller;
+use fredyns\stringcleaner\StringCleaner;
 use Illuminate\Http\Request;
 <###>
 <% if(hasSpecificRequests) { %>
@@ -102,6 +103,12 @@ class <$ controllerName $> extends Controller
             <% } %>
         <% } %>
 
+        <% for (let field of this.model.validFields()) { %>
+            <% if (field.type == "text") { %>
+        $validated['<$ field.name $>'] = StringCleaner::forRTF($validated['<$ field.name $>']);
+            <% } %>
+        <% } %>
+
         $<$ crudModelNameCamelCase $> = <$ modelName $>::create($validated);
 
         <% if(this.generatorSettings.modules.permissions && this.crud.model.isAuthModel()) { %>
@@ -173,6 +180,12 @@ class <$ controllerName $> extends Controller
             <% for(let input of this.crud.getJsonInputs()) { %>
             $validated['<$ input.name $>'] = json_decode($validated['<$ input.name $>'], true);
 
+            <% } %>
+        <% } %>
+
+        <% for (let field of this.model.validFields()) { %>
+            <% if (field.type == "text") { %>
+        $validated['<$ field.name $>'] = StringCleaner::forRTF($validated['<$ field.name $>']);
             <% } %>
         <% } %>
 
