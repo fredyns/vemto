@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Datetime;
 use App\Models\Scopes\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
@@ -10,19 +11,22 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * This is the model class for table "subrecords".
  *
- * @property uuid $id
- * @property uuid $record_id
+ * @property string $id
+ * @property string $record_id
  * @property Datetime $datetime
  * @property Datetime $date
  * @property Datetime $time
- * @property bigInteger $n_p_w_p
- * @property text $markdown_text
- * @property text $w_y_s_i_w_y_g
- * @property text $file
- * @property text $image
- * @property ipAddress $i_p_address
- * @property float $latitude
- * @property float $longitude
+ * @property integer $n_p_w_p
+ * @property string $markdown_text
+ * @property string $w_y_s_i_w_y_g
+ * @property string $file
+ * @property string $image
+ * @property string $i_p_address
+ * @property string $latitude
+ * @property string $longitude
+ *
+ * @property Record $record
+ *
  *
  */
 
