@@ -37,7 +37,7 @@ use Illuminate\Database\Eloquent\Model;
 <% if(this.model.softDeletes) { %>
 use Illuminate\Database\Eloquent\SoftDeletes;
 <% } %>
-use \Datetime;
+use Datetime;
 use <$ modelsNamespace $>\Scopes\Searchable;
 <# --- #>
 <% if(this.model.hasUuidPrimaryKey()) { %>
@@ -69,6 +69,19 @@ use <$ correctUuidNamespace $>;
  * @property string $<$ field.name $>
             <% } %>
         <% } %>
+ *
+    <% if(this.model.basicRelationships.length) { %>
+        <% for (let relationship of this.model.basicRelationships) { %>
+            <% if(relationship.type == "belongsTo" || relationship.type == "hasOne") { %>
+ * @property <$ relationship.model.name $> $<$ relationship.name $>
+ *
+            <% } %>
+            <% if(relationship.type == "hasMany") { %>
+ * @property <$ relationship.model.name $>[] $<$ relationship.name $>
+ *
+            <% } %>
+        <% } %>
+    <% } %>
  *
  */
 
