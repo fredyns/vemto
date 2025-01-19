@@ -88,6 +88,7 @@ module.exports = (vemto) => {
                 'resources/views/components/inputs/tomselect.blade.php',
                 'resources/views/components/inputs/trix.blade.php',
                 'resources/views/components/inputs/url.blade.php',
+                'snippet/Helpers/JsonField.php',
                 'snippet/Helpers/NPWP.php',
             ];
             return files.map(function (path) {
