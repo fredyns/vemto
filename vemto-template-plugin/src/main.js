@@ -102,6 +102,16 @@ module.exports = (vemto) => {
             // Adding packages
             packages.require['fredyns/stringcleaner'] = '^1.2'
 
+            // adding namespace
+            packages.autoload = {
+                "psr-4": {
+                    "Addition\\": "addition/",
+                    "App\\": "app/",
+                    "Database\\Factories\\": "database/factories/",
+                    "Database\\Seeders\\": "database/seeders/"
+                }
+            }
+
             return packages
         },
 
