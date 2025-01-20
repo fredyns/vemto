@@ -17,6 +17,8 @@
             >
                 @include('app.records.form-inputs')
 
+                @include('app.records.form-grid-sample')
+
                 <x-partials.card class="mt-5">
                     <x-slot name="title">
                         <span>@lang('text.actions')</span>

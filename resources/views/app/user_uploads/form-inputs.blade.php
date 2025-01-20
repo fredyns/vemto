@@ -33,7 +33,7 @@
                 @php $selected = old('user_id', ($editing ? $userUpload->user_id : '')) @endphp
                 <option disabled {{ empty($selected) ? 'selected' : '' }}>Please select the User</option>
                 @foreach($users as $value => $label)
-                <option value="{{ $value }}" {{ $selected == $value ? 'selected' : '' }} >{{ $label }}</option>
+                    <option value="{{ $value }}" {{ $selected == $value ? 'selected' : '' }} >{{ $label }}</option>
                 @endforeach
             </x-inputs.tomselect>
         </x-inputs.group>
@@ -53,7 +53,7 @@
                 name="file"
                 label="{{ __('crud.user_uploads.inputs.file') }}"
             ></x-inputs.partials.label>
-            <br />
+            <br/>
 
             <input
                 type="file"
@@ -63,15 +63,15 @@
             />
 
             @if($editing && $userUpload->file)
-            <div class="mt-2">
-                <a
-                    href="{{ \Storage::url($userUpload->file) }}"
-                    target="_blank"
-                >
-                    <i class="icon ion-md-download"></i>
-                    Download
-                </a>
-            </div>
+                <div class="mt-2">
+                    <a
+                        href="{{ Storage::url($userUpload->file) }}"
+                        target="_blank"
+                    >
+                        <i class="icon ion-md-download"></i>
+                        Download
+                    </a>
+                </div>
             @endif @error('file') @include('components.inputs.partials.error')
             @enderror
         </x-inputs.group>
@@ -92,8 +92,7 @@
                 label="{{ __('crud.user_uploads.inputs.description') }}"
                 placeholder="{{ __('crud.user_uploads.inputs.description') }}"
             >
-                {{ old('description', ($editing ? $userUpload->description :
-                '')) }}
+                {{ old('description', ($editing ? $userUpload->description : '')) }}
             </x-inputs.textarea>
         </x-inputs.group>
 
@@ -113,8 +112,7 @@
                 label="{{ __('crud.user_uploads.inputs.metadata') }}"
                 placeholder="{{ __('crud.user_uploads.inputs.metadata') }}"
             >
-                {{ old('metadata', ($editing ?
-                json_encode($userUpload->metadata) : '')) }}
+                {{ old('metadata', ($editing ? json_encode($userUpload->metadata) : '')) }}
             </x-inputs.textarea>
         </x-inputs.group>
     </div>

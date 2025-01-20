@@ -25,13 +25,13 @@
 
     <div class="flex flex-wrap">
         <x-inputs.group class="w-full">
-            <x-inputs.date
+            <x-inputs.datetime
                 name="at"
-                value="{{ old('at', ($editing ? optional($userActivityLog->at)->format('Y-m-d') : '')) }}"
+                value="{{ old('at', ($editing ? optional($userActivityLog->at)->format('Y-m-d H:i:s') : '')) }}"
                 label="{{ __('crud.user_activity_logs.inputs.at') }}"
                 placeholder="{{ __('crud.user_activity_logs.inputs.at') }}"
                 required
-            ></x-inputs.date>
+            ></x-inputs.datetime>
         </x-inputs.group>
 
         <x-inputs.group class="w-full">
@@ -43,7 +43,7 @@
                 @php $selected = old('user_id', ($editing ? $userActivityLog->user_id : '')) @endphp
                 <option disabled {{ empty($selected) ? 'selected' : '' }}>Please select the User</option>
                 @foreach($users as $value => $label)
-                <option value="{{ $value }}" {{ $selected == $value ? 'selected' : '' }} >{{ $label }}</option>
+                    <option value="{{ $value }}" {{ $selected == $value ? 'selected' : '' }} >{{ $label }}</option>
                 @endforeach
             </x-inputs.tomselect>
         </x-inputs.group>
@@ -74,8 +74,7 @@
                 label="{{ __('crud.user_activity_logs.inputs.message') }}"
                 placeholder="{{ __('crud.user_activity_logs.inputs.message') }}"
             >
-                {{ old('message', ($editing ? $userActivityLog->message : ''))
-                }}
+                {{ old('message', ($editing ? $userActivityLog->message : '')) }}
             </x-inputs.textarea>
         </x-inputs.group>
 
