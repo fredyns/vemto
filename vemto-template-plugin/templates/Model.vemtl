@@ -84,7 +84,6 @@ use <$ correctUuidNamespace $>;
     <% } %>
  *
  */
-
 <% if(isAuthModel) { %>
 class <$ modelNamePascalCase $> extends Authenticatable implements MustVerifyEmail {
 <% } else { %>
