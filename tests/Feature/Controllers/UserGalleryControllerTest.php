@@ -4,12 +4,11 @@ namespace Tests\Feature\Controllers;
 
 use App\Models\User;
 use App\Models\UserGallery;
-
 use DB;
 use Exception;
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Tests\TestCase;
 
 class UserGalleryControllerTest extends TestCase
 {

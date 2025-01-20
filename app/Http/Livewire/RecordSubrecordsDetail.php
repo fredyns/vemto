@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire;
 
-use Snippet\Helpers\NPWP;
 use App\Models\Record;
 use App\Models\Subrecord;
 use Carbon\Carbon;
@@ -13,6 +12,7 @@ use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
+use Snippet\Helpers\NPWP;
 
 class RecordSubrecordsDetail extends Component
 {

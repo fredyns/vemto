@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
+use App\Http\Resources\SubrecordCollection;
+use App\Http\Resources\SubrecordResource;
 use App\Models\Record;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Http\Resources\SubrecordResource;
-use App\Http\Resources\SubrecordCollection;
 
 class RecordSubrecordsController extends Controller
 {

@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
-use Datetime;
 use App\Models\Scopes\Searchable;
-use Illuminate\Database\Eloquent\Model;
+use Datetime;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * This is the model class for table "subrecords".
@@ -29,7 +29,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  *
  *
  */
-
 class Subrecord extends Model
 {
     use HasUuids;

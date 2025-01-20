@@ -2,16 +2,16 @@
 
 namespace App\Models;
 
-use Datetime;
-use Laravel\Sanctum\HasApiTokens;
 use App\Models\Scopes\Searchable;
-use Laravel\Jetstream\HasProfilePhoto;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Fortify\TwoFactorAuthenticatable;
+use Datetime;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Fortify\TwoFactorAuthenticatable;
+use Laravel\Jetstream\HasProfilePhoto;
+use Laravel\Sanctum\HasApiTokens;
 
 /**
  * This is the model class for table "users".
@@ -38,7 +38,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  *
  *
  */
-
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasUuids;
