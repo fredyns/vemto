@@ -2,14 +2,14 @@
 
 namespace Tests\Feature\Api;
 
-use App\Models\User;
 use App\Models\Record;
 use App\Models\Subrecord;
-
-use Tests\TestCase;
-use Laravel\Sanctum\Sanctum;
-use Illuminate\Foundation\Testing\WithFaker;
+use App\Models\User;
+use Database\Seeders\PermissionsSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Laravel\Sanctum\Sanctum;
+use Tests\TestCase;
 
 class RecordSubrecordsTest extends TestCase
 {
@@ -22,6 +22,8 @@ class RecordSubrecordsTest extends TestCase
         $user = User::factory()->create(['email' => 'admin@admin.com']);
 
         Sanctum::actingAs($user, [], 'web');
+
+        $this->seed(PermissionsSeeder::class);
 
         $this->withoutExceptionHandling();
     }

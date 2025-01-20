@@ -55,13 +55,13 @@
             </x-form>
 
             @can('view-any', App\Models\Subrecord::class)
-                <x-partials.card class="mt-5">
-                    <x-slot name="title">
-                        @lang('crud.record_subrecords.name')
-                    </x-slot>
+            <x-partials.card class="mt-5">
+                <x-slot name="title">
+                    @lang('crud.record_subrecords.name')
+                </x-slot>
 
-                    <livewire:record-subrecords-detail :record="$record"/>
-                </x-partials.card>
+                <livewire:record-subrecords-detail :record="$record" />
+            </x-partials.card>
             @endcan
         </div>
     </div>

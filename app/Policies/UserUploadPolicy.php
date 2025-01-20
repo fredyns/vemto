@@ -15,7 +15,7 @@ class UserUploadPolicy
      */
     public function viewAny(User $user): bool
     {
-        return true;
+        return $user->hasPermissionTo('list useruploads');
     }
 
     /**
@@ -23,7 +23,7 @@ class UserUploadPolicy
      */
     public function view(User $user, UserUpload $model): bool
     {
-        return true;
+        return $user->hasPermissionTo('view useruploads');
     }
 
     /**
@@ -31,7 +31,7 @@ class UserUploadPolicy
      */
     public function create(User $user): bool
     {
-        return true;
+        return $user->hasPermissionTo('create useruploads');
     }
 
     /**
@@ -39,7 +39,7 @@ class UserUploadPolicy
      */
     public function update(User $user, UserUpload $model): bool
     {
-        return true;
+        return $user->hasPermissionTo('update useruploads');
     }
 
     /**
@@ -47,7 +47,7 @@ class UserUploadPolicy
      */
     public function delete(User $user, UserUpload $model): bool
     {
-        return true;
+        return $user->hasPermissionTo('delete useruploads');
     }
 
     /**
@@ -55,7 +55,7 @@ class UserUploadPolicy
      */
     public function deleteAny(User $user): bool
     {
-        return true;
+        return $user->hasPermissionTo('delete useruploads');
     }
 
     /**

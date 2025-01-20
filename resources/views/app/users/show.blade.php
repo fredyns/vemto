@@ -34,6 +34,33 @@
             </x-partials.card>
 
             <x-partials.card class="mt-5">
+                <div class="flex flex-wrap mt-2 px-4">
+                    <div class="mb-4">
+                        <h5 class="font-medium text-gray-700">
+                            @lang('crud.roles.name')
+                        </h5>
+                        <div>
+                            @forelse ($user->roles as $role)
+                            <div
+                                class="
+                                    inline-block
+                                    p-1
+                                    text-center text-sm
+                                    rounded
+                                    bg-blue-400
+                                    text-white
+                                "
+                            >
+                                {{ $role->name }}
+                            </div>
+                            <br />
+                            @empty - @endforelse
+                        </div>
+                    </div>
+                </div>
+            </x-partials.card>
+
+            <x-partials.card class="mt-5">
                 <x-slot name="title">
                     <span>@lang('text.actions')</span>
                 </x-slot>
@@ -44,27 +71,27 @@
                     </a>
 
                     @can('update', $user)
-                        <a href="{{ route('users.edit', $user) }}" class="button">
-                            <i class="mr-1 icon ion-md-create"></i>
-                            @lang('crud.common.edit')
-                        </a>
+                    <a href="{{ route('users.edit', $user) }}" class="button">
+                        <i class="mr-1 icon ion-md-create"></i>
+                        @lang('crud.common.edit')
+                    </a>
                     @endcan @can('delete', $user)
-                        <div class="float-right">
-                            <form
-                                action="{{ route('users.destroy', $user) }}"
-                                method="POST"
-                                onsubmit="return confirm('{{ __('crud.common.are_you_sure') }}')"
-                            >
-                                @csrf @method('DELETE')
-                                <button type="submit" class="button">
-                                    <i class="mr-1 icon ion-md-trash text-red-600">
-                                    </i>
-                                    <span class="text-red-600">
+                    <div class="float-right">
+                        <form
+                            action="{{ route('users.destroy', $user) }}"
+                            method="POST"
+                            onsubmit="return confirm('{{ __('crud.common.are_you_sure') }}')"
+                        >
+                            @csrf @method('DELETE')
+                            <button type="submit" class="button">
+                                <i class="mr-1 icon ion-md-trash text-red-600">
+                                </i>
+                                <span class="text-red-600">
                                     @lang('crud.common.delete')
                                 </span>
-                                </button>
-                            </form>
-                        </div>
+                            </button>
+                        </form>
+                    </div>
                     @endcan
                 </div>
             </x-partials.card>

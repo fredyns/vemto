@@ -12,6 +12,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 /**
  * This is the model class for table "users".
@@ -40,6 +41,7 @@ use Laravel\Sanctum\HasApiTokens;
  */
 class User extends Authenticatable implements MustVerifyEmail
 {
+    use HasRoles;
     use HasUuids;
     use Notifiable;
     use HasFactory;
@@ -86,6 +88,6 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function isSuperAdmin(): bool
     {
-        return in_array($this->email, config('auth.super_admins'));
+        return $this->hasRole('super-admin');
     }
 }

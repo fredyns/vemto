@@ -23,7 +23,8 @@
                             @lang('crud.user_activity_logs.inputs.at')
                         </h5>
                         <span>
-                            {{ optional($userActivityLog->at)->format('l, d F Y') }}
+                            {{ optional($userActivityLog->at)->format('l, d F
+                            Y') }}
                         </span>
                     </div>
                     <div class="mb-4 w-full">
@@ -83,30 +84,30 @@
                     </a>
 
                     @can('update', $userActivityLog)
-                        <a
-                            href="{{ route('user-activity-logs.edit', $userActivityLog) }}"
-                            class="button"
-                        >
-                            <i class="mr-1 icon ion-md-create"></i>
-                            @lang('crud.common.edit')
-                        </a>
+                    <a
+                        href="{{ route('user-activity-logs.edit', $userActivityLog) }}"
+                        class="button"
+                    >
+                        <i class="mr-1 icon ion-md-create"></i>
+                        @lang('crud.common.edit')
+                    </a>
                     @endcan @can('delete', $userActivityLog)
-                        <div class="float-right">
-                            <form
-                                action="{{ route('user-activity-logs.destroy', $userActivityLog) }}"
-                                method="POST"
-                                onsubmit="return confirm('{{ __('crud.common.are_you_sure') }}')"
-                            >
-                                @csrf @method('DELETE')
-                                <button type="submit" class="button">
-                                    <i class="mr-1 icon ion-md-trash text-red-600">
-                                    </i>
-                                    <span class="text-red-600">
+                    <div class="float-right">
+                        <form
+                            action="{{ route('user-activity-logs.destroy', $userActivityLog) }}"
+                            method="POST"
+                            onsubmit="return confirm('{{ __('crud.common.are_you_sure') }}')"
+                        >
+                            @csrf @method('DELETE')
+                            <button type="submit" class="button">
+                                <i class="mr-1 icon ion-md-trash text-red-600">
+                                </i>
+                                <span class="text-red-600">
                                     @lang('crud.common.delete')
                                 </span>
-                                </button>
-                            </form>
-                        </div>
+                            </button>
+                        </form>
+                    </div>
                     @endcan
                 </div>
             </x-partials.card>

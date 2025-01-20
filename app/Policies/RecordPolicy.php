@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Models\User;
 use App\Models\Record;
+use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class RecordPolicy
@@ -15,7 +15,7 @@ class RecordPolicy
      */
     public function viewAny(User $user): bool
     {
-        return true;
+        return $user->hasPermissionTo('list records');
     }
 
     /**
@@ -23,7 +23,7 @@ class RecordPolicy
      */
     public function view(User $user, Record $model): bool
     {
-        return true;
+        return $user->hasPermissionTo('view records');
     }
 
     /**
@@ -31,7 +31,7 @@ class RecordPolicy
      */
     public function create(User $user): bool
     {
-        return true;
+        return $user->hasPermissionTo('create records');
     }
 
     /**
@@ -39,7 +39,7 @@ class RecordPolicy
      */
     public function update(User $user, Record $model): bool
     {
-        return true;
+        return $user->hasPermissionTo('update records');
     }
 
     /**
@@ -47,7 +47,7 @@ class RecordPolicy
      */
     public function delete(User $user, Record $model): bool
     {
-        return true;
+        return $user->hasPermissionTo('delete records');
     }
 
     /**
@@ -55,7 +55,7 @@ class RecordPolicy
      */
     public function deleteAny(User $user): bool
     {
-        return true;
+        return $user->hasPermissionTo('delete records');
     }
 
     /**

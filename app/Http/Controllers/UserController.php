@@ -10,6 +10,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -41,7 +42,9 @@ class UserController extends Controller
     {
         $this->authorize('create', User::class);
 
-        return view('app.users.create');
+        $roles = Role::get();
+
+        return view('app.users.create', compact('roles'));
     }
 
     /**
@@ -56,6 +59,8 @@ class UserController extends Controller
         $validated['password'] = Hash::make($validated['password']);
 
         $user = User::create($validated);
+
+        $user->syncRoles($request->roles);
 
         return redirect()
             ->route('users.show', $user)
@@ -79,7 +84,9 @@ class UserController extends Controller
     {
         $this->authorize('update', $user);
 
-        return view('app.users.edit', compact('user'));
+        $roles = Role::get();
+
+        return view('app.users.edit', compact('user', 'roles'));
     }
 
     /**
@@ -101,6 +108,8 @@ class UserController extends Controller
         }
 
         $user->update($validated);
+
+        $user->syncRoles($request->roles);
 
         return redirect()
             ->route('users.show', $user)

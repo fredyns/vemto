@@ -4,6 +4,7 @@ namespace Tests\Feature\Controllers;
 
 use App\Models\User;
 use App\Models\UserUpload;
+use Database\Seeders\PermissionsSeeder;
 use DB;
 use Exception;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -21,6 +22,8 @@ class UserUploadControllerTest extends TestCase
         $this->actingAs(
             User::factory()->create(['email' => 'admin@admin.com'])
         );
+
+        $this->seed(PermissionsSeeder::class);
 
         $this->withoutExceptionHandling();
     }

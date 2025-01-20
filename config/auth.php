@@ -1,8 +1,6 @@
 <?php
 
 return [
-    'super_admins' => explode(',', env('SUPER_ADMINS', 'admin@admin.com')),
-
     /*
     |--------------------------------------------------------------------------
     | Authentication Defaults

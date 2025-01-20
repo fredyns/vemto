@@ -4,9 +4,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\RoleController;
 use App\Http\Controllers\Api\RecordController;
 use App\Http\Controllers\Api\SubrecordController;
 use App\Http\Controllers\Api\UserUploadController;
+use App\Http\Controllers\Api\PermissionController;
 use App\Http\Controllers\Api\UserRecordsController;
 use App\Http\Controllers\Api\UserGalleryController;
 use App\Http\Controllers\Api\UserUserUploadsController;
@@ -41,12 +43,17 @@ Route::name('api.')
     ->middleware('auth:sanctum')
     ->group(function () {
         // current user
-        Route::get('user', fn(Request $req) => ['data' => $req->user()])->name('user');
+        Route::get('user', fn(Request $req) => ['data' => $req->user()])->name(
+            'user'
+        );
 
         // logout
         Route::post('logout', [AuthController::class, 'logout'])->name(
             'logout'
         );
+
+        Route::apiResource('roles', RoleController::class);
+        Route::apiResource('permissions', PermissionController::class);
 
         Route::apiResource('users', UserController::class);
 

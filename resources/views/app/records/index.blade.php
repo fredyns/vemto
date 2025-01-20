@@ -33,13 +33,13 @@
                         </div>
                         <div class="md:w-1/2 text-right">
                             @can('create', App\Models\Record::class)
-                                <a
-                                    href="{{ route('records.create') }}"
-                                    class="button button-primary"
-                                >
-                                    <i class="mr-1 icon ion-md-add"></i>
-                                    @lang('crud.common.create')
-                                </a>
+                            <a
+                                href="{{ route('records.create') }}"
+                                class="button button-primary"
+                            >
+                                <i class="mr-1 icon ion-md-add"></i>
+                                @lang('crud.common.create')
+                            </a>
                             @endcan
                         </div>
                     </div>
@@ -48,27 +48,27 @@
                 <div class="block w-full overflow-auto scrolling-touch">
                     <table class="w-full max-w-full mb-4 bg-transparent">
                         <thead class="text-gray-700">
-                        <tr>
-                            <th class="px-4 py-3 text-left">
-                                @lang('crud.records.inputs.user_id')
-                            </th>
-                            <th class="px-4 py-3 text-left">
-                                @lang('crud.records.inputs.string')
-                            </th>
-                            <th class="px-4 py-3 text-right">
-                                @lang('crud.records.inputs.integer')
-                            </th>
-                            <th class="px-4 py-3 text-left">
-                                @lang('crud.records.inputs.n_p_w_p')
-                            </th>
-                            <th class="px-4 py-3 text-left">
-                                @lang('crud.records.inputs.datetime')
-                            </th>
-                            <th></th>
-                        </tr>
+                            <tr>
+                                <th class="px-4 py-3 text-left">
+                                    @lang('crud.records.inputs.user_id')
+                                </th>
+                                <th class="px-4 py-3 text-left">
+                                    @lang('crud.records.inputs.string')
+                                </th>
+                                <th class="px-4 py-3 text-right">
+                                    @lang('crud.records.inputs.integer')
+                                </th>
+                                <th class="px-4 py-3 text-left">
+                                    @lang('crud.records.inputs.n_p_w_p')
+                                </th>
+                                <th class="px-4 py-3 text-left">
+                                    @lang('crud.records.inputs.datetime')
+                                </th>
+                                <th></th>
+                            </tr>
                         </thead>
                         <tbody class="text-gray-600">
-                        @forelse($records as $record)
+                            @forelse($records as $record)
                             <tr class="hover:bg-gray-50">
                                 <td class="px-4 py-3 text-left">
                                     {{ optional($record->user)->name ?? '-' }}
@@ -83,7 +83,8 @@
                                     {{ $record->n_p_w_p ?? '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
-                                    {{ optional($record->datetime)->format('D, d M Y, H:i') }}
+                                    {{ optional($record->datetime)->format('D, d
+                                    M Y, H:i') }}
                                 </td>
                                 <td
                                     class="px-4 py-3 text-center"
@@ -99,51 +100,51 @@
                                         "
                                     >
                                         @can('update', $record)
-                                            <a
-                                                href="{{ route('records.edit', $record) }}"
-                                                class="mr-1"
+                                        <a
+                                            href="{{ route('records.edit', $record) }}"
+                                            class="mr-1"
+                                        >
+                                            <button
+                                                type="button"
+                                                class="button"
                                             >
-                                                <button
-                                                    type="button"
-                                                    class="button"
-                                                >
-                                                    <i
-                                                        class="icon ion-md-create"
-                                                    ></i>
-                                                </button>
-                                            </a>
+                                                <i
+                                                    class="icon ion-md-create"
+                                                ></i>
+                                            </button>
+                                        </a>
                                         @endcan @can('view', $record)
-                                            <a
-                                                href="{{ route('records.show', $record) }}"
-                                                class="mr-1"
+                                        <a
+                                            href="{{ route('records.show', $record) }}"
+                                            class="mr-1"
+                                        >
+                                            <button
+                                                type="button"
+                                                class="button"
                                             >
-                                                <button
-                                                    type="button"
-                                                    class="button"
-                                                >
-                                                    <i class="icon ion-md-eye"></i>
-                                                </button>
-                                            </a>
+                                                <i class="icon ion-md-eye"></i>
+                                            </button>
+                                        </a>
                                         @endcan
                                     </div>
                                 </td>
                             </tr>
-                        @empty
+                            @empty
                             <tr>
                                 <td colspan="6">
                                     @lang('crud.common.no_items_found')
                                 </td>
                             </tr>
-                        @endforelse
+                            @endforelse
                         </tbody>
                         <tfoot>
-                        <tr>
-                            <td colspan="6">
-                                <div class="mt-10 px-4">
-                                    {!! $records->render() !!}
-                                </div>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td colspan="6">
+                                    <div class="mt-10 px-4">
+                                        {!! $records->render() !!}
+                                    </div>
+                                </td>
+                            </tr>
                         </tfoot>
                     </table>
                 </div>

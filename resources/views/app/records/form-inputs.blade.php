@@ -32,7 +32,7 @@
                 @php $selected = old('user_id', ($editing ? $record->user_id : '')) @endphp
                 <option disabled {{ empty($selected) ? 'selected' : '' }}>Please select the User</option>
                 @foreach($users as $value => $label)
-                    <option value="{{ $value }}" {{ $selected == $value ? 'selected' : '' }} >{{ $label }}</option>
+                <option value="{{ $value }}" {{ $selected == $value ? 'selected' : '' }} >{{ $label }}</option>
                 @endforeach
             </x-inputs.tomselect>
         </x-inputs.group>
@@ -64,7 +64,6 @@
                 :value="old('integer', ($editing ? $record->integer : ''))"
                 label="{{ __('crud.records.inputs.integer') }}"
                 placeholder="{{ __('crud.records.inputs.integer') }}"
-                min="0"
                 max="100"
             ></x-inputs.slider>
         </x-inputs.group>
@@ -81,11 +80,13 @@
         </x-inputs.group>
 
         <x-inputs.group class="w-full">
-            <x-inputs.npwp
+            <x-inputs.text
                 name="n_p_w_p"
-                value="{{ old('n_p_w_p', ($editing ? \Snippet\Helpers\NPWP::format($record->n_p_w_p) : '')) }}"
+                :value="old('n_p_w_p', ($editing ? $record->n_p_w_p : ''))"
                 label="{{ __('crud.records.inputs.n_p_w_p') }}"
-            ></x-inputs.npwp>
+                placeholder="{{ __('crud.records.inputs.n_p_w_p') }}"
+                maxlength="255"
+            ></x-inputs.text>
         </x-inputs.group>
 
         <x-inputs.group class="w-full">
@@ -107,22 +108,21 @@
         </x-inputs.group>
 
         <x-inputs.group class="w-full">
-            <x-inputs.time
+            <x-inputs.text
                 name="time"
-                value="{{ old('time', ($editing ? optional($record->time)->format('H:i') : '')) }}"
+                :value="old('time', ($editing ? $record->time : ''))"
                 label="{{ __('crud.records.inputs.time') }}"
                 placeholder="{{ __('crud.records.inputs.time') }}"
-            ></x-inputs.time>
+                maxlength="255"
+            ></x-inputs.text>
         </x-inputs.group>
 
         <x-inputs.group class="w-full">
             <x-inputs.text
                 name="i_p_address"
-                x-data
-                x-mask="999.999.999.999"
                 :value="old('i_p_address', ($editing ? $record->i_p_address : ''))"
                 label="{{ __('crud.records.inputs.i_p_address') }}"
-                placeholder="000.000.000.000"
+                placeholder="{{ __('crud.records.inputs.i_p_address') }}"
             ></x-inputs.text>
         </x-inputs.group>
 
@@ -160,7 +160,7 @@
                 name="file"
                 label="{{ __('crud.records.inputs.file') }}"
             ></x-inputs.partials.label>
-            <br/>
+            <br />
 
             <input
                 type="file"
@@ -170,25 +170,25 @@
             />
 
             @if($editing && $record->file)
-                <div class="mt-2">
-                    <a href="{{ Storage::url($record->file) }}" target="_blank">
-                        <i class="icon ion-md-download"></i>
-                        Download
-                    </a>
-                </div>
+            <div class="mt-2">
+                <a href="{{ \Storage::url($record->file) }}" target="_blank">
+                    <i class="icon ion-md-download"></i>
+                    Download
+                </a>
+            </div>
             @endif @error('file') @include('components.inputs.partials.error')
             @enderror
         </x-inputs.group>
 
         <x-inputs.group class="w-full">
             <div
-                x-data="imageViewer('{{ $editing && $record->image ? Storage::url($record->image) : '' }}')"
+                x-data="imageViewer('{{ $editing && $record->image ? \Storage::url($record->image) : '' }}')"
             >
                 <x-inputs.partials.label
                     name="image"
                     label="{{ __('crud.records.inputs.image') }}"
                 ></x-inputs.partials.label>
-                <br/>
+                <br />
 
                 <!-- Show the image -->
                 <template x-if="imageUrl">
@@ -222,19 +222,25 @@
         </x-inputs.group>
 
         <x-inputs.group class="w-full">
-            <x-inputs.trix
+            <x-inputs.textarea
                 name="markdown_text"
                 label="{{ __('crud.records.inputs.markdown_text') }}"
-                value="{{ old('markdown_text', ($editing ? $record->markdown_text : '')) }}"
-            ></x-inputs.trix>
+                placeholder="{{ __('crud.records.inputs.markdown_text') }}"
+            >
+                {{ old('markdown_text', ($editing ? $record->markdown_text :
+                '')) }}
+            </x-inputs.textarea>
         </x-inputs.group>
 
         <x-inputs.group class="w-full">
-            <x-inputs.trix
+            <x-inputs.textarea
                 name="w_y_s_i_w_y_g"
                 label="{{ __('crud.records.inputs.w_y_s_i_w_y_g') }}"
-                value="{{ old('w_y_s_i_w_y_g', ($editing ? $record->w_y_s_i_w_y_g : '')) }}"
-            ></x-inputs.trix>
+                placeholder="{{ __('crud.records.inputs.w_y_s_i_w_y_g') }}"
+            >
+                {{ old('w_y_s_i_w_y_g', ($editing ? $record->w_y_s_i_w_y_g :
+                '')) }}
+            </x-inputs.textarea>
         </x-inputs.group>
 
         <x-inputs.group class="w-full">

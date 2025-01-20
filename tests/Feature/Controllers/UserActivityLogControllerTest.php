@@ -4,6 +4,7 @@ namespace Tests\Feature\Controllers;
 
 use App\Models\User;
 use App\Models\UserActivityLog;
+use Database\Seeders\PermissionsSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -19,6 +20,8 @@ class UserActivityLogControllerTest extends TestCase
         $this->actingAs(
             User::factory()->create(['email' => 'admin@admin.com'])
         );
+
+        $this->seed(PermissionsSeeder::class);
 
         $this->withoutExceptionHandling();
     }

@@ -1,20 +1,20 @@
 <div>
     <div>
         @can('create', App\Models\Subrecord::class)
-            <button class="button" wire:click="newSubrecord">
-                <i class="mr-1 icon ion-md-add text-primary"></i>
-                @lang('crud.common.new')
-            </button>
+        <button class="button" wire:click="newSubrecord">
+            <i class="mr-1 icon ion-md-add text-primary"></i>
+            @lang('crud.common.new')
+        </button>
         @endcan @can('delete-any', App\Models\Subrecord::class)
-            <button
-                class="button button-danger"
-                {{ empty($selected) ? 'disabled' : '' }}
-                onclick="confirm('{{ __('crud.common.are_you_sure') }}') || event.stopImmediatePropagation()"
-                wire:click="destroySelected"
-            >
-                <i class="mr-1 icon ion-md-trash text-primary"></i>
-                @lang('crud.common.delete_selected')
-            </button>
+        <button
+            class="button button-danger"
+             {{ empty($selected) ? 'disabled' : '' }} 
+            onclick="confirm('{{ __('crud.common.are_you_sure') }}') || event.stopImmediatePropagation()"
+            wire:click="destroySelected"
+        >
+            <i class="mr-1 icon ion-md-trash text-primary"></i>
+            @lang('crud.common.delete_selected')
+        </button>
         @endcan
     </div>
 
@@ -29,7 +29,8 @@
                             @lang('crud.subrecords.inputs.datetime')
                         </h5>
                         <span>
-                            {{ optional($subrecord->datetime)->format('l, d F Y, H:i') }}
+                            {{ optional($subrecord->datetime)->format('l, d F Y,
+                            H:i') }}
                         </span>
                     </div>
                     <div class="mb-4 w-full">
@@ -52,42 +53,40 @@
                         <h5 class="font-medium text-gray-700">
                             @lang('crud.subrecords.inputs.n_p_w_p')
                         </h5>
-                        <span> {{ $subrecord->n_p_w_p ? \Snippet\Helpers\NPWP::format($subrecord->n_p_w_p) : '-' }} </span>
+                        <span> {{ $subrecord->n_p_w_p ?? '-' }} </span>
                     </div>
                     <div class="mb-4 w-full">
                         <h5 class="font-medium text-gray-700">
                             @lang('crud.subrecords.inputs.markdown_text')
                         </h5>
-                        <pre> {{ $subrecord->markdown_text ?? '-' }} </pre>
+                        <span> {{ $subrecord->markdown_text ?? '-' }} </span>
                     </div>
                     <div class="mb-4 w-full">
                         <h5 class="font-medium text-gray-700">
                             @lang('crud.subrecords.inputs.w_y_s_i_w_y_g')
                         </h5>
-                        <span> {!! $subrecord->w_y_s_i_w_y_g ?? '-' !!}  </span>
+                        <span> {{ $subrecord->w_y_s_i_w_y_g ?? '-' }} </span>
                     </div>
                     <div class="mb-4 w-full">
                         <h5 class="font-medium text-gray-700">
                             @lang('crud.subrecords.inputs.file')
                         </h5>
                         @if($subrecord->file)
-                            <a
-                                href="{{ Storage::url($subrecord->file) }}"
-                                target="blank"
-                            >
-                                <i class="mr-1 icon ion-md-download"></i>
-                                Download
-                            </a>
-                        @else
-                            -
-                        @endif
+                        <a
+                            href="{{ \Storage::url($subrecord->file) }}"
+                            target="blank"
+                        >
+                            <i class="mr-1 icon ion-md-download"></i>
+                            Download
+                        </a>
+                        @else - @endif
                     </div>
                     <div class="mb-4 w-full">
                         <h5 class="font-medium text-gray-700">
                             @lang('crud.subrecords.inputs.image')
                         </h5>
                         <x-partials.thumbnail
-                            src="{{ $subrecord->image ? Storage::url($subrecord->image) : '' }}"
+                            src="{{ $subrecord->image ? \Storage::url($subrecord->image) : '' }}"
                             size="150"
                         />
                     </div>
@@ -123,14 +122,14 @@
                 @lang('text.close')
             </button>
             @can('update', $subrecord)
-                <button
-                    type="button"
-                    class="button mr-1"
-                    wire:click="editSubrecord('{{ $subrecord->id }}')"
-                >
-                    <i class="mr-1 icon ion-md-create"></i>
-                    @lang('crud.common.edit')
-                </button>
+            <button
+                type="button"
+                class="button mr-1"
+                wire:click="editSubrecord('{{ $subrecord->id }}')"
+            >
+                <i class="mr-1 icon ion-md-create"></i>
+                @lang('crud.common.edit')
+            </button>
             @endcan
         </div>
     </x-modal>
@@ -158,41 +157,50 @@
                         ></x-inputs.date>
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
-                        <x-inputs.time
-                            name="subrecordTime"
-                            wire:model="subrecordTime"
+                        <x-inputs.text
+                            name="subrecord.time"
+                            wire:model="subrecord.time"
                             label="{{ __('crud.subrecords.inputs.time') }}"
                             placeholder="{{ __('crud.subrecords.inputs.time') }}"
                             maxlength="255"
-                        ></x-inputs.time>
+                        ></x-inputs.text>
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
-                        <x-inputs.npwp
+                        <x-inputs.text
                             name="subrecord.n_p_w_p"
+                            wire:model="subrecord.n_p_w_p"
                             label="{{ __('crud.subrecords.inputs.n_p_w_p') }}"
-                            value="{{ old('n_p_w_p', ($editing ? \Snippet\Helpers\NPWP::format($subrecord->n_p_w_p) : '')) }}"
-                        ></x-inputs.npwp>
+                            placeholder="{{ __('crud.subrecords.inputs.n_p_w_p') }}"
+                        ></x-inputs.text>
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
-                        <x-inputs.trix
+                        <x-inputs.textarea
                             name="subrecord.markdown_text"
+                            wire:model="subrecord.markdown_text"
                             label="{{ __('crud.subrecords.inputs.markdown_text') }}"
-                            value="{{ old('subrecord.markdown_text', ($editing ? $subrecord->markdown_text : '')) }}"
-                        ></x-inputs.trix>
+                            placeholder="{{ __('crud.subrecords.inputs.markdown_text') }}"
+                        >
+                            {{ old('markdown_text', ($editing ?
+                            $subrecord->markdown_text : '')) }}
+                        </x-inputs.textarea>
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
-                        <x-inputs.trix
+                        <x-inputs.textarea
                             name="subrecord.w_y_s_i_w_y_g"
+                            wire:model="subrecord.w_y_s_i_w_y_g"
                             label="{{ __('crud.subrecords.inputs.w_y_s_i_w_y_g') }}"
-                            value="{{ old('subrecord.w_y_s_i_w_y_g', ($editing ? $subrecord->w_y_s_i_w_y_g : '')) }}"
-                        ></x-inputs.trix>
+                            placeholder="{{ __('crud.subrecords.inputs.w_y_s_i_w_y_g') }}"
+                        >
+                            {{ old('w_y_s_i_w_y_g', ($editing ?
+                            $subrecord->w_y_s_i_w_y_g : '')) }}
+                        </x-inputs.textarea>
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
                         <x-inputs.partials.label
                             name="subrecordFile"
                             label="{{ __('crud.subrecords.inputs.file') }}"
                         ></x-inputs.partials.label>
-                        <br/>
+                        <br />
 
                         <input
                             type="file"
@@ -203,21 +211,21 @@
                         />
 
                         @if($editing && $subrecord->file)
-                            <div class="mt-2">
-                                <a
-                                    href="{{ Storage::url($subrecord->file) }}"
-                                    target="_blank"
-                                >
-                                    <i class="icon ion-md-download"></i>
-                                    Download
-                                </a>
-                            </div>
+                        <div class="mt-2">
+                            <a
+                                href="{{ \Storage::url($subrecord->file) }}"
+                                target="_blank"
+                            >
+                                <i class="icon ion-md-download"></i>
+                                Download
+                            </a>
+                        </div>
                         @endif @error('subrecordFile')
                         @include('components.inputs.partials.error') @enderror
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
                         <div
-                            image-url="{{ $editing && $subrecord->image ? Storage::url($subrecord->image) : '' }}"
+                            image-url="{{ $editing && $subrecord->image ? \Storage::url($subrecord->image) : '' }}"
                             x-data="imageViewer()"
                             @refresh.window="refreshUrl()"
                         >
@@ -225,7 +233,7 @@
                                 name="subrecordImage"
                                 label="{{ __('crud.subrecords.inputs.image') }}"
                             ></x-inputs.partials.label>
-                            <br/>
+                            <br />
 
                             <!-- Show the image -->
                             <template x-if="imageUrl">
@@ -272,10 +280,9 @@
                         <x-inputs.text
                             name="subrecord.i_p_address"
                             wire:model="subrecord.i_p_address"
-                            x-data
-                            x-mask="999.999.999.999"
                             label="{{ __('crud.subrecords.inputs.i_p_address') }}"
-                            placeholder="000.000.000.000"
+                            placeholder="{{ __('crud.subrecords.inputs.i_p_address') }}"
+                            maxlength="255"
                         ></x-inputs.text>
                     </x-inputs.group>
                     <x-inputs.group class="w-full">
@@ -298,29 +305,7 @@
                     </x-inputs.group>
                 </div>
             </div>
-
-            @include('livewire.record-subrecords-grid-sample')
-
         </div>
-
-        @push('scripts')
-            <script>
-                let mdInput = document.getElementById("subrecord.markdown_text")
-                let rtfInput = document.getElementById("subrecord.w_y_s_i_w_y_g")
-                let mdEditor = document.getElementById("trix_subrecord.markdown_text")
-                let rtfEditor = document.getElementById("trix_subrecord.w_y_s_i_w_y_g")
-
-                Livewire.on('reset-trix', () => {
-                    mdEditor.editor.loadHTML(mdInput.value);
-                    rtfEditor.editor.loadHTML(rtfInput.value);
-                })
-
-                addEventListener("trix-blur", function (event) {
-                @this.set('subrecord.markdown_text', mdInput.getAttribute('value'))
-                @this.set('subrecord.w_y_s_i_w_y_g', rtfInput.getAttribute('value'))
-                })
-            </script>
-        @endpush
 
         <div class="px-6 py-4 bg-gray-50 flex justify-between">
             <button
@@ -346,29 +331,29 @@
     <div class="block w-full overflow-auto scrolling-touch mt-4">
         <table class="w-full max-w-full mb-4 bg-transparent">
             <thead class="text-gray-700">
-            <tr>
-                <th class="px-4 py-3 text-left w-1">
-                    <input
-                        type="checkbox"
-                        wire:model="allSelected"
-                        wire:click="toggleFullSelection"
-                        title="{{ trans('crud.common.select_all') }}"
-                    />
-                </th>
-                <th class="px-4 py-3 text-left">
-                    @lang('crud.record_subrecords.inputs.datetime')
-                </th>
-                <th class="px-4 py-3 text-left">
-                    @lang('crud.record_subrecords.inputs.n_p_w_p')
-                </th>
-                <th class="px-4 py-3 text-left">
-                    @lang('crud.record_subrecords.inputs.i_p_address')
-                </th>
-                <th></th>
-            </tr>
+                <tr>
+                    <th class="px-4 py-3 text-left w-1">
+                        <input
+                            type="checkbox"
+                            wire:model="allSelected"
+                            wire:click="toggleFullSelection"
+                            title="{{ trans('crud.common.select_all') }}"
+                        />
+                    </th>
+                    <th class="px-4 py-3 text-left">
+                        @lang('crud.record_subrecords.inputs.datetime')
+                    </th>
+                    <th class="px-4 py-3 text-left">
+                        @lang('crud.record_subrecords.inputs.n_p_w_p')
+                    </th>
+                    <th class="px-4 py-3 text-left">
+                        @lang('crud.record_subrecords.inputs.i_p_address')
+                    </th>
+                    <th></th>
+                </tr>
             </thead>
             <tbody class="text-gray-600">
-            @foreach ($subrecords as $subrecord)
+                @foreach ($subrecords as $subrecord)
                 <tr class="hover:bg-gray-100">
                     <td class="px-4 py-3 text-left">
                         <input
@@ -378,10 +363,11 @@
                         />
                     </td>
                     <td class="px-4 py-3 text-left">
-                        {{ optional($subrecord->datetime)->format('D, d M Y, H:i') }}
+                        {{ optional($subrecord->datetime)->format('D, d M Y,
+                        H:i') }}
                     </td>
                     <td class="px-4 py-3 text-left">
-                        {{ $subrecord->n_p_w_p ? \Snippet\Helpers\NPWP::format($subrecord->n_p_w_p) : '-' }}
+                        {{ $subrecord->n_p_w_p ?? '-' }}
                     </td>
                     <td class="px-4 py-3 text-left">
                         {{ $subrecord->i_p_address ?? '-' }}
@@ -400,27 +386,27 @@
                                 <i class="icon ion-md-eye"></i>
                             </button>
                             @can('update', $subrecord)
-                                <button
-                                    type="button"
-                                    class="button mr-1"
-                                    wire:click="editSubrecord('{{ $subrecord->id }}')"
-                                >
-                                    <i class="icon ion-md-create"></i>
-                                </button>
+                            <button
+                                type="button"
+                                class="button mr-1"
+                                wire:click="editSubrecord('{{ $subrecord->id }}')"
+                            >
+                                <i class="icon ion-md-create"></i>
+                            </button>
                             @endcan
                         </div>
                     </td>
                 </tr>
-            @endforeach
+                @endforeach
             </tbody>
             <tfoot>
-            <tr>
-                <td colspan="4">
-                    <div class="mt-10 px-4">
-                        {{ $subrecords->render() }}
-                    </div>
-                </td>
-            </tr>
+                <tr>
+                    <td colspan="4">
+                        <div class="mt-10 px-4">
+                            {{ $subrecords->render() }}
+                        </div>
+                    </td>
+                </tr>
             </tfoot>
         </table>
     </div>

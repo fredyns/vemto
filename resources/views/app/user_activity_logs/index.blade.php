@@ -33,13 +33,13 @@
                         </div>
                         <div class="md:w-1/2 text-right">
                             @can('create', App\Models\UserActivityLog::class)
-                                <a
-                                    href="{{ route('user-activity-logs.create') }}"
-                                    class="button button-primary"
-                                >
-                                    <i class="mr-1 icon ion-md-add"></i>
-                                    @lang('crud.common.create')
-                                </a>
+                            <a
+                                href="{{ route('user-activity-logs.create') }}"
+                                class="button button-primary"
+                            >
+                                <i class="mr-1 icon ion-md-add"></i>
+                                @lang('crud.common.create')
+                            </a>
                             @endcan
                         </div>
                     </div>
@@ -48,30 +48,33 @@
                 <div class="block w-full overflow-auto scrolling-touch">
                     <table class="w-full max-w-full mb-4 bg-transparent">
                         <thead class="text-gray-700">
-                        <tr>
-                            <th class="px-4 py-3 text-left">
-                                @lang('crud.user_activity_logs.inputs.at')
-                            </th>
-                            <th class="px-4 py-3 text-left">
-                                @lang('crud.user_activity_logs.inputs.user_id')
-                            </th>
-                            <th class="px-4 py-3 text-left">
-                                @lang('crud.user_activity_logs.inputs.title')
-                            </th>
-                            <th class="px-4 py-3 text-left">
-                                @lang('crud.user_activity_logs.inputs.i_p_address')
-                            </th>
-                            <th></th>
-                        </tr>
+                            <tr>
+                                <th class="px-4 py-3 text-left">
+                                    @lang('crud.user_activity_logs.inputs.at')
+                                </th>
+                                <th class="px-4 py-3 text-left">
+                                    @lang('crud.user_activity_logs.inputs.user_id')
+                                </th>
+                                <th class="px-4 py-3 text-left">
+                                    @lang('crud.user_activity_logs.inputs.title')
+                                </th>
+                                <th class="px-4 py-3 text-left">
+                                    @lang('crud.user_activity_logs.inputs.i_p_address')
+                                </th>
+                                <th></th>
+                            </tr>
                         </thead>
                         <tbody class="text-gray-600">
-                        @forelse($userActivityLogs as $userActivityLog)
+                            @forelse($userActivityLogs as $userActivityLog)
                             <tr class="hover:bg-gray-50">
                                 <td class="px-4 py-3 text-left">
-                                    {{ optional($userActivityLog->at)->format('D, d M Y') }}
+                                    {{
+                                    optional($userActivityLog->at)->format('D, d
+                                    M Y') }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
-                                    {{ optional($userActivityLog->user)->name ?? '-' }}
+                                    {{ optional($userActivityLog->user)->name ??
+                                    '-' }}
                                 </td>
                                 <td class="px-4 py-3 text-left">
                                     {{ $userActivityLog->title ?? '-' }}
@@ -93,51 +96,51 @@
                                         "
                                     >
                                         @can('update', $userActivityLog)
-                                            <a
-                                                href="{{ route('user-activity-logs.edit', $userActivityLog) }}"
-                                                class="mr-1"
+                                        <a
+                                            href="{{ route('user-activity-logs.edit', $userActivityLog) }}"
+                                            class="mr-1"
+                                        >
+                                            <button
+                                                type="button"
+                                                class="button"
                                             >
-                                                <button
-                                                    type="button"
-                                                    class="button"
-                                                >
-                                                    <i
-                                                        class="icon ion-md-create"
-                                                    ></i>
-                                                </button>
-                                            </a>
+                                                <i
+                                                    class="icon ion-md-create"
+                                                ></i>
+                                            </button>
+                                        </a>
                                         @endcan @can('view', $userActivityLog)
-                                            <a
-                                                href="{{ route('user-activity-logs.show', $userActivityLog) }}"
-                                                class="mr-1"
+                                        <a
+                                            href="{{ route('user-activity-logs.show', $userActivityLog) }}"
+                                            class="mr-1"
+                                        >
+                                            <button
+                                                type="button"
+                                                class="button"
                                             >
-                                                <button
-                                                    type="button"
-                                                    class="button"
-                                                >
-                                                    <i class="icon ion-md-eye"></i>
-                                                </button>
-                                            </a>
+                                                <i class="icon ion-md-eye"></i>
+                                            </button>
+                                        </a>
                                         @endcan
                                     </div>
                                 </td>
                             </tr>
-                        @empty
+                            @empty
                             <tr>
                                 <td colspan="5">
                                     @lang('crud.common.no_items_found')
                                 </td>
                             </tr>
-                        @endforelse
+                            @endforelse
                         </tbody>
                         <tfoot>
-                        <tr>
-                            <td colspan="5">
-                                <div class="mt-10 px-4">
-                                    {!! $userActivityLogs->render() !!}
-                                </div>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td colspan="5">
+                                    <div class="mt-10 px-4">
+                                        {!! $userActivityLogs->render() !!}
+                                    </div>
+                                </td>
+                            </tr>
                         </tfoot>
                     </table>
                 </div>

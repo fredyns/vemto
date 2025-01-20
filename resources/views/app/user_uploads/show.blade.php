@@ -39,16 +39,14 @@
                             @lang('crud.user_uploads.inputs.file')
                         </h5>
                         @if($userUpload->file)
-                            <a
-                                href="{{ Storage::url($userUpload->file) }}"
-                                target="blank"
-                            >
-                                <i class="mr-1 icon ion-md-download"></i>
-                                Download
-                            </a>
-                        @else
-                            -
-                        @endif
+                        <a
+                            href="{{ \Storage::url($userUpload->file) }}"
+                            target="blank"
+                        >
+                            <i class="mr-1 icon ion-md-download"></i>
+                            Download
+                        </a>
+                        @else - @endif
                     </div>
                     <div class="mb-4 w-full">
                         <h5 class="font-medium text-gray-700">
@@ -75,7 +73,7 @@
                         <pre>
                                         {{ json_encode($userUpload->metadata) ?? '-' }}
                                     </pre
-                                    >
+                        >
                     </div>
                 </div>
             </x-partials.card>
@@ -91,30 +89,30 @@
                     </a>
 
                     @can('update', $userUpload)
-                        <a
-                            href="{{ route('user-uploads.edit', $userUpload) }}"
-                            class="button"
-                        >
-                            <i class="mr-1 icon ion-md-create"></i>
-                            @lang('crud.common.edit')
-                        </a>
+                    <a
+                        href="{{ route('user-uploads.edit', $userUpload) }}"
+                        class="button"
+                    >
+                        <i class="mr-1 icon ion-md-create"></i>
+                        @lang('crud.common.edit')
+                    </a>
                     @endcan @can('delete', $userUpload)
-                        <div class="float-right">
-                            <form
-                                action="{{ route('user-uploads.destroy', $userUpload) }}"
-                                method="POST"
-                                onsubmit="return confirm('{{ __('crud.common.are_you_sure') }}')"
-                            >
-                                @csrf @method('DELETE')
-                                <button type="submit" class="button">
-                                    <i class="mr-1 icon ion-md-trash text-red-600">
-                                    </i>
-                                    <span class="text-red-600">
+                    <div class="float-right">
+                        <form
+                            action="{{ route('user-uploads.destroy', $userUpload) }}"
+                            method="POST"
+                            onsubmit="return confirm('{{ __('crud.common.are_you_sure') }}')"
+                        >
+                            @csrf @method('DELETE')
+                            <button type="submit" class="button">
+                                <i class="mr-1 icon ion-md-trash text-red-600">
+                                </i>
+                                <span class="text-red-600">
                                     @lang('crud.common.delete')
                                 </span>
-                                </button>
-                            </form>
-                        </div>
+                            </button>
+                        </form>
+                    </div>
                     @endcan
                 </div>
             </x-partials.card>

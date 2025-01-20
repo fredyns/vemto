@@ -15,7 +15,7 @@ class UserGalleryPolicy
      */
     public function viewAny(User $user): bool
     {
-        return true;
+        return $user->hasPermissionTo('list usergalleries');
     }
 
     /**
@@ -23,7 +23,7 @@ class UserGalleryPolicy
      */
     public function view(User $user, UserGallery $model): bool
     {
-        return true;
+        return $user->hasPermissionTo('view usergalleries');
     }
 
     /**
@@ -31,7 +31,7 @@ class UserGalleryPolicy
      */
     public function create(User $user): bool
     {
-        return true;
+        return $user->hasPermissionTo('create usergalleries');
     }
 
     /**
@@ -39,7 +39,7 @@ class UserGalleryPolicy
      */
     public function update(User $user, UserGallery $model): bool
     {
-        return true;
+        return $user->hasPermissionTo('update usergalleries');
     }
 
     /**
@@ -47,7 +47,7 @@ class UserGalleryPolicy
      */
     public function delete(User $user, UserGallery $model): bool
     {
-        return true;
+        return $user->hasPermissionTo('delete usergalleries');
     }
 
     /**
@@ -55,7 +55,7 @@ class UserGalleryPolicy
      */
     public function deleteAny(User $user): bool
     {
-        return true;
+        return $user->hasPermissionTo('delete usergalleries');
     }
 
     /**

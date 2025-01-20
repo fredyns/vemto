@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Models\User;
 use App\Models\Subrecord;
+use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class SubrecordPolicy
@@ -15,7 +15,7 @@ class SubrecordPolicy
      */
     public function viewAny(User $user): bool
     {
-        return true;
+        return $user->hasPermissionTo('list subrecords');
     }
 
     /**
@@ -23,7 +23,7 @@ class SubrecordPolicy
      */
     public function view(User $user, Subrecord $model): bool
     {
-        return true;
+        return $user->hasPermissionTo('view subrecords');
     }
 
     /**
@@ -31,7 +31,7 @@ class SubrecordPolicy
      */
     public function create(User $user): bool
     {
-        return true;
+        return $user->hasPermissionTo('create subrecords');
     }
 
     /**
@@ -39,7 +39,7 @@ class SubrecordPolicy
      */
     public function update(User $user, Subrecord $model): bool
     {
-        return true;
+        return $user->hasPermissionTo('update subrecords');
     }
 
     /**
@@ -47,7 +47,7 @@ class SubrecordPolicy
      */
     public function delete(User $user, Subrecord $model): bool
     {
-        return true;
+        return $user->hasPermissionTo('delete subrecords');
     }
 
     /**
@@ -55,7 +55,7 @@ class SubrecordPolicy
      */
     public function deleteAny(User $user): bool
     {
-        return true;
+        return $user->hasPermissionTo('delete subrecords');
     }
 
     /**
