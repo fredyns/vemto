@@ -68,6 +68,17 @@ class <$ controllerName $> extends Controller
             <% } %>
         ]);
         <% } %>
+        <% if(this.crud.hasJsonInputs()) { %>
+            <% for(let input of this.crud.getJsonInputs()) { %>
+            $validated['<$ input.name $>'] = json_decode($validated['<$ input.name $>'], true);
+            <% } %>
+        <% } %>
+        <% for (let field of this.crud.model.validFields()) { %>
+            <% if (field.type == "text") { %>
+                $validated['<$ field.name $>'] = StringCleaner::forRTF($validated['<$ field.name $>']);
+            <% } %>
+        <% } %>
+
         <###>
         <% if(this.crud.hasPasswordInputs()) { %>
 
@@ -94,21 +105,8 @@ class <$ controllerName $> extends Controller
 
             <% } %>
         <% } %>
+
         <###>
-        <% if(this.crud.hasJsonInputs()) { %>
-            <###>
-            <% for(let input of this.crud.getJsonInputs()) { %>
-            $validated['<$ input.name $>'] = json_decode($validated['<$ input.name $>'], true);
-
-            <% } %>
-        <% } %>
-
-        <% for (let field of this.crud.model.validFields()) { %>
-            <% if (field.type == "text") { %>
-        $validated['<$ field.name $>'] = StringCleaner::forRTF($validated['<$ field.name $>']);
-            <% } %>
-        <% } %>
-
         $<$ crudModelNameCamelCase $> = <$ modelName $>::create($validated);
 
         <% if(this.generatorSettings.modules.permissions && this.crud.model.isAuthModel()) { %>
@@ -148,6 +146,16 @@ class <$ controllerName $> extends Controller
             <% } %>
         ]);
         <% } %>
+        <% if(this.crud.hasJsonInputs()) { %>
+            <% for(let input of this.crud.getJsonInputs()) { %>
+                $validated['<$ input.name $>'] = json_decode($validated['<$ input.name $>'], true);
+            <% } %>
+        <% } %>
+        <% for (let field of this.crud.model.validFields()) { %>
+            <% if (field.type == "text") { %>
+                $validated['<$ field.name $>'] = StringCleaner::forRTF($validated['<$ field.name $>']);
+            <% } %>
+        <% } %>
 
         <% if(this.crud.hasPasswordInputs()) { %>
             <###>
@@ -174,21 +182,8 @@ class <$ controllerName $> extends Controller
 
             <% } %>
         <% } %>
+
         <###>
-        <% if(this.crud.hasJsonInputs()) { %>
-            <###>
-            <% for(let input of this.crud.getJsonInputs()) { %>
-            $validated['<$ input.name $>'] = json_decode($validated['<$ input.name $>'], true);
-
-            <% } %>
-        <% } %>
-
-        <% for (let field of this.crud.model.validFields()) { %>
-            <% if (field.type == "text") { %>
-        $validated['<$ field.name $>'] = StringCleaner::forRTF($validated['<$ field.name $>']);
-            <% } %>
-        <% } %>
-
         $<$ crudModelNameCamelCase $>->update($validated);
 
         <% if(this.generatorSettings.modules.permissions && this.crud.model.isAuthModel()) { %>

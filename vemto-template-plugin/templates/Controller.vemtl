@@ -148,6 +148,18 @@ class <$ this.crud.getControllerName() $> extends Controller
             <% } %>
         ]);
         <% } %>
+        <# Checking for CRUD json inputs #>
+        <% if(this.crud.hasJsonInputs()) { %>
+            <% for(let input of this.crud.getJsonInputs()) { %>
+            $validated['<$ input.name $>'] = json_decode($validated['<$ input.name $>'], true);
+            <% } %>
+        <% } %>
+        <% for (let field of this.model.validFields()) { %>
+            <% if (field.type == "text") { %>
+        $validated['<$ field.name $>'] = StringCleaner::forRTF($validated['<$ field.name $>']);
+            <% } %>
+        <% } %>
+
         <# --- #>
         <# Checking for CRUD password inputs #>
         <% if(this.crud.hasPasswordInputs()) { %>
@@ -175,20 +187,6 @@ class <$ this.crud.getControllerName() $> extends Controller
             <% } %>
         <% } %>
         <# --- #>
-        <# Checking for CRUD json inputs #>
-        <% if(this.crud.hasJsonInputs()) { %>
-            <% for(let input of this.crud.getJsonInputs()) { %>
-            $validated['<$ input.name $>'] = json_decode($validated['<$ input.name $>'], true);
-
-            <% } %>
-        <% } %>
-
-        <% for (let field of this.model.validFields()) { %>
-            <% if (field.type == "text") { %>
-        $validated['<$ field.name $>'] = StringCleaner::forRTF($validated['<$ field.name $>']);
-            <% } %>
-        <% } %>
-
         $<$ modelNameCamelCase $> = <$ this.model.name $>::create($validated);
 
         <# Checking for CRUD BelongsToMany relationships #>
@@ -291,6 +289,20 @@ class <$ this.crud.getControllerName() $> extends Controller
         ]);
         <% } %>
         <# --- #>
+        <# Checking for CRUD json inputs #>
+        <% if(this.crud.hasJsonInputs()) { %>
+            <% for(let input of this.crud.getJsonInputs()) { %>
+            $validated['<$ input.name $>'] = json_decode($validated['<$ input.name $>'], true);
+            <% } %>
+        <% } %>
+
+        <% for (let field of this.model.validFields()) { %>
+            <% if (field.type == "text") { %>
+        $validated['<$ field.name $>'] = StringCleaner::forRTF($validated['<$ field.name $>']);
+            <% } %>
+        <% } %>
+
+        <# --- #>
         <# Checking for CRUD password inputs #>
         <% if(this.crud.hasPasswordInputs()) { %>
 
@@ -319,14 +331,6 @@ class <$ this.crud.getControllerName() $> extends Controller
             <% } %>
         <% } %>
         <# --- #>
-        <# Checking for CRUD json inputs #>
-        <% if(this.crud.hasJsonInputs()) { %>
-            <% for(let input of this.crud.getJsonInputs()) { %>
-            $validated['<$ input.name $>'] = json_decode($validated['<$ input.name $>'], true);
-
-            <% } %>
-        <% } %>
-        <# --- #>
         <# Checking for CRUD BelongsToMany relationships #>
         <% if(this.crud.hasBelongsToManyCheckboxGroups()) { %>
             <% for(let component of this.crud.getBelongsToManyCheckboxGroupsForEditForm()) { %>
@@ -334,12 +338,6 @@ class <$ this.crud.getControllerName() $> extends Controller
                 <% let relationshipModelPluralCamelCase = component.relationship.model.plural.case('camelCase') %>
                 <###>
                 $<$ modelNameCamelCase $>-><$ relationshipModelPluralCamelCase $>()->sync($request-><$ relationshipModelPluralCamelCase $>);
-            <% } %>
-        <% } %>
-
-        <% for (let field of this.model.validFields()) { %>
-            <% if (field.type == "text") { %>
-        $validated['<$ field.name $>'] = StringCleaner::forRTF($validated['<$ field.name $>']);
             <% } %>
         <% } %>
 
