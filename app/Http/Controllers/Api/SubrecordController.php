@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
+use App\Http\Requests\SubrecordStoreRequest;
+use App\Http\Resources\SubrecordCollection;
+use App\Http\Resources\SubrecordResource;
 use App\Models\Subrecord;
+use fredyns\stringcleaner\StringCleaner;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Resources\SubrecordResource;
-use App\Http\Resources\SubrecordCollection;
-use App\Http\Requests\SubrecordStoreRequest;
-use App\Http\Requests\SubrecordUpdateRequest;
 
 class SubrecordController extends Controller
 {
@@ -20,7 +20,9 @@ class SubrecordController extends Controller
 
         $search = (string)$request->get('search', '');
 
-        if (!$search or $search == 'null') $search = '';
+        if (!$search or $search == 'null') {
+            $search = '';
+        }
 
         $subrecords = Subrecord::search($search)
             ->latest()
@@ -34,6 +36,13 @@ class SubrecordController extends Controller
         $this->authorize('create', Subrecord::class);
 
         $validated = $request->validated();
+        $validated['markdown_text'] = StringCleaner::forRTF(
+            $validated['markdown_text']
+        );
+        $validated['w_y_s_i_w_y_g'] = StringCleaner::forRTF(
+            $validated['w_y_s_i_w_y_g']
+        );
+
         if ($request->hasFile('file')) {
             $validated['file'] = $request->file('file')->store('public');
         }
@@ -81,6 +90,13 @@ class SubrecordController extends Controller
 
             $validated['image'] = $request->file('image')->store('public');
         }
+
+        $validated['markdown_text'] = StringCleaner::forRTF(
+            $validated['markdown_text']
+        );
+        $validated['w_y_s_i_w_y_g'] = StringCleaner::forRTF(
+            $validated['w_y_s_i_w_y_g']
+        );
 
         $subrecord->update($validated);
 

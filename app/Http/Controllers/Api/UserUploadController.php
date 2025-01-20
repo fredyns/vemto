@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\UserUpload;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Storage;
-use App\Http\Resources\UserUploadResource;
-use App\Http\Resources\UserUploadCollection;
 use App\Http\Requests\UserUploadStoreRequest;
 use App\Http\Requests\UserUploadUpdateRequest;
+use App\Http\Resources\UserUploadCollection;
+use App\Http\Resources\UserUploadResource;
+use App\Models\UserUpload;
+use fredyns\stringcleaner\StringCleaner;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Storage;
 
 class UserUploadController extends Controller
 {
@@ -20,7 +21,9 @@ class UserUploadController extends Controller
 
         $search = (string)$request->get('search', '');
 
-        if (!$search or $search == 'null') $search = '';
+        if (!$search or $search == 'null') {
+            $search = '';
+        }
 
         $userUploads = UserUpload::search($search)
             ->latest('id')
@@ -34,11 +37,14 @@ class UserUploadController extends Controller
         $this->authorize('create', UserUpload::class);
 
         $validated = $request->validated();
+        $validated['metadata'] = json_decode($validated['metadata'], true);
+        $validated['description'] = StringCleaner::forRTF(
+            $validated['description']
+        );
+
         if ($request->hasFile('file')) {
             $validated['file'] = $request->file('file')->store('public');
         }
-
-        $validated['metadata'] = json_decode($validated['metadata'], true);
 
         $userUpload = UserUpload::create($validated);
 
@@ -63,6 +69,10 @@ class UserUploadController extends Controller
         $this->authorize('update', $userUpload);
 
         $validated = $request->validated();
+        $validated['metadata'] = json_decode($validated['metadata'], true);
+        $validated['description'] = StringCleaner::forRTF(
+            $validated['description']
+        );
 
         if ($request->hasFile('file')) {
             if ($userUpload->file) {
@@ -71,8 +81,6 @@ class UserUploadController extends Controller
 
             $validated['file'] = $request->file('file')->store('public');
         }
-
-        $validated['metadata'] = json_decode($validated['metadata'], true);
 
         $userUpload->update($validated);
 

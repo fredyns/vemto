@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Snippet\Helpers\NPWP;
 use App\Http\Requests\RecordStoreRequest;
 use App\Http\Requests\RecordUpdateRequest;
 use App\Models\Record;
@@ -23,6 +22,10 @@ class RecordController extends Controller
         $this->authorize('view-any', Record::class);
 
         $search = (string)$request->get('search', '');
+
+        if (!$search or $search == 'null') {
+            $search = '';
+        }
 
         $records = Record::search($search)
             ->latest()
@@ -52,6 +55,14 @@ class RecordController extends Controller
         $this->authorize('create', Record::class);
 
         $validated = $request->validated();
+        $validated['text'] = StringCleaner::forRTF($validated['text']);
+        $validated['markdown_text'] = StringCleaner::forRTF(
+            $validated['markdown_text']
+        );
+        $validated['w_y_s_i_w_y_g'] = StringCleaner::forRTF(
+            $validated['w_y_s_i_w_y_g']
+        );
+
         $uploadPath = 'public/records/' . date('Y/m/d');
         if ($request->hasFile('file')) {
             $validated['file'] = $request->file('file')->store($uploadPath);
@@ -61,9 +72,6 @@ class RecordController extends Controller
             $validated['image'] = $request->file('image')->store($uploadPath);
         }
 
-        $validated['markdown_text'] = StringCleaner::forRTF($validated['markdown_text']);
-        $validated['w_y_s_i_w_y_g'] = StringCleaner::forRTF($validated['w_y_s_i_w_y_g']);
-        $validated['n_p_w_p'] = NPWP::native($validated['n_p_w_p']);
         $record = Record::create($validated);
 
         return redirect()
@@ -104,6 +112,14 @@ class RecordController extends Controller
         $this->authorize('update', $record);
 
         $validated = $request->validated();
+        $validated['text'] = StringCleaner::forRTF($validated['text']);
+        $validated['markdown_text'] = StringCleaner::forRTF(
+            $validated['markdown_text']
+        );
+        $validated['w_y_s_i_w_y_g'] = StringCleaner::forRTF(
+            $validated['w_y_s_i_w_y_g']
+        );
+
         $uploadPath = 'public/records/' . date('Y/m/d');
         if ($request->hasFile('file')) {
             if ($record->file) {
@@ -121,9 +137,6 @@ class RecordController extends Controller
             $validated['image'] = $request->file('image')->store($uploadPath);
         }
 
-        $validated['markdown_text'] = StringCleaner::forRTF($validated['markdown_text']);
-        $validated['w_y_s_i_w_y_g'] = StringCleaner::forRTF($validated['w_y_s_i_w_y_g']);
-        $validated['n_p_w_p'] = NPWP::native($validated['n_p_w_p']);
         $record->update($validated);
 
         return redirect()

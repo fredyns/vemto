@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use Illuminate\View\View;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdateRequest;
+use App\Models\User;
+use fredyns\stringcleaner\StringCleaner;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\View\View;
 
 class UserController extends Controller
 {
@@ -20,6 +21,10 @@ class UserController extends Controller
         $this->authorize('view-any', User::class);
 
         $search = (string)$request->get('search', '');
+
+        if (!$search or $search == 'null') {
+            $search = '';
+        }
 
         $users = User::search($search)
             ->latest()

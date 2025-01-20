@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use Illuminate\View\View;
-use Illuminate\Http\Request;
-use App\Models\UserActivityLog;
-use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\UserActivityLogStoreRequest;
 use App\Http\Requests\UserActivityLogUpdateRequest;
+use App\Models\User;
+use App\Models\UserActivityLog;
+use fredyns\stringcleaner\StringCleaner;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class UserActivityLogController extends Controller
 {
@@ -20,6 +21,10 @@ class UserActivityLogController extends Controller
         $this->authorize('view-any', UserActivityLog::class);
 
         $search = (string)$request->get('search', '');
+
+        if (!$search or $search == 'null') {
+            $search = '';
+        }
 
         $userActivityLogs = UserActivityLog::search($search)
             ->latest('id')
@@ -54,6 +59,7 @@ class UserActivityLogController extends Controller
         $this->authorize('create', UserActivityLog::class);
 
         $validated = $request->validated();
+        $validated['message'] = StringCleaner::forRTF($validated['message']);
 
         $userActivityLog = UserActivityLog::create($validated);
 
@@ -104,6 +110,7 @@ class UserActivityLogController extends Controller
         $this->authorize('update', $userActivityLog);
 
         $validated = $request->validated();
+        $validated['message'] = StringCleaner::forRTF($validated['message']);
 
         $userActivityLog->update($validated);
 

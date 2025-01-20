@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
+use App\Http\Requests\RecordStoreRequest;
+use App\Http\Requests\RecordUpdateRequest;
+use App\Http\Resources\RecordCollection;
+use App\Http\Resources\RecordResource;
 use App\Models\Record;
 use fredyns\stringcleaner\StringCleaner;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use App\Http\Controllers\Controller;
-use App\Http\Resources\RecordResource;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Resources\RecordCollection;
-use App\Http\Requests\RecordStoreRequest;
-use App\Http\Requests\RecordUpdateRequest;
 
 class RecordController extends Controller
 {
@@ -21,7 +21,9 @@ class RecordController extends Controller
 
         $search = (string)$request->get('search', '');
 
-        if (!$search or $search == 'null') $search = '';
+        if (!$search or $search == 'null') {
+            $search = '';
+        }
 
         $records = Record::search($search)
             ->latest()
@@ -35,6 +37,14 @@ class RecordController extends Controller
         $this->authorize('create', Record::class);
 
         $validated = $request->validated();
+        $validated['text'] = StringCleaner::forRTF($validated['text']);
+        $validated['markdown_text'] = StringCleaner::forRTF(
+            $validated['markdown_text']
+        );
+        $validated['w_y_s_i_w_y_g'] = StringCleaner::forRTF(
+            $validated['w_y_s_i_w_y_g']
+        );
+
         if ($request->hasFile('file')) {
             $validated['file'] = $request->file('file')->store('public');
         }
@@ -43,7 +53,6 @@ class RecordController extends Controller
             $validated['image'] = $request->file('image')->store('public');
         }
 
-        $validated['w_y_s_i_w_y_g'] = StringCleaner::forRTF($validated['w_y_s_i_w_y_g']);
         $record = Record::create($validated);
 
         return new RecordResource($record);
@@ -81,7 +90,14 @@ class RecordController extends Controller
             $validated['image'] = $request->file('image')->store('public');
         }
 
-        $validated['w_y_s_i_w_y_g'] = StringCleaner::forRTF($validated['w_y_s_i_w_y_g']);
+        $validated['text'] = StringCleaner::forRTF($validated['text']);
+        $validated['markdown_text'] = StringCleaner::forRTF(
+            $validated['markdown_text']
+        );
+        $validated['w_y_s_i_w_y_g'] = StringCleaner::forRTF(
+            $validated['w_y_s_i_w_y_g']
+        );
+
         $record->update($validated);
 
         return new RecordResource($record);

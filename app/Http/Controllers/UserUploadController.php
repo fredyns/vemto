@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use Illuminate\View\View;
-use App\Models\UserUpload;
-use Illuminate\Http\Request;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\UserUploadStoreRequest;
 use App\Http\Requests\UserUploadUpdateRequest;
+use App\Models\User;
+use App\Models\UserUpload;
+use fredyns\stringcleaner\StringCleaner;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\View\View;
 
 class UserUploadController extends Controller
 {
@@ -21,6 +22,10 @@ class UserUploadController extends Controller
         $this->authorize('view-any', UserUpload::class);
 
         $search = (string)$request->get('search', '');
+
+        if (!$search or $search == 'null') {
+            $search = '';
+        }
 
         $userUploads = UserUpload::search($search)
             ->latest('id')
@@ -50,11 +55,15 @@ class UserUploadController extends Controller
         $this->authorize('create', UserUpload::class);
 
         $validated = $request->validated();
-        if ($request->hasFile('file')) {
-            $validated['file'] = $request->file('file')->store('public');
-        }
-
         $validated['metadata'] = json_decode($validated['metadata'], true);
+        $validated['description'] = StringCleaner::forRTF(
+            $validated['description']
+        );
+
+        $uploadPath = 'public/user-uploads/' . date('Y/m/d');
+        if ($request->hasFile('file')) {
+            $validated['file'] = $request->file('file')->store($uploadPath);
+        }
 
         $userUpload = UserUpload::create($validated);
 
@@ -96,15 +105,19 @@ class UserUploadController extends Controller
         $this->authorize('update', $userUpload);
 
         $validated = $request->validated();
+        $validated['metadata'] = json_decode($validated['metadata'], true);
+        $validated['description'] = StringCleaner::forRTF(
+            $validated['description']
+        );
+
+        $uploadPath = 'public/user-uploads/' . date('Y/m/d');
         if ($request->hasFile('file')) {
             if ($userUpload->file) {
                 Storage::delete($userUpload->file);
             }
 
-            $validated['file'] = $request->file('file')->store('public');
+            $validated['file'] = $request->file('file')->store($uploadPath);
         }
-
-        $validated['metadata'] = json_decode($validated['metadata'], true);
 
         $userUpload->update($validated);
 

@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\UserGallery;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Storage;
-use App\Http\Resources\UserGalleryResource;
-use App\Http\Resources\UserGalleryCollection;
 use App\Http\Requests\UserGalleryStoreRequest;
 use App\Http\Requests\UserGalleryUpdateRequest;
+use App\Http\Resources\UserGalleryCollection;
+use App\Http\Resources\UserGalleryResource;
+use App\Models\UserGallery;
+use fredyns\stringcleaner\StringCleaner;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Storage;
 
 class UserGalleryController extends Controller
 {
@@ -20,7 +21,9 @@ class UserGalleryController extends Controller
 
         $search = (string)$request->get('search', '');
 
-        if (!$search or $search == 'null') $search = '';
+        if (!$search or $search == 'null') {
+            $search = '';
+        }
 
         $userGalleries = UserGallery::search($search)
             ->latest('id')
@@ -34,6 +37,11 @@ class UserGalleryController extends Controller
         $this->authorize('create', UserGallery::class);
 
         $validated = $request->validated();
+        $validated['metadata'] = json_decode($validated['metadata'], true);
+        $validated['description'] = StringCleaner::forRTF(
+            $validated['description']
+        );
+
         if ($request->hasFile('file')) {
             $validated['file'] = $request->file('file')->store('public');
         }
@@ -44,7 +52,6 @@ class UserGalleryController extends Controller
                 ->store('public');
         }
 
-        $validated['metadata'] = json_decode($validated['metadata'], true);
 
         $userGallery = UserGallery::create($validated);
 
@@ -69,6 +76,11 @@ class UserGalleryController extends Controller
         $this->authorize('update', $userGallery);
 
         $validated = $request->validated();
+        $validated['metadata'] = json_decode($validated['metadata'], true);
+        $validated['description'] = StringCleaner::forRTF(
+            $validated['description']
+        );
+
 
         if ($request->hasFile('file')) {
             if ($userGallery->file) {
@@ -87,8 +99,6 @@ class UserGalleryController extends Controller
                 ->file('thumbnail')
                 ->store('public');
         }
-
-        $validated['metadata'] = json_decode($validated['metadata'], true);
 
         $userGallery->update($validated);
 

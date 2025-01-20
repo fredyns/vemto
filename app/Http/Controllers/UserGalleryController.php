@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use Illuminate\View\View;
-use App\Models\UserGallery;
-use Illuminate\Http\Request;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\UserGalleryStoreRequest;
 use App\Http\Requests\UserGalleryUpdateRequest;
+use App\Models\User;
+use App\Models\UserGallery;
+use fredyns\stringcleaner\StringCleaner;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\View\View;
 
 class UserGalleryController extends Controller
 {
@@ -21,6 +22,10 @@ class UserGalleryController extends Controller
         $this->authorize('view-any', UserGallery::class);
 
         $search = (string)$request->get('search', '');
+
+        if (!$search or $search == 'null') {
+            $search = '';
+        }
 
         $userGalleries = UserGallery::search($search)
             ->latest('id')
@@ -53,17 +58,21 @@ class UserGalleryController extends Controller
         $this->authorize('create', UserGallery::class);
 
         $validated = $request->validated();
+        $validated['metadata'] = json_decode($validated['metadata'], true);
+        $validated['description'] = StringCleaner::forRTF(
+            $validated['description']
+        );
+
+        $uploadPath = 'public/user-galleries/' . date('Y/m/d');
         if ($request->hasFile('file')) {
-            $validated['file'] = $request->file('file')->store('public');
+            $validated['file'] = $request->file('file')->store($uploadPath);
         }
 
         if ($request->hasFile('thumbnail')) {
             $validated['thumbnail'] = $request
                 ->file('thumbnail')
-                ->store('public');
+                ->store($uploadPath);
         }
-
-        $validated['metadata'] = json_decode($validated['metadata'], true);
 
         $userGallery = UserGallery::create($validated);
 
@@ -105,12 +114,18 @@ class UserGalleryController extends Controller
         $this->authorize('update', $userGallery);
 
         $validated = $request->validated();
+        $validated['metadata'] = json_decode($validated['metadata'], true);
+        $validated['description'] = StringCleaner::forRTF(
+            $validated['description']
+        );
+
+        $uploadPath = 'public/user-galleries/' . date('Y/m/d');
         if ($request->hasFile('file')) {
             if ($userGallery->file) {
                 Storage::delete($userGallery->file);
             }
 
-            $validated['file'] = $request->file('file')->store('public');
+            $validated['file'] = $request->file('file')->store($uploadPath);
         }
 
         if ($request->hasFile('thumbnail')) {
@@ -120,10 +135,8 @@ class UserGalleryController extends Controller
 
             $validated['thumbnail'] = $request
                 ->file('thumbnail')
-                ->store('public');
+                ->store($uploadPath);
         }
-
-        $validated['metadata'] = json_decode($validated['metadata'], true);
 
         $userGallery->update($validated);
 
