@@ -38,8 +38,6 @@ Route::get('/email/verify', function () {
     ->middleware('auth')
     ->name('verification.notice');
 
-Route::any('/home', fn() => redirect('/dashboard'));
-
 Route::get('/email/verify/{id}/{hash}', function (
     EmailVerificationRequest $request
 ) {
