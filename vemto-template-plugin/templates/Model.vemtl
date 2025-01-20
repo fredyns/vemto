@@ -46,6 +46,7 @@ use <$ modelsNamespace $>\Scopes\Searchable;
 use <$ correctUuidNamespace $>;
 <% } %>
 <# --- #>
+use Snippet\Helpers\JsonField;
 
 /**
  * This is the model class for table "<$ this.model.table $>".
@@ -173,6 +174,18 @@ class <$ modelNamePascalCase $> extends Model {
             <% } %>
         <% } %>
     ];
+    <% } else { this.removeLastLineBreak() } %>
+
+    <% if(this.model.hasCastFields()) { %>
+        <% for (let field of this.model.validFields()) { %>
+            <% if (field.type == "json") { %>
+    public function <$ field.name $>($key = null, $default = null)
+    {
+        return JsonField::getField($this, '<$ field.name $>', $key, $default);
+    }
+
+            <% } %>
+        <% } %>
     <% } else { this.removeLastLineBreak() } %>
 
     <% if(this.model.basicRelationships.length) { %>
