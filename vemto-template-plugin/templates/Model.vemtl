@@ -47,6 +47,11 @@ use <$ correctUuidNamespace $>;
 <% } %>
 <# --- #>
 use Snippet\Helpers\JsonField;
+<% if(isAuthModel) { %>
+use Laravel\Jetstream\HasTeams;
+use Spatie\Permission\Traits\HasPermissions;
+use Spatie\Permission\Traits\HasRoles;
+<% } %>
 
 /**
  * This is the model class for table "<$ this.model.table $>".
@@ -90,32 +95,38 @@ class <$ modelNamePascalCase $> extends Authenticatable implements MustVerifyEma
 <% } else { %>
 class <$ modelNamePascalCase $> extends Model {
 <% } %>
-    <% if(isAuthModel) { %>
-    use Notifiable;
-    <% if(this.generatorSettings.modules.permissions) { %>
-    use HasRoles;
-    <% } %>
     <% if(this.generatorSettings.base.apiSanctumAuth) { %>
     use HasApiTokens;
     <% } %>
-    <% if(jetstreamEnabled) { %>
-    use HasApiTokens;
+    <% if(this.project.laravelVersion > 7) { %>
+    use HasFactory;
+    <% } %>
+    <% if(isAuthModel) { %>
+    use HasPermissions;
+    <% } %>
     use HasProfilePhoto;
-    use TwoFactorAuthenticatable;
+    <% if(this.generatorSettings.modules.permissions) { %>
+    use HasRoles;
     <% } %>
-    <% } %>
-    <% if(this.model.softDeletes) { %>
-    use SoftDeletes;
+    <% if(isAuthModel) { %>
+    use HasTeams;
     <% } %>
     <% if(this.model.hasUuidPrimaryKey()) { %>
         <% let correctUuidTrait = this.project.laravelVersion < 9 ? 'HasUUID' : 'HasUuids' %>
         <###>
     use <$ correctUuidTrait $>;
     <% } %>
-    <% if(this.project.laravelVersion > 7) { %>
-    use HasFactory;
+    <% if(isAuthModel) { %>
+    use Notifiable;
     <% } %>
     use Searchable;
+    <% if(this.model.softDeletes) { %>
+    use SoftDeletes;
+    <% } %>
+    <% if(isAuthModel && jetstreamEnabled) { %>
+        use TwoFactorAuthenticatable;
+    <% } %>
+
     <% if(this.project.settings.massAssignment == 'guarded') { %>
 
     protected $guarded = [
@@ -185,6 +196,40 @@ class <$ modelNamePascalCase $> extends Model {
     }
 
             <% } %>
+        <% } %>
+    <% } else { this.removeLastLineBreak() } %>
+
+    <% if(isAuthModel) { %>
+    /**
+     * Get the user's "personal" team.
+     *
+     * @return \App\Models\Team
+     */
+    public function personalTeam()
+    {
+        $personalTeam = $this->ownedTeams->where('personal_team', true)->first();
+
+        if (empty($personalTeam)) {
+            $personalTeam = $this->ownedTeams()->save(Team::forceCreate([
+                'user_id' => $this->id,
+                'name' => explode(' ', $this->name, 2)[0] . "'s Team",
+                'personal_team' => true,
+            ]));
+        }
+
+        return $personalTeam;
+    }
+
+        <% if(this.generatorSettings.modules.permissions) { %>
+        public function isSuperAdmin(): bool
+        {
+            return $this->hasRole('super-admin');
+        }
+        <% } else { %>
+        public function isSuperAdmin(): bool
+        {
+            return in_array($this->email, config('auth.super_admins'));
+        }
         <% } %>
     <% } else { this.removeLastLineBreak() } %>
 
@@ -322,17 +367,4 @@ class <$ modelNamePascalCase $> extends Model {
         <% } %>
     <% } else { this.removeLastLineBreak() } %>
 
-    <% if(isAuthModel) { %>
-        <% if(this.generatorSettings.modules.permissions) { %>
-        public function isSuperAdmin(): bool
-        {
-            return $this->hasRole('super-admin');
-        }
-        <% } else { %>
-        public function isSuperAdmin(): bool
-        {
-            return in_array($this->email, config('auth.super_admins'));
-        }
-        <% } %>
-    <% } else { this.removeLastLineBreak() } %>
 }
