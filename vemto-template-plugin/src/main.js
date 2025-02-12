@@ -102,6 +102,8 @@ module.exports = (vemto) => {
         composerPackages(packages) {
             // Adding packages
             packages.require['fredyns/stringcleaner'] = '^1.2'
+            packages.require['laravel/jetstream'] = '*'
+            packages.require['livewire/livewire'] = '^3.0'
 
             // adding namespace
             packages.autoload = {
@@ -121,6 +123,7 @@ module.exports = (vemto) => {
             // Adding packages
             packages.dependencies['@alpinejs/mask'] = '^3.14.1'
             packages.devDependencies['postcss-import'] = '^16.1.0'
+            packages.devDependencies['tailwindcss'] = '^3.1.0'
 
             return packages
         },
