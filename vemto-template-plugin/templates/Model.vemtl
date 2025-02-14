@@ -8,9 +8,7 @@
 
 namespace <$ modelsNamespace $>;
 
-<% if(this.project.laravelVersion > 7) { %>
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-<% } %>
 <# --- #>
 <# Add use statements if it is an auth model #>
 <% if(isAuthModel) { %>
@@ -40,11 +38,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Datetime;
 use <$ modelsNamespace $>\Scopes\Searchable;
 <# --- #>
-<% if(this.model.hasUuidPrimaryKey()) { %>
-    <% let correctUuidNamespace = this.project.laravelVersion < 9 ? 'App\\Traits\\HasUUID' : 'Illuminate\\Database\\Eloquent\\Concerns\\HasUuids' %>
-    <###>
-use <$ correctUuidNamespace $>;
-<% } %>
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 <# --- #>
 use Snippet\Helpers\JsonField;
 <% if(isAuthModel) { %>
@@ -105,10 +99,8 @@ class <$ modelNamePascalCase $> extends Model {
     use HasPermissions;
     <% } %>
     use HasProfilePhoto;
-    <% if(this.generatorSettings.modules.permissions) { %>
-    use HasRoles;
-    <% } %>
     <% if(isAuthModel) { %>
+    use HasRoles;
     use HasTeams;
     <% } %>
     <% if(this.model.hasUuidPrimaryKey()) { %>
