@@ -92,13 +92,11 @@ class <$ modelNamePascalCase $> extends Model {
     <% if(this.generatorSettings.base.apiSanctumAuth) { %>
     use HasApiTokens;
     <% } %>
-    <% if(this.project.laravelVersion > 7) { %>
     use HasFactory;
-    <% } %>
     <% if(isAuthModel) { %>
     use HasPermissions;
-    <% } %>
     use HasProfilePhoto;
+    <% } %>
     <% if(isAuthModel) { %>
     use HasRoles;
     use HasTeams;

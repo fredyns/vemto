@@ -8,6 +8,7 @@ composer update
 npm update
 npm run build
 php artisan key:generate
+php artisan storage:link
 
 # app codes
 

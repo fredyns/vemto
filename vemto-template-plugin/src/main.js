@@ -104,6 +104,7 @@ module.exports = (vemto) => {
             packages.require['fredyns/stringcleaner'] = '^1.2'
             packages.require['laravel/jetstream'] = '*'
             packages.require['livewire/livewire'] = '^3.0'
+            packages.require['spatie/laravel-permission'] = '^6.13'
 
             // adding namespace
             packages.autoload = {
