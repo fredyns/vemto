@@ -7,6 +7,7 @@ use Datetime;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * This is the model class for table "user_activity_logs".
@@ -47,6 +48,18 @@ class UserActivityLog extends Model
     protected $casts = [
         'at' => 'datetime',
     ];
+
+    public static function write($title, $message = null, $link = null)
+    {
+        return static::create([
+            'at' => now(),
+            'user_id' => Auth::id(),
+            'title' => $title,
+            'link' => $link,
+            'message' => $message,
+            'i_p_address' => request()->ip(),
+        ]);
+    }
 
     public function user()
     {
