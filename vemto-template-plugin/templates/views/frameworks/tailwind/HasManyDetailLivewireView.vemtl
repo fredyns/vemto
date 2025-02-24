@@ -31,7 +31,7 @@
                             <# Input types #>
                             <div class="mb-4 <$ this.project.css().getReponsiveClassesForInput(input) $>">
                                 <h5 class="font-medium text-gray-700">
-                                    @lang('crud.<$ modelPluralParamCase $>.inputs.<$ input.name $>')
+                                    @lang('crud.<$ this.relatedCrud.name.case('snakeCase') $>.inputs.<$ input.name $>')
                                 </h5>
                             <% if(input.isImage()) { %>
                                 <x-partials.thumbnail
