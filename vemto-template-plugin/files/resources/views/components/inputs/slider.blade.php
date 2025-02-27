@@ -13,19 +13,21 @@
 @endif
 
 @php
-$value = old($name, $value ?? $min ?? 0);
-if (!is_numeric($value)) {
-    $value = 0;
-}
+    $value = old($name, $value ?? $min ?? 0);
+    if (!is_numeric($value)) {
+        $value = 0;
+    }
+
+    $sliderID = "slider" . \Illuminate\Support\Str::studly(str_replace(".", " ", $name));
 @endphp
 
-<div x-data="{ slider{{ $name }}: {{ old($name, $value ?? $min ?? 0) }} }">
+<div x-data="{ {{ $sliderID }}: {{ old($name, $value ?? $min ?? 0) }}, test: true }">
 
     <input
         type="number"
         id="{{ $name }}"
         name="{{ $name }}"
-        x-model="slider{{ $name }}"
+        x-model="{{ $sliderID }}"
         {{ ($required ?? false) ? 'required' : '' }}
         {{ $attributes->merge(['class' => 'block appearance-none w-full py-1 px-2 text-base leading-normal text-gray-800 border border-gray-200 rounded']) }}
         {{ is_numeric($min) ? "min={$min}" : '' }}
@@ -39,7 +41,7 @@ if (!is_numeric($value)) {
             type="range"
             id="sliding{{ $name }}"
             name="sliding{{ $name }}"
-            x-model="slider{{ $name }}"
+            x-model="{{ $sliderID }}"
             {{ is_numeric($min) ? "min={$min}" : '' }}
             {{ is_numeric($max) ? "max={$max}" : '' }}
             {{ $step ? "step={$step}" : '' }}
