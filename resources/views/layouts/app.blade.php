@@ -103,7 +103,17 @@
                 },
             }
         })
-    })
+    });
+
+    window.addEventListener('alert', event => {
+        alert(event.detail.message);
+    });
+    window.addEventListener('reload', event => {
+        window.location.reload();
+    });
+    window.addEventListener('redirect', event => {
+        window.location.href = event.detail.url;
+    });
 </script>
 </body>
 </html>
