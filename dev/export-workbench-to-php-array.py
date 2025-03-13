@@ -104,7 +104,12 @@ def export_table_info_to_php_array(table, output_dir):
     print(f"PHP array for table '{table.name}' saved to: {output_file}")
 
 if __name__ == "__main__":
-    script_dir = os.path.dirname(os.path.realpath(__file__))
+    # Check if __file__ is defined and provide a fallback
+    try:
+        script_dir = os.path.dirname(os.path.realpath(__file__))
+    except NameError:
+        script_dir = os.getcwd()
+
     output_dir = os.path.join(script_dir, "..", "config", "tables")
     os.makedirs(output_dir, exist_ok=True)
 
