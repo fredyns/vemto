@@ -118,6 +118,10 @@ if __name__ == "__main__":
     schema = grt.root.wb.doc.physicalModels[0].catalog.schemata[0]
 
     for table in schema.tables:
+        # Skip these tables
+        if table.name in ["template_for_table"]:
+            continue
+
         export_table_info_to_php_array(table, output_dir)
 
     if platform.system() == "Windows":
