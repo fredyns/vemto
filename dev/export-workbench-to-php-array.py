@@ -22,6 +22,8 @@ def get_column_info(col):
         "name": col.name,
         "type": re.sub(r"\(\d+\)", "", col.formattedType),  # Remove length from type
         "nullable": col.isNotNull == 0,
+        # Add default value to column_info and set it to None if defaultValue is empty or "NULL"
+        "default": None if col.defaultValue in ["", "null", "NULL"] else col.defaultValue
     }
     if col.length > 0:
         column_info["length"] = col.length
