@@ -7,6 +7,7 @@ return [
             "name" => "id",
             "type" => "BIGINT",
             "nullable" => false,
+            "default" => null,
             "comment" => "#uuid",
             "config" => [
                 "uuid" => true
@@ -15,12 +16,14 @@ return [
         [
             "name" => "at",
             "type" => "TIMESTAMP",
-            "nullable" => false
+            "nullable" => false,
+            "default" => null
         ],
         [
             "name" => "user_id",
             "type" => "BIGINT",
             "nullable" => false,
+            "default" => null,
             "comment" => "#uuid",
             "config" => [
                 "uuid" => true
@@ -30,12 +33,14 @@ return [
             "name" => "title",
             "type" => "VARCHAR",
             "nullable" => false,
+            "default" => null,
             "length" => 255
         ],
         [
             "name" => "link",
             "type" => "TEXT",
             "nullable" => true,
+            "default" => null,
             "comment" => "#url",
             "config" => [
                 "url" => true
@@ -44,12 +49,14 @@ return [
         [
             "name" => "message",
             "type" => "TEXT",
-            "nullable" => true
+            "nullable" => true,
+            "default" => null
         ],
         [
             "name" => "i_p_address",
             "type" => "VARCHAR",
             "nullable" => true,
+            "default" => null,
             "length" => 255,
             "comment" => "#ipaddress",
             "config" => [

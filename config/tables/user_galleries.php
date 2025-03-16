@@ -7,6 +7,7 @@ return [
             "name" => "id",
             "type" => "BIGINT",
             "nullable" => false,
+            "default" => null,
             "comment" => "#uuid",
             "config" => [
                 "uuid" => true
@@ -16,6 +17,7 @@ return [
             "name" => "user_id",
             "type" => "BIGINT",
             "nullable" => false,
+            "default" => null,
             "comment" => "#uuid",
             "config" => [
                 "uuid" => true
@@ -24,12 +26,14 @@ return [
         [
             "name" => "at",
             "type" => "TIMESTAMP",
-            "nullable" => false
+            "nullable" => false,
+            "default" => null
         ],
         [
             "name" => "file",
             "type" => "TEXT",
             "nullable" => false,
+            "default" => null,
             "comment" => "#image:jpg,jpeg,png",
             "config" => [
                 "image" => "jpg,jpeg,png"
@@ -39,23 +43,27 @@ return [
             "name" => "name",
             "type" => "VARCHAR",
             "nullable" => true,
+            "default" => null,
             "length" => 255
         ],
         [
             "name" => "description",
             "type" => "TEXT",
-            "nullable" => true
+            "nullable" => true,
+            "default" => null
         ],
         [
             "name" => "type",
             "type" => "VARCHAR",
             "nullable" => true,
+            "default" => null,
             "length" => 255
         ],
         [
             "name" => "metadata",
             "type" => "JSON",
-            "nullable" => true
+            "nullable" => true,
+            "default" => null
         ]
     ],
     "foreignKeys" => [

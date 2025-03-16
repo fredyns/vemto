@@ -7,6 +7,7 @@ return [
             "name" => "id",
             "type" => "BIGINT",
             "nullable" => false,
+            "default" => null,
             "comment" => "#uuid",
             "config" => [
                 "uuid" => true
@@ -16,12 +17,14 @@ return [
             "name" => "name",
             "type" => "VARCHAR",
             "nullable" => true,
+            "default" => null,
             "length" => 255
         ],
         [
             "name" => "email",
             "type" => "VARCHAR",
             "nullable" => true,
+            "default" => null,
             "length" => 255,
             "comment" => "#email",
             "config" => [
@@ -31,12 +34,14 @@ return [
         [
             "name" => "email_verified_at",
             "type" => "TIMESTAMP",
-            "nullable" => true
+            "nullable" => true,
+            "default" => null
         ],
         [
             "name" => "password",
             "type" => "VARCHAR",
             "nullable" => true,
+            "default" => null,
             "length" => 255,
             "comment" => "#secret",
             "config" => [
@@ -47,27 +52,32 @@ return [
             "name" => "remember_token",
             "type" => "VARCHAR",
             "nullable" => true,
+            "default" => null,
             "length" => 255
         ],
         [
             "name" => "two_factor_secret",
             "type" => "TEXT",
-            "nullable" => true
+            "nullable" => true,
+            "default" => null
         ],
         [
             "name" => "two_factor_recovery_codes",
             "type" => "TEXT",
-            "nullable" => true
+            "nullable" => true,
+            "default" => null
         ],
         [
             "name" => "two_factor_confirmed_at",
             "type" => "TIMESTAMP",
-            "nullable" => true
+            "nullable" => true,
+            "default" => null
         ],
         [
             "name" => "current_team_id",
             "type" => "BIGINT",
             "nullable" => true,
+            "default" => null,
             "comment" => "#uuid",
             "config" => [
                 "uuid" => true
@@ -77,6 +87,7 @@ return [
             "name" => "profile_photo_path",
             "type" => "TEXT",
             "nullable" => true,
+            "default" => null,
             "comment" => "#image:jpg,jpeg,png",
             "config" => [
                 "image" => "jpg,jpeg,png"

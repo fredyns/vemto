@@ -7,6 +7,7 @@ return [
             "name" => "id",
             "type" => "BIGINT",
             "nullable" => false,
+            "default" => null,
             "comment" => "#uuid",
             "config" => [
                 "uuid" => true
@@ -16,6 +17,7 @@ return [
             "name" => "records_id",
             "type" => "BIGINT",
             "nullable" => false,
+            "default" => null,
             "comment" => "#uuid",
             "config" => [
                 "uuid" => true
@@ -24,22 +26,26 @@ return [
         [
             "name" => "datetime",
             "type" => "DATETIME",
-            "nullable" => true
+            "nullable" => true,
+            "default" => null
         ],
         [
             "name" => "date",
             "type" => "DATE",
-            "nullable" => true
+            "nullable" => true,
+            "default" => null
         ],
         [
             "name" => "time",
             "type" => "TIME",
-            "nullable" => true
+            "nullable" => true,
+            "default" => null
         ],
         [
             "name" => "n_p_w_p",
             "type" => "BIGINT",
             "nullable" => true,
+            "default" => null,
             "comment" => "#npwp",
             "config" => [
                 "npwp" => true
@@ -49,6 +55,7 @@ return [
             "name" => "markdown_text",
             "type" => "TEXT",
             "nullable" => true,
+            "default" => null,
             "comment" => "#markdown",
             "config" => [
                 "markdown" => true
@@ -58,6 +65,7 @@ return [
             "name" => "w_y_s_i_w_y_g",
             "type" => "TEXT",
             "nullable" => true,
+            "default" => null,
             "comment" => "#wysiwyg",
             "config" => [
                 "wysiwyg" => true
@@ -67,6 +75,7 @@ return [
             "name" => "file",
             "type" => "TEXT",
             "nullable" => true,
+            "default" => null,
             "comment" => "#file",
             "config" => [
                 "file" => true
@@ -76,6 +85,7 @@ return [
             "name" => "image",
             "type" => "TEXT",
             "nullable" => true,
+            "default" => null,
             "comment" => "#image:jpg,jpeg,png",
             "config" => [
                 "image" => "jpg,jpeg,png"
@@ -85,6 +95,7 @@ return [
             "name" => "i_p_address",
             "type" => "VARCHAR",
             "nullable" => true,
+            "default" => null,
             "length" => 255,
             "comment" => "#ipaddress",
             "config" => [
@@ -94,34 +105,24 @@ return [
         [
             "name" => "latitude",
             "type" => "DECIMAL",
-            "nullable" => true
+            "nullable" => true,
+            "default" => null
         ],
         [
             "name" => "longitude",
             "type" => "DECIMAL",
-            "nullable" => true
+            "nullable" => true,
+            "default" => null
         ]
     ],
     "foreignKeys" => [
-        [
-            "name" => "fk_subrecords_records1",
-            "column" => "records_id",
-            "referenced_table" => "records",
-            "referenced_column" => "id"
-        ]
+
     ],
     "indices" => [
         [
             "name" => "PRIMARY",
             "columns" => [
                 "id"
-            ],
-            "unique" => 0
-        ],
-        [
-            "name" => "fk_subrecords_records1_idx",
-            "columns" => [
-                "records_id"
             ],
             "unique" => 0
         ]

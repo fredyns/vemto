@@ -5,35 +5,39 @@ return [
     "columns" => [
         [
             "name" => "id",
-            "type" => "BIGINT",
+            "type" => "BINARY",
             "nullable" => false,
-            "comment" => "#uuid",
-            "config" => [
-                "uuid" => true
-            ]
+            "default" => "(UUID_TO_BIN(UUID()))"
+        ],
+        [
+            "name" => "created_at",
+            "type" => "TIMESTAMP",
+            "nullable" => false,
+            "default" => "NOW()"
+        ],
+        [
+            "name" => "updated_at",
+            "type" => "TIMESTAMP",
+            "nullable" => true,
+            "default" => null
         ],
         [
             "name" => "created_by",
-            "type" => "BIGINT",
+            "type" => "BINARY",
             "nullable" => true,
-            "comment" => "#uuid",
-            "config" => [
-                "uuid" => true
-            ]
+            "default" => null
         ],
         [
             "name" => "updated_by",
-            "type" => "BIGINT",
+            "type" => "BINARY",
             "nullable" => true,
-            "comment" => "#uuid",
-            "config" => [
-                "uuid" => true
-            ]
+            "default" => null
         ],
         [
             "name" => "user_id",
-            "type" => "BIGINT",
-            "nullable" => false,
+            "type" => "BINARY",
+            "nullable" => true,
+            "default" => null,
             "comment" => "#uuid",
             "config" => [
                 "uuid" => true
@@ -42,13 +46,15 @@ return [
         [
             "name" => "string",
             "type" => "VARCHAR",
-            "nullable" => true,
+            "nullable" => false,
+            "default" => null,
             "length" => 255
         ],
         [
             "name" => "email",
             "type" => "VARCHAR",
             "nullable" => true,
+            "default" => null,
             "length" => 255,
             "comment" => "#email",
             "config" => [
@@ -59,6 +65,7 @@ return [
             "name" => "integer",
             "type" => "INT",
             "nullable" => true,
+            "default" => null,
             "comment" => "#slider #min:1 #max:100",
             "config" => [
                 "slider" => true,
@@ -69,12 +76,14 @@ return [
         [
             "name" => "decimal",
             "type" => "DECIMAL",
-            "nullable" => true
+            "nullable" => true,
+            "default" => null
         ],
         [
             "name" => "n_p_w_p",
             "type" => "BIGINT",
             "nullable" => true,
+            "default" => null,
             "comment" => "#npwp",
             "config" => [
                 "npwp" => true
@@ -83,22 +92,26 @@ return [
         [
             "name" => "datetime",
             "type" => "DATETIME",
-            "nullable" => true
+            "nullable" => true,
+            "default" => null
         ],
         [
             "name" => "date",
             "type" => "DATE",
-            "nullable" => true
+            "nullable" => true,
+            "default" => null
         ],
         [
             "name" => "time",
             "type" => "TIME",
-            "nullable" => true
+            "nullable" => true,
+            "default" => null
         ],
         [
             "name" => "i_p_address",
             "type" => "VARCHAR",
             "nullable" => true,
+            "default" => null,
             "length" => 255,
             "comment" => "#ipaddress",
             "config" => [
@@ -109,6 +122,7 @@ return [
             "name" => "boolean",
             "type" => "TINYINT",
             "nullable" => true,
+            "default" => null,
             "comment" => "#boolean",
             "config" => [
                 "boolean" => true
@@ -118,6 +132,7 @@ return [
             "name" => "enumerate",
             "type" => "ENUM",
             "nullable" => true,
+            "default" => null,
             "options" => [
                 "enable",
                 "disable"
@@ -126,12 +141,14 @@ return [
         [
             "name" => "text",
             "type" => "TEXT",
-            "nullable" => true
+            "nullable" => true,
+            "default" => null
         ],
         [
             "name" => "file",
             "type" => "TEXT",
             "nullable" => true,
+            "default" => null,
             "comment" => "#file",
             "config" => [
                 "file" => true
@@ -141,6 +158,7 @@ return [
             "name" => "image",
             "type" => "TEXT",
             "nullable" => true,
+            "default" => null,
             "comment" => "#image:jpg,jpeg,png",
             "config" => [
                 "image" => "jpg,jpeg,png"
@@ -150,6 +168,7 @@ return [
             "name" => "markdown_text",
             "type" => "TEXT",
             "nullable" => true,
+            "default" => null,
             "comment" => "#markdown",
             "config" => [
                 "markdown" => true
@@ -159,6 +178,7 @@ return [
             "name" => "w_y_s_i_w_y_g",
             "type" => "TEXT",
             "nullable" => true,
+            "default" => null,
             "comment" => "#wysiwyg",
             "config" => [
                 "wysiwyg" => true
@@ -167,12 +187,14 @@ return [
         [
             "name" => "latitude",
             "type" => "DECIMAL",
-            "nullable" => true
+            "nullable" => true,
+            "default" => null
         ],
         [
             "name" => "longitude",
             "type" => "DECIMAL",
-            "nullable" => true
+            "nullable" => true,
+            "default" => null
         ]
     ],
     "foreignKeys" => [
@@ -185,16 +207,16 @@ return [
     ],
     "indices" => [
         [
-            "name" => "PRIMARY",
+            "name" => "fk_records_user",
             "columns" => [
-                "id"
+                "user_id"
             ],
             "unique" => 0
         ],
         [
-            "name" => "fk_records_user",
+            "name" => "PRIMARY",
             "columns" => [
-                "user_id"
+                "id"
             ],
             "unique" => 0
         ]
